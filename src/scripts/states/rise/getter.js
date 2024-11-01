@@ -1,6 +1,4 @@
 /**
- * Common State - Getter
- *
  * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
