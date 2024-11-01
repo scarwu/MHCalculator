@@ -1,7 +1,7 @@
 /**
  * Set Selector Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -44,21 +44,21 @@ const handleItemPickUp = (itemId, action, tempData) => {
  */
 const renderSetItem = (setItem, tempData) => {
     let classNames = [
-        'mhrc-item'
+        'mhc-item'
     ]
 
     if (-1 === tempData.ids.indexOf(setItem.id)) {
-        classNames.push('mhrc-item-2-step')
+        classNames.push('mhc-item-2-step')
     } else {
-        classNames.push('mhrc-item-3-step')
+        classNames.push('mhc-item-3-step')
     }
 
     return (
         <div key={setItem.id} className={classNames.join(' ')}>
-            <div className="col-12 mhrc-name">
+            <div className="col-12 mhc-name">
                 <span>{_(setItem.name)}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {Helper.isNotEmpty(tempData.target) ? (
                         (-1 === tempData.ids.indexOf(setItem.id)) ? (
                             <IconButton
@@ -76,11 +76,11 @@ const renderSetItem = (setItem, tempData) => {
                     ) : false}
                 </div>
             </div>
-            <div className="col-12 mhrc-content">
-                <div className="col-2 mhrc-name">
+            <div className="col-12 mhc-content">
+                <div className="col-2 mhc-name">
                     <span>{_('rare')}</span>
                 </div>
-                <div className="col-4 mhrc-value">
+                <div className="col-4 mhc-value">
                     <span>{setItem.rare}</span>
                 </div>
 
@@ -89,10 +89,10 @@ const renderSetItem = (setItem, tempData) => {
 
                     return Helper.isNotEmpty(armorItem) ? (
                         <Fragment key={index}>
-                            <div className="col-2 mhrc-name">
+                            <div className="col-2 mhc-name">
                                 <span>{_(armorItem.type)}</span>
                             </div>
-                            <div className="col-4 mhrc-value">
+                            <div className="col-4 mhc-value">
                                 <span>{_(armorItem.name)}</span>
                             </div>
                         </Fragment>
@@ -226,19 +226,19 @@ export default function SetSelectorModal (props) {
     ])
 
     return Helper.isNotEmpty(stateTempData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal">
-                <div className="mhrc-panel">
-                    <div className="mhrc-icons_bundle-left">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             bypassRef={refSearch} defaultValue={stateFilter.segment}
                             onChange={handleSegmentInput} />
                     </div>
 
-                    <span className="mhrc-title">{_('setList')}</span>
+                    <span className="mhc-title">{_('setList')}</span>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
@@ -246,8 +246,8 @@ export default function SetSelectorModal (props) {
                             }} />
                     </div>
                 </div>
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getContent}
                     </div>
                 </div>

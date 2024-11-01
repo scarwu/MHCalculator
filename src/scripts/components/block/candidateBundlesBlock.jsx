@@ -1,7 +1,7 @@
 /**
  * Candidate Bundles
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -222,11 +222,11 @@ export default function CandidateBundlesBlock (props) {
     let tabIndex = stateDataStore.candidateBundles.index
 
     return (
-        <div className="col mhrc-bundles">
-            <div className="mhrc-panel">
-                <span className="mhrc-title">{_('candidateBundle')}</span>
+        <div className="col mhc-bundles">
+            <div className="mhc-panel">
+                <span className="mhc-title">{_('candidateBundle')}</span>
 
-                <div className="mhrc-icons_bundle-left">
+                <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 1'}
@@ -249,7 +249,7 @@ export default function CandidateBundlesBlock (props) {
                         onClick={() => {handleSwitchDataStore(3)}} />
                 </div>
 
-                <div className="mhrc-icons_bundle-right">
+                <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
                         onClick={States.setter.cleanCandidateBundles} />
@@ -262,35 +262,35 @@ export default function CandidateBundlesBlock (props) {
                 </div>
             </div>
 
-            <div key="list" className="mhrc-list">
+            <div key="list" className="mhc-list">
                 {Helper.isNotEmpty(stateTasks[tabIndex]) ? (
                     <Fragment>
-                        <div className="mhrc-item mhrc-item-3-step">
-                            <div className="col-12 mhrc-name">
+                        <div className="mhc-item mhc-item-3-step">
+                            <div className="col-12 mhc-name">
                                 <span>{_('searching')} ...</span>
-                                <div className="mhrc-icons_bundle">
+                                <div className="mhc-icons_bundle">
                                     <IconButton
                                         iconName="times" altName={_('cancel')}
                                         onClick={handleCandidateBundlesCancel} />
                                 </div>
                             </div>
-                            <div className="col-12 mhrc-content">
-                                <div className="col-3 mhrc-name">
+                            <div className="col-12 mhc-content">
+                                <div className="col-3 mhc-name">
                                     <span>{_('bundleCount')}</span>
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     <span>{stateTasks[tabIndex].bundleCount}</span>
                                 </div>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('searchPercent')}</span>
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     <span>{stateTasks[tabIndex].searchPercent} %</span>
                                 </div>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('timeRemaining')}</span>
                                 </div>
-                                <div className="col-9 mhrc-value">
+                                <div className="col-9 mhc-value">
                                     <span>{convertTimeFormat(stateTasks[tabIndex].timeRemaining)}</span>
                                 </div>
                             </div>

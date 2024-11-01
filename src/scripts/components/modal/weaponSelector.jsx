@@ -1,7 +1,7 @@
 /**
  * Weapon Selector Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -48,13 +48,13 @@ const handleItemPickUp = (itemId, tempData) => {
  */
 const renderWeaponItem = (weaponItem, tempData) => {
     let classNames = [
-        'mhrc-item'
+        'mhc-item'
     ]
 
     if (Helper.isEmpty(tempData.target) || weaponItem.id !== tempData.id) {
-        classNames.push('mhrc-item-2-step')
+        classNames.push('mhc-item-2-step')
     } else {
-        classNames.push('mhrc-item-3-step')
+        classNames.push('mhc-item-3-step')
     }
 
     if (Helper.isNotEmpty(weaponItem.element.attack)
@@ -71,10 +71,10 @@ const renderWeaponItem = (weaponItem, tempData) => {
 
     return (
         <div key={weaponItem.id} className={classNames.join(' ')}>
-            <div className="col-12 mhrc-name">
+            <div className="col-12 mhc-name">
                 <span>{_(weaponItem.name)}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {Helper.isNotEmpty(tempData.target) ? (
                         (weaponItem.id !== tempData.id) ? (
                             <IconButton
@@ -92,34 +92,34 @@ const renderWeaponItem = (weaponItem, tempData) => {
                     ) : false}
                 </div>
             </div>
-            <div className="col-12 mhrc-content">
-                <div className="col-3 mhrc-name">
+            <div className="col-12 mhc-content">
+                <div className="col-3 mhc-name">
                     <span>{_('series')}</span>
                 </div>
-                <div className="col-9 mhrc-value">
+                <div className="col-9 mhc-value">
                     <span>{_(weaponItem.series)}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('attack')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{weaponItem.attack}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('criticalRate')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{weaponItem.criticalRate}</span>
                 </div>
 
                 {Helper.isNotEmpty(weaponItem.sharpness) ? (
                     <Fragment>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('sharpness')}</span>
                         </div>
-                        <div className="col-9 mhrc-value mhrc-sharpness">
+                        <div className="col-9 mhc-value mhc-sharpness">
                             <SharpnessBar data={{
                                 value: weaponItem.sharpness.minValue,
                                 steps: weaponItem.sharpness.steps
@@ -132,17 +132,17 @@ const renderWeaponItem = (weaponItem, tempData) => {
                     </Fragment>
                 ) : false}
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('defense')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{weaponItem.defense}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('slot')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     {(Helper.isNotEmpty(weaponItem.slots) && 0 !== weaponItem.slots.length) ? (
                         weaponItem.slots.map((slotData, index) => {
                             return (
@@ -154,10 +154,10 @@ const renderWeaponItem = (weaponItem, tempData) => {
 
                 {Helper.isNotEmpty(weaponItem.element.attack) ? (
                     <Fragment>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_(weaponItem.element.attack.type)}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{weaponItem.element.attack.minValue} - {weaponItem.element.attack.maxValue}</span>
                         </div>
                     </Fragment>
@@ -165,10 +165,10 @@ const renderWeaponItem = (weaponItem, tempData) => {
 
                 {Helper.isNotEmpty(weaponItem.element.status) ? (
                     <Fragment>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_(weaponItem.element.status.type)}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{weaponItem.element.status.minValue} - {weaponItem.element.status.maxValue}</span>
                         </div>
                     </Fragment>
@@ -386,10 +386,10 @@ export default function WeaponSelectorModal (props) {
     ])
 
     return Helper.isNotEmpty(stateTempData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal">
-                <div className="mhrc-panel">
-                    <div className="mhrc-icons_bundle-left">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             bypassRef={refSearch} defaultValue={stateFilter.segment}
@@ -402,9 +402,9 @@ export default function WeaponSelectorModal (props) {
                             options={stateTempData.rareList} onChange={handleRareChange} />
                     </div>
 
-                    <span className="mhrc-title">{_('weaponList')}</span>
+                    <span className="mhc-title">{_('weaponList')}</span>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
@@ -412,8 +412,8 @@ export default function WeaponSelectorModal (props) {
                             }} />
                     </div>
                 </div>
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getContent}
                     </div>
                 </div>

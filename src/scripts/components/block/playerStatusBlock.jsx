@@ -1,7 +1,7 @@
 /**
  * Character Status
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -730,142 +730,142 @@ export default function PlayerStatusBlock (props) {
     }
 
     return (
-        <div className="col mhrc-status">
-            <div className="mhrc-panel">
-                <span className="mhrc-title">{_('status')}</span>
+        <div className="col mhc-status">
+            <div className="mhc-panel">
+                <span className="mhc-title">{_('status')}</span>
             </div>
 
-            <div className="mhrc-list">
-                <div className="mhrc-item mhrc-item-3-step">
-                    <div className="col-12 mhrc-name">
+            <div className="mhc-list">
+                <div className="mhc-item mhc-item-3-step">
+                    <div className="col-12 mhc-name">
                         <span>{_('benefitAnalysis')}</span>
                     </div>
-                    <div className="col-12 mhrc-content">
-                        <div className="col-3 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-3 mhc-name">
                             <span>{_('physicalAttack')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.physicalAttack}</span>
                         </div>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elementAttack')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.elementAttack}</span>
                         </div>
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('physicalCriticalAttack')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.physicalCriticalAttack}</span>
                         </div>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elementCriticalAttack')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.elementCriticalAttack}</span>
                         </div>
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('physicalEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.physicalExpectedValue}</span>
                         </div>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elementEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.elementExpectedValue}</span>
                         </div>
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('totalEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.expectedValue}</span>
                         </div>
                     </div>
-                    <div className="col-12 mhrc-content">
-                        <div className="col-6 mhrc-name mhrc-input-ev">
+                    <div className="col-12 mhc-content">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perPhysicalAttackEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput
                                 bypassRef={refTuningPhysicalAttack}
                                 defaultValue={stateTuning.physicalAttack}
                                 onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perPhysicalAttackExpectedValue}</span>
                         </div>
-                        <div className="col-6 mhrc-name mhrc-input-ev">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perCriticalRateEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput
                                 bypassRef={refTuningPhysicalCriticalRate}
                                 defaultValue={stateTuning.physicalCriticalRate}
                                 onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perPhysicalCriticalRateExpectedValue}</span>
                         </div>
-                        <div className="col-6 mhrc-name mhrc-input-ev">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perCriticalMultipleEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput
                                 bypassRef={refTuningPhysicalCriticalMultiple}
                                 defaultValue={stateTuning.physicalCriticalMultiple}
                                 onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perPhysicalCriticalMultipleExpectedValue}</span>
                         </div>
-                        <div className="col-6 mhrc-name mhrc-input-ev">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perElementAttackEV')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput
                                 bypassRef={refTuningElementAttack}
                                 defaultValue={stateTuning.elementAttack}
                                 onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perElementAttackExpectedValue}</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="mhrc-item mhrc-item-3-step">
-                    <div className="col-12 mhrc-name">
+                <div className="mhc-item mhc-item-3-step">
+                    <div className="col-12 mhc-name">
                         <span>{_('property')}</span>
                     </div>
-                    <div className="col-12 mhrc-content">
-                        <div className="col-3 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-3 mhc-name">
                             <span>{_('health')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.health}</span>
                         </div>
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('stamina')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.stamina}</span>
                         </div>
                     </div>
 
-                    <div className="col-12 mhrc-content">
+                    <div className="col-12 mhc-content">
                         {Helper.isNotEmpty(status.sharpness) ? (
                             <Fragment>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('sharpness')}</span>
                                 </div>
-                                <div className="col-9 mhrc-value mhrc-sharpness">
+                                <div className="col-9 mhc-value mhc-sharpness">
                                     <SharpnessBar
                                         key={Helper.jsonHash(status.sharpness) + ':1'}
                                         data={status.sharpness} />
@@ -879,24 +879,24 @@ export default function PlayerStatusBlock (props) {
                             </Fragment>
                         ) : false}
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('attack')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.attack}</span>
                         </div>
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('criticalRate')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.critical.rate}%</span>
                         </div>
 
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('criticalMultiple')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             {(0 <= status.critical.rate) ? (
                                 <span>{status.critical.multiple.positive}x</span>
                             ) : (
@@ -908,10 +908,10 @@ export default function PlayerStatusBlock (props) {
                             && Helper.isNotEmpty(status.element.attack)
                         ) ? (
                             <Fragment>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('element')}: {_(status.element.attack.type)}</span>
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     {status.element.attack.isHidden ? (
                                         <span>({status.element.attack.value})</span>
                                     ) : (
@@ -925,10 +925,10 @@ export default function PlayerStatusBlock (props) {
                             && Helper.isNotEmpty(status.element.status)
                         ) ? (
                             <Fragment>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('element')}: {_(status.element.status.type)}</span>
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     {status.element.status.isHidden ? (
                                         <span>({status.element.status.value})</span>
                                     ) : (
@@ -939,21 +939,21 @@ export default function PlayerStatusBlock (props) {
                         ) : false}
                     </div>
 
-                    <div className="col-12 mhrc-content">
-                        <div className="col-3 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-3 mhc-name">
                             <span>{_('defense')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.defense}</span>
                         </div>
 
                         {Constant.resistanceTypes.map((elementType) => {
                             return (
                                 <Fragment key={elementType}>
-                                    <div className="col-3 mhrc-name">
+                                    <div className="col-3 mhc-name">
                                         <span>{_('resistance')}: {_(elementType)}</span>
                                     </div>
-                                    <div className="col-3 mhrc-value">
+                                    <div className="col-3 mhc-value">
                                         <span>{status.resistance[elementType]}</span>
                                     </div>
                                 </Fragment>
@@ -962,15 +962,15 @@ export default function PlayerStatusBlock (props) {
                     </div>
                 </div>
 
-                <div className="mhrc-item mhrc-item-3-step">
-                    <div className="col-12 mhrc-name">
+                <div className="mhc-item mhc-item-3-step">
+                    <div className="col-12 mhc-name">
                         <span>{_('inventory')}</span>
                     </div>
-                    <div className="col-12 mhrc-content">
-                        <div className="col-6 mhrc-value">
+                    <div className="col-12 mhc-content">
+                        <div className="col-6 mhc-value">
                             <span>{_('powerCharm')}</span>
 
-                            <div className="mhrc-icons_bundle">
+                            <div className="mhc-icons_bundle">
                                 <IconButton
                                     iconName={statePlayerStatus.usingItem['powerCharm'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['powerCharm'] ? _('deactive') : _('active')}
@@ -980,10 +980,10 @@ export default function PlayerStatusBlock (props) {
                             </div>
                         </div>
 
-                        <div className="col-6 mhrc-value">
+                        <div className="col-6 mhc-value">
                             <span>{_('armorCharm')}</span>
 
-                            <div className="mhrc-icons_bundle">
+                            <div className="mhc-icons_bundle">
                                 <IconButton
                                     iconName={statePlayerStatus.usingItem['armorCharm'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['armorCharm'] ? _('deactive') : _('active')}
@@ -993,10 +993,10 @@ export default function PlayerStatusBlock (props) {
                             </div>
                         </div>
 
-                        <div className="col-6 mhrc-value">
+                        <div className="col-6 mhc-value">
                             <span>{_('powerTalon')}</span>
 
-                            <div className="mhrc-icons_bundle">
+                            <div className="mhc-icons_bundle">
                                 <IconButton
                                     iconName={statePlayerStatus.usingItem['powerTalon'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['powerTalon'] ? _('deactive') : _('active')}
@@ -1006,10 +1006,10 @@ export default function PlayerStatusBlock (props) {
                             </div>
                         </div>
 
-                        <div className="col-6 mhrc-value">
+                        <div className="col-6 mhc-value">
                             <span>{_('armorTalon')}</span>
 
-                            <div className="mhrc-icons_bundle">
+                            <div className="mhc-icons_bundle">
                                 <IconButton
                                     iconName={statePlayerStatus.usingItem['armorTalon'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['armorTalon'] ? _('deactive') : _('active')}
@@ -1022,16 +1022,16 @@ export default function PlayerStatusBlock (props) {
                 </div>
 
                 {(0 !== status.sets.length) ? (
-                    <div className="mhrc-item mhrc-item-3-step">
-                        <div className="col-12 mhrc-name">
+                    <div className="mhc-item mhc-item-3-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('set')}</span>
                         </div>
                         {status.sets.map((setData, index) => {
                             let setItem = SetDataset.getItem(setData.id)
 
                             return Helper.isNotEmpty(setItem) ? (
-                                <div key={`${index}:${setData.id}`} className="col-12 mhrc-content">
-                                    <div className="col-12 mhrc-name">
+                                <div key={`${index}:${setData.id}`} className="col-12 mhc-content">
+                                    <div className="col-12 mhc-name">
                                         <span>{_(setItem.name)} x {setData.count}</span>
                                     </div>
                                 </div>
@@ -1041,8 +1041,8 @@ export default function PlayerStatusBlock (props) {
                 ) : false}
 
                 {(0 !== status.skills.length) ? (
-                    <div className="mhrc-item mhrc-item-3-step">
-                        <div className="col-12 mhrc-name">
+                    <div className="mhc-item mhc-item-3-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('skill')}</span>
                         </div>
                         {status.skills.sort((skillA, skillB) => {
@@ -1051,11 +1051,11 @@ export default function PlayerStatusBlock (props) {
                             let skillItem = SkillDataset.getItem(data.id)
 
                             return (Helper.isNotEmpty(skillItem)) ? (
-                                <div key={data.id} className="col-12 mhrc-content">
-                                    <div className="col-12 mhrc-name">
+                                <div key={data.id} className="col-12 mhc-content">
+                                    <div className="col-12 mhc-name">
                                         <span>{_(skillItem.name)} Lv.{data.level}</span>
 
-                                        <div className="mhrc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             {Helper.isNotEmpty(passiveSkills[data.id]) ? (
                                                 <IconButton
                                                     iconName={passiveSkills[data.id].isActive ? 'circle' : 'circle'}
@@ -1064,7 +1064,7 @@ export default function PlayerStatusBlock (props) {
                                             ) : false}
                                         </div>
                                     </div>
-                                    <div className="col-12 mhrc-value mhrc-description">
+                                    <div className="col-12 mhc-value mhc-description">
                                         <span>{_(data.effect)}</span>
                                     </div>
                                 </div>

@@ -1,7 +1,7 @@
 /**
  * Basic Input
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -21,8 +21,8 @@ export default function BasicInput (props) {
         Helper.debug('Component: Common -> BasicInput')
 
         return (
-            <div className="mhrc-basic_input">
-                <input className="mhrc-input"
+            <div className="mhc-basic_input">
+                <input className="mhc-input"
                     type={currentType}
                     ref={bypassRef}
                     defaultValue={defaultValue}

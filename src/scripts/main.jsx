@@ -1,7 +1,7 @@
 /**
  * Bootstrap
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -9,14 +9,14 @@
 
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import * as Sentry from '@sentry/browser'
 
 // Load Config
 import Config from '@/scripts/config'
 
-// Load App
-import App from '@/scripts/app'
+// import States from '@/scripts/states'
+import Router from '@/scripts/router'
 
 // Load Styles
 import '@/styles/global.sass'
@@ -34,10 +34,10 @@ if ('production' === Config.env) {
 }
 
 // Mounting
-createRoot(document.getElementById('mhrc')).render(
-    <HashRouter key="router">
-        <Routes>
-            <Route exact path="/*" element={<App />} />
-        </Routes>
-    </HashRouter>
+createRoot(document.getElementById('mhc')).render(
+    <React.StrictMode>
+        <HashRouter>
+            <Router />
+        </HashRouter>
+    </React.StrictMode>
 )

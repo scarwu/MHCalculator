@@ -1,7 +1,7 @@
 /**
  * Icon Input
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -21,12 +21,12 @@ export default function IconInput (props) {
         Helper.debug('Component: Common -> IconInput')
 
         return (
-            <div className="mhrc-icon_input">
-                <div className="mhrc-body">
-                    <div className="mhrc-icon">
+            <div className="mhc-icon_input">
+                <div className="mhc-body">
+                    <div className="mhc-icon">
                         <i className={`fas fa-${iconName}`}></i>
                     </div>
-                    <input className="mhrc-input"
+                    <input className="mhc-input"
                         ref={bypassRef}
                         type={currentType}
                         defaultValue={defaultValue}

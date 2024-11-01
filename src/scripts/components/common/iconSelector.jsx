@@ -1,7 +1,7 @@
 /**
  * Icon Selector
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -19,12 +19,12 @@ export default function IconSelector (props) {
         Helper.debug('Component: Common -> IconSelector')
 
         return (
-            <div className="mhrc-icon_selector">
-                <div className="mhrc-body">
-                    <div className="mhrc-icon">
+            <div className="mhc-icon_selector">
+                <div className="mhc-body">
+                    <div className="mhc-icon">
                         <i className={`fas fa-${iconName}`}></i>
                     </div>
-                    <select className="mhrc-select" value={defaultValue} onChange={onChange}>
+                    <select className="mhc-select" value={defaultValue} onChange={onChange}>
                         {options.map((option) => {
                             return (
                                 <option key={option.key} value={option.key}>{option.value}</option>
@@ -32,7 +32,7 @@ export default function IconSelector (props) {
                         })}
                     </select>
                 </div>
-                <div className="mhrc-arrow-icon">
+                <div className="mhc-arrow-icon">
                     <i className="fas fa-caret-down"></i>
                 </div>
             </div>

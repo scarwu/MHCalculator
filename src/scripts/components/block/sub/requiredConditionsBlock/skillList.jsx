@@ -1,7 +1,7 @@
 /**
  * Condition Options: Skill List
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -34,11 +34,11 @@ const renderSkillItem = (skillData) => {
     }
 
     return (
-        <div key={skillItem.id} className="col-12 mhrc-content">
-            <div className="col-12 mhrc-name">
+        <div key={skillItem.id} className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_(skillItem.name)} Lv.{skillData.level} / {skillItem.list.length}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="minus-circle" altName={_('down')}
                         onClick={() => {
@@ -56,7 +56,7 @@ const renderSkillItem = (skillData) => {
                         }} />
                 </div>
             </div>
-            <div className="col-12 mhrc-value mhrc-description">
+            <div className="col-12 mhc-value mhc-description">
                 <span>
                     {(0 !== skillData.level)
                         ? _(skillItem.list[skillData.level - 1].effect)
@@ -95,10 +95,10 @@ export default function SkillList (props) {
         }
 
         return (
-            <div className="mhrc-item mhrc-item-3-step">
-                <div className="col-12 mhrc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('skill')}</span>
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                     </div>
                 </div>

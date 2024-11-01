@@ -1,7 +1,7 @@
 /**
  * Candidate Bundles: Quick Setting
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -97,8 +97,8 @@ export default function QuickSetting (props) {
         })
 
         return (
-            <div className="mhrc-item mhrc-item-3-step">
-                <div className="col-12 mhrc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('quickSetting')}</span>
                 </div>
 
@@ -106,12 +106,12 @@ export default function QuickSetting (props) {
                     return rareA > rareB ? 1 : -1
                 }).map((rare) => {
                     return (
-                        <div key={rare} className="col-12 mhrc-content">
-                            <div className="col-12 mhrc-name">
+                        <div key={rare} className="col-12 mhc-content">
+                            <div className="col-12 mhc-name">
                                 <span>{_('armorFactor')}: R{rare}</span>
                             </div>
 
-                            <div className="col-12 mhrc-content">
+                            <div className="col-12 mhc-content">
                                 {Object.keys(armorSeriesMapping[rare]).sort((seriesIdA, seriesIdB) => {
                                     return _(seriesIdA) > _(seriesIdB) ? 1 : -1
                                 }).map((seriesId) => {
@@ -119,9 +119,9 @@ export default function QuickSetting (props) {
                                         ? stateAlgorithmParams.usingFactor['armor:series:' + seriesId] : true
 
                                     return (
-                                        <div key={seriesId} className="col-6 mhrc-value">
+                                        <div key={seriesId} className="col-6 mhc-value">
                                             <span>{_(armorSeriesMapping[rare][seriesId].name)}</span>
-                                            <div className="mhrc-icons_bundle">
+                                            <div className="mhc-icons_bundle">
                                                 {isInclude ? (
                                                     <IconButton
                                                         iconName="star" altName={_('exclude')}
@@ -148,12 +148,12 @@ export default function QuickSetting (props) {
                     return sizeA > sizeB ? 1 : -1
                 }).map((size) => {
                     return (
-                        <div key={size} className="col-12 mhrc-content">
-                            <div className="col-12 mhrc-name">
+                        <div key={size} className="col-12 mhc-content">
+                            <div className="col-12 mhc-name">
                                 <span>{_('decorationFactor')}: [{size}]</span>
                             </div>
 
-                            <div className="col-12 mhrc-content">
+                            <div className="col-12 mhc-content">
                                 {Object.keys(decorationSizeMapping[size]).sort((decorationIdA, decorationIdB) => {
                                     return _(decorationIdA) > _(decorationIdB) ? 1 : -1
                                 }).map((decorationId) => {
@@ -171,10 +171,10 @@ export default function QuickSetting (props) {
                                     })
 
                                     return (
-                                        <div key={decorationId} className="col-6 mhrc-value">
+                                        <div key={decorationId} className="col-6 mhc-value">
                                             <span>{_(decorationSizeMapping[size][decorationId].name)}</span>
 
-                                            <div className="mhrc-icons_bundle">
+                                            <div className="mhc-icons_bundle">
                                                 <BasicSelector
                                                     iconName="sort-numeric-asc" defaultValue={selectLevel} options={levelList}
                                                     onChange={(event) => {

@@ -1,7 +1,7 @@
 /**
  * Algorithm Setting Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -181,10 +181,10 @@ export default function AlgorithmSettingModal (props) {
      * Render Functions
      */
     return Helper.isNotEmpty(stateTempData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal">
-                <div className="mhrc-panel">
-                    <div className="mhrc-icons_bundle-left">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             bypassRef={refSearch} defaultValue={stateFilter.segment}
@@ -196,7 +196,7 @@ export default function AlgorithmSettingModal (props) {
 
                     <strong>{_('algorithmSetting')}</strong>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
@@ -205,38 +205,38 @@ export default function AlgorithmSettingModal (props) {
                     </div>
                 </div>
 
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
-                        <div className="mhrc-item mhrc-item-2-step">
-                            <div className="col-12 mhrc-name">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
+                        <div className="mhc-item mhc-item-2-step">
+                            <div className="col-12 mhc-name">
                                 <span>{_('strategy')}</span>
                             </div>
 
-                            <div className="col-12 mhrc-content">
-                                <div className="col-6 mhrc-name">
+                            <div className="col-12 mhc-content">
+                                <div className="col-6 mhc-name">
                                     <span>{_('resultLimit')}</span>
                                 </div>
-                                <div className="col-6 mhrc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicInput
                                         iconName="list-alt"
                                         defaultValue={stateAlgorithmParams.limit}
                                         onChange={handleLimitChange} />
                                 </div>
 
-                                <div className="col-6 mhrc-name">
+                                <div className="col-6 mhc-name">
                                     <span>{_('sortBy')}</span>
                                 </div>
-                                <div className="col-6 mhrc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
                                         defaultValue={stateAlgorithmParams.sort}
                                         options={getSortList()} onChange={handleSortChange} />
                                 </div>
 
-                                <div className="col-6 mhrc-name">
+                                <div className="col-6 mhc-name">
                                     <span>{_('sortOrder')}</span>
                                 </div>
-                                <div className="col-6 mhrc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
                                         defaultValue={stateAlgorithmParams.order}
@@ -246,16 +246,16 @@ export default function AlgorithmSettingModal (props) {
                         </div>
 
                         {'all' === stateFilter.mode || 'armorFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode ? (
-                            <div className="mhrc-item mhrc-item-2-step">
-                                <div className="col-12 mhrc-name">
+                            <div className="mhc-item mhc-item-2-step">
+                                <div className="col-12 mhc-name">
                                     <span>{_('armorFactor')}</span>
                                 </div>
-                                <div className="col-12 mhrc-content">
+                                <div className="col-12 mhc-content">
                                     {armorRareList.map((rare) => {
                                         return (
-                                            <div key={rare} className="col-6 mhrc-value">
+                                            <div key={rare} className="col-6 mhc-value">
                                                 <span>{_('rare') + `: ${rare}`}</span>
-                                                <div className="mhrc-icons_bundle">
+                                                <div className="mhc-icons_bundle">
                                                     {stateAlgorithmParams.usingFactor['armor:rare:' + rare] ? (
                                                         <IconButton
                                                             iconName="star" altName={_('exclude')}
@@ -274,16 +274,16 @@ export default function AlgorithmSettingModal (props) {
                         ) : false}
 
                         {'all' === stateFilter.mode || 'decorationFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode ? (
-                            <div className="mhrc-item mhrc-item-2-step">
-                                <div className="col-12 mhrc-name">
+                            <div className="mhc-item mhc-item-2-step">
+                                <div className="col-12 mhc-name">
                                     <span>{_('decorationFactor')}</span>
                                 </div>
-                                <div className="col-12 mhrc-content">
+                                <div className="col-12 mhc-content">
                                     {decorationSizeList.map((size) => {
                                         return (
-                                            <div key={size} className="col-6 mhrc-value">
+                                            <div key={size} className="col-6 mhc-value">
                                                 <span>{_('size') + `: ${size}`}</span>
-                                                <div className="mhrc-icons_bundle">
+                                                <div className="mhc-icons_bundle">
                                                     {stateAlgorithmParams.usingFactor['decoration:size:' + size] ? (
                                                         <IconButton
                                                             iconName="star" altName={_('exclude')}

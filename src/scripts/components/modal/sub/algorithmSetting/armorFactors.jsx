@@ -1,7 +1,7 @@
 /**
  * Algorithm Setting: Armor Factors
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -96,20 +96,20 @@ export default function ArmorFactors (props) {
 
             for (let blockIndex = 0; blockIndex < Math.ceil(seriesIds.length / 10); blockIndex++) {
                 blocks.push(
-                    <div key={rare + '_' + blockIndex} className="mhrc-item mhrc-item-2-step">
-                        <div className="col-12 mhrc-name">
+                    <div key={rare + '_' + blockIndex} className="mhc-item mhc-item-2-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('armorFactor')}: R{rare}</span>
                         </div>
 
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {seriesIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((seriesId) => {
                                 let isInclude = Helper.isNotEmpty(stateAlgorithmParams.usingFactor['armor:series:' + seriesId])
                                     ? stateAlgorithmParams.usingFactor['armor:series:' + seriesId] : true
 
                                 return (
-                                    <div key={seriesId} className="col-6 mhrc-value">
+                                    <div key={seriesId} className="col-6 mhc-value">
                                         <span>{_(armorSeriesMapping[rare][seriesId].name)}</span>
-                                        <div className="mhrc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             {isInclude ? (
                                                 <IconButton
                                                     iconName="star" altName={_('exclude')}

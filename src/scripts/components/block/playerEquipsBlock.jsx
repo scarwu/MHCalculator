@@ -1,7 +1,7 @@
 /**
  * Equips Displayer
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -66,21 +66,21 @@ const handleSwitchDataStore = (index) => {
 
     return (
         <Fragment key={`weapon:${rampageSkillIndex}`}>
-            <div className="col-3 mhrc-name">
+            <div className="col-3 mhc-name">
                 <span>{_('rampageSkill')}: {rampageSkillIndex + 1}</span>
             </div>
-            <div className="col-9 mhrc-value">
+            <div className="col-9 mhc-value">
                 {Helper.isNotEmpty(rampageSkillItem) ? (
                     <Fragment>
                         <span>{_(rampageSkillItem.name)}</span>
 
-                        <div className="mhrc-icons_bundle">
+                        <div className="mhc-icons_bundle">
                             <IconButton iconName="exchange" altName={_('change')} onClick={showModal} />
                             <IconButton iconName="times" altName={_('clean')} onClick={removeItem} />
                         </div>
                     </Fragment>
                 ) : (
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                     </div>
                 )}
@@ -111,21 +111,21 @@ const renderDecorationOption = (equipType, slotIndex, slotSize, decorationId) =>
 
     return (
         <Fragment key={`${equipType}:${slotIndex}`}>
-            <div className="col-3 mhrc-name">
+            <div className="col-3 mhc-name">
                 <span>{_('slot')}: {slotIndex + 1} [{slotSize}]</span>
             </div>
-            <div className="col-9 mhrc-value">
+            <div className="col-9 mhc-value">
                 {Helper.isNotEmpty(decorationItem) ? (
                     <Fragment>
                         <span>[{decorationItem.size}] {_(decorationItem.name)}</span>
 
-                        <div className="mhrc-icons_bundle">
+                        <div className="mhc-icons_bundle">
                             <IconButton iconName="exchange" altName={_('change')} onClick={showModal} />
                             <IconButton iconName="times" altName={_('clean')} onClick={removeItem} />
                         </div>
                     </Fragment>
                 ) : (
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                     </div>
                 )}
@@ -136,17 +136,17 @@ const renderDecorationOption = (equipType, slotIndex, slotSize, decorationId) =>
 
 const renderWeaponProperties = (equipExtendItem) => {
     return (
-        <div className="col-12 mhrc-content">
-            <div className="col-12 mhrc-name">
+        <div className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_('property')}</span>
             </div>
-            <div className="col-12 mhrc-content">
+            <div className="col-12 mhc-content">
                 {Helper.isNotEmpty(equipExtendItem.sharpness) ? (
                     <Fragment>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('sharpness')}</span>
                         </div>
-                        <div className="col-9 mhrc-value mhrc-sharpness">
+                        <div className="col-9 mhc-value mhc-sharpness">
                             <SharpnessBar data={{
                                 value: equipExtendItem.sharpness.minValue,
                                 steps: equipExtendItem.sharpness.steps
@@ -159,17 +159,17 @@ const renderWeaponProperties = (equipExtendItem) => {
                     </Fragment>
                 ) : false}
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('attack')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.attack}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('criticalRate')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.criticalRate}%</span>
                 </div>
 
@@ -177,10 +177,10 @@ const renderWeaponProperties = (equipExtendItem) => {
                     && Helper.isNotEmpty(equipExtendItem.element.attack))
                     ? (
                         <Fragment>
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('element')}: {_(equipExtendItem.element.attack.type)}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 {equipExtendItem.element.attack.isHidden ? (
                                     <span>({equipExtendItem.element.attack.value})</span>
                                 ) : (
@@ -194,10 +194,10 @@ const renderWeaponProperties = (equipExtendItem) => {
                     && Helper.isNotEmpty(equipExtendItem.element.status))
                     ? (
                         <Fragment>
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('element')}: {_(equipExtendItem.element.status.type)}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 {equipExtendItem.element.status.isHidden ? (
                                     <span>({equipExtendItem.element.status.value})</span>
                                 ) : (
@@ -209,19 +209,19 @@ const renderWeaponProperties = (equipExtendItem) => {
 
                 {(Helper.isNotEmpty(equipExtendItem.elderseal)) ? (
                     <Fragment>
-                        <div className="col-3 mhrc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elderseal')}</span>
                         </div>
-                        <div className="col-3 mhrc-value">
+                        <div className="col-3 mhc-value">
                             <span>{_(equipExtendItem.elderseal.affinity)}</span>
                         </div>
                     </Fragment>
                 ) : false}
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('defense')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.defense}</span>
                 </div>
             </div>
@@ -231,25 +231,25 @@ const renderWeaponProperties = (equipExtendItem) => {
 
 const renderArmorProperties = (equipExtendItem) => {
     return (
-        <div className="col-12 mhrc-content">
-            <div className="col-12 mhrc-name">
+        <div className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_('property')}</span>
             </div>
-            <div className="col-12 mhrc-content">
-                <div className="col-3 mhrc-name">
+            <div className="col-12 mhc-content">
+                <div className="col-3 mhc-name">
                     <span>{_('defense')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.defense}</span>
                 </div>
 
                 {Constant.resistanceTypes.map((resistanceType) => {
                     return (
                         <Fragment key={resistanceType}>
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('resistance')}: {_(resistanceType)}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <span>{equipExtendItem.resistance[resistanceType]}</span>
                             </div>
                         </Fragment>
@@ -262,47 +262,47 @@ const renderArmorProperties = (equipExtendItem) => {
 
 const renderPetalaceProperties = (equipExtendItem) => {
     return (
-        <div className="col-12 mhrc-content">
-            <div className="col-12 mhrc-name">
+        <div className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_('property')}</span>
             </div>
-            <div className="col-12 mhrc-content">
-                <div className="col-3 mhrc-name">
+            <div className="col-12 mhc-content">
+                <div className="col-3 mhc-name">
                     <span>{_('healthIncrement')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.health.increment}</span>
                 </div>
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('healthObtain')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.health.obtain}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('attackIncrement')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.attack.increment}</span>
                 </div>
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('attackObtain')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.attack.obtain}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('defenseIncrement')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.defense.increment}</span>
                 </div>
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('defenseObtain')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{equipExtendItem.defense.obtain}</span>
                 </div>
             </div>
@@ -339,10 +339,10 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
 
     if (Helper.isEmpty(equipExtendItem)) {
         return (
-            <div key={equipType} className="mhrc-item mhrc-item-3-step">
-                <div className="col-12 mhrc-name">
+            <div key={equipType} className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_(equipType)}</span>
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         {'weapon' === equipType || 'charm' === equipType ? (
                             <IconButton
                                 iconName="wrench" altName={_('customEquip')}
@@ -360,10 +360,10 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
     }
 
     return (
-        <div key={equipType + ':' + equipExtendItem.id} className="mhrc-item mhrc-item-3-step">
-            <div className="col-12 mhrc-name">
+        <div key={equipType + ':' + equipExtendItem.id} className="mhc-item mhc-item-3-step">
+            <div className="col-12 mhc-name">
                 <span>{_(equipType)}: {_(equipExtendItem.name)}</span>
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {'petalace' !== equipType && isNotRequire ? (
                         <IconButton
                             iconName="arrow-left" altName={_('include')}
@@ -386,7 +386,7 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
             </div>
 
             {('weapon' === Misc.equipTypeToDatasetType(equipType)) ? (
-                <div className="col-12 mhrc-content">
+                <div className="col-12 mhc-content">
                     {[...Array(equipExtendItem.rampageSkill.amount)].map((rampageSkillData, rampageSkillIndex) => {
                         return renderRampageSkillOption(
                             rampageSkillIndex,
@@ -398,7 +398,7 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
             ) : false}
 
             {(Helper.isNotEmpty(equipExtendItem.slots) && 0 !== equipExtendItem.slots.length) ? (
-                <div className="col-12 mhrc-content">
+                <div className="col-12 mhc-content">
                     {equipExtendItem.slots.map((slotData, slotIndex) => {
                         return renderDecorationOption(
                             equipType,
@@ -421,18 +421,18 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
                 ? renderPetalaceProperties(equipExtendItem) : false}
 
             {(Helper.isNotEmpty(equipExtendItem.skills) && 0 !== equipExtendItem.skills.length) ? (
-                <div className="col-12 mhrc-content">
-                    <div className="col-12 mhrc-name">
+                <div className="col-12 mhc-content">
+                    <div className="col-12 mhc-name">
                         <span>{_('skill')}</span>
                     </div>
-                    <div className="col-12 mhrc-content">
+                    <div className="col-12 mhc-content">
                         {equipExtendItem.skills.sort((skillDataA, skillDataB) => {
                             return skillDataB.level - skillDataA.level
                         }).map((skillData) => {
                             let skillItem = SkillDataset.getItem(skillData.id)
 
                             return (Helper.isNotEmpty(skillItem)) ? (
-                                <div key={skillItem.id} className="col-6 mhrc-value">
+                                <div key={skillItem.id} className="col-6 mhc-value">
                                     <span>{_(skillItem.name)} Lv.{skillData.level}</span>
                                 </div>
                             ) : false
@@ -501,11 +501,11 @@ export default function PlayerEquipsBlock (props) {
     }, [statePlayerEquips, stateRequiredConditions])
 
     return (
-        <div className="col mhrc-equips">
-            <div className="mhrc-panel">
-                <span className="mhrc-title">{_('equipBundle')}</span>
+        <div className="col mhc-equips">
+            <div className="mhc-panel">
+                <span className="mhc-title">{_('equipBundle')}</span>
 
-                <div className="mhrc-icons_bundle-left">
+                <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
                         isActive={0 === stateDataStore.playerEquips.index}
@@ -524,14 +524,14 @@ export default function PlayerEquipsBlock (props) {
                         onClick={() => { handleSwitchDataStore(3) }} />
                 </div>
 
-                <div className="mhrc-icons_bundle-right">
+                <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
                         onClick={handleEquipsDisplayerRefresh} />
                 </div>
             </div>
 
-            <div className="mhrc-list">
+            <div className="mhc-list">
                 {getContent}
             </div>
         </div>

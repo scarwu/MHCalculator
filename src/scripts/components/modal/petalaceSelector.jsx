@@ -1,7 +1,7 @@
 /**
  * Petalace Selector Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -37,21 +37,21 @@ const handleItemPickUp = (itemId, tempData) => {
  */
 const renderPetalaceItem = (petalaceItem, tempData) => {
     let classNames = [
-        'mhrc-item'
+        'mhc-item'
     ]
 
     if (Helper.isEmpty(tempData.target) || petalaceItem.id !== tempData.id) {
-        classNames.push('mhrc-item-2-step')
+        classNames.push('mhc-item-2-step')
     } else {
-        classNames.push('mhrc-item-3-step')
+        classNames.push('mhc-item-3-step')
     }
 
     return (
         <div key={petalaceItem.id} className={classNames.join(' ')}>
-            <div className="col-12 mhrc-name">
+            <div className="col-12 mhc-name">
                 <span>{_(petalaceItem.name)}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {Helper.isNotEmpty(tempData.target) ? (
                         (petalaceItem.id !== tempData.id) ? (
                             <IconButton
@@ -69,53 +69,53 @@ const renderPetalaceItem = (petalaceItem, tempData) => {
                     ) : false}
                 </div>
             </div>
-            <div className="col-12 mhrc-content">
-                <div className="col-3 mhrc-name">
+            <div className="col-12 mhc-content">
+                <div className="col-3 mhc-name">
                     <span>{_('rare')}</span>
                 </div>
-                <div className="col-9 mhrc-value">
+                <div className="col-9 mhc-value">
                     <span>{petalaceItem.rare}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('healthIncrement')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{petalaceItem.health.increment}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('healthObtain')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{petalaceItem.health.obtain}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('attackIncrement')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{petalaceItem.attack.increment}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('attackObtain')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{petalaceItem.attack.obtain}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('defenseIncrement')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{petalaceItem.defense.increment}</span>
                 </div>
 
-                <div className="col-3 mhrc-name">
+                <div className="col-3 mhc-name">
                     <span>{_('defenseObtain')}</span>
                 </div>
-                <div className="col-3 mhrc-value">
+                <div className="col-3 mhc-value">
                     <span>{petalaceItem.defense.obtain}</span>
                 </div>
             </div>
@@ -247,19 +247,19 @@ export default function PetalaceSelectorModal (props) {
     ])
 
     return Helper.isNotEmpty(stateTempData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal">
-                <div className="mhrc-panel">
-                    <div className="mhrc-icons_bundle-left">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             bypassRef={refSearch} defaultValue={stateFilter.segment}
                             onChange={handleSegmentInput} />
                     </div>
 
-                    <span className="mhrc-title">{_('petalaceList')}</span>
+                    <span className="mhc-title">{_('petalaceList')}</span>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
@@ -267,8 +267,8 @@ export default function PetalaceSelectorModal (props) {
                             }} />
                     </div>
                 </div>
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getContent}
                     </div>
                 </div>

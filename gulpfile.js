@@ -43,7 +43,7 @@ function compileWebpack(callback) {
         webpackConfig.plugins.push(new sentryWebpackPlugin({
             authToken: process.env.SENTRY_AUTH_TOKEN,
             org: "scarstudio",
-            project: "mhrc",
+            project: "mhc",
             release: postfix,
             include: "src/boot"
         }))

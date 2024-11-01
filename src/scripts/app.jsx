@@ -1,14 +1,19 @@
 /**
  * Main Module
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
  */
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { useParams as useRouteParams } from 'react-router-dom'
+import {
+    Outlet,
+    useLocation as useRouteLocation,
+    useNavigate as useRouteNavigate,
+    useParams as useRouteParams
+} from 'react-router-dom'
 
 // Load Config & Constant
 import Config from '@/scripts/config'
@@ -25,22 +30,6 @@ import States from '@/scripts/states'
 // Load Components
 import IconButton from '@/scripts/components/common/iconButton'
 import IconSelector from '@/scripts/components/common/iconSelector'
-
-import RequiredConditionsBlock from '@/scripts/components/block/requiredConditionsBlock'
-import CandidateBundlesBlock from '@/scripts/components/block/candidateBundlesBlock'
-import PlayerEquipsBlock from '@/scripts/components/block/playerEquipsBlock'
-import PlayerStatusBlock from '@/scripts/components/block/playerStatusBlock'
-
-import ChangeLogModal from '@/scripts/components/modal/changeLog'
-import AlgorithmSettingModal from '@/scripts/components/modal/algorithmSetting'
-import WeaponSelectorModal from '@/scripts/components/modal/weaponSelector'
-import ArmorSelectorModal from '@/scripts/components/modal/armorSelector'
-import PetalaceSelectorModal from '@/scripts/components/modal/petalaceSelector'
-import SetSelectorModal from '@/scripts/components/modal/setSelector'
-import SkillSelectorModal from '@/scripts/components/modal/skillSelector'
-import DecorationSelectorModal from '@/scripts/components/modal/decorationSelector'
-// import RampageDecorationSelectorModal from '@/scripts/components/modal/rampageDecorationSelector'
-import RampageSkillSelectorModal from '@/scripts/components/modal/rampageSkillSelector'
 
 if ('production' === Config.env) {
     if (Config.buildTime !== Status.get('sys:buildTime')) {
@@ -97,7 +86,9 @@ export default function App () {
     const [stateLang, setLang] = useState(Status.get('sys:lang'))
     const [stateSeries, setSeries] = useState(Status.get('sys:series'))
 
-    let routeParams = useRouteParams()
+    const routeParams = useRouteParams()
+    const routeLocation = useRouteLocation()
+    const routeNavigate = useRouteNavigate()
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
@@ -129,9 +120,9 @@ export default function App () {
      * Render Functions
      */
     return (
-        <div key={stateLang} id="mhrc-app" className="container-fluid">
-            <div className="mhrc-header">
-                <div className="mhrc-icons_bundle-left">
+        <div key={stateLang} id="mhc-app" className="container-fluid">
+            <div className="mhc-header">
+                <div className="mhc-icons_bundle-left">
                     <IconSelector
                         iconName="globe"
                         defaultValue={stateLang} options={langList}
@@ -142,11 +133,11 @@ export default function App () {
                         onChange={handleSeriesChange} />
                 </div>
 
-                <a className="mhrc-title" href="./">
+                <a className="mhc-title" href="./">
                     <h1>{_('title')}</h1>
                 </a>
 
-                <div className="mhrc-icons_bundle-right">
+                <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="link" altName={_('exportBundle')}
                         onClick={handlePlayerEquipsExport} />
@@ -159,19 +150,16 @@ export default function App () {
                 </div>
             </div>
 
-            <div className="row mhrc-container">
-                <RequiredConditionsBlock />
-                <CandidateBundlesBlock />
-                <PlayerEquipsBlock />
-                <PlayerStatusBlock />
+            <div className="mhc-body">
+                <Outlet />
             </div>
 
-            <div className="row mhrc-footer">
-                <div className="col-12">
+            <div className="mhc-footer">
+                <div className="bh-top">
                     <span>Copyright (c) Scar Wu</span>
                 </div>
 
-                <div className="col-12">
+                <div className="bh-bottom">
                     <a href="//scar.tw" target="_blank">
                         <span>Blog</span>
                     </a>
@@ -181,17 +169,6 @@ export default function App () {
                     </a>
                 </div>
             </div>
-
-            <ChangeLogModal />
-            <AlgorithmSettingModal />
-            <WeaponSelectorModal />
-            <ArmorSelectorModal />
-            <PetalaceSelectorModal />
-            <SetSelectorModal />
-            <DecorationSelectorModal />
-            <SkillSelectorModal />
-            {/* <RampageDecorationSelectorModal /> */}
-            <RampageSkillSelectorModal />
         </div>
     )
 }

@@ -1,5 +1,5 @@
 // Main Module
-// @package     Monster Hunter Rise - Calculator
+// @package     Monster Hunter - Calculator
 // @author      Scar Wu
 // @copyright   Copyright (c) Scar Wu (https://scar.tw)
 // @link        https://github.com/scarwu/MHCalculator
@@ -7,14 +7,14 @@
 // Load Specify Styles
 @import '@/styles/mixin'
 
-.mhrc-header
+.mhc-header
     position: relative
     padding: 0 10px
     height: $header-height
     background-color: #333
     text-align: center
 
-    .mhrc-title
+    .mhc-title
         display: inline-block
         color: #ccc
 
@@ -28,49 +28,49 @@
             font-weight: bold
             +font-size(2.4)
 
-    .mhrc-icons_bundle-left,
-    .mhrc-icons_bundle-right
+    .mhc-icons_bundle-left,
+    .mhc-icons_bundle-right
         position: absolute
         top: 0
         padding-top: 20px
         height: $header-height
 
-        .mhrc-icon_selector,
-        .mhrc-icon_button
+        .mhc-icon_selector,
+        .mhc-icon_button
             vertical-align: top
 
-            .mhrc-body
+            .mhc-body
                 background-color: #999
 
             &:hover
-                .mhrc-body
+                .mhc-body
                     background-color: #666
 
-    .mhrc-icons_bundle-left
+    .mhc-icons_bundle-left
         left: 10px
 
-        .mhrc-icon_selector,
-        .mhrc-icon_button
+        .mhc-icon_selector,
+        .mhc-icon_button
             margin-right: 2px
 
-    .mhrc-icons_bundle-right
+    .mhc-icons_bundle-right
         right: 10px
 
-        .mhrc-icon_selector,
-        .mhrc-icon_button
+        .mhc-icon_selector,
+        .mhc-icon_button
             margin-left: 2px
 
-.mhrc-container
+.mhc-container
     height: calc(100vh - (#{$header-height} + #{$footer-height}))
 
-    > .mhrc-conditions,
-    > .mhrc-bundles,
-    > .mhrc-equips,
-    > .mhrc-status
+    > .mhc-conditions,
+    > .mhc-bundles,
+    > .mhc-equips,
+    > .mhc-status
         position: relative
         height: calc(100vh - (#{$header-height} + #{$footer-height} + #{$panel-height}))
 
-        .mhrc-panel
+        .mhc-panel
             position: relative
             height: $panel-height
             line-height: $panel-height
@@ -78,48 +78,48 @@
             background-color: #666
             color: #fff
 
-            .mhrc-title
+            .mhc-title
                 +font-size(1.6)
 
-            .mhrc-icons_bundle-left,
-            .mhrc-icons_bundle-right
+            .mhc-icons_bundle-left,
+            .mhc-icons_bundle-right
                 position: absolute
                 top: 0
                 padding-top: 10px
                 height: $panel-height
 
-                .mhrc-icon_tab,
-                .mhrc-icon_button
+                .mhc-icon_tab,
+                .mhc-icon_button
                     vertical-align: top
 
-                    .mhrc-body
+                    .mhc-body
                         background-color: #999
 
                     &:hover
-                        .mhrc-body
+                        .mhc-body
                             background-color: #333
 
-            .mhrc-icons_bundle-left
+            .mhc-icons_bundle-left
                 left: 10px
 
-                .mhrc-icon_tab
+                .mhc-icon_tab
                     margin-right: 2px
 
-                    .mhrc-label
+                    .mhc-label
                         left: 22px
                         right: initial
 
-            .mhrc-icons_bundle-right
+            .mhc-icons_bundle-right
                 right: 10px
 
-                .mhrc-icon_button
+                .mhc-icon_button
                     margin-left: 2px
 
-        .mhrc-list
+        .mhc-list
             height: calc(100vh - (#{$header-height} + #{$footer-height} + #{$panel-height}))
             padding-top: 5px
 
-.mhrc-footer
+.mhc-footer
     padding: 0 10px
     height: $footer-height
     background-color: #333

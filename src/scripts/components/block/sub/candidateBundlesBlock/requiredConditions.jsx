@@ -1,7 +1,7 @@
 /**
  * Candidate Bundles: Required Conditions
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -82,18 +82,18 @@ export default function RequiredConditions (props) {
         })
 
         return (
-            <div className="mhrc-item mhrc-item-3-step">
-                <div className="col-12 mhrc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('conditions')}</span>
                 </div>
 
                 {0 !== currentRequiredConditionsEquips.length ? (
-                    <div className="col-12 mhrc-content">
-                        <div className="col-12 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('equip')}</span>
                         </div>
 
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {currentRequiredConditionsEquips.map((currentEquipData) => {
                                 let requiredEquipData = stateRequiredConditions.equips[currentEquipData.type]
 
@@ -113,10 +113,10 @@ export default function RequiredConditions (props) {
                                 let currentEquipItem = Misc.getEquipItem(currentEquipData.type, currentEquipData)
 
                                 return Helper.isNotEmpty(currentEquipItem) ? (
-                                    <div key={currentEquipData.type} className="col-6 mhrc-value">
+                                    <div key={currentEquipData.type} className="col-6 mhc-value">
                                         <span>{_(currentEquipItem.name)}</span>
 
-                                        <div className="mhrc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             {isNotRequire ? (
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
@@ -133,21 +133,21 @@ export default function RequiredConditions (props) {
                 ) : false}
 
                 {0 !== currentRequiredConditionsSets.length ? (
-                    <div className="col-12 mhrc-content">
-                        <div className="col-12 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('set')}</span>
                         </div>
 
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {currentRequiredConditionsSets.map((setData) => {
                                 let setItem = SetDataset.getItem(setData.id)
 
                                 return (
-                                    <div key={setData.id} className="col-6 mhrc-value">
+                                    <div key={setData.id} className="col-6 mhc-value">
                                         <span>{_(setItem.name)} x {setData.count}</span>
 
                                         {(-1 === requiredSetIds.indexOf(setItem.id)) ? (
-                                            <div className="mhrc-icons_bundle">
+                                            <div className="mhc-icons_bundle">
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {
@@ -163,21 +163,21 @@ export default function RequiredConditions (props) {
                 ) : false}
 
                 {0 !== currentRequiredConsitionsSkills.length ? (
-                    <div className="col-12 mhrc-content">
-                        <div className="col-12 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('skill')}</span>
                         </div>
 
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {currentRequiredConsitionsSkills.map((skillData) => {
                                 let skillItem = SkillDataset.getItem(skillData.id)
 
                                 return (Helper.isNotEmpty(skillItem)) ? (
-                                    <div key={skillItem.id} className="col-6 mhrc-value">
+                                    <div key={skillItem.id} className="col-6 mhc-value">
                                         <span>{`${_(skillItem.name)} Lv.${skillData.level}`}</span>
 
                                         {(-1 === requiredSkillIds.indexOf(skillItem.id)) ? (
-                                            <div className="mhrc-icons_bundle">
+                                            <div className="mhc-icons_bundle">
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {

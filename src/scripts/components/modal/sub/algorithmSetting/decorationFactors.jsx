@@ -1,7 +1,7 @@
 /**
  * Algorithm Setting: Decoration Factors
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -108,12 +108,12 @@ export default function DecorationFactors (props) {
 
             for (let blockIndex = 0; blockIndex < Math.ceil(decorationIds.length / 10); blockIndex++) {
                 blocks.push(
-                    <div key={size + '_' + blockIndex} className="mhrc-item mhrc-item-2-step">
-                        <div className="col-12 mhrc-name">
+                    <div key={size + '_' + blockIndex} className="mhc-item mhc-item-2-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('decorationFactor')}: [{size}]</span>
                         </div>
 
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {decorationIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((decorationId) => {
                                 let selectLevel = Helper.isNotEmpty(stateAlgorithmParams.usingFactor['decoration:id:' + decorationId])
                                     ? stateAlgorithmParams.usingFactor['decoration:id:' + decorationId] : -1
@@ -129,10 +129,10 @@ export default function DecorationFactors (props) {
                                 })
 
                                 return (
-                                    <div key={decorationId} className="col-6 mhrc-value">
+                                    <div key={decorationId} className="col-6 mhc-value">
                                         <span>{_(decorationSizeMapping[size][decorationId].name)}</span>
 
-                                        <div className="mhrc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             <BasicSelector
                                                 iconName="sort-numeric-asc" defaultValue={selectLevel} options={levelList}
                                                 onChange={(event) => {

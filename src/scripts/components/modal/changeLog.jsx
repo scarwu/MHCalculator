@@ -1,7 +1,7 @@
 /**
  * ChangeLog Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -49,11 +49,11 @@ const getChangeLog = () => {
         let [all, title, content] = log.trim().match(/^\<h3.+\>(.+)\<\/h3\>(.+)$/)
 
         return (
-            <div key={index} className="mhrc-item mhrc-item-2-step">
-                <div className="col-12 mhrc-name">
+            <div key={index} className="mhc-item mhc-item-2-step">
+                <div className="col-12 mhc-name">
                     <span>{title}</span>
                 </div>
-                <div className="col-12 mhrc-value mhrc-description"
+                <div className="col-12 mhc-value mhc-description"
                     dangerouslySetInnerHTML={{ __html: content }}></div>
             </div>
         )
@@ -91,19 +91,19 @@ export default function ChangeLogModal (props) {
     }, [])
 
     return Helper.isNotEmpty(stateModalData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal mhrc-slim-modal">
-                <div className="mhrc-panel">
-                    <span className="mhrc-title">{_('changeLog')}</span>
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal mhc-slim-modal">
+                <div className="mhc-panel">
+                    <span className="mhc-title">{_('changeLog')}</span>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => { States.setter.hideModal('changeLog') }} />
                     </div>
                 </div>
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getChangeLog()}
                     </div>
                 </div>

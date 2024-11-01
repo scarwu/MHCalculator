@@ -1,7 +1,7 @@
 /**
  * Condition Options: Equip List
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -48,11 +48,11 @@ const renderEquipItem = (equipType, requiredEquipData) => {
 
     if (Helper.isEmpty(equipItem)) {
         return (
-            <div key={equipType} className="col-12 mhrc-content">
-                <div className="col-12 mhrc-name">
+            <div key={equipType} className="col-12 mhc-content">
+                <div className="col-12 mhc-name">
                     <span>{_(equipType)}</span>
 
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         {'weapon' === equipType || 'charm' === equipType ? (
                             <IconButton
                                 iconName="wrench" altName={_('customEquip')}
@@ -70,11 +70,11 @@ const renderEquipItem = (equipType, requiredEquipData) => {
     }
 
     return (
-        <div key={equipItem.id} className="col-12 mhrc-content">
-            <div className="col-12 mhrc-name">
+        <div key={equipItem.id} className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_(equipType)}: {_(equipItem.name)}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {'weapon' === equipType || 'charm' === equipType ? (
                         <IconButton
                             iconName="wrench" altName={_('customEquip')}
@@ -118,8 +118,8 @@ export default function EquipList (props) {
         }
 
         return (
-            <div className="mhrc-item mhrc-item-3-step">
-                <div className="col-12 mhrc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('equip')}</span>
                 </div>
 

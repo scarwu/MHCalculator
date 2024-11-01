@@ -1,7 +1,7 @@
 /**
  * RampageDecoration Selector Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -38,21 +38,21 @@ const handleItemPickUp = (itemId, tempData) => {
  */
 const renderRampageDecorationItem = (rampageDecorationItem, tempData) => {
     let classNames = [
-        'mhrc-item'
+        'mhc-item'
     ]
 
     if (Helper.isEmpty(tempData.target) || rampageDecorationItem.id !== tempData.id) {
-        classNames.push('mhrc-item-2-step')
+        classNames.push('mhc-item-2-step')
     } else {
-        classNames.push('mhrc-item-3-step')
+        classNames.push('mhc-item-3-step')
     }
 
     return (
         <div key={rampageDecorationItem.id} className={classNames.join(' ')}>
-            <div className="col-12 mhrc-name">
+            <div className="col-12 mhc-name">
                 <span>[{rampageDecorationItem.size}] {_(rampageDecorationItem.name)}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {Helper.isNotEmpty(tempData.target) ? (
                         (rampageDecorationItem.id !== tempData.id) ? (
                             <IconButton
@@ -70,13 +70,13 @@ const renderRampageDecorationItem = (rampageDecorationItem, tempData) => {
                     ) : false}
                 </div>
             </div>
-            <div className="col-12 mhrc-content">
+            <div className="col-12 mhc-content">
                 {Helper.isNotEmpty(rampageDecorationItem.skill) ? (
                     <Fragment key={index}>
-                        <div className="col-12 mhrc-name">
+                        <div className="col-12 mhc-name">
                             <span>{_(rampageDecorationItem.skill.name)} Lv.{skillData.level}</span>
                         </div>
-                        <div className="col-12 mhrc-value mhrc-description">
+                        <div className="col-12 mhc-value mhc-description">
                             <span>{_(rampageDecorationItem.skill.list[skillData.level - 1].effect)}</span>
                         </div>
                     </Fragment>
@@ -231,19 +231,19 @@ export default function RampageDecorationSelectorModal (props) {
     ])
 
     return Helper.isNotEmpty(stateTempData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal">
-                <div className="mhrc-panel">
-                    <div className="mhrc-icons_bundle-left">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             bypassRef={refSearch} defaultValue={stateFilter.segment}
                             onChange={handleSegmentInput} />
                     </div>
 
-                    <span className="mhrc-title">{_('rampageDecorationList')}</span>
+                    <span className="mhc-title">{_('rampageDecorationList')}</span>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
@@ -251,8 +251,8 @@ export default function RampageDecorationSelectorModal (props) {
                             }} />
                     </div>
                 </div>
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getContent}
                     </div>
                 </div>

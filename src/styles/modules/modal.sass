@@ -1,5 +1,5 @@
 // Main Module
-// @package     Monster Hunter Rise - Calculator
+// @package     Monster Hunter - Calculator
 // @author      Scar Wu
 // @copyright   Copyright (c) Scar Wu (https://scar.tw)
 // @link        https://github.com/scarwu/MHCalculator
@@ -7,7 +7,7 @@
 // Load Specify Styles
 @import '@/styles/mixin'
 
-.mhrc-selector
+.mhc-selector
     position: fixed
     top: 0
     left: 0
@@ -16,7 +16,7 @@
     z-index: 100
     background-color: rgba(0, 0, 0, 0.5)
 
-    .mhrc-modal
+    .mhc-modal
         position: absolute
         top: $header-height
         left: 0
@@ -25,7 +25,7 @@
         z-index: 200
         background-color: #fff
 
-    .mhrc-panel
+    .mhc-panel
         position: relative
         height: $panel-height
         line-height: $panel-height
@@ -33,51 +33,51 @@
         background-color: #666
         color: #fff
 
-        .mhrc-title
+        .mhc-title
             +font-size(1.6)
 
-        .mhrc-icons_bundle-left,
-        .mhrc-icons_bundle-right
+        .mhc-icons_bundle-left,
+        .mhc-icons_bundle-right
             position: absolute
             top: 0
             padding-top: 10px
             height: 30px
 
-            .mhrc-basic_input,
-            .mhrc-basic_selector,
-            .mhrc-icon_input,
-            .mhrc-icon_selector,
-            .mhrc-icon_button
+            .mhc-basic_input,
+            .mhc-basic_selector,
+            .mhc-icon_input,
+            .mhc-icon_selector,
+            .mhc-icon_button
                 vertical-align: top
 
-                .mhrc-body
+                .mhc-body
                     background-color: #999
 
                 &:hover
-                    .mhrc-body
+                    .mhc-body
                         background-color: #333
 
-        .mhrc-icons_bundle-left
+        .mhc-icons_bundle-left
             left: 10px
 
-            .mhrc-basic_input,
-            .mhrc-basic_selector,
-            .mhrc-icon_input,
-            .mhrc-icon_selector,
-            .mhrc-icon_button
+            .mhc-basic_input,
+            .mhc-basic_selector,
+            .mhc-icon_input,
+            .mhc-icon_selector,
+            .mhc-icon_button
                 margin-right: 2px
 
-        .mhrc-icons_bundle-right
+        .mhc-icons_bundle-right
             right: 10px
 
-            .mhrc-basic_input,
-            .mhrc-basic_selector,
-            .mhrc-icon_input,
-            .mhrc-icon_selector,
-            .mhrc-icon_button
+            .mhc-basic_input,
+            .mhc-basic_selector,
+            .mhc-icon_input,
+            .mhc-icon_selector,
+            .mhc-icon_button
                 margin-left: 2px
 
-    .mhrc-list
+    .mhc-list
         position: absolute
         top: $panel-height
         left: 0
@@ -85,21 +85,21 @@
         bottom: 0
         padding: 5px 0 10px 0
 
-        .mhrc-article
+        .mhc-article
             padding: 0 5px
 
-        .mhrc-wrapper
+        .mhc-wrapper
             column-count: 4
             column-gap: 0
 
-        .mhrc-item
+        .mhc-item
             width: calc(100% - 10px)
             height: 100%
             overflow: auto
 
-    .mhrc-slim-modal
+    .mhc-slim-modal
         left: 25%
         right: 25%
 
-        .mhrc-wrapper
+        .mhc-wrapper
             column-count: 2

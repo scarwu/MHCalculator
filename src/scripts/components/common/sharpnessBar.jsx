@@ -1,7 +1,7 @@
 /**
  * Sharpness Bar
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -19,18 +19,18 @@ export default function SharpnessBar (props) {
         Helper.debug('Component: Common -> SharpnessBar')
 
         return (
-            <div className="mhrc-sharpness_bar">
-                <div className="mhrc-steps">
+            <div className="mhc-sharpness_bar">
+                <div className="mhc-steps">
                     {['red', 'orange', 'yellow', 'green', 'blue', 'white', 'purple'].map((step) => {
                         return (
-                            <div key={step} className="mhrc-step" style={{
+                            <div key={step} className="mhc-step" style={{
                                 width: (data.steps[step] / 4) + '%'
                             }}></div>
                         )
                     })}
                 </div>
 
-                <div className="mhrc-mask" style={{
+                <div className="mhc-mask" style={{
                     width: ((400 - data.value) / 4) + '%'
                 }}></div>
             </div>

@@ -1,7 +1,7 @@
 /**
  * Icon Switch
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -49,19 +49,19 @@ export default function IconSwitch (props) {
         }
 
         return (
-            <div className="mhrc-icon_switch">
-                <div className="mhrc-body">
-                    <a className="mhrc-icon" onClick={handlePrev}>
+            <div className="mhc-icon_switch">
+                <div className="mhc-body">
+                    <a className="mhc-icon" onClick={handlePrev}>
                         <i className="fas fa-chevron-left"></i>
                     </a>
-                    <select className="mhrc-select" value={defaultValue} onChange={handleChange}>
+                    <select className="mhc-select" value={defaultValue} onChange={handleChange}>
                         {options.map((option) => {
                             return (
                                 <option key={option.key} value={option.key}>{option.value}</option>
                             )
                         })}
                     </select>
-                    <a className="mhrc-icon" onClick={handleNext}>
+                    <a className="mhc-icon" onClick={handleNext}>
                         <i className="fas fa-chevron-right"></i>
                     </a>
                 </div>

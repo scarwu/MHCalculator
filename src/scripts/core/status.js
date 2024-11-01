@@ -1,7 +1,7 @@
 /**
  * Status Libray
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -10,7 +10,7 @@
 // Load Core
 import Helper from 'core/helper'
 
-let prefix = 'mhrc:2023:1'
+let prefix = 'mhc:2024:0'
 let storage = window.localStorage
 
 export const get = (key) => {

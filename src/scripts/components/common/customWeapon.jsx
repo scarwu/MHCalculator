@@ -1,7 +1,7 @@
 /**
  * Equips Dispayler: Custom Weapon
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -150,21 +150,21 @@ const handleRefreshCustomDataset = (majorData) => {
 
     return (
         <Fragment key={`weapon:${rampageSkillIndex}`}>
-            <div className="col-3 mhrc-name">
+            <div className="col-3 mhc-name">
                 <span>{_('rampageSkill')}: {rampageSkillIndex + 1}</span>
             </div>
-            <div className="col-9 mhrc-value">
+            <div className="col-9 mhc-value">
                 {Helper.isNotEmpty(rampageSkillItem) ? (
                     <Fragment>
                         <span>{_(rampageSkillItem.name)}</span>
 
-                        <div className="mhrc-icons_bundle">
+                        <div className="mhc-icons_bundle">
                             <IconButton iconName="exchange" altName={_('change')} onClick={showModal} />
                             <IconButton iconName="times" altName={_('clean')} onClick={removeItem} />
                         </div>
                     </Fragment>
                 ) : (
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                     </div>
                 )}
@@ -201,13 +201,13 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
                 <Fragment>
                     <span>[{decorationItem.size}] {_(decorationItem.name)}</span>
 
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton iconName="exchange" altName={_('change')} onClick={showModal} />
                         <IconButton iconName="times" altName={_('clean')} onClick={removeItem} />
                     </div>
                 </Fragment>
             ) : (
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                 </div>
             )}
@@ -304,15 +304,15 @@ export default function CustomWeapon (props) {
 
         // Set Class Names
         let classNames = [
-            'mhrc-item'
+            'mhc-item'
         ]
 
         if ('playerEquips' === stateMajorData.target) {
-            classNames.push('mhrc-item-3-step')
+            classNames.push('mhc-item-3-step')
         }
 
         if ('requiredConditions' === stateMajorData.target) {
-            classNames.push('mhrc-content')
+            classNames.push('mhc-content')
         }
 
         // Get Equip Extend Item
@@ -320,10 +320,10 @@ export default function CustomWeapon (props) {
 
         return (
             <div key="customWeapon" className={classNames.join(' ')}>
-                <div className="col-12 mhrc-name">
+                <div className="col-12 mhc-name">
                     <span>{_('customWeapon')}</span>
 
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         {('playerEquips' === stateMajorData.target && isNotRequire) ? (
                             <IconButton
                                 iconName="arrow-left" altName={_('include')}
@@ -338,11 +338,11 @@ export default function CustomWeapon (props) {
 
                 {'playerEquips' === stateMajorData.target ? (
                     <Fragment>
-                        <div className="col-12 mhrc-content">
-                            <div className="col-3 mhrc-name">
+                        <div className="col-12 mhc-content">
+                            <div className="col-3 mhc-name">
                                 <span>{_('type')}</span>
                             </div>
-                            <div className="col-9 mhrc-value">
+                            <div className="col-9 mhc-value">
                                 <BasicSelector
                                     defaultValue={getValue(stateMajorData.custom.type, 'none')}
                                     options={getTypeList()}
@@ -354,10 +354,10 @@ export default function CustomWeapon (props) {
                                     }} />
                             </div>
 
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('rare')}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <BasicSelector
                                     defaultValue={getValue(stateMajorData.custom.rare, 'none')}
                                     options={getRareList()}
@@ -369,10 +369,10 @@ export default function CustomWeapon (props) {
                                     }} />
                             </div>
 
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('attack')}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <BasicInput
                                     key={stateMajorData.custom.attack}
                                     type="number"
@@ -385,10 +385,10 @@ export default function CustomWeapon (props) {
                                     }} />
                             </div>
 
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('sharpness')}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 {(-1 === ['lightBowgun', 'heavyBowgun', 'bow'].indexOf(stateMajorData.custom.type)) ? (
                                     <BasicSelector
                                         defaultValue={getSharpnessStep(stateMajorData.custom.sharpness)}
@@ -406,10 +406,10 @@ export default function CustomWeapon (props) {
                                 ) : false}
                             </div>
 
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('criticalRate')}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <BasicInput
                                     key={stateMajorData.custom.criticalRate}
                                     type="number"
@@ -422,10 +422,10 @@ export default function CustomWeapon (props) {
                                     }} />
                             </div>
 
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('defense')}</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <BasicInput
                                     key={stateMajorData.custom.defense}
                                     type="number"
@@ -439,11 +439,11 @@ export default function CustomWeapon (props) {
                             </div>
                         </div>
 
-                        <div className="col-12 mhrc-content">
-                            <div className="col-3 mhrc-name">
+                        <div className="col-12 mhc-content">
+                            <div className="col-3 mhc-name">
                                 <span>{_('element')}: 1</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <BasicSelector
                                     defaultValue={getValue(stateMajorData.custom.element.attack.type, 'none')}
                                     options={getAttackElementList()}
@@ -454,7 +454,7 @@ export default function CustomWeapon (props) {
                                         handleRefreshCustomDataset(stateMajorData)
                                     }} />
                             </div>
-                            <div className="col-6 mhrc-value">
+                            <div className="col-6 mhc-value">
                                 {Helper.isNotEmpty(stateMajorData.custom.element.attack.type) ? (
                                     <BasicInput
                                         key={stateMajorData.custom.element.attack.value}
@@ -469,10 +469,10 @@ export default function CustomWeapon (props) {
                                 ) : false}
                             </div>
 
-                            <div className="col-3 mhrc-name">
+                            <div className="col-3 mhc-name">
                                 <span>{_('element')}: 2</span>
                             </div>
-                            <div className="col-3 mhrc-value">
+                            <div className="col-3 mhc-value">
                                 <BasicSelector
                                     defaultValue={getValue(stateMajorData.custom.element.status.type, 'none')}
                                     options={getStatusElementList()}
@@ -483,7 +483,7 @@ export default function CustomWeapon (props) {
                                         handleRefreshCustomDataset(stateMajorData)
                                     }} />
                             </div>
-                            <div className="col-6 mhrc-value">
+                            <div className="col-6 mhc-value">
                                 {Helper.isNotEmpty(stateMajorData.custom.element.status.type) ? (
                                     <BasicInput
                                         key={stateMajorData.custom.element.status.value}
@@ -502,7 +502,7 @@ export default function CustomWeapon (props) {
                 ) : false}
 
                 {('playerEquips' === stateMajorData.target) ? (
-                    <div className="col-12 mhrc-content">
+                    <div className="col-12 mhc-content">
                         {[...Array(stateMajorData.custom.rampageSkill.amount)].map((rampageSkillData, rampageSkillIndex) => {
                             return renderRampageSkillOption(
                                 rampageSkillIndex,
@@ -513,14 +513,14 @@ export default function CustomWeapon (props) {
                     </div>
                 ) : false}
 
-                <div className="col-12 mhrc-content">
+                <div className="col-12 mhc-content">
                     {stateMajorData.custom.slots.map((slotData, slotIndex) => {
                         return (
                             <Fragment key={slotIndex}>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('slot')}: {slotIndex + 1}</span>
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     <BasicSelector
                                         defaultValue={getValue(stateMajorData.custom.slots[slotIndex].size, 'none')}
                                         options={getSlotSizeList()}
@@ -538,7 +538,7 @@ export default function CustomWeapon (props) {
                                 </div>
 
                                 {('playerEquips' === stateMajorData.target) ? (
-                                    <div className="col-6 mhrc-value">
+                                    <div className="col-6 mhc-value">
                                         {Helper.isNotEmpty(stateMajorData.custom.slots[slotIndex].size) ? (
                                             renderDecorationOption(
                                                 stateMajorData.target,
@@ -560,18 +560,18 @@ export default function CustomWeapon (props) {
                     && Helper.isNotEmpty(equipExtendItem.skills)
                     && 0 !== equipExtendItem.skills.length
                 ) ? (
-                    <div className="col-12 mhrc-content">
-                        <div className="col-12 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('skill')}</span>
                         </div>
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {equipExtendItem.skills.sort((skillDataA, skillDataB) => {
                                 return skillDataB.level - skillDataA.level
                             }).map((skillData) => {
                                 let skillItem = SkillDataset.getItem(skillData.id)
 
                                 return (Helper.isNotEmpty(skillItem)) ? (
-                                    <div key={skillItem.id} className="col-6 mhrc-value">
+                                    <div key={skillItem.id} className="col-6 mhc-value">
                                         <span>{_(skillItem.name)} Lv.{skillData.level}</span>
                                     </div>
                                 ) : false

@@ -1,7 +1,7 @@
 /**
  * Equips Dispayler: Custom Weapon
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -107,13 +107,13 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
                 <Fragment>
                     <span>[{decorationItem.size}] {_(decorationItem.name)}</span>
 
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton iconName="exchange" altName={_('change')} onClick={showModal} />
                         <IconButton iconName="times" altName={_('clean')} onClick={removeItem} />
                     </div>
                 </Fragment>
             ) : (
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                 </div>
             )}
@@ -203,15 +203,15 @@ export default function CustomCharm (props) {
 
         // Set Class Names
         let classNames = [
-            'mhrc-item'
+            'mhc-item'
         ]
 
         if ('playerEquips' === stateMajorData.target) {
-            classNames.push('mhrc-item-3-step')
+            classNames.push('mhc-item-3-step')
         }
 
         if ('requiredConditions' === stateMajorData.target) {
-            classNames.push('mhrc-content')
+            classNames.push('mhc-content')
         }
 
         // Get Equip Extend Item
@@ -219,9 +219,9 @@ export default function CustomCharm (props) {
 
         return (
             <div key="customCharm" className={classNames.join(' ')}>
-                <div className="col-12 mhrc-name">
+                <div className="col-12 mhc-name">
                     <span>{_('customCharm')}</span>
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         {('playerEquips' === stateMajorData.target && isNotRequire) ? (
                             <IconButton
                                 iconName="arrow-left" altName={_('include')}
@@ -233,14 +233,14 @@ export default function CustomCharm (props) {
                     </div>
                 </div>
 
-                <div className="col-12 mhrc-content">
+                <div className="col-12 mhc-content">
                     {stateMajorData.custom.slots.map((slotData, slotIndex) => {
                         return (
                             <Fragment key={slotIndex}>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('slot')}: {slotIndex + 1}</span>
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     <BasicSelector
                                         defaultValue={getValue(stateMajorData.custom.slots[slotIndex].size, 'none')}
                                         options={getSlotSizeList()}
@@ -258,7 +258,7 @@ export default function CustomCharm (props) {
                                 </div>
 
                                 {('playerEquips' === stateMajorData.target) ? (
-                                    <div className="col-6 mhrc-value">
+                                    <div className="col-6 mhc-value">
                                         {Helper.isNotEmpty(stateMajorData.custom.slots[slotIndex].size) ? (
                                             renderDecorationOption(
                                                 stateMajorData.target,
@@ -276,17 +276,17 @@ export default function CustomCharm (props) {
                     })}
                 </div>
 
-                <div className="col-12 mhrc-content">
+                <div className="col-12 mhc-content">
                     {stateMajorData.custom.skills.map((skillData, skillIndex) => {
                         let skillItem = SkillDataset.getItem(skillData.id)
                         let skillLevel = Helper.isNotEmpty(skillItem) ? skillItem.list.length : null
 
                         return (
                             <Fragment key={skillIndex}>
-                                <div className="col-3 mhrc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('skill')}: {skillIndex + 1}</span>
                                 </div>
-                                <div className="col-6 mhrc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicSelector
                                         defaultValue={getValue(stateMajorData.custom.skills[skillIndex].id, 'none')}
                                         options={getSkillList()}
@@ -297,7 +297,7 @@ export default function CustomCharm (props) {
                                             handleRefreshCustomDataset(stateMajorData)
                                         }} />
                                 </div>
-                                <div className="col-3 mhrc-value">
+                                <div className="col-3 mhc-value">
                                     {Helper.isNotEmpty(stateMajorData.custom.skills[skillIndex].id) ? (
                                         <BasicSelector
                                             defaultValue={getValue(stateMajorData.custom.skills[skillIndex].level, 'none')}
@@ -319,18 +319,18 @@ export default function CustomCharm (props) {
                     && Helper.isNotEmpty(equipExtendItem.skills)
                     && 0 !== equipExtendItem.skills.length
                 ) ? (
-                    <div className="col-12 mhrc-content">
-                        <div className="col-12 mhrc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('skill')}</span>
                         </div>
-                        <div className="col-12 mhrc-content">
+                        <div className="col-12 mhc-content">
                             {equipExtendItem.skills.sort((skillDataA, skillDataB) => {
                                 return skillDataB.level - skillDataA.level
                             }).map((skillData) => {
                                 let skillItem = SkillDataset.getItem(skillData.id)
 
                                 return (Helper.isNotEmpty(skillItem)) ? (
-                                    <div key={skillItem.id} className="col-6 mhrc-value">
+                                    <div key={skillItem.id} className="col-6 mhc-value">
                                         <span>{_(skillItem.name)} Lv.{skillData.level}</span>
                                     </div>
                                 ) : false

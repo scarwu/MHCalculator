@@ -1,7 +1,7 @@
 /**
  * Icon Button
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -19,14 +19,14 @@ export default function IconButton (props) {
         Helper.debug('Component: Common -> IconButton')
 
         return (
-            <div className="mhrc-icon_button">
-                <div className="mhrc-body">
-                    <a className="mhrc-icon" onClick={onClick}>
+            <div className="mhc-icon_button">
+                <div className="mhc-body">
+                    <a className="mhc-icon" onClick={onClick}>
                         <i className={`fas fa-${iconName}`}></i>
                     </a>
                 </div>
 
-                <div className="mhrc-label">
+                <div className="mhc-label">
                     <span>{altName}</span>
                 </div>
             </div>

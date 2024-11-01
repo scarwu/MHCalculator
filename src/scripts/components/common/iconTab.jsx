@@ -1,7 +1,7 @@
 /**
  * Icon Tab
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -19,7 +19,7 @@ export default function IconTab (props) {
         Helper.debug('Component: Common -> IconTab')
 
         let className = [
-            'mhrc-body'
+            'mhc-body'
         ]
 
         if (isActive) {
@@ -27,14 +27,14 @@ export default function IconTab (props) {
         }
 
         return (
-            <div className="mhrc-icon_tab">
+            <div className="mhc-icon_tab">
                 <a className={className.join(' ')} onClick={onClick}>
-                    <div className="mhrc-icon">
+                    <div className="mhc-icon">
                         <i className={`far fa-${iconName}`}></i>
                     </div>
                 </a>
 
-                <div className="mhrc-label">
+                <div className="mhc-label">
                     <span>{altName}</span>
                 </div>
             </div>

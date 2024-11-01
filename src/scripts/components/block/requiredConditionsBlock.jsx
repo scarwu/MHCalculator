@@ -1,7 +1,7 @@
 /**
  * Condition Options
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -54,11 +54,11 @@ export default function RequiredConditionsBlock (props) {
     }, [])
 
     return (
-        <div className="col mhrc-conditions">
-            <div className="mhrc-panel">
-                <span className="mhrc-title">{_('requireCondition')}</span>
+        <div className="col mhc-conditions">
+            <div className="mhc-panel">
+                <span className="mhc-title">{_('requireCondition')}</span>
 
-                <div className="mhrc-icons_bundle-left">
+                <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
                         isActive={0 === stateDataStore.requiredConditions.index}
@@ -77,14 +77,14 @@ export default function RequiredConditionsBlock (props) {
                         onClick={() => {handleSwitchDataStore(3)}} />
                 </div>
 
-                <div className="mhrc-icons_bundle-right">
+                <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
                         onClick={handleRequireConditionRefresh} />
                 </div>
             </div>
 
-            <div className="mhrc-list">
+            <div className="mhc-list">
                 <EquipList />
                 <SetList />
                 <SkillList />

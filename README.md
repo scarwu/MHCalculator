@@ -4,8 +4,8 @@
 
 [ ] Monster Hunter World
 [ ] Monster Hunter World: Iceborne
-[ ] Monster Hunter Rise
-[ ] Monster Hunter Rise: Sunbreak
+[ ] Monster Hunter
+[ ] Monster Hunter: Sunbreak
 [x] Monster Hunter Wilds
 
 ## Development
@@ -52,7 +52,7 @@ gulp release # and commit to github
 * https://monsterhunterworld.wiki.fextralife.com
 * https://mhw.poedb.tw
 
-### Monster Hunter Rise
+### Monster Hunter
 
 * https://game.capcom.com/manual/MHRISE/zh-hant/switch/top
 * https://mhr.gameqb.net

@@ -1,7 +1,7 @@
 /**
  * RampageSkill Selector Modal
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -37,21 +37,21 @@ const handleItemPickUp = (itemId, tempData) => {
  */
 const renderRampageSkillItem = (rampageSkillItem, tempData) => {
     let classNames = [
-        'mhrc-item'
+        'mhc-item'
     ]
 
     if (Helper.isEmpty(tempData.target) || rampageSkillItem.id !== tempData.id) {
-        classNames.push('mhrc-item-2-step')
+        classNames.push('mhc-item-2-step')
     } else {
-        classNames.push('mhrc-item-3-step')
+        classNames.push('mhc-item-3-step')
     }
 
     return (
         <div key={rampageSkillItem.id} className={classNames.join(' ')}>
-            <div className="col-12 mhrc-name">
+            <div className="col-12 mhc-name">
                 <span>{_(rampageSkillItem.name)}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {Helper.isNotEmpty(tempData.target) ? (
                         (rampageSkillItem.id !== tempData.id) ? (
                             <IconButton
@@ -69,7 +69,7 @@ const renderRampageSkillItem = (rampageSkillItem, tempData) => {
                     ) : false}
                 </div>
             </div>
-            <div className="col-12 mhrc-value mhrc-description">
+            <div className="col-12 mhc-value mhc-description">
                 <span>{_(rampageSkillItem.description)}</span>
             </div>
         </div>
@@ -202,19 +202,19 @@ export default function RampageSkillSelectorModal (props) {
     ])
 
     return Helper.isNotEmpty(stateTempData) ? (
-        <div className="mhrc-selector" ref={refModal} onClick={handleFastCloseModal}>
-            <div className="mhrc-modal">
-                <div className="mhrc-panel">
-                    <div className="mhrc-icons_bundle-left">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             bypassRef={refSearch} defaultValue={stateFilter.segment}
                             onChange={handleSegmentInput} />
                     </div>
 
-                    <span className="mhrc-title">{_('rampageSkillList')}</span>
+                    <span className="mhc-title">{_('rampageSkillList')}</span>
 
-                    <div className="mhrc-icons_bundle-right">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
@@ -222,8 +222,8 @@ export default function RampageSkillSelectorModal (props) {
                             }} />
                     </div>
                 </div>
-                <div className="mhrc-list">
-                    <div className="mhrc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getContent}
                     </div>
                 </div>

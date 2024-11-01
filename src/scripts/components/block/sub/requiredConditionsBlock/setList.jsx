@@ -1,7 +1,7 @@
 /**
  * Condition Options: Set List
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
  * @link        https://github.com/scarwu/MHCalculator
@@ -34,11 +34,11 @@ const renderSetItem = (setData) => {
     }
 
     return (
-        <div key={setItem.id} className="col-12 mhrc-content">
-            <div className="col-12 mhrc-name">
+        <div key={setItem.id} className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_(setItem.name)} x {setData.count} / {setItem.items.length}</span>
 
-                <div className="mhrc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="minus-circle" altName={_('down')}
                         onClick={() => {
@@ -88,10 +88,10 @@ export default function SetList (props) {
         }
 
         return (
-            <div className="mhrc-item mhrc-item-3-step">
-                <div className="col-12 mhrc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('set')}</span>
-                    <div className="mhrc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         {(0 === stateRequiredConditions.sets.length) ? (
                             <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                         ) : (
