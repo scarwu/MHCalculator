@@ -5,6 +5,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
+// Load Store
 import store from '@/scripts/states/store'
 
 // Modal Hub

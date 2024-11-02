@@ -14,8 +14,8 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import SetDataset from '@/scripts/libraries/dataset/set'
-import ArmorDataset from '@/scripts/libraries/dataset/armor'
+import SetDataset from '@/scripts/libraries/rise/dataset/set'
+import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -30,11 +30,11 @@ import States from '@/scripts/states'
 const handleItemPickUp = (itemId, action, tempData) => {
     if ('requiredConditions' === tempData.target) {
         if ('add' === action) {
-            States.rise.setter.addRequiredConditionsSet(itemId)
+            States.rise.actions.addRequiredConditionsSet(itemId)
         }
 
         if ('remove' === action) {
-            States.rise.setter.removeRequiredConditionsSet(itemId)
+            States.rise.actions.removeRequiredConditionsSet(itemId)
         }
     }
 }
@@ -108,8 +108,8 @@ export default function SetSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('setSelector'))
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('setSelector'))
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -119,9 +119,9 @@ export default function SetSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('setSelector'))
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('setSelector'))
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -173,7 +173,7 @@ export default function SetSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('setSelector')
+        States.rise.actions.hideModal('setSelector')
 
         updateFilter({})
     }, [])
@@ -242,7 +242,7 @@ export default function SetSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('setSelector')
+                                States.rise.actions.hideModal('setSelector')
                             }} />
                     </div>
                 </div>

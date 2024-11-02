@@ -14,7 +14,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import RampageSkillDataset from '@/scripts/libraries/dataset/rampageSkill'
+import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -28,7 +28,7 @@ import States from '@/scripts/states'
  */
 const handleItemPickUp = (itemId, tempData) => {
     if ('playerEquips' === tempData.target) {
-        States.rise.setter.setPlayerEquipRampageSkill('weapon', tempData.idIndex, itemId)
+        States.rise.actions.setPlayerEquipRampageSkill('weapon', tempData.idIndex, itemId)
     }
 }
 
@@ -81,8 +81,8 @@ export default function RampageSkillSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('rampageSkillSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('rampageSkillSelector'))
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -92,9 +92,9 @@ export default function RampageSkillSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('rampageSkillSelector'))
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('rampageSkillSelector'))
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
         })
 
         return () => {
@@ -149,7 +149,7 @@ export default function RampageSkillSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('rampageSkillSelector')
+        States.rise.actions.hideModal('rampageSkillSelector')
 
         updateFilter({})
     }, [])
@@ -218,7 +218,7 @@ export default function RampageSkillSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('rampageSkillSelector')
+                                States.rise.actions.hideModal('rampageSkillSelector')
                             }} />
                     </div>
                 </div>

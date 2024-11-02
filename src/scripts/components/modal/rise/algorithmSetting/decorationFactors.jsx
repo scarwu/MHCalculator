@@ -15,8 +15,8 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import BasicSelector from '@/scripts/components/ui/basicSelector'
@@ -30,14 +30,14 @@ export default function DecorationFactors (props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getter.getAlgorithmParams())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getters.getAlgorithmParams())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateAlgorithmParams(States.rise.getter.getAlgorithmParams())
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateAlgorithmParams(States.rise.getters.getAlgorithmParams())
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -136,7 +136,7 @@ export default function DecorationFactors (props) {
                                             <BasicSelector
                                                 iconName="sort-numeric-asc" defaultValue={selectLevel} options={levelList}
                                                 onChange={(event) => {
-                                                    States.rise.setter.setAlgorithmParamsUsingFactor('decoration:id:' + decorationId, parseInt(event.target.value))
+                                                    States.rise.actions.setAlgorithmParamsUsingFactor('decoration:id:' + decorationId, parseInt(event.target.value))
                                                 }} />
                                         </div>
                                     </div>

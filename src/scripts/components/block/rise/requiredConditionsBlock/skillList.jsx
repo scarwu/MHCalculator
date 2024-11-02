@@ -14,8 +14,8 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-// import SetDataset from '@/scripts/libraries/dataset/set'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+// import SetDataset from '@/scripts/libraries/rise/dataset/set'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -42,17 +42,17 @@ const renderSkillItem = (skillData) => {
                     <IconButton
                         iconName="minus-circle" altName={_('down')}
                         onClick={() => {
-                            States.rise.setter.decreaseRequiredConditionsSkillLevel(skillItem.id)
+                            States.rise.actions.decreaseRequiredConditionsSkillLevel(skillItem.id)
                         }} />
                     <IconButton
                         iconName="plus-circle" altName={_('up')}
                         onClick={() => {
-                            States.rise.setter.increaseRequiredConditionsSkillLevel(skillItem.id)
+                            States.rise.actions.increaseRequiredConditionsSkillLevel(skillItem.id)
                         }} />
                     <IconButton
                         iconName="times" altName={_('clean')}
                         onClick={() => {
-                            States.rise.setter.removeRequiredConditionsSkill(skillItem.id)
+                            States.rise.actions.removeRequiredConditionsSkill(skillItem.id)
                         }} />
                 </div>
             </div>
@@ -72,12 +72,12 @@ export default function SkillList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -89,7 +89,7 @@ export default function SkillList (props) {
         Helper.debug('Component: ConditionOptions -> SkillList')
 
         const showModal = () => {
-            States.rise.setter.showModal('skillSelector', {
+            States.rise.actions.showModal('skillSelector', {
                 target: 'requiredConditions'
             })
         }

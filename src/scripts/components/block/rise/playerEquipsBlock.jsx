@@ -19,10 +19,10 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
-// import RampageDecorationDataset from '@/scripts/libraries/dataset/rampageDecoration'
-import RampageSkillDataset from '@/scripts/libraries/dataset/rampageSkill'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
+// import RampageDecorationDataset from '@/scripts/libraries/rise/dataset/rampageDecoration'
+import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -38,11 +38,11 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleEquipsDisplayerRefresh = () => {
-    States.rise.setter.cleanPlayerEquips()
+    States.rise.actions.cleanPlayerEquips()
 }
 
 const handleSwitchDataStore = (index) => {
-    States.rise.setter.switchDataStore('playerEquips', index)
+    States.rise.actions.switchDataStore('playerEquips', index)
 }
 
 /**
@@ -54,14 +54,14 @@ const handleSwitchDataStore = (index) => {
     let rampageSkillItem = RampageSkillDataset.getItem(rampageSkillId)
 
     const showModal = () => {
-        States.rise.setter.showModal('rampageSkillSelector', {
+        States.rise.actions.showModal('rampageSkillSelector', {
             target: 'playerEquips',
             idIndex: rampageSkillIndex
         })
     }
 
     const removeItem = () => {
-        States.rise.setter.setPlayerEquipRampageSkill('weapon', rampageSkillIndex, null)
+        States.rise.actions.setPlayerEquipRampageSkill('weapon', rampageSkillIndex, null)
     }
 
     return (
@@ -95,7 +95,7 @@ const renderDecorationOption = (equipType, slotIndex, slotSize, decorationId) =>
     let decorationItem = DecorationDataset.getItem(decorationId)
 
     const showModal = () => {
-        States.rise.setter.showModal('decorationSelector', {
+        States.rise.actions.showModal('decorationSelector', {
             target: 'playerEquips',
             equipType: equipType,
             idIndex: slotIndex,
@@ -106,7 +106,7 @@ const renderDecorationOption = (equipType, slotIndex, slotSize, decorationId) =>
     }
 
     const removeItem = () => {
-        States.rise.setter.setPlayerEquipDecoration(equipType, slotIndex, null)
+        States.rise.actions.setPlayerEquipDecoration(equipType, slotIndex, null)
     }
 
     return (
@@ -327,14 +327,14 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
     }
 
     const showModal = () => {
-        States.rise.setter.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
+        States.rise.actions.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
             target: 'playerEquips',
             equipType: equipType
         })
     }
 
     const removeItem = () => {
-        States.rise.setter.setPlayerEquip(equipType, null)
+        States.rise.actions.setPlayerEquip(equipType, null)
     }
 
     if (Helper.isEmpty(equipExtendItem)) {
@@ -347,7 +347,7 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
                             <IconButton
                                 iconName="wrench" altName={_('customEquip')}
                                 onClick={() => {
-                                    States.rise.setter.setPlayerEquip(equipType, 'custom' + Helper.ucfirst(equipType))
+                                    States.rise.actions.setPlayerEquip(equipType, 'custom' + Helper.ucfirst(equipType))
                                 }} />
                         ) : false}
                         {'charm' !== equipType ? (
@@ -368,14 +368,14 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
                         <IconButton
                             iconName="arrow-left" altName={_('include')}
                             onClick={() => {
-                                States.rise.setter.replaceRequiredConditionsEquipData(equipType, currentEquipData)
+                                States.rise.actions.replaceRequiredConditionsEquipData(equipType, currentEquipData)
                             }} />
                     ) : false}
                     {'weapon' === equipType || 'charm' === equipType ? (
                         <IconButton
                             iconName="wrench" altName={_('customEquip')}
                             onClick={() => {
-                                States.rise.setter.setPlayerEquip(equipType, 'custom' + Helper.ucfirst(equipType))
+                                States.rise.actions.setPlayerEquip(equipType, 'custom' + Helper.ucfirst(equipType))
                             }} />
                     ) : false}
                     {'charm' !== equipType ? (
@@ -449,16 +449,16 @@ export default function PlayerEquipsBlock (props) {
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getter.getDataStore())
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateDataStore(States.rise.getter.getDataStore())
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateDataStore(States.rise.getters.getDataStore())
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {

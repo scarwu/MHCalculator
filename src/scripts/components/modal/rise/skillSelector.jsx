@@ -14,7 +14,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -29,11 +29,11 @@ import States from '@/scripts/states'
 const handleItemPickUp = (itemId, action, tempData) => {
     if ('requiredConditions' === tempData.target) {
         if ('add' === action) {
-            States.rise.setter.addRequiredConditionsSkill(itemId)
+            States.rise.actions.addRequiredConditionsSkill(itemId)
         }
 
         if ('remove' === action) {
-            States.rise.setter.removeRequiredConditionsSkill(itemId)
+            States.rise.actions.removeRequiredConditionsSkill(itemId)
         }
     }
 }
@@ -98,8 +98,8 @@ export default function SkillSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('skillSelector'))
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('skillSelector'))
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -109,9 +109,9 @@ export default function SkillSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('skillSelector'))
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('skillSelector'))
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -161,7 +161,7 @@ export default function SkillSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('skillSelector')
+        States.rise.actions.hideModal('skillSelector')
 
         updateFilter({})
     }, [])
@@ -234,7 +234,7 @@ export default function SkillSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('skillSelector')
+                                States.rise.actions.hideModal('skillSelector')
                             }} />
                     </div>
                 </div>

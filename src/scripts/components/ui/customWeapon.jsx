@@ -15,9 +15,9 @@ import Helper from '@/scripts/core/helper'
 
 // Load Custom Libraries
 import Misc from '@/scripts/libraries/misc'
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
-import RampageSkillDataset from '@/scripts/libraries/dataset/rampageSkill'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
+import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -121,11 +121,11 @@ const getSharpnessStep = (sharpness) => {
 
 const handleRefreshCustomDataset = (majorData) => {
     if ('playerEquips' === majorData.target) {
-        States.rise.setter.setPlayerEquipCustomDataset('weapon', majorData.custom)
+        States.rise.actions.setPlayerEquipCustomDataset('weapon', majorData.custom)
     }
 
     if ('requiredConditions' === majorData.target) {
-        States.rise.setter.setRequiredConditionsEquipCustomDataset('weapon', majorData.custom)
+        States.rise.actions.setRequiredConditionsEquipCustomDataset('weapon', majorData.custom)
     }
 }
 
@@ -138,14 +138,14 @@ const handleRefreshCustomDataset = (majorData) => {
     let rampageSkillItem = RampageSkillDataset.getItem(rampageSkillId)
 
     const showModal = () => {
-        States.rise.setter.showModal('rampageSkillSelector', {
+        States.rise.actions.showModal('rampageSkillSelector', {
             target: 'playerEquips',
             idIndex: rampageSkillIndex
         })
     }
 
     const removeItem = () => {
-        States.rise.setter.setPlayerEquipRampageSkill('weapon', rampageSkillIndex, null)
+        States.rise.actions.setPlayerEquipRampageSkill('weapon', rampageSkillIndex, null)
     }
 
     return (
@@ -179,7 +179,7 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
     let decorationItem = DecorationDataset.getItem(decorationId)
 
     const showModal = () => {
-        States.rise.setter.showModal('decorationSelector', {
+        States.rise.actions.showModal('decorationSelector', {
             target: target,
             equipType: equipType,
             idIndex: slotIndex,
@@ -191,7 +191,7 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
 
     const removeItem = () => {
         if ('playerEquips' === target) {
-            States.rise.setter.setPlayerEquipDecoration(equipType, slotIndex, null)
+            States.rise.actions.setPlayerEquipDecoration(equipType, slotIndex, null)
         }
     }
 
@@ -221,17 +221,17 @@ export default function CustomWeapon (props) {
     /**
      * Hooks
      */
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     const [stateMajorData, updateMajorData] = useState(null)
     const [stateMinorData, updateMinorData] = useState(null)
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -286,7 +286,7 @@ export default function CustomWeapon (props) {
         }
 
         const showModal = () => {
-            States.rise.setter.showModal('weaponSelector', {
+            States.rise.actions.showModal('weaponSelector', {
                 target: stateMajorData.target,
                 equipType: 'weapon'
             })
@@ -294,11 +294,11 @@ export default function CustomWeapon (props) {
 
         const removeItem = () => {
             if ('playerEquips' === stateMajorData.target) {
-                States.rise.setter.setPlayerEquip('weapon', null)
+                States.rise.actions.setPlayerEquip('weapon', null)
             }
 
             if ('requiredConditions' === stateMajorData.target) {
-                States.rise.setter.setRequiredConditionsEquip('weapon', null)
+                States.rise.actions.setRequiredConditionsEquip('weapon', null)
             }
         }
 
@@ -328,7 +328,7 @@ export default function CustomWeapon (props) {
                             <IconButton
                                 iconName="arrow-left" altName={_('include')}
                                 onClick={() => {
-                                    States.rise.setter.replaceRequiredConditionsEquipData('weapon', stateMajorData)
+                                    States.rise.actions.replaceRequiredConditionsEquipData('weapon', stateMajorData)
                                 }} />
                         ) : false}
                         <IconButton iconName="exchange" altName={_('change')} onClick={showModal} />
@@ -530,7 +530,7 @@ export default function CustomWeapon (props) {
 
                                             // Clean Decoration
                                             if ('playerEquips' === stateMajorData.target) {
-                                                States.rise.setter.setPlayerEquipDecoration('weapon', slotIndex, null)
+                                                States.rise.actions.setPlayerEquipDecoration('weapon', slotIndex, null)
                                             }
 
                                             handleRefreshCustomDataset(stateMajorData)

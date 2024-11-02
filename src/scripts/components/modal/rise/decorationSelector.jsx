@@ -14,8 +14,8 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -29,7 +29,7 @@ import States from '@/scripts/states'
  */
 const handleItemPickUp = (itemId, tempData) => {
     if ('playerEquips' === tempData.target) {
-        States.rise.setter.setPlayerEquipDecoration(tempData.equipType, tempData.idIndex, itemId)
+        States.rise.actions.setPlayerEquipDecoration(tempData.equipType, tempData.idIndex, itemId)
     }
 }
 
@@ -95,8 +95,8 @@ export default function DecorationSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('decorationSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('decorationSelector'))
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -106,9 +106,9 @@ export default function DecorationSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('decorationSelector'))
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('decorationSelector'))
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
         })
 
         return () => {
@@ -174,7 +174,7 @@ export default function DecorationSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('decorationSelector')
+        States.rise.actions.hideModal('decorationSelector')
 
         updateFilter({})
     }, [])
@@ -251,7 +251,7 @@ export default function DecorationSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('decorationSelector')
+                                States.rise.actions.hideModal('decorationSelector')
                             }} />
                     </div>
                 </div>

@@ -8,66 +8,67 @@
 // Load Core
 import Helper from '@/scripts/core/helper'
 
-import store from './store'
+// Load Store
+import store from '@/scripts/states/store'
 
 export const getModalData = (target = null) => {
     if (Helper.isEmpty(target)) {
-        return store.getState().modalHub
+        return store.getState().rise.modalHub
     }
 
-    if (Helper.isEmpty(store.getState().modalHub[target])) {
+    if (Helper.isEmpty(store.getState().rise.modalHub[target])) {
         return null
     }
 
-    return store.getState().modalHub[target]
+    return store.getState().rise.modalHub[target]
 }
 
 export const getDataStore = (target = null) => {
     if (Helper.isEmpty(target)) {
-        return store.getState().dataStore
+        return store.getState().rise.dataStore
     }
 
-    if (Helper.isEmpty(store.getState().dataStore[target])) {
+    if (Helper.isEmpty(store.getState().rise.dataStore[target])) {
         return null
     }
 
-    return store.getState().dataStore[target]
+    return store.getState().rise.dataStore[target]
 }
 
 export const getPlayerStatus = () => {
-    return store.getState().playerStatus
+    return store.getState().rise.playerStatus
 }
 
 export const getPlayerEquips = (target = null) => {
     if (Helper.isEmpty(target)) {
-        return store.getState().playerEquips
+        return store.getState().rise.playerEquips
     }
 
-    if (Helper.isEmpty(store.getState().playerEquips[target])) {
+    if (Helper.isEmpty(store.getState().rise.playerEquips[target])) {
         return null
     }
 
-    return store.getState().playerEquips[target]
+    return store.getState().rise.playerEquips[target]
 }
 
 export const getRequiredConditions = (target = null) => {
     if (Helper.isEmpty(target)) {
-        return store.getState().requiredConditions
+        return store.getState().rise.requiredConditions
     }
 
-    if (Helper.isEmpty(store.getState().requiredConditions[target])) {
+    if (Helper.isEmpty(store.getState().rise.requiredConditions[target])) {
         return null
     }
 
-    return store.getState().requiredConditions[target]
+    return store.getState().rise.requiredConditions[target]
 }
 
 export const getAlgorithmParams = () => {
-    return store.getState().algorithmParams
+    return store.getState().rise.algorithmParams
 }
 
 export const getCandidateBundles = () => {
-    return store.getState().candidateBundles
+    return store.getState().rise.candidateBundles
 }
 
 export default {

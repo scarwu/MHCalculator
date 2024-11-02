@@ -78,15 +78,15 @@ const handleLimitChange = (event) => {
 
     event.target.value = limit
 
-    States.rise.setter.setAlgorithmParamsLimit(limit)
+    States.rise.actions.setAlgorithmParamsLimit(limit)
 }
 
 const handleSortChange = (event) => {
-    States.rise.setter.setAlgorithmParamsSort(event.target.value)
+    States.rise.actions.setAlgorithmParamsSort(event.target.value)
 }
 
 const handleOrderChange = (event) => {
-    States.rise.setter.setAlgorithmParamsOrder(event.target.value)
+    States.rise.actions.setAlgorithmParamsOrder(event.target.value)
 }
 
 export default function AlgorithmSettingModal (props) {
@@ -94,8 +94,8 @@ export default function AlgorithmSettingModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('algorithmSetting'))
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getter.getAlgorithmParams())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('algorithmSetting'))
+    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getters.getAlgorithmParams())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -105,9 +105,9 @@ export default function AlgorithmSettingModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('algorithmSetting'))
-            updateAlgorithmParams(States.rise.getter.getAlgorithmParams())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('algorithmSetting'))
+            updateAlgorithmParams(States.rise.getters.getAlgorithmParams())
         })
 
         return () => {
@@ -145,7 +145,7 @@ export default function AlgorithmSettingModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('algorithmSetting')
+        States.rise.actions.hideModal('algorithmSetting')
 
         updateFilter({})
     }, [])
@@ -200,7 +200,7 @@ export default function AlgorithmSettingModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('algorithmSetting')
+                                States.rise.actions.hideModal('algorithmSetting')
                             }} />
                     </div>
                 </div>
@@ -259,11 +259,11 @@ export default function AlgorithmSettingModal (props) {
                                                     {stateAlgorithmParams.usingFactor['armor:rare:' + rare] ? (
                                                         <IconButton
                                                             iconName="star" altName={_('exclude')}
-                                                            onClick={() => {States.rise.setter.setAlgorithmParamsUsingFactor('armor:rare:' + rare, false)}} />
+                                                            onClick={() => {States.rise.actions.setAlgorithmParamsUsingFactor('armor:rare:' + rare, false)}} />
                                                     ) : (
                                                         <IconButton
                                                             iconName="star-o" altName={_('include')}
-                                                            onClick={() => {States.rise.setter.setAlgorithmParamsUsingFactor('armor:rare:' + rare, true)}} />
+                                                            onClick={() => {States.rise.actions.setAlgorithmParamsUsingFactor('armor:rare:' + rare, true)}} />
                                                     )}
                                                 </div>
                                             </div>
@@ -287,11 +287,11 @@ export default function AlgorithmSettingModal (props) {
                                                     {stateAlgorithmParams.usingFactor['decoration:size:' + size] ? (
                                                         <IconButton
                                                             iconName="star" altName={_('exclude')}
-                                                            onClick={() => {States.rise.setter.setAlgorithmParamsUsingFactor('decoration:size:' + size, false)}} />
+                                                            onClick={() => {States.rise.actions.setAlgorithmParamsUsingFactor('decoration:size:' + size, false)}} />
                                                     ) : (
                                                         <IconButton
                                                             iconName="star-o" altName={_('include')}
-                                                            onClick={() => {States.rise.setter.setAlgorithmParamsUsingFactor('decoration:size:' + size, true)}} />
+                                                            onClick={() => {States.rise.actions.setAlgorithmParamsUsingFactor('decoration:size:' + size, true)}} />
                                                     )}
                                                 </div>
                                             </div>

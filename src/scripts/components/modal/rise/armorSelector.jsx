@@ -17,8 +17,8 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import ArmorDataset from '@/scripts/libraries/dataset/armor'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -33,14 +33,14 @@ import States from '@/scripts/states'
  */
 const handleItemPickUp = (itemId, tempData) => {
     if ('playerEquips' === tempData.target) {
-        States.rise.setter.setPlayerEquip(tempData.equipType, itemId)
+        States.rise.actions.setPlayerEquip(tempData.equipType, itemId)
     }
 
     if ('requiredConditions' === tempData.target) {
-        States.rise.setter.setRequiredConditionsEquip(tempData.equipType, itemId)
+        States.rise.actions.setRequiredConditionsEquip(tempData.equipType, itemId)
     }
 
-    States.rise.setter.showModal('armorSelector', {
+    States.rise.actions.showModal('armorSelector', {
         target: tempData.target,
         equipType: tempData.equipType
     })
@@ -154,9 +154,9 @@ export default function ArmorSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('armorSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('armorSelector'))
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -166,10 +166,10 @@ export default function ArmorSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('armorSelector'))
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('armorSelector'))
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -267,7 +267,7 @@ export default function ArmorSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('armorSelector')
+        States.rise.actions.hideModal('armorSelector')
 
         updateFilter({})
     }, [])
@@ -295,7 +295,7 @@ export default function ArmorSelectorModal (props) {
         let type = event.target.value
 
         if (Helper.isNotEmpty(stateTempData.target)) {
-            States.rise.setter.showModal('armorSelector', {
+            States.rise.actions.showModal('armorSelector', {
                 target: stateTempData.target,
                 equipType: type
             })
@@ -385,7 +385,7 @@ export default function ArmorSelectorModal (props) {
                     <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={() => { States.rise.setter.hideModal('armorSelector') }} />
+                            onClick={() => { States.rise.actions.hideModal('armorSelector') }} />
                     </div>
                 </div>
                 <div className="mhc-list">

@@ -2,11 +2,11 @@
 
 ## Series
 
-[ ] Monster Hunter World
-[ ] Monster Hunter World: Iceborne
-[ ] Monster Hunter
-[ ] Monster Hunter: Sunbreak
-[x] Monster Hunter Wilds
+- [ ] Monster Hunter World
+- [ ] Monster Hunter World: Iceborne
+- [ ] Monster Hunter Rise
+- [ ] Monster Hunter Rise: Sunbreak
+- [x] Monster Hunter Wilds
 
 ## Development
 

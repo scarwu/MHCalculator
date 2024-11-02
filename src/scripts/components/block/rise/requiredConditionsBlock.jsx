@@ -28,11 +28,11 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleRequireConditionRefresh = () => {
-    States.rise.setter.cleanRequiredConditions()
+    States.rise.actions.cleanRequiredConditions()
 }
 
 const handleSwitchDataStore = (index) => {
-    States.rise.setter.switchDataStore('requiredConditions', index)
+    States.rise.actions.switchDataStore('requiredConditions', index)
 }
 
 export default function RequiredConditionsBlock (props) {
@@ -40,12 +40,12 @@ export default function RequiredConditionsBlock (props) {
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getter.getDataStore())
+    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateDataStore(States.rise.getter.getDataStore())
+        const unsubscribe = States.store.subscribe(() => {
+            updateDataStore(States.rise.getters.getDataStore())
         })
 
         return () => {

@@ -18,11 +18,11 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import WeaponDataset from '@/scripts/libraries/dataset/weapon'
-import ArmorDataset from '@/scripts/libraries/dataset/armor'
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
-import SetDataset from '@/scripts/libraries/dataset/set'
+import WeaponDataset from '@/scripts/libraries/rise/dataset/weapon'
+import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
+import SetDataset from '@/scripts/libraries/rise/dataset/set'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -35,7 +35,7 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleBundlePickUp = (bundle, requiredConditions) => {
-    let playerEquips = Helper.deepCopy(States.rise.getter.getPlayerEquips())
+    let playerEquips = Helper.deepCopy(States.rise.getters.getPlayerEquips())
     let slotMetaMap = {
         1: [],
         2: [],
@@ -122,7 +122,7 @@ const handleBundlePickUp = (bundle, requiredConditions) => {
         })
     }
 
-    States.rise.setter.replacePlayerEquips(playerEquips)
+    States.rise.actions.replacePlayerEquips(playerEquips)
 }
 
 export default function BundleList (props) {
@@ -130,14 +130,14 @@ export default function BundleList (props) {
     /**
      * Hooks
      */
-    const [stateCandidateBundles, updateCandidateBundles] = useState(States.rise.getter.getCandidateBundles())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateCandidateBundles, updateCandidateBundles] = useState(States.rise.getters.getCandidateBundles())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateCandidateBundles(States.rise.getter.getCandidateBundles())
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateCandidateBundles(States.rise.getters.getCandidateBundles())
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -153,7 +153,7 @@ export default function BundleList (props) {
 
         computedResult.list[bundleIndex].decorationPackageIndex = packageIndex
 
-        States.rise.setter.saveCandidateBundles(computedResult)
+        States.rise.actions.saveCandidateBundles(computedResult)
     }, [stateCandidateBundles])
 
     return useMemo(() => {
@@ -373,7 +373,7 @@ export default function BundleList (props) {
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {
-                                                        States.rise.setter.replaceRequiredConditionsEquipData(bundleEquipData.type, bundleEquipData)
+                                                        States.rise.actions.replaceRequiredConditionsEquipData(bundleEquipData.type, bundleEquipData)
                                                     }} />
                                             ) : false}
                                         </div>
@@ -460,7 +460,7 @@ export default function BundleList (props) {
                                                     <IconButton
                                                         iconName="arrow-left" altName={_('include')}
                                                         onClick={() => {
-                                                            States.rise.setter.addRequiredConditionsSet(setItem.id)
+                                                            States.rise.actions.addRequiredConditionsSet(setItem.id)
                                                         }} />
                                                 </div>
                                             ) : false}
@@ -489,7 +489,7 @@ export default function BundleList (props) {
                                                     <IconButton
                                                         iconName="arrow-left" altName={_('include')}
                                                         onClick={() => {
-                                                            States.rise.setter.addRequiredConditionsSkill(skillItem.id)
+                                                            States.rise.actions.addRequiredConditionsSkill(skillItem.id)
                                                         }} />
                                                 </div>
                                             ) : false}

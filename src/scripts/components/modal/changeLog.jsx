@@ -65,13 +65,13 @@ export default function ChangeLogModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('changeLog'))
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('changeLog'))
     const refModal = useRef()
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('changeLog'))
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('changeLog'))
         })
 
         return () => {
@@ -87,7 +87,7 @@ export default function ChangeLogModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('changeLog')
+        States.rise.actions.hideModal('changeLog')
     }, [])
 
     return Helper.isNotEmpty(stateModalData) ? (
@@ -99,7 +99,7 @@ export default function ChangeLogModal (props) {
                     <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={() => { States.rise.setter.hideModal('changeLog') }} />
+                            onClick={() => { States.rise.actions.hideModal('changeLog') }} />
                     </div>
                 </div>
                 <div className="mhc-list">

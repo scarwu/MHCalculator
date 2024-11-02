@@ -15,7 +15,7 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -36,14 +36,14 @@ const renderEquipItem = (equipType, requiredEquipData) => {
     let equipItem = Misc.getEquipItem(equipType, requiredEquipData)
 
     const showModal = () => {
-        States.rise.setter.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
+        States.rise.actions.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
             target: 'requiredConditions',
             equipType: equipType
         })
     }
 
     const removeItem = () => {
-        States.rise.setter.setRequiredConditionsEquip(equipType, null)
+        States.rise.actions.setRequiredConditionsEquip(equipType, null)
     }
 
     if (Helper.isEmpty(equipItem)) {
@@ -57,7 +57,7 @@ const renderEquipItem = (equipType, requiredEquipData) => {
                             <IconButton
                                 iconName="wrench" altName={_('customEquip')}
                                 onClick={() => {
-                                    States.rise.setter.setRequiredConditionsEquip(equipType, 'custom' + Helper.ucfirst(equipType))
+                                    States.rise.actions.setRequiredConditionsEquip(equipType, 'custom' + Helper.ucfirst(equipType))
                                 }} />
                         ) : false}
                         {'charm' !== equipType ? (
@@ -79,7 +79,7 @@ const renderEquipItem = (equipType, requiredEquipData) => {
                         <IconButton
                             iconName="wrench" altName={_('customEquip')}
                             onClick={() => {
-                                States.rise.setter.setRequiredConditionsEquip(equipType, 'custom' + Helper.ucfirst(equipType))
+                                States.rise.actions.setRequiredConditionsEquip(equipType, 'custom' + Helper.ucfirst(equipType))
                             }} />
                     ) : false}
                     {'charm' !== equipType ? (
@@ -97,12 +97,12 @@ export default function EquipList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {

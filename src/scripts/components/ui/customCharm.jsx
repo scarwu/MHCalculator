@@ -15,8 +15,8 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -68,11 +68,11 @@ const getValue = (value, defaultValue = '') => {
 
 const handleRefreshCustomDataset = (majorData) => {
     if ('playerEquips' === majorData.target) {
-        States.rise.setter.setPlayerEquipCustomDataset('charm', majorData.custom)
+        States.rise.actions.setPlayerEquipCustomDataset('charm', majorData.custom)
     }
 
     if ('requiredConditions' === majorData.target) {
-        States.rise.setter.setRequiredConditionsEquipCustomDataset('charm', majorData.custom)
+        States.rise.actions.setRequiredConditionsEquipCustomDataset('charm', majorData.custom)
     }
 }
 
@@ -85,7 +85,7 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
     let decorationItem = DecorationDataset.getItem(decorationId)
 
     const showModal = () => {
-        States.rise.setter.showModal('decorationSelector', {
+        States.rise.actions.showModal('decorationSelector', {
             target: target,
             equipType: equipType,
             idIndex: slotIndex,
@@ -97,7 +97,7 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
 
     const removeItem = () => {
         if ('playerEquips' === target) {
-            States.rise.setter.setPlayerEquipDecoration(equipType, slotIndex, null)
+            States.rise.actions.setPlayerEquipDecoration(equipType, slotIndex, null)
         }
     }
 
@@ -127,17 +127,17 @@ export default function CustomCharm (props) {
     /**
      * Hooks
      */
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     const [stateMajorData, updateMajorData] = useState(null)
     const [stateMinorData, updateMinorData] = useState(null)
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -193,11 +193,11 @@ export default function CustomCharm (props) {
 
         const removeItem = () => {
             if ('playerEquips' === stateMajorData.target) {
-                States.rise.setter.setPlayerEquip('charm', null)
+                States.rise.actions.setPlayerEquip('charm', null)
             }
 
             if ('requiredConditions' === stateMajorData.target) {
-                States.rise.setter.setRequiredConditionsEquip('charm', null)
+                States.rise.actions.setRequiredConditionsEquip('charm', null)
             }
         }
 
@@ -226,7 +226,7 @@ export default function CustomCharm (props) {
                             <IconButton
                                 iconName="arrow-left" altName={_('include')}
                                 onClick={() => {
-                                    States.rise.setter.replaceRequiredConditionsEquipData('charm', stateMajorData)
+                                    States.rise.actions.replaceRequiredConditionsEquipData('charm', stateMajorData)
                                 }} />
                         ) : false}
                         <IconButton iconName="times" altName={_('clean')} onClick={removeItem} />
@@ -250,7 +250,7 @@ export default function CustomCharm (props) {
 
                                             // Clean Decoration
                                             if ('playerEquips' === stateMajorData.target) {
-                                                States.rise.setter.setPlayerEquipDecoration('charm', slotIndex, null)
+                                                States.rise.actions.setPlayerEquipDecoration('charm', slotIndex, null)
                                             }
 
                                             handleRefreshCustomDataset(stateMajorData)

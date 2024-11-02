@@ -15,9 +15,9 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import ArmorDataset from '@/scripts/libraries/dataset/armor'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
-import SetDataset from '@/scripts/libraries/dataset/set'
+import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
+import SetDataset from '@/scripts/libraries/rise/dataset/set'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -31,12 +31,12 @@ export default function RequiredConditions (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -121,7 +121,7 @@ export default function RequiredConditions (props) {
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {
-                                                        States.rise.setter.replaceRequiredConditionsEquipData(currentEquipData.type, currentEquipData)
+                                                        States.rise.actions.replaceRequiredConditionsEquipData(currentEquipData.type, currentEquipData)
                                                     }} />
                                             ) : false}
                                         </div>
@@ -151,7 +151,7 @@ export default function RequiredConditions (props) {
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {
-                                                        States.rise.setter.addRequiredConditionsSet(setItem.id)
+                                                        States.rise.actions.addRequiredConditionsSet(setItem.id)
                                                     }} />
                                             </div>
                                         ) : false}
@@ -181,7 +181,7 @@ export default function RequiredConditions (props) {
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {
-                                                        States.rise.setter.addRequiredConditionsSkill(skillItem.id)
+                                                        States.rise.actions.addRequiredConditionsSkill(skillItem.id)
                                                     }} />
                                             </div>
                                         ) : false}

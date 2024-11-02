@@ -40,7 +40,7 @@ import '@/styles/app.sass'
 
 if ('production' === Config.env) {
     if (Config.buildTime !== Status.get('sys:buildTime')) {
-        States.rise.setter.showModal('changeLog')
+        States.rise.actions.showModal('changeLog')
     }
 
     Status.set('sys:buildTime', Config.buildTime)
@@ -71,7 +71,7 @@ const seriesList = [
  * Handle Functions
  */
 const handlePlayerEquipsExport = () => {
-    let equips = Helper.deepCopy(States.rise.getter.getPlayerEquips())
+    let equips = Helper.deepCopy(States.rise.getters.getPlayerEquips())
     let hash = Helper.base64Encode(JSON.stringify(equips))
 
     let protocol = window.location.protocol
@@ -106,7 +106,7 @@ export default function App () {
 
             // TODO: need verify
 
-            States.rise.setter.replacePlayerEquips(playerEquips)
+            States.rise.actions.replacePlayerEquips(playerEquips)
         }
     }, [])
 
@@ -150,7 +150,7 @@ export default function App () {
                         onClick={handlePlayerEquipsExport} />
                     <IconButton
                         iconName="info" altName={_('changeLog')}
-                        onClick={() => { States.rise.setter.showModal('changeLog') }} />
+                        onClick={() => { States.rise.actions.showModal('changeLog') }} />
                     <IconButton
                         iconName="question" altName={_('readme')}
                         onClick={handleOpenReadme} />

@@ -14,7 +14,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import PetalaceDataset from '@/scripts/libraries/dataset/petalace'
+import PetalaceDataset from '@/scripts/libraries/rise/dataset/petalace'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -28,7 +28,7 @@ import States from '@/scripts/states'
  */
 const handleItemPickUp = (itemId, tempData) => {
     if ('playerEquips' === tempData.target) {
-        States.rise.setter.setPlayerEquip(tempData.equipType, itemId)
+        States.rise.actions.setPlayerEquip(tempData.equipType, itemId)
     }
 }
 
@@ -128,8 +128,8 @@ export default function PetalaceSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('petalaceSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('petalaceSelector'))
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -139,9 +139,9 @@ export default function PetalaceSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('petalaceSelector'))
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('petalaceSelector'))
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
         })
 
         return () => {
@@ -194,7 +194,7 @@ export default function PetalaceSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('petalaceSelector')
+        States.rise.actions.hideModal('petalaceSelector')
 
         updateFilter({})
     }, [])
@@ -263,7 +263,7 @@ export default function PetalaceSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('petalaceSelector')
+                                States.rise.actions.hideModal('petalaceSelector')
                             }} />
                     </div>
                 </div>

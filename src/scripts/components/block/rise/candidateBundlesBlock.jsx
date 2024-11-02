@@ -38,13 +38,13 @@ let workers = {}
  * Handle Functions
  */
 const handleShowAllAlgorithmSetting = () => {
-    States.rise.setter.showModal('algorithmSetting', {
+    States.rise.actions.showModal('algorithmSetting', {
         mode: 'all'
     })
 }
 
 const handleSwitchDataStore = (index) => {
-    States.rise.setter.switchDataStore('candidateBundles', index)
+    States.rise.actions.switchDataStore('candidateBundles', index)
 }
 
 const convertTimeFormat = (seconds) => {
@@ -74,15 +74,15 @@ export default function CandidateBundlesBlock (props) {
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getter.getDataStore())
-    const [stateCandidateBundles, updateCandidateBundles] = useState(States.rise.getter.getCandidateBundles())
+    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
+    const [stateCandidateBundles, updateCandidateBundles] = useState(States.rise.getters.getCandidateBundles())
     const [stateTasks, updateTasks] = useState({})
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateDataStore(States.rise.getter.getDataStore())
-            updateCandidateBundles(States.rise.getter.getCandidateBundles())
+        const unsubscribe = States.store.subscribe(() => {
+            updateDataStore(States.rise.getters.getDataStore())
+            updateCandidateBundles(States.rise.getters.getCandidateBundles())
         })
 
         return () => {
@@ -117,7 +117,7 @@ export default function CandidateBundlesBlock (props) {
             case 'result':
                 handleSwitchDataStore(tabIndex)
 
-                States.rise.setter.replaceCandidateBundles(payload.candidateBundles)
+                States.rise.actions.replaceCandidateBundles(payload.candidateBundles)
 
                 // workers[tabIndex].terminate()
                 // workers[tabIndex] = null
@@ -171,8 +171,8 @@ export default function CandidateBundlesBlock (props) {
         }
 
         // Get All Data From Store
-        let requiredConditions = States.rise.getter.getRequiredConditions()
-        let algorithmParams = States.rise.getter.getAlgorithmParams()
+        let requiredConditions = States.rise.getters.getRequiredConditions()
+        let algorithmParams = States.rise.getters.getAlgorithmParams()
 
         if (Helper.isEmpty(requiredConditions.sets) && Helper.isEmpty(requiredConditions.skills)) {
             return
@@ -252,7 +252,7 @@ export default function CandidateBundlesBlock (props) {
                 <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
-                        onClick={States.rise.setter.cleanCandidateBundles} />
+                        onClick={States.rise.actions.cleanCandidateBundles} />
                     <IconButton
                         iconName="cog" altName={_('setting')}
                         onClick={handleShowAllAlgorithmSetting} />

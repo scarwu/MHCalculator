@@ -14,8 +14,8 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-// import SetDataset from '@/scripts/libraries/dataset/set'
-import SetDataset from '@/scripts/libraries/dataset/set'
+// import SetDataset from '@/scripts/libraries/rise/dataset/set'
+import SetDataset from '@/scripts/libraries/rise/dataset/set'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -42,17 +42,17 @@ const renderSetItem = (setData) => {
                     <IconButton
                         iconName="minus-circle" altName={_('down')}
                         onClick={() => {
-                            States.rise.setter.decreaseRequiredConditionsSetCount(setItem.id)
+                            States.rise.actions.decreaseRequiredConditionsSetCount(setItem.id)
                         }} />
                     <IconButton
                         iconName="plus-circle" altName={_('up')}
                         onClick={() => {
-                            States.rise.setter.increaseRequiredConditionsSetCount(setItem.id)
+                            States.rise.actions.increaseRequiredConditionsSetCount(setItem.id)
                         }} />
                     <IconButton
                         iconName="times" altName={_('clean')}
                         onClick={() => {
-                            States.rise.setter.removeRequiredConditionsSet(setItem.id)
+                            States.rise.actions.removeRequiredConditionsSet(setItem.id)
                         }} />
                 </div>
             </div>
@@ -65,12 +65,12 @@ export default function SetList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getter.getRequiredConditions())
+    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getter.getRequiredConditions())
+        const unsubscribe = States.store.subscribe(() => {
+            updateRequiredConditions(States.rise.getters.getRequiredConditions())
         })
 
         return () => {
@@ -82,7 +82,7 @@ export default function SetList (props) {
         Helper.debug('Component: ConditionOptions -> SetList')
 
         const showModal = () => {
-            States.rise.setter.showModal('setSelector', {
+            States.rise.actions.showModal('setSelector', {
                 target: 'requiredConditions'
             })
         }

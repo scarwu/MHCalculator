@@ -18,9 +18,9 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/misc'
-import SetDataset from '@/scripts/libraries/dataset/set'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
-import WeaponDataset from '@/scripts/libraries/dataset/weapon'
+import SetDataset from '@/scripts/libraries/rise/dataset/set'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
+import WeaponDataset from '@/scripts/libraries/rise/dataset/weapon'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -40,7 +40,7 @@ const generateEquipInfos = (equips) => {
     //     && 'customWeapon' === equips.weapon.id
     // ) {
     //     let isCompleted = true
-    //     let customWeapon = States.rise.getter.getCustomWeapon()
+    //     let customWeapon = States.rise.getters.getCustomWeapon()
 
     //     if (Helper.isEmpty(customWeapon.type)
     //         || Helper.isEmpty(customWeapon.rare)
@@ -619,8 +619,8 @@ export default function PlayerStatusBlock (props) {
     /**
      * Hooks
      */
-    const [statePlayerStatus, updatePlayerStatus] = useState(States.rise.getter.getPlayerStatus())
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
+    const [statePlayerStatus, updatePlayerStatus] = useState(States.rise.getters.getPlayerStatus())
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
     const [stateEquipInfos, updateEquipInfos] = useState({})
     const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.defaultStatus))
     const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.defaultBenefitAnalysis))
@@ -654,9 +654,9 @@ export default function PlayerStatusBlock (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updatePlayerStatus(States.rise.getter.getPlayerStatus())
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
+        const unsubscribe = States.store.subscribe(() => {
+            updatePlayerStatus(States.rise.getters.getPlayerStatus())
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
         })
 
         return () => {
@@ -975,7 +975,7 @@ export default function PlayerStatusBlock (props) {
                                     iconName={statePlayerStatus.usingItem['powerCharm'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['powerCharm'] ? _('deactive') : _('active')}
                                     onClick={() => {
-                                        States.rise.setter.togglePlayerStatusUsingItem('powerCharm')
+                                        States.rise.actions.togglePlayerStatusUsingItem('powerCharm')
                                     }} />
                             </div>
                         </div>
@@ -988,7 +988,7 @@ export default function PlayerStatusBlock (props) {
                                     iconName={statePlayerStatus.usingItem['armorCharm'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['armorCharm'] ? _('deactive') : _('active')}
                                     onClick={() => {
-                                        States.rise.setter.togglePlayerStatusUsingItem('armorCharm')
+                                        States.rise.actions.togglePlayerStatusUsingItem('armorCharm')
                                     }} />
                             </div>
                         </div>
@@ -1001,7 +1001,7 @@ export default function PlayerStatusBlock (props) {
                                     iconName={statePlayerStatus.usingItem['powerTalon'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['powerTalon'] ? _('deactive') : _('active')}
                                     onClick={() => {
-                                        States.rise.setter.togglePlayerStatusUsingItem('powerTalon')
+                                        States.rise.actions.togglePlayerStatusUsingItem('powerTalon')
                                     }} />
                             </div>
                         </div>
@@ -1014,7 +1014,7 @@ export default function PlayerStatusBlock (props) {
                                     iconName={statePlayerStatus.usingItem['armorTalon'] ? 'circle' : 'circle'}
                                     altName={statePlayerStatus.usingItem['armorTalon'] ? _('deactive') : _('active')}
                                     onClick={() => {
-                                        States.rise.setter.togglePlayerStatusUsingItem('armorTalon')
+                                        States.rise.actions.togglePlayerStatusUsingItem('armorTalon')
                                     }} />
                             </div>
                         </div>

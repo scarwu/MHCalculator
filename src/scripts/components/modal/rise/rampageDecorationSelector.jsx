@@ -14,8 +14,8 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import RampageDecorationDataset from '@/scripts/libraries/dataset/rampageDecoration'
-import SkillDataset from '@/scripts/libraries/dataset/skill'
+import RampageDecorationDataset from '@/scripts/libraries/rise/dataset/rampageDecoration'
+import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -29,7 +29,7 @@ import States from '@/scripts/states'
  */
 const handleItemPickUp = (itemId, tempData) => {
     if ('playerEquips' === tempData.target) {
-        States.rise.setter.setPlayerEquipRampageDecoration(tempData.equipType, tempData.idIndex, itemId)
+        States.rise.actions.setPlayerEquipRampageDecoration(tempData.equipType, tempData.idIndex, itemId)
     }
 }
 
@@ -91,8 +91,8 @@ export default function RampageDecorationSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getter.getModalData('rampageDecorationSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getter.getPlayerEquips())
+    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('rampageDecorationSelector'))
+    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
@@ -102,9 +102,9 @@ export default function RampageDecorationSelectorModal (props) {
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = States.rise.store.subscribe(() => {
-            updateModalData(States.rise.getter.getModalData('rampageDecorationSelector'))
-            updatePlayerEquips(States.rise.getter.getPlayerEquips())
+        const unsubscribe = States.store.subscribe(() => {
+            updateModalData(States.rise.getters.getModalData('rampageDecorationSelector'))
+            updatePlayerEquips(States.rise.getters.getPlayerEquips())
         })
 
         return () => {
@@ -170,7 +170,7 @@ export default function RampageDecorationSelectorModal (props) {
             return
         }
 
-        States.rise.setter.hideModal('rampageDecorationSelector')
+        States.rise.actions.hideModal('rampageDecorationSelector')
 
         updateFilter({})
     }, [])
@@ -247,7 +247,7 @@ export default function RampageDecorationSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.setter.hideModal('rampageDecorationSelector')
+                                States.rise.actions.hideModal('rampageDecorationSelector')
                             }} />
                     </div>
                 </div>
