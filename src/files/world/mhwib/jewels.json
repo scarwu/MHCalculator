@@ -1,0 +1,5834 @@
+[
+    {
+        "id": "威嚇珠 II",
+        "name": {
+            "zhTW": "威嚇珠 II",
+            "jaJP": "威嚇珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "威嚇",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "威嚇珠 III",
+        "name": {
+            "zhTW": "威嚇珠 III",
+            "jaJP": "威嚇珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "威嚇",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "迴避珠 II",
+        "name": {
+            "zhTW": "迴避珠 II",
+            "jaJP": "回避珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避性能",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "解放．迴避珠",
+        "name": {
+            "zhTW": "解放．迴避珠",
+            "jaJP": "解放・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "解放．加護珠",
+        "name": {
+            "zhTW": "解放．加護珠",
+            "jaJP": "解放・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "解放．整備珠",
+        "name": {
+            "zhTW": "解放．整備珠",
+            "jaJP": "解放・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "解放．體術珠",
+        "name": {
+            "zhTW": "解放．體術珠",
+            "jaJP": "解放・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "解放．體力珠",
+        "name": {
+            "zhTW": "解放．體力珠",
+            "jaJP": "解放・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "解放．治癒珠",
+        "name": {
+            "zhTW": "解放．治癒珠",
+            "jaJP": "解放・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "火炎珠 II",
+        "name": {
+            "zhTW": "火炎珠 II",
+            "jaJP": "火炎珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火屬性攻擊強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "滑走．迴避珠",
+        "name": {
+            "zhTW": "滑走．迴避珠",
+            "jaJP": "滑走・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "滑走．解放珠",
+        "name": {
+            "zhTW": "滑走．解放珠",
+            "jaJP": "滑走・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "滑走．體術珠",
+        "name": {
+            "zhTW": "滑走．體術珠",
+            "jaJP": "滑走・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "滑走．匠珠",
+        "name": {
+            "zhTW": "滑走．匠珠",
+            "jaJP": "滑走・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "滑走．達人珠",
+        "name": {
+            "zhTW": "滑走．達人珠",
+            "jaJP": "滑走・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "滑走．攻擊珠",
+        "name": {
+            "zhTW": "滑走．攻擊珠",
+            "jaJP": "滑走・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "環境珠 II",
+        "name": {
+            "zhTW": "環境珠 II",
+            "jaJP": "環境珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "環境利用的知識",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "環境珠 III",
+        "name": {
+            "zhTW": "環境珠 III",
+            "jaJP": "環境珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "環境利用的知識",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "逆上．迴避珠",
+        "name": {
+            "zhTW": "逆上．迴避珠",
+            "jaJP": "逆上・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上．加護珠",
+        "name": {
+            "zhTW": "逆上．加護珠",
+            "jaJP": "逆上・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上．整備珠",
+        "name": {
+            "zhTW": "逆上．整備珠",
+            "jaJP": "逆上・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上．體術珠",
+        "name": {
+            "zhTW": "逆上．體術珠",
+            "jaJP": "逆上・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上．體力珠",
+        "name": {
+            "zhTW": "逆上．體力珠",
+            "jaJP": "逆上・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上．治癒珠",
+        "name": {
+            "zhTW": "逆上．治癒珠",
+            "jaJP": "逆上・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上珠 II",
+        "name": {
+            "zhTW": "逆上珠 II",
+            "jaJP": "逆上珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 2,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "逆境．迴避珠",
+        "name": {
+            "zhTW": "逆境．迴避珠",
+            "jaJP": "逆境・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆境．解放珠",
+        "name": {
+            "zhTW": "逆境．解放珠",
+            "jaJP": "逆境・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆境．攻擊珠",
+        "name": {
+            "zhTW": "逆境．攻擊珠",
+            "jaJP": "逆境・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆境．體術珠",
+        "name": {
+            "zhTW": "逆境．體術珠",
+            "jaJP": "逆境・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆境．匠珠",
+        "name": {
+            "zhTW": "逆境．匠珠",
+            "jaJP": "逆境・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆境．達人珠",
+        "name": {
+            "zhTW": "逆境．達人珠",
+            "jaJP": "逆境・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路．迴避珠",
+        "name": {
+            "zhTW": "絕路．迴避珠",
+            "jaJP": "窮地・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路．解放珠",
+        "name": {
+            "zhTW": "絕路．解放珠",
+            "jaJP": "窮地・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路．攻擊珠",
+        "name": {
+            "zhTW": "絕路．攻擊珠",
+            "jaJP": "窮地・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路．體術珠",
+        "name": {
+            "zhTW": "絕路．體術珠",
+            "jaJP": "窮地・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路．匠珠",
+        "name": {
+            "zhTW": "絕路．匠珠",
+            "jaJP": "窮地・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路．達人珠",
+        "name": {
+            "zhTW": "絕路．達人珠",
+            "jaJP": "窮地・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走．迴避珠",
+        "name": {
+            "zhTW": "強走．迴避珠",
+            "jaJP": "強走・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走．解放珠",
+        "name": {
+            "zhTW": "強走．解放珠",
+            "jaJP": "強走・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走．攻擊珠",
+        "name": {
+            "zhTW": "強走．攻擊珠",
+            "jaJP": "強走・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走．體術珠",
+        "name": {
+            "zhTW": "強走．體術珠",
+            "jaJP": "強走・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走．匠珠",
+        "name": {
+            "zhTW": "強走．匠珠",
+            "jaJP": "強走・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走．達人珠",
+        "name": {
+            "zhTW": "強走．達人珠",
+            "jaJP": "強走・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "KO．迴避珠",
+        "name": {
+            "zhTW": "KO．迴避珠",
+            "jaJP": "KO・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "KO．加護珠",
+        "name": {
+            "zhTW": "KO．加護珠",
+            "jaJP": "KO・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "KO．整備珠",
+        "name": {
+            "zhTW": "KO．整備珠",
+            "jaJP": "KO・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "KO．體術珠",
+        "name": {
+            "zhTW": "KO．體術珠",
+            "jaJP": "KO・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "KO．體力珠",
+        "name": {
+            "zhTW": "KO．體力珠",
+            "jaJP": "KO・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "KO．治癒珠",
+        "name": {
+            "zhTW": "KO．治癒珠",
+            "jaJP": "KO・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨．迴避珠",
+        "name": {
+            "zhTW": "研磨．迴避珠",
+            "jaJP": "研磨・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨．解放珠",
+        "name": {
+            "zhTW": "研磨．解放珠",
+            "jaJP": "研磨・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨．攻擊珠",
+        "name": {
+            "zhTW": "研磨．攻擊珠",
+            "jaJP": "研磨・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨．體術珠",
+        "name": {
+            "zhTW": "研磨．體術珠",
+            "jaJP": "研磨・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨．匠珠",
+        "name": {
+            "zhTW": "研磨．匠珠",
+            "jaJP": "研磨・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨．達人珠",
+        "name": {
+            "zhTW": "研磨．達人珠",
+            "jaJP": "研磨・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "攻擊珠 II",
+        "name": {
+            "zhTW": "攻擊珠 II",
+            "jaJP": "攻撃珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "昂揚．迴避珠",
+        "name": {
+            "zhTW": "昂揚．迴避珠",
+            "jaJP": "昂揚・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "昂揚．加護珠",
+        "name": {
+            "zhTW": "昂揚．加護珠",
+            "jaJP": "昂揚・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "昂揚．整備珠",
+        "name": {
+            "zhTW": "昂揚．整備珠",
+            "jaJP": "昂揚・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "昂揚．體術珠",
+        "name": {
+            "zhTW": "昂揚．體術珠",
+            "jaJP": "昂揚・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "昂揚．體力珠",
+        "name": {
+            "zhTW": "昂揚．體力珠",
+            "jaJP": "昂揚・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "昂揚．治癒珠",
+        "name": {
+            "zhTW": "昂揚．治癒珠",
+            "jaJP": "昂揚・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鼓笛珠 II",
+        "name": {
+            "zhTW": "鼓笛珠 II",
+            "jaJP": "鼓笛珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "吹笛名人",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "渾身．迴避珠",
+        "name": {
+            "zhTW": "渾身．迴避珠",
+            "jaJP": "渾身・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "渾身．加護珠",
+        "name": {
+            "zhTW": "渾身．加護珠",
+            "jaJP": "渾身・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "渾身．整備珠",
+        "name": {
+            "zhTW": "渾身．整備珠",
+            "jaJP": "渾身・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "渾身．體術珠",
+        "name": {
+            "zhTW": "渾身．體術珠",
+            "jaJP": "渾身・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "渾身．體力珠",
+        "name": {
+            "zhTW": "渾身．體力珠",
+            "jaJP": "渾身・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "渾身．治癒珠",
+        "name": {
+            "zhTW": "渾身．治癒珠",
+            "jaJP": "渾身・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "指示珠 II",
+        "name": {
+            "zhTW": "指示珠 II",
+            "jaJP": "采配珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "指示隨從",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "指示珠 III",
+        "name": {
+            "zhTW": "指示珠 III",
+            "jaJP": "采配珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "指示隨從",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "持續珠 II",
+        "name": {
+            "zhTW": "持續珠 II",
+            "jaJP": "持続珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "道具使用強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "持續珠 III",
+        "name": {
+            "zhTW": "持續珠 III",
+            "jaJP": "持続珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "道具使用強化",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "重擊．迴避珠",
+        "name": {
+            "zhTW": "重擊．迴避珠",
+            "jaJP": "重撃・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "重擊．加護珠",
+        "name": {
+            "zhTW": "重擊．加護珠",
+            "jaJP": "重撃・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "重擊．整備珠",
+        "name": {
+            "zhTW": "重擊．整備珠",
+            "jaJP": "重撃・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "重擊．體術珠",
+        "name": {
+            "zhTW": "重擊．體術珠",
+            "jaJP": "重撃・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "重擊．體力珠",
+        "name": {
+            "zhTW": "重擊．體力珠",
+            "jaJP": "重撃・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "重擊．治癒珠",
+        "name": {
+            "zhTW": "重擊．治癒珠",
+            "jaJP": "重撃・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢．迴避珠",
+        "name": {
+            "zhTW": "守勢．迴避珠",
+            "jaJP": "守勢・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢．解放珠",
+        "name": {
+            "zhTW": "守勢．解放珠",
+            "jaJP": "守勢・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢．攻擊珠",
+        "name": {
+            "zhTW": "守勢．攻擊珠",
+            "jaJP": "守勢・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢．體術珠",
+        "name": {
+            "zhTW": "守勢．體術珠",
+            "jaJP": "守勢・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢．匠珠",
+        "name": {
+            "zhTW": "守勢．匠珠",
+            "jaJP": "守勢・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢．達人珠",
+        "name": {
+            "zhTW": "守勢．達人珠",
+            "jaJP": "守勢・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "守勢珠",
+        "name": {
+            "zhTW": "守勢珠",
+            "jaJP": "守勢珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 2,
+        "skills": [
+            {
+                "id": "攻擊守勢",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "植學珠 II",
+        "name": {
+            "zhTW": "植學珠 II",
+            "jaJP": "植学珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "植生學",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "植學珠 IV",
+        "name": {
+            "zhTW": "植學珠 IV",
+            "jaJP": "植学珠 IV",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "植生學",
+                "level": 4
+            }
+        ]
+    },
+    {
+        "id": "睡眠珠 II",
+        "name": {
+            "zhTW": "睡眠珠 II",
+            "jaJP": "睡眠珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "睡眠屬性強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "節食．迴避珠",
+        "name": {
+            "zhTW": "節食．迴避珠",
+            "jaJP": "節食・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "節食．解放珠",
+        "name": {
+            "zhTW": "節食．解放珠",
+            "jaJP": "節食・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "節食．攻擊珠",
+        "name": {
+            "zhTW": "節食．攻擊珠",
+            "jaJP": "節食・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "節食．體術珠",
+        "name": {
+            "zhTW": "節食．體術珠",
+            "jaJP": "節食・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "節食．匠珠",
+        "name": {
+            "zhTW": "節食．匠珠",
+            "jaJP": "節食・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "節食．達人珠",
+        "name": {
+            "zhTW": "節食．達人珠",
+            "jaJP": "節食・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開珠 II",
+        "name": {
+            "zhTW": "全開珠 II",
+            "jaJP": "全開珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "全開．迴避珠",
+        "name": {
+            "zhTW": "全開．迴避珠",
+            "jaJP": "全開・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開．加護珠",
+        "name": {
+            "zhTW": "全開．加護珠",
+            "jaJP": "全開・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開．整備珠",
+        "name": {
+            "zhTW": "全開．整備珠",
+            "jaJP": "全開・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開．體術珠",
+        "name": {
+            "zhTW": "全開．體術珠",
+            "jaJP": "全開・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開．體力珠",
+        "name": {
+            "zhTW": "全開．體力珠",
+            "jaJP": "全開・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開．治癒珠",
+        "name": {
+            "zhTW": "全開．治癒珠",
+            "jaJP": "全開・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "潛伏珠 II",
+        "name": {
+            "zhTW": "潛伏珠 II",
+            "jaJP": "潜伏珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "潛伏",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "潛伏珠 III",
+        "name": {
+            "zhTW": "潛伏珠 III",
+            "jaJP": "潜伏珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "潛伏",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "早氣．迴避珠",
+        "name": {
+            "zhTW": "早氣．迴避珠",
+            "jaJP": "早気・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早氣．解放珠",
+        "name": {
+            "zhTW": "早氣．解放珠",
+            "jaJP": "早気・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早氣．攻擊珠",
+        "name": {
+            "zhTW": "早氣．攻擊珠",
+            "jaJP": "早気・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早氣．體術珠",
+        "name": {
+            "zhTW": "早氣．體術珠",
+            "jaJP": "早気・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早氣．匠珠",
+        "name": {
+            "zhTW": "早氣．匠珠",
+            "jaJP": "早気・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早氣．達人珠",
+        "name": {
+            "zhTW": "早氣．達人珠",
+            "jaJP": "早気・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃．迴避珠",
+        "name": {
+            "zhTW": "快吃．迴避珠",
+            "jaJP": "早食・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃．解放珠",
+        "name": {
+            "zhTW": "快吃．解放珠",
+            "jaJP": "早食・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃．攻擊珠",
+        "name": {
+            "zhTW": "快吃．攻擊珠",
+            "jaJP": "早食・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃．體術珠",
+        "name": {
+            "zhTW": "快吃．體術珠",
+            "jaJP": "早食・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃．匠珠",
+        "name": {
+            "zhTW": "快吃．匠珠",
+            "jaJP": "早食・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃．達人珠",
+        "name": {
+            "zhTW": "快吃．達人珠",
+            "jaJP": "早食・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早復珠 II",
+        "name": {
+            "zhTW": "早復珠 II",
+            "jaJP": "早復珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "回復速度",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "速納．迴避珠",
+        "name": {
+            "zhTW": "速納．迴避珠",
+            "jaJP": "速納・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "速納．解放珠",
+        "name": {
+            "zhTW": "速納．解放珠",
+            "jaJP": "速納・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "速納．攻擊珠",
+        "name": {
+            "zhTW": "速納．攻擊珠",
+            "jaJP": "速納・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "速納．體術珠",
+        "name": {
+            "zhTW": "速納．體術珠",
+            "jaJP": "速納・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "速納．匠珠",
+        "name": {
+            "zhTW": "速納．匠珠",
+            "jaJP": "速納・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "速納．達人珠",
+        "name": {
+            "zhTW": "速納．達人珠",
+            "jaJP": "速納・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力．迴避珠",
+        "name": {
+            "zhTW": "底力．迴避珠",
+            "jaJP": "底力・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力．加護珠",
+        "name": {
+            "zhTW": "底力．加護珠",
+            "jaJP": "底力・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力．整備珠",
+        "name": {
+            "zhTW": "底力．整備珠",
+            "jaJP": "底力・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力．體術珠",
+        "name": {
+            "zhTW": "底力．體術珠",
+            "jaJP": "底力・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力．體力珠",
+        "name": {
+            "zhTW": "底力．體力珠",
+            "jaJP": "底力・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力．治癒珠",
+        "name": {
+            "zhTW": "底力．治癒珠",
+            "jaJP": "底力・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力珠 II",
+        "name": {
+            "zhTW": "底力珠 II",
+            "jaJP": "底力珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐火珠 II",
+        "name": {
+            "zhTW": "耐火珠 II",
+            "jaJP": "耐火珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐火珠 III",
+        "name": {
+            "zhTW": "耐火珠 III",
+            "jaJP": "耐火珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "火耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐寒珠",
+        "name": {
+            "zhTW": "耐寒珠",
+            "jaJP": "耐寒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 2,
+        "skills": [
+            {
+                "id": "寒さ耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "體術珠 II",
+        "name": {
+            "zhTW": "體術珠 II",
+            "jaJP": "体術珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "體術",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐衝．迴避珠",
+        "name": {
+            "zhTW": "耐衝．迴避珠",
+            "jaJP": "耐衝・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐衝．加護珠",
+        "name": {
+            "zhTW": "耐衝．加護珠",
+            "jaJP": "耐衝・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐衝．整備珠",
+        "name": {
+            "zhTW": "耐衝．整備珠",
+            "jaJP": "耐衝・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐衝．體術珠",
+        "name": {
+            "zhTW": "耐衝．體術珠",
+            "jaJP": "耐衝・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐衝．體力珠",
+        "name": {
+            "zhTW": "耐衝．體力珠",
+            "jaJP": "耐衝・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐衝．治癒珠",
+        "name": {
+            "zhTW": "耐衝．治癒珠",
+            "jaJP": "耐衝・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐瘴珠 II",
+        "name": {
+            "zhTW": "耐瘴珠 II",
+            "jaJP": "耐瘴珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "瘴氣耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐暑珠",
+        "name": {
+            "zhTW": "耐暑珠",
+            "jaJP": "耐暑珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 2,
+        "skills": [
+            {
+                "id": "熱傷害無效",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震．迴避珠",
+        "name": {
+            "zhTW": "耐震．迴避珠",
+            "jaJP": "耐震・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震．加護珠",
+        "name": {
+            "zhTW": "耐震．加護珠",
+            "jaJP": "耐震・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震．整備珠",
+        "name": {
+            "zhTW": "耐震．整備珠",
+            "jaJP": "耐震・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震．體術珠",
+        "name": {
+            "zhTW": "耐震．體術珠",
+            "jaJP": "耐震・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震．體力珠",
+        "name": {
+            "zhTW": "耐震．體力珠",
+            "jaJP": "耐震・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震．治癒珠",
+        "name": {
+            "zhTW": "耐震．治癒珠",
+            "jaJP": "耐震・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐水珠 II",
+        "name": {
+            "zhTW": "耐水珠 II",
+            "jaJP": "耐水珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "水耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐水珠 III",
+        "name": {
+            "zhTW": "耐水珠 III",
+            "jaJP": "耐水珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "水耐性",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "耐絕珠 II",
+        "name": {
+            "zhTW": "耐絕珠 II",
+            "jaJP": "耐絶珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "昏厥耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐屬．迴避珠",
+        "name": {
+            "zhTW": "耐屬．迴避珠",
+            "jaJP": "耐属・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐屬．解放珠",
+        "name": {
+            "zhTW": "耐屬．解放珠",
+            "jaJP": "耐属・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐屬．攻擊珠",
+        "name": {
+            "zhTW": "耐屬．攻擊珠",
+            "jaJP": "耐属・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐屬．體術珠",
+        "name": {
+            "zhTW": "耐屬．體術珠",
+            "jaJP": "耐属・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐屬．匠珠",
+        "name": {
+            "zhTW": "耐屬．匠珠",
+            "jaJP": "耐属・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐屬．達人珠",
+        "name": {
+            "zhTW": "耐屬．達人珠",
+            "jaJP": "耐属・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐毒珠 II",
+        "name": {
+            "zhTW": "耐毒珠 II",
+            "jaJP": "耐毒珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "毒耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐爆珠 II",
+        "name": {
+            "zhTW": "耐爆珠 II",
+            "jaJP": "耐爆珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "爆破異常狀態的耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐冰珠 II",
+        "name": {
+            "zhTW": "耐冰珠 II",
+            "jaJP": "耐氷珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "冰耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐冰珠 III",
+        "name": {
+            "zhTW": "耐冰珠 III",
+            "jaJP": "耐氷珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "冰耐性",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "耐防珠 II",
+        "name": {
+            "zhTW": "耐防珠 II",
+            "jaJP": "耐防珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦力DOWN耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐麻珠 II",
+        "name": {
+            "zhTW": "耐麻珠 II",
+            "jaJP": "耐麻珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "麻痺耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐眠珠 II",
+        "name": {
+            "zhTW": "耐眠珠 II",
+            "jaJP": "耐眠珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "睡眠耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐雷珠 II",
+        "name": {
+            "zhTW": "耐雷珠 II",
+            "jaJP": "耐雷珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "雷耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐雷珠 III",
+        "name": {
+            "zhTW": "耐雷珠 III",
+            "jaJP": "耐雷珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "雷耐性",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "耐龍珠 II",
+        "name": {
+            "zhTW": "耐龍珠 II",
+            "jaJP": "耐龍珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "龍耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "耐龍珠 III",
+        "name": {
+            "zhTW": "耐龍珠 III",
+            "jaJP": "耐龍珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "龍耐性",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "耐裂珠 II",
+        "name": {
+            "zhTW": "耐裂珠 II",
+            "jaJP": "耐裂珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "裂傷耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "匠．迴避珠",
+        "name": {
+            "zhTW": "匠．迴避珠",
+            "jaJP": "匠・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠．加護珠",
+        "name": {
+            "zhTW": "匠．加護珠",
+            "jaJP": "匠・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠．整備珠",
+        "name": {
+            "zhTW": "匠．整備珠",
+            "jaJP": "匠・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠．體術珠",
+        "name": {
+            "zhTW": "匠．體術珠",
+            "jaJP": "匠・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠．體力珠",
+        "name": {
+            "zhTW": "匠．體力珠",
+            "jaJP": "匠・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠．治癒珠",
+        "name": {
+            "zhTW": "匠．治癒珠",
+            "jaJP": "匠・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠珠 II",
+        "name": {
+            "zhTW": "匠珠 II",
+            "jaJP": "匠珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "茸好．迴避珠",
+        "name": {
+            "zhTW": "茸好．迴避珠",
+            "jaJP": "茸好・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "茸好．解放珠",
+        "name": {
+            "zhTW": "茸好．解放珠",
+            "jaJP": "茸好・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "茸好．攻擊珠",
+        "name": {
+            "zhTW": "茸好．攻擊珠",
+            "jaJP": "茸好・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "茸好．體術珠",
+        "name": {
+            "zhTW": "茸好．體術珠",
+            "jaJP": "茸好・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "茸好．匠珠",
+        "name": {
+            "zhTW": "茸好．匠珠",
+            "jaJP": "茸好・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "茸好．達人珠",
+        "name": {
+            "zhTW": "茸好．達人珠",
+            "jaJP": "茸好・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣．迴避珠",
+        "name": {
+            "zhTW": "奪氣．迴避珠",
+            "jaJP": "奪気・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣．解放珠",
+        "name": {
+            "zhTW": "奪氣．解放珠",
+            "jaJP": "奪気・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣．攻擊珠",
+        "name": {
+            "zhTW": "奪氣．攻擊珠",
+            "jaJP": "奪気・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣．體術珠",
+        "name": {
+            "zhTW": "奪氣．體術珠",
+            "jaJP": "奪気・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣．匠珠",
+        "name": {
+            "zhTW": "奪氣．匠珠",
+            "jaJP": "奪気・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣．達人珠",
+        "name": {
+            "zhTW": "奪氣．達人珠",
+            "jaJP": "奪気・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "達人珠 II",
+        "name": {
+            "zhTW": "達人珠 II",
+            "jaJP": "達人珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "看破",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "短縮．迴避珠",
+        "name": {
+            "zhTW": "短縮．迴避珠",
+            "jaJP": "短縮・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "短縮．加護珠",
+        "name": {
+            "zhTW": "短縮．加護珠",
+            "jaJP": "短縮・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "短縮．整備珠",
+        "name": {
+            "zhTW": "短縮．整備珠",
+            "jaJP": "短縮・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "短縮．體術珠",
+        "name": {
+            "zhTW": "短縮．體術珠",
+            "jaJP": "短縮・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "短縮．體力珠",
+        "name": {
+            "zhTW": "短縮．體力珠",
+            "jaJP": "短縮・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "短縮．治癒珠",
+        "name": {
+            "zhTW": "短縮．治癒珠",
+            "jaJP": "短縮・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "地學珠 II",
+        "name": {
+            "zhTW": "地學珠 II",
+            "jaJP": "地学珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "地質學",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "地學珠 III",
+        "name": {
+            "zhTW": "地學珠 III",
+            "jaJP": "地学珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "地質學",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "超心．迴避珠",
+        "name": {
+            "zhTW": "超心．迴避珠",
+            "jaJP": "超心・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "超心．加護珠",
+        "name": {
+            "zhTW": "超心．加護珠",
+            "jaJP": "超心・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "超心．整備珠",
+        "name": {
+            "zhTW": "超心．整備珠",
+            "jaJP": "超心・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "超心．體術珠",
+        "name": {
+            "zhTW": "超心．體術珠",
+            "jaJP": "超心・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "超心．體力珠",
+        "name": {
+            "zhTW": "超心．體力珠",
+            "jaJP": "超心・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "超心．治癒珠",
+        "name": {
+            "zhTW": "超心．治癒珠",
+            "jaJP": "超心・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰．迴避珠",
+        "name": {
+            "zhTW": "挑戰．迴避珠",
+            "jaJP": "挑戦・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰．加護珠",
+        "name": {
+            "zhTW": "挑戰．加護珠",
+            "jaJP": "挑戦・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰．整備珠",
+        "name": {
+            "zhTW": "挑戰．整備珠",
+            "jaJP": "挑戦・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰．體術珠",
+        "name": {
+            "zhTW": "挑戰．體術珠",
+            "jaJP": "挑戦・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰．體力珠",
+        "name": {
+            "zhTW": "挑戰．體力珠",
+            "jaJP": "挑戦・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰．治癒珠",
+        "name": {
+            "zhTW": "挑戰．治癒珠",
+            "jaJP": "挑戦・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰珠 II",
+        "name": {
+            "zhTW": "挑戰珠 II",
+            "jaJP": "挑戦珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "跳躍．迴避珠",
+        "name": {
+            "zhTW": "跳躍．迴避珠",
+            "jaJP": "跳躍・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "跳躍．解放珠",
+        "name": {
+            "zhTW": "跳躍．解放珠",
+            "jaJP": "跳躍・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "跳躍．攻擊珠",
+        "name": {
+            "zhTW": "跳躍．攻擊珠",
+            "jaJP": "跳躍・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "跳躍．體術珠",
+        "name": {
+            "zhTW": "跳躍．體術珠",
+            "jaJP": "跳躍・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "跳躍．匠珠",
+        "name": {
+            "zhTW": "跳躍．匠珠",
+            "jaJP": "跳躍・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "跳躍．達人珠",
+        "name": {
+            "zhTW": "跳躍．達人珠",
+            "jaJP": "跳躍・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊．迴避珠",
+        "name": {
+            "zhTW": "痛擊．迴避珠",
+            "jaJP": "痛撃・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊．加護珠",
+        "name": {
+            "zhTW": "痛擊．加護珠",
+            "jaJP": "痛撃・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊．整備珠",
+        "name": {
+            "zhTW": "痛擊．整備珠",
+            "jaJP": "痛撃・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊．體術珠",
+        "name": {
+            "zhTW": "痛擊．體術珠",
+            "jaJP": "痛撃・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊．體力珠",
+        "name": {
+            "zhTW": "痛擊．體力珠",
+            "jaJP": "痛撃・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊．治癒珠",
+        "name": {
+            "zhTW": "痛擊．治癒珠",
+            "jaJP": "痛撃・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁．迴避珠",
+        "name": {
+            "zhTW": "鐵壁．迴避珠",
+            "jaJP": "鉄壁・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁．解放珠",
+        "name": {
+            "zhTW": "鐵壁．解放珠",
+            "jaJP": "鉄壁・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁．攻擊珠",
+        "name": {
+            "zhTW": "鐵壁．攻擊珠",
+            "jaJP": "鉄壁・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁．體術珠",
+        "name": {
+            "zhTW": "鐵壁．體術珠",
+            "jaJP": "鉄壁・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁．匠珠",
+        "name": {
+            "zhTW": "鐵壁．匠珠",
+            "jaJP": "鉄壁・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁．達人珠",
+        "name": {
+            "zhTW": "鐵壁．達人珠",
+            "jaJP": "鉄壁・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁珠 II",
+        "name": {
+            "zhTW": "鐵壁珠 II",
+            "jaJP": "鉄壁珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "轉福．迴避珠",
+        "name": {
+            "zhTW": "轉福．迴避珠",
+            "jaJP": "転福・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "轉福．加護珠",
+        "name": {
+            "zhTW": "轉福．加護珠",
+            "jaJP": "転福・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "轉福．整備珠",
+        "name": {
+            "zhTW": "轉福．整備珠",
+            "jaJP": "転福・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "轉福．體術珠",
+        "name": {
+            "zhTW": "轉福．體術珠",
+            "jaJP": "転福・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "轉福．體力珠",
+        "name": {
+            "zhTW": "轉福．體力珠",
+            "jaJP": "転福・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "轉福．治癒珠",
+        "name": {
+            "zhTW": "轉福．治癒珠",
+            "jaJP": "転福・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "轉福珠",
+        "name": {
+            "zhTW": "轉福珠",
+            "jaJP": "転福珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 3,
+        "skills": [
+            {
+                "id": "災禍轉福",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石．迴避珠",
+        "name": {
+            "zhTW": "投石．迴避珠",
+            "jaJP": "投石・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石．解放珠",
+        "name": {
+            "zhTW": "投石．解放珠",
+            "jaJP": "投石・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石．攻擊珠",
+        "name": {
+            "zhTW": "投石．攻擊珠",
+            "jaJP": "投石・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石．體術珠",
+        "name": {
+            "zhTW": "投石．體術珠",
+            "jaJP": "投石・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石．匠珠",
+        "name": {
+            "zhTW": "投石．匠珠",
+            "jaJP": "投石・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石．達人珠",
+        "name": {
+            "zhTW": "投石．達人珠",
+            "jaJP": "投石・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "特射珠 II",
+        "name": {
+            "zhTW": "特射珠 II",
+            "jaJP": "特射珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "特殊射擊強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "毒珠 II",
+        "name": {
+            "zhTW": "毒珠 II",
+            "jaJP": "毒珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "毒屬性強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "沼渡珠 II",
+        "name": {
+            "zhTW": "沼渡珠 II",
+            "jaJP": "沼渡珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "適應水場．深雪",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "爆師．迴避珠",
+        "name": {
+            "zhTW": "爆師．迴避珠",
+            "jaJP": "爆師・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆師．解放珠",
+        "name": {
+            "zhTW": "爆師．解放珠",
+            "jaJP": "爆師・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆師．攻擊珠",
+        "name": {
+            "zhTW": "爆師．攻擊珠",
+            "jaJP": "爆師・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆師．體術珠",
+        "name": {
+            "zhTW": "爆師．體術珠",
+            "jaJP": "爆師・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆師．匠珠",
+        "name": {
+            "zhTW": "爆師．匠珠",
+            "jaJP": "爆師・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆師．達人珠",
+        "name": {
+            "zhTW": "爆師．達人珠",
+            "jaJP": "爆師・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆破珠 II",
+        "name": {
+            "zhTW": "爆破珠 II",
+            "jaJP": "爆破珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "爆破屬性強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "拔刀．迴避珠",
+        "name": {
+            "zhTW": "拔刀．迴避珠",
+            "jaJP": "抜刀・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "拔刀．加護珠",
+        "name": {
+            "zhTW": "拔刀．加護珠",
+            "jaJP": "抜刀・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "拔刀．整備珠",
+        "name": {
+            "zhTW": "拔刀．整備珠",
+            "jaJP": "抜刀・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "拔刀．體術珠",
+        "name": {
+            "zhTW": "拔刀．體術珠",
+            "jaJP": "抜刀・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "拔刀．體力珠",
+        "name": {
+            "zhTW": "拔刀．體力珠",
+            "jaJP": "抜刀・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "拔刀．治癒珠",
+        "name": {
+            "zhTW": "拔刀．治癒珠",
+            "jaJP": "抜刀・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "破龍珠 II",
+        "name": {
+            "zhTW": "破龍珠 II",
+            "jaJP": "破龍珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "龍屬性攻擊強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "飛燕．迴避珠",
+        "name": {
+            "zhTW": "飛燕．迴避珠",
+            "jaJP": "飛燕・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "飛燕．解放珠",
+        "name": {
+            "zhTW": "飛燕．解放珠",
+            "jaJP": "飛燕・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "飛燕．攻擊珠",
+        "name": {
+            "zhTW": "飛燕．攻擊珠",
+            "jaJP": "飛燕・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "飛燕．體術珠",
+        "name": {
+            "zhTW": "飛燕．體術珠",
+            "jaJP": "飛燕・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "飛燕．匠珠",
+        "name": {
+            "zhTW": "飛燕．匠珠",
+            "jaJP": "飛燕・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "飛燕．達人珠",
+        "name": {
+            "zhTW": "飛燕．達人珠",
+            "jaJP": "飛燕・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "冰結珠 II",
+        "name": {
+            "zhTW": "冰結珠 II",
+            "jaJP": "氷結珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "冰屬性攻擊強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "標本珠 II",
+        "name": {
+            "zhTW": "標本珠 II",
+            "jaJP": "標本珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "昆蟲標本達人",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "標本珠 III",
+        "name": {
+            "zhTW": "標本珠 III",
+            "jaJP": "標本珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "昆蟲標本達人",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "防音．迴避珠",
+        "name": {
+            "zhTW": "防音．迴避珠",
+            "jaJP": "防音・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音．加護珠",
+        "name": {
+            "zhTW": "防音．加護珠",
+            "jaJP": "防音・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音．整備珠",
+        "name": {
+            "zhTW": "防音．整備珠",
+            "jaJP": "防音・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音．體術珠",
+        "name": {
+            "zhTW": "防音．體術珠",
+            "jaJP": "防音・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音．體力珠",
+        "name": {
+            "zhTW": "防音．體力珠",
+            "jaJP": "防音・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音．治癒珠",
+        "name": {
+            "zhTW": "防音．治癒珠",
+            "jaJP": "防音・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音珠 II",
+        "name": {
+            "zhTW": "防音珠 II",
+            "jaJP": "防音珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "防禦珠 II",
+        "name": {
+            "zhTW": "防禦珠 II",
+            "jaJP": "防御珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "防禦珠 III",
+        "name": {
+            "zhTW": "防禦珠 III",
+            "jaJP": "防御珠 III",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "防禦",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "砲手珠 II",
+        "name": {
+            "zhTW": "砲手珠 II",
+            "jaJP": "砲手珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砲擊手",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "砲術珠 II",
+        "name": {
+            "zhTW": "砲術珠 II",
+            "jaJP": "砲術珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "砲術",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "防風．迴避珠",
+        "name": {
+            "zhTW": "防風．迴避珠",
+            "jaJP": "防風・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風．加護珠",
+        "name": {
+            "zhTW": "防風．加護珠",
+            "jaJP": "防風・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風．整備珠",
+        "name": {
+            "zhTW": "防風．整備珠",
+            "jaJP": "防風・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風．體術珠",
+        "name": {
+            "zhTW": "防風．體術珠",
+            "jaJP": "防風・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風．體力珠",
+        "name": {
+            "zhTW": "防風．體力珠",
+            "jaJP": "防風・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風．治癒珠",
+        "name": {
+            "zhTW": "防風．治癒珠",
+            "jaJP": "防風・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風珠 II",
+        "name": {
+            "zhTW": "防風珠 II",
+            "jaJP": "防風珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "麻痺珠 II",
+        "name": {
+            "zhTW": "麻痺珠 II",
+            "jaJP": "麻痺珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "麻痺屬性強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "無傷．迴避珠",
+        "name": {
+            "zhTW": "無傷．迴避珠",
+            "jaJP": "無傷・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無傷．加護珠",
+        "name": {
+            "zhTW": "無傷．加護珠",
+            "jaJP": "無傷・加護珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            },
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無傷．整備珠",
+        "name": {
+            "zhTW": "無傷．整備珠",
+            "jaJP": "無傷・整備珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            },
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無傷．體術珠",
+        "name": {
+            "zhTW": "無傷．體術珠",
+            "jaJP": "無傷・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無傷．體力珠",
+        "name": {
+            "zhTW": "無傷．體力珠",
+            "jaJP": "無傷・体力珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            },
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無傷．治癒珠",
+        "name": {
+            "zhTW": "無傷．治癒珠",
+            "jaJP": "無傷・治癒珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            },
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無食珠 II",
+        "name": {
+            "zhTW": "無食珠 II",
+            "jaJP": "無食珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "飢餓耐性",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "友愛．迴避珠",
+        "name": {
+            "zhTW": "友愛．迴避珠",
+            "jaJP": "友愛・回避珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            },
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛．解放珠",
+        "name": {
+            "zhTW": "友愛．解放珠",
+            "jaJP": "友愛・解放珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            },
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛．攻擊珠",
+        "name": {
+            "zhTW": "友愛．攻擊珠",
+            "jaJP": "友愛・攻撃珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            },
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛．體術珠",
+        "name": {
+            "zhTW": "友愛．體術珠",
+            "jaJP": "友愛・体術珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            },
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛．匠珠",
+        "name": {
+            "zhTW": "友愛．匠珠",
+            "jaJP": "友愛・匠珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            },
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛．達人珠",
+        "name": {
+            "zhTW": "友愛．達人珠",
+            "jaJP": "友愛・達人珠",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            },
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛珠 II",
+        "name": {
+            "zhTW": "友愛珠 II",
+            "jaJP": "友愛珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "雷光珠 II",
+        "name": {
+            "zhTW": "雷光珠 II",
+            "jaJP": "雷光珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "雷屬性攻擊強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "流水珠 II",
+        "name": {
+            "zhTW": "流水珠 II",
+            "jaJP": "流水珠 II",
+            "enUS": null
+        },
+        "rare": 9,
+        "size": 4,
+        "skills": [
+            {
+                "id": "水屬性攻擊強化",
+                "level": 2
+            }
+        ]
+    },
+    {
+        "id": "佯動珠",
+        "name": {
+            "zhTW": "佯動珠",
+            "jaJP": null,
+            "enUS": null
+        },
+        "rare": 12,
+        "size": 3,
+        "skills": [
+            {
+                "id": "佯動攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "受身珠",
+        "name": {
+            "zhTW": "受身珠",
+            "jaJP": null,
+            "enUS": null
+        },
+        "rare": 12,
+        "size": 3,
+        "skills": [
+            {
+                "id": "受身術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "削擊珠",
+        "name": {
+            "zhTW": "削擊珠",
+            "jaJP": null,
+            "enUS": null
+        },
+        "rare": 12,
+        "size": 3,
+        "skills": [
+            {
+                "id": "飛翔龍爪攻擊強化",
+                "level": 1
+            }
+        ]
+    }
+]

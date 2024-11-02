@@ -1,0 +1,659 @@
+[
+    {
+        "id": "破滅引金",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "滅盡龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "破滅引金",
+            "jaJP": null,
+            "enUS": "Cataclysm's Trigger"
+        },
+        "attack": 260,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "骷髏的吶喊",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "屍套龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "骷髏的吶喊",
+            "jaJP": null,
+            "enUS": "Gulgoleth's Wail"
+        },
+        "attack": 260,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "業【羯磨】",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "慘爪龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "業【羯磨】",
+            "jaJP": null,
+            "enUS": "Karma"
+        },
+        "attack": 234,
+        "criticalRate": 30,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "大鬼島",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "工房武器",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "大鬼島",
+            "jaJP": null,
+            "enUS": "Dai-Onigashima"
+        },
+        "attack": 221,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "麒麟筒【三角】",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "幻獸",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "麒麟筒【三角】",
+            "jaJP": null,
+            "enUS": "Mythical Three-Horn"
+        },
+        "attack": 208,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鋼龍冰蜂弩",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "黑鋼",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鋼龍冰蜂弩",
+            "jaJP": null,
+            "enUS": "Daora's Hornet"
+        },
+        "attack": 234,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "冥燈龍輕弩槍",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "冥燈龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "冥燈龍輕弩槍",
+            "jaJP": null,
+            "enUS": "Xeno Neqiina"
+        },
+        "attack": 234,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "巨型十字槍",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "工房武器",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "巨型十字槍",
+            "jaJP": null,
+            "enUS": "Great Bowgun"
+        },
+        "attack": 260,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅迅擊弩．迫擊",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅迅擊弩．迫擊",
+            "jaJP": null,
+            "enUS": "Taroth Blitz \"Spread\""
+        },
+        "attack": 247,
+        "criticalRate": 10,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅迅擊弩．狙擊",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅迅擊弩．狙擊",
+            "jaJP": null,
+            "enUS": "Taroth Blitz \"Pierce\""
+        },
+        "attack": 260,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅迅擊弩．射擊",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅迅擊弩．射擊",
+            "jaJP": null,
+            "enUS": "Taroth Blitz \"Shot\""
+        },
+        "attack": 273,
+        "criticalRate": -10,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "皇后甲殼．炎妃",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "炎妃龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后甲殼．炎妃",
+            "jaJP": null,
+            "enUS": "Empress Shell \"Blaze\""
+        },
+        "attack": 247,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后甲殼．滅盡",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "炎妃龍．滅盡",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后甲殼．滅盡",
+            "jaJP": null,
+            "enUS": "Empress Shell \"Ruin\""
+        },
+        "attack": 260,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后甲殼．冥燈",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "炎妃龍．冥燈",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后甲殼．冥燈",
+            "jaJP": null,
+            "enUS": "Empress Shell \"Styx\""
+        },
+        "attack": 247,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "利刃／彈藥節約",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "鎧羅迅擊弩．援擊",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅迅擊弩．援擊",
+            "jaJP": null,
+            "enUS": "Taroth Blitz \"Support\""
+        },
+        "attack": 247,
+        "criticalRate": 0,
+        "defense": 30,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "帝王金弩．爆鱗",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弩．爆鱗",
+            "jaJP": null,
+            "enUS": "Kjárr Blitz \"Bomber\""
+        },
+        "attack": 260,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弩．慘爪",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弩．慘爪",
+            "jaJP": null,
+            "enUS": "Kjárr Blitz \"Claw\""
+        },
+        "attack": 247,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弩．屍套",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弩．屍套",
+            "jaJP": null,
+            "enUS": "Kjárr Blitz \"Decay\""
+        },
+        "attack": 273,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弩．王",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弩．王",
+            "jaJP": null,
+            "enUS": "Kjárr Blitz \"King\""
+        },
+        "attack": 260,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弩．雷",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弩．雷",
+            "jaJP": null,
+            "enUS": "Kjárr Blitz \"Thunder\""
+        },
+        "attack": 260,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弩．冰",
+        "rare": 8,
+        "type": "lightBowgun",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弩．冰",
+            "jaJP": null,
+            "enUS": "Kjárr Blitz \"Ice\""
+        },
+        "attack": 260,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": null,
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    }
+]

@@ -1,0 +1,1042 @@
+[
+    {
+        "id": "滅盡一刀",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "滅盡龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "滅盡一刀",
+            "jaJP": null,
+            "enUS": "Extermination's Edge"
+        },
+        "attack": 693,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 400,
+            "steps": {
+                "red": 110,
+                "orange": 120,
+                "yellow": 40,
+                "green": 50,
+                "blue": 80,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 120,
+                "maxValue": 160,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "high"
+        },
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "飛龍刀【藍染】",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "火龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "飛龍刀【藍染】",
+            "jaJP": null,
+            "enUS": "Wyvern Blade \"Indigo\""
+        },
+        "attack": 627,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 70,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 60,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 240,
+                "maxValue": 310,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "爆鱗刀赤紅利刃",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "爆鱗龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "爆鱗刀赤紅利刃",
+            "jaJP": null,
+            "enUS": "Bazel Varga Rookslayer"
+        },
+        "attack": 660,
+        "criticalRate": -10,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 60,
+                "orange": 120,
+                "yellow": 80,
+                "green": 60,
+                "blue": 30,
+                "white": 50,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 210,
+                "maxValue": 260,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "幻光刀",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "風漂龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "幻光刀",
+            "jaJP": null,
+            "enUS": "Legia Stealer"
+        },
+        "attack": 528,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 240,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 70,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 360,
+                "maxValue": 470,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "帝王刀【陽炎】",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "黑鋼",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王刀【陽炎】",
+            "jaJP": null,
+            "enUS": "Imperial Shimmer"
+        },
+        "attack": 627,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 70,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 60,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 300,
+                "maxValue": 370,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "冥燈龍太刀",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "冥燈龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "冥燈龍太刀",
+            "jaJP": null,
+            "enUS": "Xeno Cypher"
+        },
+        "attack": 594,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 130,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 60,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "low"
+        },
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "天上天下無雙刀",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "工房武器",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "天上天下無雙刀",
+            "jaJP": null,
+            "enUS": "Divine Slasher"
+        },
+        "attack": 693,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 60,
+                "yellow": 60,
+                "green": 100,
+                "blue": 50,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "high"
+        },
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅劍．麻痺",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅劍．麻痺",
+            "jaJP": null,
+            "enUS": "Taroth Sword \"Paralysis\""
+        },
+        "attack": 561,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 110,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "paralysis",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅劍．毒",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅劍．毒",
+            "jaJP": null,
+            "enUS": "Taroth Sword \"Poison\""
+        },
+        "attack": 627,
+        "criticalRate": 10,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 60,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 70,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "poison",
+                "minValue": 420,
+                "maxValue": null,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅劍．水",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅劍．水",
+            "jaJP": null,
+            "enUS": "Taroth Sword \"Water\""
+        },
+        "attack": 627,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 200,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 50,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 420,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "皇后劍．炎妃",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "炎妃龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后劍．炎妃",
+            "jaJP": null,
+            "enUS": "Empress Sword \"Blaze\""
+        },
+        "attack": 594,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 110,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后劍．滅盡",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "炎妃龍．滅盡",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后劍．滅盡",
+            "jaJP": null,
+            "enUS": "Empress Sword \"Ruin\""
+        },
+        "attack": 627,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 110,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 150,
+                "maxValue": 190,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 2
+            }
+        ],
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后劍．冥燈",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "炎妃龍．冥燈",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后劍．冥燈",
+            "jaJP": null,
+            "enUS": "Empress Sword \"Styx\""
+        },
+        "attack": 594,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 110,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 240,
+                "maxValue": 300,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": [
+            {
+                "id": "利刃／彈藥節約",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "鎧羅劍．火",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅劍．火",
+            "jaJP": null,
+            "enUS": "Taroth Sword \"Fire\""
+        },
+        "attack": 660,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 220,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 450,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．飛雷",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．飛雷",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Spark\""
+        },
+        "attack": 627,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 130,
+                "orange": 100,
+                "yellow": 30,
+                "green": 30,
+                "blue": 80,
+                "white": 20,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．風漂",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．風漂",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Stream\""
+        },
+        "attack": 561,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 210,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．屍套",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．屍套",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Decay\""
+        },
+        "attack": 676,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 190,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 60,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "medium"
+        },
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．熔山",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．熔山",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Magma\""
+        },
+        "attack": 693,
+        "criticalRate": 10,
+        "defense": 15,
+        "sharpness": {
+            "value": 450,
+            "steps": {
+                "red": 100,
+                "orange": 50,
+                "yellow": 50,
+                "green": 80,
+                "blue": 110,
+                "white": 110,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 420,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．水",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．水",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Water\""
+        },
+        "attack": 610,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 190,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 60,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．火",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．火",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Fire\""
+        },
+        "attack": 627,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 220,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金太刀．麻痺",
+        "rare": 8,
+        "type": "longSword",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金太刀．麻痺",
+            "jaJP": null,
+            "enUS": "Kjárr Sword \"Paralysis\""
+        },
+        "attack": 528,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 110,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 70,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "paralysis",
+                "minValue": 270,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    }
+]

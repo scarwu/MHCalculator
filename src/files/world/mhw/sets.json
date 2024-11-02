@@ -1,0 +1,531 @@
+[
+    {
+        "id": "蠻顎龍之力",
+        "name": {
+            "zhTW": "蠻顎龍之力",
+            "jaJP": null,
+            "enUS": "Anjanath Power"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "振奮",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "慘爪龍之力",
+        "name": {
+            "zhTW": "慘爪龍之力",
+            "jaJP": null,
+            "enUS": "Odogaron Power"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "拔刀術【力】",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "風漂龍的恩惠",
+        "name": {
+            "zhTW": "風漂龍的恩惠",
+            "jaJP": null,
+            "enUS": "Legiana Blessing"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "幸運",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "幻獸的恩惠",
+        "name": {
+            "zhTW": "幻獸的恩惠",
+            "jaJP": null,
+            "enUS": "Kirin Blessing"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "捕獲名人",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "角龍之力",
+        "name": {
+            "zhTW": "角龍之力",
+            "jaJP": null,
+            "enUS": "Diablos Power"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "鈍器能手",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "火龍之力",
+        "name": {
+            "zhTW": "火龍之力",
+            "jaJP": null,
+            "enUS": "Rathalos Power"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "蠻顎龍的鬥志",
+        "name": {
+            "zhTW": "蠻顎龍的鬥志",
+            "jaJP": null,
+            "enUS": "Anjanath Will"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "振奮",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "突破耐力上限",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "熔山龍的奧秘",
+        "name": {
+            "zhTW": "熔山龍的奧秘",
+            "jaJP": null,
+            "enUS": "Zorah Magdaros Mastery"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "櫻火龍的奧秘",
+        "name": {
+            "zhTW": "櫻火龍的奧秘",
+            "jaJP": null,
+            "enUS": "Pink Rathian Mastery"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "毒傷害強化",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "風漂龍的恩竉",
+        "name": {
+            "zhTW": "風漂龍的恩竉",
+            "jaJP": null,
+            "enUS": "Legiana Favor"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "幸運",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "解放弓的蓄力階段",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "角龍之奧秘",
+        "name": {
+            "zhTW": "角龍之奧秘",
+            "jaJP": null,
+            "enUS": "Diablos Mastery"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "鈍器能手",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "無屬性強化",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "慘爪龍的奧秘",
+        "name": {
+            "zhTW": "慘爪龍的奧秘",
+            "jaJP": null,
+            "enUS": "Odogaron Mastery"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "拔刀術【力】",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "剛刃研磨",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "火龍奧秘",
+        "name": {
+            "zhTW": "火龍奧秘",
+            "jaJP": null,
+            "enUS": "Rathalos Mastery"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "心眼／彈導強化",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "爆鎚龍的守護",
+        "name": {
+            "zhTW": "爆鎚龍的守護",
+            "jaJP": null,
+            "enUS": "Uragaan Protection"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "防禦強化",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "爆鱗龍的守護",
+        "name": {
+            "zhTW": "爆鱗龍的守護",
+            "jaJP": null,
+            "enUS": "Bazelgeuse Protection"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "屍套龍的命脈",
+        "name": {
+            "zhTW": "屍套龍的命脈",
+            "jaJP": null,
+            "enUS": "Vaal Hazak Vitality"
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "超回復力",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "滅盡龍的飢餓",
+        "name": {
+            "zhTW": "滅盡龍的飢餓",
+            "jaJP": null,
+            "enUS": "Nergigante Hunger"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "炎王龍的武技",
+        "name": {
+            "zhTW": "炎王龍的武技",
+            "jaJP": "炎王龍の武技",
+            "enUS": "Teostra Technique"
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "達人藝",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "鋼龍的飛翔",
+        "name": {
+            "zhTW": "鋼龍的飛翔",
+            "jaJP": "鋼龍の飛翔",
+            "enUS": "Kushala Daora Flight"
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "風壓完全無效",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "冥燈龍的神秘",
+        "name": {
+            "zhTW": "冥燈龍的神秘",
+            "jaJP": null,
+            "enUS": "Xeno'jiiva Divinity"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "利刃／彈藥節約",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "麒麟的恩寵",
+        "name": {
+            "zhTW": "麒麟的恩寵",
+            "jaJP": null,
+            "enUS": "Kirin Favor"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "捕獲名人",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "公會的引導",
+        "name": {
+            "zhTW": "公會的引導",
+            "jaJP": null,
+            "enUS": "Guild Guidance"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "強運",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "調查團的引導",
+        "name": {
+            "zhTW": "調查團的引導",
+            "jaJP": null,
+            "enUS": "Commission Guidance"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "剝取名人",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "炎妃龍的恩寵",
+        "name": {
+            "zhTW": "炎妃龍的恩寵",
+            "jaJP": null,
+            "enUS": "Lunastra Favor"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "突破耐力上限",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "心眼／彈導強化",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "龍騎士之證",
+        "name": {
+            "zhTW": "龍騎士之證",
+            "jaJP": null,
+            "enUS": "Soul of the Dragoon"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "飛燕【屬性】",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "達人藝",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "星辰的祝福",
+        "name": {
+            "zhTW": "星辰的祝福",
+            "jaJP": null,
+            "enUS": "Astera Blessing"
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "強運",
+                "level": 1,
+                "require": 5
+            }
+        ]
+    }
+]

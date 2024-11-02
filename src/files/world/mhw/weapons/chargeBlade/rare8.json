@@ -1,0 +1,988 @@
+[
+    {
+        "id": "帶來毀滅的一把武器",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "滅盡龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帶來毀滅的一把武器",
+            "jaJP": null,
+            "enUS": "Devastation's Thorns"
+        },
+        "attack": 756,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 400,
+            "steps": {
+                "red": 100,
+                "orange": 120,
+                "yellow": 40,
+                "green": 50,
+                "blue": 90,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "high"
+        },
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "憎【忿恨】",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "慘爪龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "憎【忿恨】",
+            "jaJP": null,
+            "enUS": "Odium"
+        },
+        "attack": 576,
+        "criticalRate": 25,
+        "defense": 0,
+        "sharpness": {
+            "value": 400,
+            "steps": {
+                "red": 200,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 50,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "捲土重來熔山龍盾斧",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "熔山龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "捲土重來熔山龍盾斧",
+            "jaJP": null,
+            "enUS": "Avenging Magda Manus"
+        },
+        "attack": 756,
+        "criticalRate": -10,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 210,
+                "orange": 30,
+                "yellow": 40,
+                "green": 90,
+                "blue": 30,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 210,
+                "maxValue": 260,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鋼龍幻夢",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "黑鋼",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鋼龍幻夢",
+            "jaJP": null,
+            "enUS": "Daora's Thwartoise"
+        },
+        "attack": 648,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 90,
+                "orange": 60,
+                "yellow": 80,
+                "green": 80,
+                "blue": 90,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "冥燈龍盾斧",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "冥燈龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "冥燈龍盾斧",
+            "jaJP": null,
+            "enUS": "Xeno Ra'atz"
+        },
+        "attack": 648,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 130,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 60,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "low"
+        },
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "但丁的魔劍",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "但丁",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "但丁的魔劍",
+            "jaJP": null,
+            "enUS": "Dante's Devil Sword"
+        },
+        "attack": 720,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 40,
+                "orange": 50,
+                "yellow": 50,
+                "green": 80,
+                "blue": 180,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅兵裝．冰",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅兵裝．冰",
+            "jaJP": null,
+            "enUS": "Taroth Strongarm \"Ice\""
+        },
+        "attack": 648,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 60,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 70,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 390,
+                "maxValue": 490,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅兵裝．睡眠",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅兵裝．睡眠",
+            "jaJP": null,
+            "enUS": "Taroth Strongarm \"Sleep\""
+        },
+        "attack": 684,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 70,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 60,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "sleep",
+                "minValue": 270,
+                "maxValue": 330,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅兵裝．雷",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅兵裝．雷",
+            "jaJP": null,
+            "enUS": "Taroth Strongarm \"Thunder\""
+        },
+        "attack": 684,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 70,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 60,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 420,
+                "maxValue": 520,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "皇后武器．炎妃",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "炎妃龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后武器．炎妃",
+            "jaJP": null,
+            "enUS": "Empress Alma \"Blaze\""
+        },
+        "attack": 648,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 30,
+                "yellow": 60,
+                "green": 90,
+                "blue": 30,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 150,
+                "maxValue": 190,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后武器．滅盡",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "炎妃龍．滅盡",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后武器．滅盡",
+            "jaJP": null,
+            "enUS": "Empress Alma \"Ruin\""
+        },
+        "attack": 684,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 30,
+                "yellow": 60,
+                "green": 90,
+                "blue": 30,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 120,
+                "maxValue": 150,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 2
+            }
+        ],
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后武器．冥燈",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "炎妃龍．冥燈",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后武器．冥燈",
+            "jaJP": null,
+            "enUS": "Empress Alma \"Styx\""
+        },
+        "attack": 648,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 30,
+                "yellow": 60,
+                "green": 90,
+                "blue": 30,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 210,
+                "maxValue": 260,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": [
+            {
+                "id": "利刃／彈藥節約",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "鎧羅兵裝．水",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅兵裝．水",
+            "jaJP": null,
+            "enUS": "Taroth Strongarm \"Water\""
+        },
+        "attack": 648,
+        "criticalRate": 20,
+        "defense": 20,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 210,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．飛雷",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．飛雷",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"Spark\""
+        },
+        "attack": 720,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 160,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 90,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．痺賊",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．痺賊",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"Numb\""
+        },
+        "attack": 648,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 180,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 70,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "paralysis",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．屍套",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．屍套",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"Decay\""
+        },
+        "attack": 720,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 180,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 70,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "medium"
+        },
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．王",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．王",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"King\""
+        },
+        "attack": 720,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 60,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 70,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．冰",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．冰",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"Ice\""
+        },
+        "attack": 684,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 40,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 90,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 480,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．岩賊",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．岩賊",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"Crusher\""
+        },
+        "attack": 720,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 180,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 70,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金盾斧．水",
+        "rare": 8,
+        "type": "chargeBlade",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金盾斧．水",
+            "jaJP": null,
+            "enUS": "Kjárr Strongarm \"Water\""
+        },
+        "attack": 684,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 210,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    }
+]

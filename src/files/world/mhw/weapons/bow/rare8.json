@@ -1,0 +1,771 @@
+[
+    {
+        "id": "必滅一矢",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "滅盡龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "必滅一矢",
+            "jaJP": null,
+            "enUS": "Doom's Shaft"
+        },
+        "attack": 240,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "high"
+        },
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "重弓巨靈勇士",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "爆鎚龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "重弓巨靈勇士",
+            "jaJP": null,
+            "enUS": "Gigacles"
+        },
+        "attack": 228,
+        "criticalRate": 0,
+        "defense": 30,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "冰凌銀蕨",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "風漂龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "冰凌銀蕨",
+            "jaJP": null,
+            "enUS": "Legia Snowfletcher"
+        },
+        "attack": 180,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 390,
+                "maxValue": 510,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "角王弓疾風",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "角龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "角王弓疾風",
+            "jaJP": null,
+            "enUS": "Cera Coilbender"
+        },
+        "attack": 264,
+        "criticalRate": -30,
+        "defense": 15,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鋼龍強弓",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "黑鋼",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鋼龍強弓",
+            "jaJP": null,
+            "enUS": "Daora's Sagittarii"
+        },
+        "attack": 204,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 240,
+                "maxValue": 310,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "冥燈龍大弓",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "冥燈龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "冥燈龍大弓",
+            "jaJP": null,
+            "enUS": "Xeno Metora"
+        },
+        "attack": 204,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "low"
+        },
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "巨型獵弓",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "工房武器",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "巨型獵弓",
+            "jaJP": null,
+            "enUS": "Great Hunter's Bow"
+        },
+        "attack": 228,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 150,
+                "maxValue": 190,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．雷",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．雷",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Thunder\""
+        },
+        "attack": 228,
+        "criticalRate": 10,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 360,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．水",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．水",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Water\""
+        },
+        "attack": 228,
+        "criticalRate": 0,
+        "defense": 30,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．爆破",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．爆破",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Blast\""
+        },
+        "attack": 240,
+        "criticalRate": 0,
+        "defense": 30,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 360,
+                "maxValue": null,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "皇后弓．炎妃",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "炎妃龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后弓．炎妃",
+            "jaJP": null,
+            "enUS": "Empress Arrow \"Blaze\""
+        },
+        "attack": 216,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 120,
+                "maxValue": 150,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后弓．滅盡",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "炎妃龍．滅盡",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后弓．滅盡",
+            "jaJP": null,
+            "enUS": "Empress Arrow \"Ruin\""
+        },
+        "attack": 228,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 90,
+                "maxValue": 120,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 2
+            }
+        ],
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后弓．冥燈",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "炎妃龍．冥燈",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后弓．冥燈",
+            "jaJP": null,
+            "enUS": "Empress Arrow \"Styx\""
+        },
+        "attack": 216,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": [
+            {
+                "id": "利刃／彈藥節約",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．火",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．火",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Fire\""
+        },
+        "attack": 240,
+        "criticalRate": 10,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 360,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "帝王金弓．飛雷",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弓．飛雷",
+            "jaJP": null,
+            "enUS": "Kjárr Bow \"Spark\""
+        },
+        "attack": 216,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 240,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弓．風漂",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弓．風漂",
+            "jaJP": null,
+            "enUS": "Kjárr Bow \"Stream\""
+        },
+        "attack": 204,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弓．王",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弓．王",
+            "jaJP": null,
+            "enUS": "Kjárr Bow \"King\""
+        },
+        "attack": 234,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 270,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弓．屍套",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弓．屍套",
+            "jaJP": null,
+            "enUS": "Kjárr Bow \"Decay\""
+        },
+        "attack": 240,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 240,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "medium"
+        },
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弓．水",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弓．水",
+            "jaJP": null,
+            "enUS": "Kjárr Bow \"Water\""
+        },
+        "attack": 240,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金弓．爆破",
+        "rare": 8,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金弓．爆破",
+            "jaJP": null,
+            "enUS": "Kjárr Bow \"Blast\""
+        },
+        "attack": 252,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 240,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    }
+]

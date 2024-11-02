@@ -13,6 +13,7 @@ import Helper from '@/scripts/core/helper'
 // Load Store
 import commonStore from './common/store'
 import riseStore from './rise/store'
+import worldStore from './world/store'
 
 // Middleware
 const diffLogger = store => next => action => {
@@ -46,4 +47,5 @@ const composeEnhancers = ('production' !== process.env.NODE_ENV)
 export default createStore(combineReducers({
     common: commonStore,
     rise: riseStore,
+    world: worldStore
 }), composeEnhancers(applyMiddleware(diffLogger)))

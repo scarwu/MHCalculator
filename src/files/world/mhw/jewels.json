@@ -1,0 +1,1570 @@
+[
+    {
+        "id": "KO珠",
+        "name": {
+            "zhTW": "KO珠",
+            "jaJP": null,
+            "enUS": "KO Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "KO術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "増彈珠",
+        "name": {
+            "zhTW": "増彈珠",
+            "jaJP": null,
+            "enUS": "Magazine Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "砲彈裝填數UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "體術珠",
+        "name": {
+            "zhTW": "體術珠",
+            "jaJP": null,
+            "enUS": "Physique Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "體術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "體力珠",
+        "name": {
+            "zhTW": "體力珠",
+            "jaJP": null,
+            "enUS": "Vitality Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "體力增強",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "火炎珠",
+        "name": {
+            "zhTW": "火炎珠",
+            "jaJP": null,
+            "enUS": "Blaze Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "火屬性攻擊強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "心眼珠",
+        "name": {
+            "zhTW": "心眼珠",
+            "jaJP": null,
+            "enUS": "Mind's Eye Jewel"
+        },
+        "rare": 8,
+        "size": 2,
+        "skills": [
+            {
+                "id": "心眼／彈導強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "友愛珠",
+        "name": {
+            "zhTW": "友愛珠",
+            "jaJP": null,
+            "enUS": "Friendship Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "廣域化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "加護珠",
+        "name": {
+            "zhTW": "加護珠",
+            "jaJP": null,
+            "enUS": "Protection Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "精靈加護",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "全開珠",
+        "name": {
+            "zhTW": "全開珠",
+            "jaJP": null,
+            "enUS": "Throttle Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "力量解放",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早氣珠",
+        "name": {
+            "zhTW": "早氣珠",
+            "jaJP": null,
+            "enUS": "Refresh Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "耐力急速回復",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "早復珠",
+        "name": {
+            "zhTW": "早復珠",
+            "jaJP": null,
+            "enUS": "Recovery Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "回復速度",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "匠珠",
+        "name": {
+            "zhTW": "匠珠",
+            "jaJP": null,
+            "enUS": "Handicraft Jewel"
+        },
+        "rare": 8,
+        "size": 3,
+        "skills": [
+            {
+                "id": "匠",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "地學珠",
+        "name": {
+            "zhTW": "地學珠",
+            "jaJP": null,
+            "enUS": "Geology Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "地質學",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "冰結珠",
+        "name": {
+            "zhTW": "冰結珠",
+            "jaJP": null,
+            "enUS": "Frost Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "冰屬性攻擊強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "攻擊珠",
+        "name": {
+            "zhTW": "攻擊珠",
+            "jaJP": null,
+            "enUS": "Attack Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "攻擊",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "快吃珠",
+        "name": {
+            "zhTW": "快吃珠",
+            "jaJP": null,
+            "enUS": "Gobbler Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "快吃",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "投石珠",
+        "name": {
+            "zhTW": "投石珠",
+            "jaJP": null,
+            "enUS": "Stonethrower Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "投射器裝填數UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防音珠",
+        "name": {
+            "zhTW": "防音珠",
+            "jaJP": null,
+            "enUS": "Earplug Jewel"
+        },
+        "rare": 6,
+        "size": 3,
+        "skills": [
+            {
+                "id": "耳塞",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防禦珠",
+        "name": {
+            "zhTW": "防禦珠",
+            "jaJP": null,
+            "enUS": "Defense Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "防禦",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "防風珠",
+        "name": {
+            "zhTW": "防風珠",
+            "jaJP": null,
+            "enUS": "Wind Resist Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "風壓耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "昂揚珠",
+        "name": {
+            "zhTW": "昂揚珠",
+            "jaJP": null,
+            "enUS": "Enhancer Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "強化持續",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "指示珠",
+        "name": {
+            "zhTW": "指示珠",
+            "jaJP": null,
+            "enUS": "Meowster Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "指示隨從",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "底力珠",
+        "name": {
+            "zhTW": "底力珠",
+            "jaJP": null,
+            "enUS": "Potential Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "火場怪力",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "治癒珠",
+        "name": {
+            "zhTW": "治癒珠",
+            "jaJP": null,
+            "enUS": "Medicine Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "體力回復量UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "沼渡珠",
+        "name": {
+            "zhTW": "沼渡珠",
+            "jaJP": null,
+            "enUS": "Mirewalker Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "適應水場．深雪",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "拔刀珠",
+        "name": {
+            "zhTW": "拔刀珠",
+            "jaJP": null,
+            "enUS": "Draw Jewel"
+        },
+        "rare": 8,
+        "size": 2,
+        "skills": [
+            {
+                "id": "拔刀術【技】",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "威嚇珠",
+        "name": {
+            "zhTW": "威嚇珠",
+            "jaJP": null,
+            "enUS": "Intimidator Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "威嚇",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "研磨珠",
+        "name": {
+            "zhTW": "研磨珠",
+            "jaJP": null,
+            "enUS": "Grinder Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "砥石使用高速化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "持續珠",
+        "name": {
+            "zhTW": "持續珠",
+            "jaJP": null,
+            "enUS": "Enduring Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "道具使用強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "重擊珠",
+        "name": {
+            "zhTW": "重擊珠",
+            "jaJP": null,
+            "enUS": "Destroyer Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "破壞王",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐火珠",
+        "name": {
+            "zhTW": "耐火珠",
+            "jaJP": null,
+            "enUS": "Fire Res Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "火耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐瘴珠",
+        "name": {
+            "zhTW": "耐瘴珠",
+            "jaJP": null,
+            "enUS": "Miasma Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "瘴氣耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐衝珠",
+        "name": {
+            "zhTW": "耐衝珠",
+            "jaJP": null,
+            "enUS": "Brace Jewel"
+        },
+        "rare": 6,
+        "size": 3,
+        "skills": [
+            {
+                "id": "減輕膽怯",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐震珠",
+        "name": {
+            "zhTW": "耐震珠",
+            "jaJP": null,
+            "enUS": "Footing Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "耐震",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐水珠",
+        "name": {
+            "zhTW": "耐水珠",
+            "jaJP": null,
+            "enUS": "Water Res Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "水耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐絕珠",
+        "name": {
+            "zhTW": "耐絕珠",
+            "jaJP": null,
+            "enUS": "Steadfast Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "昏厥耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐屬珠",
+        "name": {
+            "zhTW": "耐屬珠",
+            "jaJP": null,
+            "enUS": "Resistor Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "屬性異常狀態耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐毒珠",
+        "name": {
+            "zhTW": "耐毒珠",
+            "jaJP": null,
+            "enUS": "Antidote Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "毒耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐爆珠",
+        "name": {
+            "zhTW": "耐爆珠",
+            "jaJP": null,
+            "enUS": "Antiblast Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "爆破異常狀態的耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐冰珠",
+        "name": {
+            "zhTW": "耐冰珠",
+            "jaJP": null,
+            "enUS": "Ice Res Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "冰耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐防珠",
+        "name": {
+            "zhTW": "耐防珠",
+            "jaJP": null,
+            "enUS": "Def Lock Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "防禦力DOWN耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐麻珠",
+        "name": {
+            "zhTW": "耐麻珠",
+            "jaJP": null,
+            "enUS": "Antipara Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "麻痺耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐眠珠",
+        "name": {
+            "zhTW": "耐眠珠",
+            "jaJP": null,
+            "enUS": "Pep Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "睡眠耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐雷珠",
+        "name": {
+            "zhTW": "耐雷珠",
+            "jaJP": null,
+            "enUS": "Thunder Res Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "雷耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐龍珠",
+        "name": {
+            "zhTW": "耐龍珠",
+            "jaJP": null,
+            "enUS": "Dragon Res Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "龍耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "耐裂珠",
+        "name": {
+            "zhTW": "耐裂珠",
+            "jaJP": null,
+            "enUS": "Suture Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "裂傷耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "挑戰珠",
+        "name": {
+            "zhTW": "挑戰珠",
+            "jaJP": null,
+            "enUS": "Challenger Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "挑戰者",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "毒珠",
+        "name": {
+            "zhTW": "毒珠",
+            "jaJP": null,
+            "enUS": "Venom Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "毒屬性強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "毒瓶珠",
+        "name": {
+            "zhTW": "毒瓶珠",
+            "jaJP": null,
+            "enUS": "Poisoncoat Jewel"
+        },
+        "rare": 6,
+        "size": 3,
+        "skills": [
+            {
+                "id": "毒瓶追加",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "飛燕珠",
+        "name": {
+            "zhTW": "飛燕珠",
+            "jaJP": null,
+            "enUS": "Flight Jewel"
+        },
+        "rare": 5,
+        "size": 2,
+        "skills": [
+            {
+                "id": "飛燕",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "流水珠",
+        "name": {
+            "zhTW": "流水珠",
+            "jaJP": null,
+            "enUS": "Stream Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "水屬性攻擊強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "迴避珠",
+        "name": {
+            "zhTW": "迴避珠",
+            "jaJP": null,
+            "enUS": "Evasion Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "迴避性能",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆上珠",
+        "name": {
+            "zhTW": "逆上珠",
+            "jaJP": null,
+            "enUS": "Furor Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "怨恨",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "逆境珠",
+        "name": {
+            "zhTW": "逆境珠",
+            "jaJP": null,
+            "enUS": "Fortitude Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "不屈",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "剛刃珠",
+        "name": {
+            "zhTW": "剛刃珠",
+            "jaJP": null,
+            "enUS": "Sharp Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "剛刃研磨",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "茸好珠",
+        "name": {
+            "zhTW": "茸好珠",
+            "jaJP": null,
+            "enUS": "Fungiform Jewel"
+        },
+        "rare": 8,
+        "size": 1,
+        "skills": [
+            {
+                "id": "最愛菇類",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "特射珠",
+        "name": {
+            "zhTW": "特射珠",
+            "jaJP": null,
+            "enUS": "Trueshot Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "特殊射擊強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "破龍珠",
+        "name": {
+            "zhTW": "破龍珠",
+            "jaJP": null,
+            "enUS": "Dragon Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "龍屬性攻擊強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "砲手珠",
+        "name": {
+            "zhTW": "砲手珠",
+            "jaJP": null,
+            "enUS": "Heavy Artillery Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "砲擊手",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "砲術珠",
+        "name": {
+            "zhTW": "砲術珠",
+            "jaJP": null,
+            "enUS": "Artillery Jewel"
+        },
+        "rare": 8,
+        "size": 1,
+        "skills": [
+            {
+                "id": "砲術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "眠瓶珠",
+        "name": {
+            "zhTW": "眠瓶珠",
+            "jaJP": null,
+            "enUS": "Sleepcoat Jewel"
+        },
+        "rare": 7,
+        "size": 3,
+        "skills": [
+            {
+                "id": "睡眠瓶追加",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "貫通珠",
+        "name": {
+            "zhTW": "貫通珠",
+            "jaJP": null,
+            "enUS": "Pierce Jewel"
+        },
+        "rare": 8,
+        "size": 3,
+        "skills": [
+            {
+                "id": "貫通彈・龍之箭強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強弓珠",
+        "name": {
+            "zhTW": "強弓珠",
+            "jaJP": null,
+            "enUS": "Mighty Bow Jewel"
+        },
+        "rare": 8,
+        "size": 2,
+        "skills": [
+            {
+                "id": "解放弓的蓄力階段",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強走珠",
+        "name": {
+            "zhTW": "強走珠",
+            "jaJP": null,
+            "enUS": "Sprinter Jewel"
+        },
+        "rare": 8,
+        "size": 2,
+        "skills": [
+            {
+                "id": "跑者",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強彈珠",
+        "name": {
+            "zhTW": "強彈珠",
+            "jaJP": null,
+            "enUS": "Forceshot Jewel"
+        },
+        "rare": 7,
+        "size": 3,
+        "skills": [
+            {
+                "id": "通常彈・通常箭強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "強壁珠",
+        "name": {
+            "zhTW": "強壁珠",
+            "jaJP": null,
+            "enUS": "Shield Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "防禦強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "速納珠",
+        "name": {
+            "zhTW": "速納珠",
+            "jaJP": null,
+            "enUS": "Sheath Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "收刀術",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "麻痺珠",
+        "name": {
+            "zhTW": "麻痺珠",
+            "jaJP": null,
+            "enUS": "Paralyzer Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "麻痺屬性強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "絕路珠",
+        "name": {
+            "zhTW": "絕路珠",
+            "jaJP": null,
+            "enUS": "Crisis Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "死裡逃生",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "渾身珠",
+        "name": {
+            "zhTW": "渾身珠",
+            "jaJP": null,
+            "enUS": "Mighty Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "精神抖擻",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "散彈珠",
+        "name": {
+            "zhTW": "散彈珠",
+            "jaJP": null,
+            "enUS": "Spread Jewel"
+        },
+        "rare": 8,
+        "size": 3,
+        "skills": [
+            {
+                "id": "散彈・剛射強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "植學珠",
+        "name": {
+            "zhTW": "植學珠",
+            "jaJP": null,
+            "enUS": "Botany Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "植生學",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "短縮珠",
+        "name": {
+            "zhTW": "短縮珠",
+            "jaJP": null,
+            "enUS": "Charger Jewel"
+        },
+        "rare": 8,
+        "size": 2,
+        "skills": [
+            {
+                "id": "集中",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "超心珠",
+        "name": {
+            "zhTW": "超心珠",
+            "jaJP": null,
+            "enUS": "Critical Jewel"
+        },
+        "rare": 8,
+        "size": 2,
+        "skills": [
+            {
+                "id": "超會心",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痛擊珠",
+        "name": {
+            "zhTW": "痛擊珠",
+            "jaJP": null,
+            "enUS": "Tenderizer Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "弱點特效",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無擊珠",
+        "name": {
+            "zhTW": "無擊珠",
+            "jaJP": null,
+            "enUS": "Elementless Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "無屬性強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無傷珠",
+        "name": {
+            "zhTW": "無傷珠",
+            "jaJP": null,
+            "enUS": "Flawless Jewel"
+        },
+        "rare": 7,
+        "size": 2,
+        "skills": [
+            {
+                "id": "無傷",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "無食珠",
+        "name": {
+            "zhTW": "無食珠",
+            "jaJP": null,
+            "enUS": "Hungerless Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "飢餓耐性",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "環境珠",
+        "name": {
+            "zhTW": "環境珠",
+            "jaJP": null,
+            "enUS": "Smoke Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "環境利用的知識",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "解放珠",
+        "name": {
+            "zhTW": "解放珠",
+            "jaJP": null,
+            "enUS": "Release Jewel"
+        },
+        "rare": 8,
+        "size": 3,
+        "skills": [
+            {
+                "id": "屬性解放／裝填擴充",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "滑走珠",
+        "name": {
+            "zhTW": "滑走珠",
+            "jaJP": null,
+            "enUS": "Slider Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "滑走強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "嗅覺珠",
+        "name": {
+            "zhTW": "嗅覺珠",
+            "jaJP": null,
+            "enUS": "Scent Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "追蹤達人",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鼓笛珠",
+        "name": {
+            "zhTW": "鼓笛珠",
+            "jaJP": null,
+            "enUS": "Sonorous Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "吹笛名人",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "節食珠",
+        "name": {
+            "zhTW": "節食珠",
+            "jaJP": null,
+            "enUS": "Satiated Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "滿足感",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "達人珠",
+        "name": {
+            "zhTW": "達人珠",
+            "jaJP": null,
+            "enUS": "Expert Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "看破",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "跳躍珠",
+        "name": {
+            "zhTW": "跳躍珠",
+            "jaJP": null,
+            "enUS": "Jumping Jewel"
+        },
+        "rare": 6,
+        "size": 2,
+        "skills": [
+            {
+                "id": "迴避距離UP",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "痺瓶珠",
+        "name": {
+            "zhTW": "痺瓶珠",
+            "jaJP": null,
+            "enUS": "Paracoat Jewel"
+        },
+        "rare": 7,
+        "size": 3,
+        "skills": [
+            {
+                "id": "麻痺瓶追加",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "雷光珠",
+        "name": {
+            "zhTW": "雷光珠",
+            "jaJP": null,
+            "enUS": "Bolt Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "雷屬性攻擊強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "睡眠珠",
+        "name": {
+            "zhTW": "睡眠珠",
+            "jaJP": null,
+            "enUS": "Sleep Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "睡眠屬性強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "奪氣珠",
+        "name": {
+            "zhTW": "奪氣珠",
+            "jaJP": null,
+            "enUS": "Drain Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "奪取耐力",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "潛伏珠",
+        "name": {
+            "zhTW": "潛伏珠",
+            "jaJP": null,
+            "enUS": "Tip Toe Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "潛伏",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "標本珠",
+        "name": {
+            "zhTW": "標本珠",
+            "jaJP": null,
+            "enUS": "Specimen Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "昆蟲標本達人",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "整備珠",
+        "name": {
+            "zhTW": "整備珠",
+            "jaJP": null,
+            "enUS": "Maintenance Jewel"
+        },
+        "rare": 5,
+        "size": 1,
+        "skills": [
+            {
+                "id": "整備",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "龍封珠",
+        "name": {
+            "zhTW": "龍封珠",
+            "jaJP": null,
+            "enUS": "Dragonseal Jewel"
+        },
+        "rare": 7,
+        "size": 3,
+        "skills": [
+            {
+                "id": "龍封力強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆師珠",
+        "name": {
+            "zhTW": "爆師珠",
+            "jaJP": null,
+            "enUS": "Bomber Jewel"
+        },
+        "rare": 6,
+        "size": 1,
+        "skills": [
+            {
+                "id": "炸彈客",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆破珠",
+        "name": {
+            "zhTW": "爆破珠",
+            "jaJP": null,
+            "enUS": "Blast Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "爆破屬性強化",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "爆瓶珠",
+        "name": {
+            "zhTW": "爆瓶珠",
+            "jaJP": null,
+            "enUS": "Blastcoat Jewel"
+        },
+        "rare": 7,
+        "size": 3,
+        "skills": [
+            {
+                "id": "爆破瓶追加",
+                "level": 1
+            }
+        ]
+    },
+    {
+        "id": "鐵壁珠",
+        "name": {
+            "zhTW": "鐵壁珠",
+            "jaJP": null,
+            "enUS": "Ironwall Jewel"
+        },
+        "rare": 7,
+        "size": 1,
+        "skills": [
+            {
+                "id": "防禦性能",
+                "level": 1
+            }
+        ]
+    }
+]

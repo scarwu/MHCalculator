@@ -1,0 +1,1476 @@
+[
+    {
+        "id": "攻擊守勢",
+        "name": {
+            "zhTW": "攻擊守勢",
+            "jaJP": "攻めの守勢",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": false,
+            "jewel": true,
+            "armor": true,
+            "charm": true,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "技能發動時，攻擊力 1.05 倍",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "attackMultiple": {
+                        "value": 1.05
+                    }
+                },
+                "isHidden": false
+            },
+            {
+                "level": 2,
+                "description": {
+                    "zhTW": "技能發動時，攻擊力 1.1 倍",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "attackMultiple": {
+                        "value": 1.1
+                    }
+                },
+                "isHidden": false
+            },
+            {
+                "level": 3,
+                "description": {
+                    "zhTW": "技能發動時，攻擊力 1.15 倍",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "attackMultiple": {
+                        "value": 1.15
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "災禍轉福",
+        "name": {
+            "zhTW": "轉禍為福",
+            "jaJP": "災禍転福",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": "状態異常や属性やられを解除すると一定時間、攻撃性能が強化される",
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": false,
+            "jewel": true,
+            "armor": true,
+            "charm": true,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "技能發動時，基礎攻擊力+12 屬性值+30 狀態異常的累積值變為1.05倍",
+                    "jaJP": "基礎攻撃力+12、属性値+30、状態異常の蓄積値1.05倍",
+                    "enUS": null
+                },
+                "reaction": {
+                    "attack": {
+                        "value": 12
+                    },
+                    "resistance": {
+                        "type": "all",
+                        "value": 30
+                    }
+                },
+                "isHidden": false
+            },
+            {
+                "level": 2,
+                "description": {
+                    "zhTW": "技能發動時，基礎攻擊力+15 屬性值+60 狀態異常的累積值變為1.10倍",
+                    "jaJP": "基礎攻撃力+15、属性値+60、状態異常の蓄積値1.10倍",
+                    "enUS": null
+                },
+                "reaction": {
+                    "attack": {
+                        "value": 15
+                    },
+                    "resistance": {
+                        "type": "all",
+                        "value": 60
+                    }
+                },
+                "isHidden": false
+            },
+            {
+                "level": 3,
+                "description": {
+                    "zhTW": "技能發動時，基礎攻擊力+18 屬性值+90 狀態異常的累積值變為1.15倍",
+                    "jaJP": "基礎攻撃力+18、属性値+90、状態異常の蓄積値1.15倍",
+                    "enUS": null
+                },
+                "reaction": {
+                    "attack": {
+                        "value": 18
+                    },
+                    "resistance": {
+                        "type": "all",
+                        "value": 90
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "寒さ耐性",
+        "name": {
+            "zhTW": "寒冷耐性",
+            "jaJP": "寒さ耐性",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "使寒冷的影響無效。",
+            "jaJP": "寒さによる影響を無効化する",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": false,
+            "jewel": true,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "使寒冷的影響無效。",
+                    "jaJP": "寒さによる影響を無効化する",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "炸彈客．極意",
+        "name": {
+            "zhTW": "炸彈客．極意",
+            "jaJP": "ボマー・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "解放炸彈客技能的等級上限",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放炸彈客技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "炸彈客"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "KO術．極意",
+        "name": {
+            "zhTW": "KO術．極意",
+            "jaJP": "KO術・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放KO術技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "KO術"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "真．利刃／彈藥節約",
+        "name": {
+            "zhTW": "真．利刃／彈藥節約",
+            "jaJP": "真・業物\/弾丸節約",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "銳利度的消耗大幅降低。提升不需消耗弩槍彈藥及弓的瓶即可發射的機率。",
+            "jaJP": "攻撃が弾かれなかった時、一定確率で斬れ味を消耗しない。また、一定確率でボウガンの弾と弓のビンを消費しない。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "銳利度的消耗大幅降低。提升不需消耗弩槍彈藥及弓的瓶即可發射的機率。",
+                    "jaJP": "攻撃が弾かれなかった時、一定確率で斬れ味を消耗しない。また、一定確率でボウガンの弾と弓のビンを消費しない。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "精神抖擻．極意",
+        "name": {
+            "zhTW": "精神抖擻．極意",
+            "jaJP": "渾身・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放精神抖擻技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "精神抖擻"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "挑戰者．極意",
+        "name": {
+            "zhTW": "挑戰者．極意",
+            "jaJP": "挑戦者・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放挑戰者技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "挑戰者"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "滿足感．極意",
+        "name": {
+            "zhTW": "滿足感．極意",
+            "jaJP": "満足感・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放滿足感技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "滿足感"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "奪取耐力．極意",
+        "name": {
+            "zhTW": "奪取耐力．極意",
+            "jaJP": "スタミナ奪取・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放奪取耐力技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "奪取耐力"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "力量解放．極意",
+        "name": {
+            "zhTW": "力量解放．極意",
+            "jaJP": "力の解放・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放力量解放技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "力量解放"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "冰氣練成",
+        "name": {
+            "zhTW": "寒氣煉成",
+            "jaJP": "冰気練成",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "納刀狀態下，會慢慢累積寒氣，強化攻擊力。當近身攻擊擊中時或發射箭‧彈藥時，寒氣會逐漸喪失。",
+            "jaJP": "納刀中、または抜刀中で攻撃しない間は徐々に冰気ゲージが高まり、攻撃力が強化される。近接攻撃を当てる、または弾や矢を発射すると冰気ゲージが減少する。",
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "納刀狀態下，會慢慢累積寒氣，強化攻擊力。當近身攻擊擊中時或發射箭‧彈藥時，寒氣會逐漸喪失。",
+                    "jaJP": "納刀中、または抜刀中で攻撃しない間は徐々に冰気ゲージが高まり、攻撃力が強化される。近接攻撃を当てる、または弾や矢を発射すると冰気ゲージが減少する。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "属性加速",
+        "name": {
+            "zhTW": "屬性加速",
+            "jaJP": "属性加速",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "若持續攻擊命中魔物，會發動一定 時間的屬性解放／裝填擴充Lv2。屬性攻擊力也會少量提升。",
+            "jaJP": "継続してモンスターに攻撃を当てると一定時間、属性解放\/装填拡張Lv2が発動。さらに、属性攻撃力も少し上昇する。",
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "若持續攻擊命中魔物，會發動一定 時間的屬性解放／裝填擴充Lv2。屬性攻擊力也會少量提升。",
+                    "jaJP": "継続してモンスターに攻撃を当てると一定時間、属性解放\/装填拡張Lv2が発動。さらに、属性攻撃力も少し上昇する。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "真．屬性加速",
+        "name": {
+            "zhTW": "真．屬性加速",
+            "jaJP": "真・属性加速",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "若持續攻擊命中魔物，會發動一定時間的屬性解放／裝填擴充Lv3。屬性攻擊力也會提升。",
+            "jaJP": "継続してモンスターに攻撃を当てると一定時間、属性解放\/装填拡張Lv3が発動。さらに、属性攻撃力も上昇する。",
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "若持續攻擊命中魔物，會發動一定時間的屬性解放／裝填擴充Lv3。屬性攻擊力也會提升。",
+                    "jaJP": "継続してモンスターに攻撃を当てると一定時間、属性解放\/装填拡張Lv3が発動。さらに、属性攻撃力も上昇する。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "大地縫纏",
+        "name": {
+            "zhTW": "大地縫纏",
+            "jaJP": "大地縫纏",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "裝備衣裝時，可獲得耐震Lv3、風壓耐性Lv3、耳塞Lv3、膽怯無效之效果。",
+            "jaJP": "装衣を装着している間、耐震Lv3、風圧耐性Lv3、耳栓Lv3、ひるみ無効の効果。",
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "裝備衣裝時，可獲得耐震Lv3、風壓耐性Lv3、耳塞Lv3、膽怯無效之效果。",
+                    "jaJP": "装衣を装着している間、耐震Lv3、風圧耐性Lv3、耳栓Lv3、ひるみ無効の効果。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "真．大地縫纏",
+        "name": {
+            "zhTW": "真．大地縫纏",
+            "jaJP": "真・大地縫纏",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "裝備衣裝時，可獲得耐震Lv3、耳塞Lv5、風壓完全無效、膽怯無效之效果。",
+            "jaJP": "装衣を装着している間、耐震Lv3、風圧完全無効、耳栓Lv5、ひるみ無効の効果。",
+            "enUS": null
+        },
+        "type": "passive",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "裝備衣裝時，可獲得耐震Lv3、耳塞Lv5、風壓完全無效、膽怯無效之效果。",
+                    "jaJP": "装衣を装着している間、耐震Lv3、風圧完全無効、耳栓Lv5、ひるみ無効の効果。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "砲術．極意",
+        "name": {
+            "zhTW": "砲術．極意",
+            "jaJP": "砲術・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放砲術技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "砲術"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "整備．極意",
+        "name": {
+            "zhTW": "整備．極意",
+            "jaJP": "整備・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": "整備のレベル上限のLv4とLv5が解放される。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放整備技能的等級上限",
+                    "jaJP": "整備のレベル上限のLv4とLv5が解放される。",
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "整備"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "精靈加護．極意",
+        "name": {
+            "zhTW": "精靈加護．極意",
+            "jaJP": "精霊の加護・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放精靈加護技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "精靈加護"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "投射器裝填．極意",
+        "name": {
+            "zhTW": "投射器裝填．極意",
+            "jaJP": "スリンガー装填・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放投射器裝填數UP技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "投射器裝填數UP"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "真．會心擊【特殊】",
+        "name": {
+            "zhTW": "真．會心擊【特殊】",
+            "jaJP": "真・会心撃【特殊】",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "大幅提升會心攻擊產生時造成的狀態異常值（麻痺、毒、睡眠、 爆破）。",
+            "jaJP": "攻撃で会心が発生した際に与える状態異常値(毒、麻痺、睡眠、爆破)がかなり高くなる。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "大幅提升會心攻擊產生時造成的狀態異常值（麻痺、毒、睡眠、 爆破）。",
+                    "jaJP": "攻撃で会心が発生した際に与える状態異常値(毒、麻痺、睡眠、爆破)がかなり高くなる。",
+                    "enUS": null
+                },
+                "reaction": {
+                    "elementStatusCriticalMultiple": {
+                        "value": 1
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "真．會心擊【屬性】",
+        "name": {
+            "zhTW": "真．會心擊【屬性】",
+            "jaJP": "真・会心撃【属性】",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "大幅提升會心攻擊產生時造成的屬性傷害（火、水、雷、冰、龍）。",
+            "jaJP": "攻撃で会心が発生した際に与える属性ダメージ(火、水、雷、氷、龍)がかなり高くなる。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "大幅提升會心攻擊產生時造成的屬性傷害（火、水、雷、冰、龍）。",
+                    "jaJP": "攻撃で会心が発生した際に与える属性ダメージ(火、水、雷、氷、龍)がかなり高くなる。",
+                    "enUS": null
+                },
+                "reaction": {
+                    "elementAttackCriticalMultiple": {
+                        "value": 1
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "佯動攻擊",
+        "name": {
+            "zhTW": "佯動攻擊",
+            "jaJP": "陽動攻撃",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "攻擊擊中時，能更加吸引魔物的注意。",
+            "jaJP": "攻撃を当てた時、モンスターの注意をより強く引くようになる。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": false,
+            "jewel": false,
+            "armor": true,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "攻擊擊中時，能更加吸引魔物的注意。",
+                    "jaJP": "攻撃を当てた時、モンスターの注意をより強く引くようになる。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "受身術",
+        "name": {
+            "zhTW": "受身術",
+            "jaJP": "受け身術",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "拔刀狀態下受到攻擊而遠遠擊飛時，可以進行受身來迅速回歸。",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": false,
+            "jewel": false,
+            "armor": true,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "拔刀狀態下受到攻擊而遠遠擊飛時，可以進行受身來迅速回歸。",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "萬福的贈禮",
+        "name": {
+            "zhTW": "萬福的贈禮",
+            "jaJP": "万福の贈り物",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "【萬福之宴】特別報酬的發生機率提升。（從任務中途開始使用不會有效果）",
+            "jaJP": "特別報酬の発生する確率が上昇する。クエストの途中からは効果が得られない。",
+            "enUS": null
+        },
+        "type": null,
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "【萬福之宴】特別報酬的發生機率提升。（從任務中途開始使用不會有效果）",
+                    "jaJP": "特別報酬の発生する確率が上昇する。クエストの途中からは効果が得られない。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "萬福的恩惠",
+        "name": {
+            "zhTW": "萬福的恩惠",
+            "jaJP": "万福の恵み",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "【萬福之宴】特別報酬的發生機率大幅提升。（從任務中途開始使用不會有效果）",
+            "jaJP": "特別報酬の発生する確率が大きく上昇する。クエストの途中からは効果が得られない。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "【萬福之宴】特別報酬的發生機率大幅提升。（從任務中途開始使用不會有效果）",
+                    "jaJP": "特別報酬の発生する確率が大きく上昇する。クエストの途中からは効果が得られない。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "大感謝的贈禮",
+        "name": {
+            "zhTW": "大感謝的贈禮",
+            "jaJP": "大感謝の贈り物",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "【大感謝之宴】特別報酬的發生機率提升。（從任務中途開始使用不會有效果）",
+            "jaJP": "特別報酬の発生する確率が上昇する。クエストの途中からは効果が得られない。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "【大感謝之宴】特別報酬的發生機率提升。（從任務中途開始使用不會有效果）",
+                    "jaJP": "特別報酬の発生する確率が上昇する。クエストの途中からは効果が得られない。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "大感謝的恩惠",
+        "name": {
+            "zhTW": "大感謝的恩惠",
+            "jaJP": "大感謝の恵み",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "【大感謝之宴】特別報酬的發生機率大幅提升。（從任務中途開始使用不會有效果）",
+            "jaJP": "特別報酬の発生する確率が大きく上昇する。クエストの途中からは効果が得られない。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "【大感謝之宴】特別報酬的發生機率大幅提升。（從任務中途開始使用不會有效果）",
+                    "jaJP": "特別報酬の発生する確率が大きく上昇する。クエストの途中からは効果が得られない。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "ゾンビ・瘴気無効",
+        "name": {
+            "zhTW": "喪屍．瘴氣耐性",
+            "jaJP": "ゾンビ・瘴気無効",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "不會受瘴氣侵蝕的影響，也不會變成喪屍狀態。",
+            "jaJP": "ゾンビ状態・瘴気侵蝕状態を無効化する。",
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": false,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "不會受瘴氣侵蝕的影響，也不會變成喪屍狀態。",
+                    "jaJP": "ゾンビ状態・瘴気侵蝕状態を無効化する。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "太古の鎧",
+        "name": {
+            "zhTW": null,
+            "jaJP": "太古の鎧",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": "防御力が2倍になり、ダメージリアクション無効化効果(不動の装衣のように怯まない)。攻撃を5回受けると効果が解除される。2分30秒経過で再発動。",
+            "enUS": null
+        },
+        "type": null,
+        "from": {
+            "set": false,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": null,
+                    "jaJP": "防御力が2倍になり、ダメージリアクション無効化効果(不動の装衣のように怯まない)。攻撃を5回受けると効果が解除される。2分30秒経過で再発動。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "龍脈覺醒",
+        "name": {
+            "zhTW": "龍脈覺醒",
+            "jaJP": "龍脈覚醒",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "拔刀狀態下，屬性、狀態異常值、會心率上升。攻擊時仍會受到傷害，但持續攻擊就能發揮自動回復效果。",
+            "jaJP": "抜刀中に会心率が20%、属性、状態異常値が80上昇。攻撃時にダメージを受けるが、攻撃し続けると自動回復効果を得る。",
+            "enUS": null
+        },
+        "type": null,
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "拔刀狀態下，屬性、狀態異常值、會心率上升。攻擊時仍會受到傷害，但持續攻擊就能發揮自動回復效果。",
+                    "jaJP": "抜刀中に会心率が20%、属性、状態異常値が80上昇。攻撃時にダメージを受けるが、攻撃し続けると自動回復効果を得る。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "真．龍脈覺醒",
+        "name": {
+            "zhTW": "真．龍脈覺醒",
+            "jaJP": "真・龍脈覚醒",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "進一步提升拔刀狀態中的攻擊性能。攻擊時雖然仍會受到傷害，但只要持續攻擊，就能發揮自動回復效果。",
+            "jaJP": "抜刀中に会心率が40%、属性値が150、状態異常値が120上昇。攻撃時にダメージを受けるが、攻撃し続けると自動回復効果を得る。",
+            "enUS": null
+        },
+        "type": null,
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "進一步提升拔刀狀態中的攻擊性能。攻擊時雖然仍會受到傷害，但只要持續攻擊，就能發揮自動回復效果。",
+                    "jaJP": "抜刀中に会心率が40%、属性値が150、状態異常値が120上昇。攻撃時にダメージを受けるが、攻撃し続けると自動回復効果を得る。",
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "火場怪力．極意",
+        "name": {
+            "zhTW": "火場怪力．極意",
+            "jaJP": "火事場力・極意",
+            "enUS": null
+        },
+        "description": {
+            "zhTW": null,
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放火場怪力技能的等級上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "id": "火場怪力"
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "盛放的獻禮",
+        "name": {
+            "zhTW": "盛放的獻禮",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "【盛放之宴】特別報酬的發生機率提升。（從任務中途開始使用不會有效果）",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": null,
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "【盛放之宴】特別報酬的發生機率提升。（從任務中途開始使用不會有效果）",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "盛放之恩惠",
+        "name": {
+            "zhTW": "盛放之恩惠",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "【盛放之宴】特別報酬的發生機率大幅提升。（從任務中途開始使用不會有效果）",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "【盛放之宴】特別報酬的發生機率大幅提升。（從任務中途開始使用不會有效果）",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "耐性變換【屬性】",
+        "name": {
+            "zhTW": "耐性變換【屬性】",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "防禦的屬性耐性值越高，裝備的武器屬性值也越會增高。",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "防禦的屬性耐性值越高，裝備的武器屬性值也越會增高。",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "全屬性耐性強化",
+        "name": {
+            "zhTW": "全屬性耐性強化",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "全屬性耐性值 1.2 倍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "全屬性耐性值 1.2 倍",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "resistanceMultiple": {
+                        "type": "all",
+                        "value": 1.2
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "繼承",
+        "name": {
+            "zhTW": "繼承",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "解放因極意所限制的所有技能上限",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "解放因極意所限制的所有技能上限",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": {
+                    "enableSkillLevel": {
+                        "ids": [
+                            "炸彈客",
+                            "KO術",
+                            "精神抖擻",
+                            "挑戰者",
+                            "滿足感",
+                            "奪取耐力",
+                            "力量解放",
+                            "砲術",
+                            "整備",
+                            "精靈加護",
+                            "投射器裝填數UP",
+                            "火場怪力"
+                        ]
+                    }
+                },
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "超越",
+        "name": {
+            "zhTW": "超越",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "除了技能【真．利刃／彈藥節約】之外，任務開始時或力竭倒下後，體力．耐力 +100",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "除了技能【真．利刃／彈藥節約】之外，任務開始時或力竭倒下後，體力．耐力 +100",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    },
+    {
+        "id": "飛翔龍爪攻擊強化",
+        "name": {
+            "zhTW": "飛翔龍爪攻擊強化",
+            "jaJP": null,
+            "enUS": null
+        },
+        "description": {
+            "zhTW": "在飛翔龍爪抓牢並進行武器攻擊時，將更容易對魔物造成傷害，投射器的彈藥也更容易掉落。",
+            "jaJP": null,
+            "enUS": null
+        },
+        "type": "active",
+        "from": {
+            "set": true,
+            "jewel": false,
+            "armor": false,
+            "charm": false,
+            "weapon": false
+        },
+        "list": [
+            {
+                "level": 1,
+                "description": {
+                    "zhTW": "在飛翔龍爪抓牢並進行武器攻擊時，將更容易對魔物造成傷害，投射器的彈藥也更容易掉落。",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "reaction": null,
+                "isHidden": false
+            }
+        ]
+    }
+]

@@ -19,13 +19,31 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
+import ConditionOptionsBlock from 'components/block/world/conditionOptions'
+import CandidateBundlesBlock from 'components/block/world/candidateBundles'
+import EquipsDisplayerBlock from 'components/block/world/equipsDisplayer'
+import CharacterStatusBlock from 'components/block/world/characterStatus'
+
+import AlgorithmSettingModal from 'components/modal/world/algorithmSetting'
+import ConditionItemSelectorModal from 'components/modal/world/conditionItemSelector'
+import EquipItemSelectorModal from 'components/modal/world/equipItemSelector'
+import BundleItemSelectorModal from 'components/modal/world/bundleItemSelector'
+
 // Load Styles
 import '@/styles/pages/world.sass'
 
 export default function WorldPage () {
     return (
         <div className="mhc-page mhc-world-page">
+            <ConditionOptionsBlock />
+            <CandidateBundlesBlock />
+            <EquipsDisplayerBlock />
+            <CharacterStatusBlock />
 
+            <AlgorithmSettingModal />
+            <ConditionItemSelectorModal />
+            <EquipItemSelectorModal />
+            <BundleItemSelectorModal />
         </div>
     )
 }

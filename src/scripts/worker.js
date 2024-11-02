@@ -16,7 +16,7 @@ import Config from 'config'
 import Helper from 'core/helper'
 
 // Load Libraries
-import FittingAlgorithm from 'libraries/fittingAlgorithm'
+import FittingAlgorithm from 'libraries/rise/fittingAlgorithm'
 
 // Set Sentry Endpoint
 if ('production' === Config.env) {

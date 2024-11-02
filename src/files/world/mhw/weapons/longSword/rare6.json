@@ -1,0 +1,422 @@
+[
+    {
+        "id": "鐵刀【神樂】 II",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "礦石素材",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鐵刀【神樂】 II",
+            "jaJP": null,
+            "enUS": "Iron Gospel II"
+        },
+        "attack": 594,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 50,
+                "orange": 60,
+                "yellow": 20,
+                "green": 150,
+                "blue": 90,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "眩惑刀【閃】 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "眩鳥",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "眩惑刀【閃】 III",
+            "jaJP": null,
+            "enUS": "Dazzling Flash III"
+        },
+        "attack": 594,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 80,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 50,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 360,
+                "maxValue": 470,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "星空迅刀 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "搔鳥",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "星空迅刀 III",
+            "jaJP": null,
+            "enUS": "Last Dance III"
+        },
+        "attack": 561,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 80,
+                "orange": 60,
+                "yellow": 80,
+                "green": 80,
+                "blue": 80,
+                "white": 20,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "sleep",
+                "minValue": 270,
+                "maxValue": 330,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "骨鐮 II",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "駭骨素材",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "骨鐮 II",
+            "jaJP": null,
+            "enUS": "Bone Reaper II"
+        },
+        "attack": 627,
+        "criticalRate": 0,
+        "defense": 10,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 120,
+                "yellow": 40,
+                "green": 50,
+                "blue": 90,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "sleep",
+                "minValue": 270,
+                "maxValue": 330,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "蠻顎龍偃月刀 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "蠻顎龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "蠻顎龍偃月刀 III",
+            "jaJP": null,
+            "enUS": "Anja Scimitar III"
+        },
+        "attack": 693,
+        "criticalRate": -20,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 110,
+                "orange": 120,
+                "yellow": 40,
+                "green": 50,
+                "blue": 80,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 390,
+                "maxValue": 510,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "深土太刀 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "泥魚龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "深土太刀 III",
+            "jaJP": null,
+            "enUS": "Dipterus III"
+        },
+        "attack": 627,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 170,
+                "orange": 100,
+                "yellow": 30,
+                "green": 30,
+                "blue": 40,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 360,
+                "maxValue": 470,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "飛雷龍之牙 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "飛雷龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "飛雷龍之牙 III",
+            "jaJP": null,
+            "enUS": "Kadachi Fang III"
+        },
+        "attack": 594,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 150,
+                "orange": 100,
+                "yellow": 30,
+                "green": 30,
+                "blue": 60,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 270,
+                "maxValue": 350,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "黑色偃月刀 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "巨甲蟲",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "黑色偃月刀 III",
+            "jaJP": null,
+            "enUS": "Dark Scimitar III"
+        },
+        "attack": 528,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 110,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "paralysis",
+                "minValue": 240,
+                "maxValue": 300,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "龍骨刀 III",
+        "rare": 6,
+        "type": "longSword",
+        "series": {
+            "zhTW": "龍骨",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "龍骨刀 III",
+            "jaJP": null,
+            "enUS": "Dragonbone Stabber III"
+        },
+        "attack": 528,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 150,
+                "orange": 100,
+                "yellow": 30,
+                "green": 30,
+                "blue": 60,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 420,
+                "maxValue": 550,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "low"
+        },
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    }
+]

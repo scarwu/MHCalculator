@@ -1,0 +1,5552 @@
+[
+    {
+        "series": {
+            "id": "精英．雷顎龍α",
+            "name": {
+                "zhTW": "精英．雷顎龍α",
+                "jaJP": "EXジャナールα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 146,
+            "resistance": {
+                "fire": -1,
+                "water": -1,
+                "thunder": 2,
+                "ice": -3,
+                "dragon": 0
+            },
+            "set": {
+                "id": "蠻顎龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．雷顎龍頭盔α",
+                "name": {
+                    "zhTW": "精英．雷顎龍頭盔α",
+                    "jaJP": "EXジャナールヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    },
+                    {
+                        "id": "死裡逃生",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．雷顎龍鎧甲α",
+                    "jaJP": "EXジャナールメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "減輕膽怯",
+                        "level": 1
+                    },
+                    {
+                        "id": "昏厥耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍腕甲α",
+                "name": {
+                    "zhTW": "精英．雷顎龍腕甲α",
+                    "jaJP": "EXジャナールアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "道具使用強化",
+                        "level": 2
+                    },
+                    {
+                        "id": "雷屬性攻擊強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍腰甲α",
+                "name": {
+                    "zhTW": "精英．雷顎龍腰甲α",
+                    "jaJP": "EXジャナールコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 2
+                    },
+                    {
+                        "id": "道具使用強化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍護腿α",
+                "name": {
+                    "zhTW": "精英．雷顎龍護腿α",
+                    "jaJP": "EXジャナールグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "雷屬性攻擊強化",
+                        "level": 2
+                    },
+                    {
+                        "id": "特殊射擊強化",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．雷顎龍β",
+            "name": {
+                "zhTW": "精英．雷顎龍β",
+                "jaJP": "EXジャナールβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 146,
+            "resistance": {
+                "fire": -1,
+                "water": -1,
+                "thunder": 2,
+                "ice": -3,
+                "dragon": 0
+            },
+            "set": {
+                "id": "蠻顎龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．雷顎龍頭盔β",
+                "name": {
+                    "zhTW": "精英．雷顎龍頭盔β",
+                    "jaJP": "EXジャナールヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．雷顎龍鎧甲β",
+                    "jaJP": "EXジャナールメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "減輕膽怯",
+                        "level": 1
+                    },
+                    {
+                        "id": "昏厥耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍腕甲β",
+                "name": {
+                    "zhTW": "精英．雷顎龍腕甲β",
+                    "jaJP": "EXジャナールアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "道具使用強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍腰甲β",
+                "name": {
+                    "zhTW": "精英．雷顎龍腰甲β",
+                    "jaJP": "EXジャナールコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    },
+                    {
+                        "id": "道具使用強化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷顎龍護腿β",
+                "name": {
+                    "zhTW": "精英．雷顎龍護腿β",
+                    "jaJP": "EXジャナールグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "雷屬性攻擊強化",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．火龍魂α",
+            "name": {
+                "zhTW": "精英．火龍魂α",
+                "jaJP": "EXリオソウルα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 148,
+            "resistance": {
+                "fire": 3,
+                "water": 2,
+                "thunder": 2,
+                "ice": -3,
+                "dragon": -4
+            },
+            "set": {
+                "id": "火龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．火龍魂頭盔α",
+                "name": {
+                    "zhTW": "精英．火龍魂頭盔α",
+                    "jaJP": "EXリオソウルヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "超會心",
+                        "level": 1
+                    },
+                    {
+                        "id": "攀岩者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂鎧甲α",
+                "name": {
+                    "zhTW": "精英．火龍魂鎧甲α",
+                    "jaJP": "EXリオソウルメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "屬性解放／裝填擴充",
+                        "level": 1
+                    },
+                    {
+                        "id": "破壞王",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂腕甲α",
+                "name": {
+                    "zhTW": "精英．火龍魂腕甲α",
+                    "jaJP": "EXリオソウルアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 2
+                    },
+                    {
+                        "id": "風壓耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂腰甲α",
+                "name": {
+                    "zhTW": "精英．火龍魂腰甲α",
+                    "jaJP": "EXリオソウルコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "風壓耐性",
+                        "level": 2
+                    },
+                    {
+                        "id": "貫通彈・龍之箭強化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂護腿α",
+                "name": {
+                    "zhTW": "精英．火龍魂護腿α",
+                    "jaJP": "EXリオソウルグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "超會心",
+                        "level": 1
+                    },
+                    {
+                        "id": "風壓耐性",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．火龍魂β",
+            "name": {
+                "zhTW": "精英．火龍魂β",
+                "jaJP": "EXリオソウルβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 148,
+            "resistance": {
+                "fire": 3,
+                "water": 2,
+                "thunder": 2,
+                "ice": -3,
+                "dragon": -4
+            },
+            "set": {
+                "id": "火龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．火龍魂頭盔β",
+                "name": {
+                    "zhTW": "精英．火龍魂頭盔β",
+                    "jaJP": "EXリオソウルヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "超會心",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂鎧甲β",
+                "name": {
+                    "zhTW": "精英．火龍魂鎧甲β",
+                    "jaJP": "EXリオソウルメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "屬性解放／裝填擴充",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂腕甲β",
+                "name": {
+                    "zhTW": "精英．火龍魂腕甲β",
+                    "jaJP": "EXリオソウルアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 1
+                    },
+                    {
+                        "id": "風壓耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂腰甲β",
+                "name": {
+                    "zhTW": "精英．火龍魂腰甲β",
+                    "jaJP": "EXリオソウルコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "風壓耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．火龍魂護腿β",
+                "name": {
+                    "zhTW": "精英．火龍魂護腿β",
+                    "jaJP": "EXリオソウルグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "超會心",
+                        "level": 1
+                    },
+                    {
+                        "id": "風壓耐性",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．暴君角龍α",
+            "name": {
+                "zhTW": "精英．暴君角龍α",
+                "jaJP": "EXディアネロα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 148,
+            "resistance": {
+                "fire": 2,
+                "water": -3,
+                "thunder": 0,
+                "ice": -4,
+                "dragon": 2
+            },
+            "set": {
+                "id": "角龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．暴君角龍頭盔α",
+                "name": {
+                    "zhTW": "精英．暴君角龍頭盔α",
+                    "jaJP": "EXディアネロヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 2
+                    },
+                    {
+                        "id": "怨恨",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．暴君角龍鎧甲α",
+                    "jaJP": "EXディアネロメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    },
+                    {
+                        "id": "跑者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍腕甲α",
+                "name": {
+                    "zhTW": "精英．暴君角龍腕甲α",
+                    "jaJP": "EXディアネロアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "KO術",
+                        "level": 2
+                    },
+                    {
+                        "id": "跑者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍腰甲α",
+                "name": {
+                    "zhTW": "精英．暴君角龍腰甲α",
+                    "jaJP": "EXディアネロコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "KO術",
+                        "level": 2
+                    },
+                    {
+                        "id": "破壞王",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍護腿α",
+                "name": {
+                    "zhTW": "精英．暴君角龍護腿α",
+                    "jaJP": "EXディアネログリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    },
+                    {
+                        "id": "KO術",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．暴君角龍β",
+            "name": {
+                "zhTW": "精英．暴君角龍β",
+                "jaJP": "EXディアネロβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 148,
+            "resistance": {
+                "fire": 2,
+                "water": -3,
+                "thunder": 0,
+                "ice": -4,
+                "dragon": 2
+            },
+            "set": {
+                "id": "角龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．暴君角龍頭盔β",
+                "name": {
+                    "zhTW": "精英．暴君角龍頭盔β",
+                    "jaJP": "EXディアネロヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．暴君角龍鎧甲β",
+                    "jaJP": "EXディアネロメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 1
+                    },
+                    {
+                        "id": "跑者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍腕甲β",
+                "name": {
+                    "zhTW": "精英．暴君角龍腕甲β",
+                    "jaJP": "EXディアネロアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "KO術",
+                        "level": 1
+                    },
+                    {
+                        "id": "跑者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍腰甲β",
+                "name": {
+                    "zhTW": "精英．暴君角龍腰甲β",
+                    "jaJP": "EXディアネロコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "KO術",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．暴君角龍護腿β",
+                "name": {
+                    "zhTW": "精英．暴君角龍護腿β",
+                    "jaJP": "EXディアネログリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．霜翼風漂龍α",
+            "name": {
+                "zhTW": "精英．霜翼風漂龍α",
+                "jaJP": "EXブリーナα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 146,
+            "resistance": {
+                "fire": -3,
+                "water": 2,
+                "thunder": -1,
+                "ice": 3,
+                "dragon": 0
+            },
+            "set": {
+                "id": "風漂龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．霜翼風漂龍頭盔α",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍頭盔α",
+                    "jaJP": "EXブリーナヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "飢餓耐性",
+                        "level": 2
+                    },
+                    {
+                        "id": "迴避距離UP",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍鎧甲α",
+                    "jaJP": "EXブリーナメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 2
+                    },
+                    {
+                        "id": "跑者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍腕甲α",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍腕甲α",
+                    "jaJP": "EXブリーナアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 2
+                    },
+                    {
+                        "id": "飢餓耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍腰甲α",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍腰甲α",
+                    "jaJP": "EXブリーナコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "迴避距離UP",
+                        "level": 2
+                    },
+                    {
+                        "id": "集中",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍護腿α",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍護腿α",
+                    "jaJP": "EXブリーナグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "跑者",
+                        "level": 2
+                    },
+                    {
+                        "id": "散彈・剛射強化",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．霜翼風漂龍β",
+            "name": {
+                "zhTW": "精英．霜翼風漂龍β",
+                "jaJP": "EXブリーナβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 146,
+            "resistance": {
+                "fire": -3,
+                "water": 2,
+                "thunder": -1,
+                "ice": 3,
+                "dragon": 0
+            },
+            "set": {
+                "id": "風漂龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．霜翼風漂龍頭盔β",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍頭盔β",
+                    "jaJP": "EXブリーナヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "飢餓耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍鎧甲β",
+                    "jaJP": "EXブリーナメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍腕甲β",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍腕甲β",
+                    "jaJP": "EXブリーナアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍腰甲β",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍腰甲β",
+                    "jaJP": "EXブリーナコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "迴避距離UP",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜翼風漂龍護腿β",
+                "name": {
+                    "zhTW": "精英．霜翼風漂龍護腿β",
+                    "jaJP": "EXブリーナグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "跑者",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．兇爪龍α",
+            "name": {
+                "zhTW": "精英．兇爪龍α",
+                "jaJP": "EXデスガロンα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 148,
+            "resistance": {
+                "fire": -2,
+                "water": -3,
+                "thunder": -2,
+                "ice": -2,
+                "dragon": 4
+            },
+            "set": {
+                "id": "慘爪龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．兇爪龍頭盔α",
+                "name": {
+                    "zhTW": "精英．兇爪龍頭盔α",
+                    "jaJP": "EXデスガロンヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 2
+                    },
+                    {
+                        "id": "整備",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．兇爪龍鎧甲α",
+                    "jaJP": "EXデスガロンメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 3
+                    },
+                    {
+                        "id": "龍耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍腕甲α",
+                "name": {
+                    "zhTW": "精英．兇爪龍腕甲α",
+                    "jaJP": "EXデスガロンアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "強化持續",
+                        "level": 1
+                    },
+                    {
+                        "id": "龍屬性攻擊強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍腰甲α",
+                "name": {
+                    "zhTW": "精英．兇爪龍腰甲α",
+                    "jaJP": "EXデスガロンコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "龍屬性攻擊強化",
+                        "level": 2
+                    },
+                    {
+                        "id": "力量解放",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍護腿α",
+                "name": {
+                    "zhTW": "精英．兇爪龍護腿α",
+                    "jaJP": "EXデスガロングリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "整備",
+                        "level": 2
+                    },
+                    {
+                        "id": "強化持續",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．兇爪龍β",
+            "name": {
+                "zhTW": "精英．兇爪龍β",
+                "jaJP": "EXデスガロンβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 148,
+            "resistance": {
+                "fire": -2,
+                "water": -3,
+                "thunder": -2,
+                "ice": -2,
+                "dragon": 4
+            },
+            "set": {
+                "id": "慘爪龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．兇爪龍頭盔β",
+                "name": {
+                    "zhTW": "精英．兇爪龍頭盔β",
+                    "jaJP": "EXデスガロンヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．兇爪龍鎧甲β",
+                    "jaJP": "EXデスガロンメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    },
+                    {
+                        "id": "龍耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍腕甲β",
+                "name": {
+                    "zhTW": "精英．兇爪龍腕甲β",
+                    "jaJP": "EXデスガロンアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "強化持續",
+                        "level": 1
+                    },
+                    {
+                        "id": "龍屬性攻擊強化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍腰甲β",
+                "name": {
+                    "zhTW": "精英．兇爪龍腰甲β",
+                    "jaJP": "EXデスガロンコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "龍屬性攻擊強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．兇爪龍護腿β",
+                "name": {
+                    "zhTW": "精英．兇爪龍護腿β",
+                    "jaJP": "EXデスガロングリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "整備",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．硫斬龍α",
+            "name": {
+                "zhTW": "精英．硫斬龍α",
+                "jaJP": "EXディノイエロα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 150,
+            "resistance": {
+                "fire": -3,
+                "water": 2,
+                "thunder": -1,
+                "ice": 2,
+                "dragon": -1
+            },
+            "set": {
+                "id": "斬龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．硫斬龍頭盔α",
+                "name": {
+                    "zhTW": "精英．硫斬龍頭盔α",
+                    "jaJP": "EXディノイエロヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "精神抖擻",
+                        "level": 2
+                    },
+                    {
+                        "id": "瘴氣耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．硫斬龍鎧甲α",
+                    "jaJP": "EXディノイエロメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "匠",
+                        "level": 2
+                    },
+                    {
+                        "id": "耐力急速回復",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍腕甲α",
+                "name": {
+                    "zhTW": "精英．硫斬龍腕甲α",
+                    "jaJP": "EXディノイエロアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "昏厥耐性",
+                        "level": 2
+                    },
+                    {
+                        "id": "匠",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍腰甲α",
+                "name": {
+                    "zhTW": "精英．硫斬龍腰甲α",
+                    "jaJP": "EXディノイエロコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "匠",
+                        "level": 2
+                    },
+                    {
+                        "id": "防禦力DOWN耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍護腿α",
+                "name": {
+                    "zhTW": "精英．硫斬龍護腿α",
+                    "jaJP": "EXディノイエログリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "精神抖擻",
+                        "level": 2
+                    },
+                    {
+                        "id": "耐力急速回復",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．硫斬龍β",
+            "name": {
+                "zhTW": "精英．硫斬龍β",
+                "jaJP": "EXディノイエロβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 150,
+            "resistance": {
+                "fire": -3,
+                "water": 2,
+                "thunder": -1,
+                "ice": 2,
+                "dragon": -1
+            },
+            "set": {
+                "id": "斬龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．硫斬龍頭盔β",
+                "name": {
+                    "zhTW": "精英．硫斬龍頭盔β",
+                    "jaJP": "EXディノイエロヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "精神抖擻",
+                        "level": 1
+                    },
+                    {
+                        "id": "瘴氣耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．硫斬龍鎧甲β",
+                    "jaJP": "EXディノイエロメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "匠",
+                        "level": 1
+                    },
+                    {
+                        "id": "耐力急速回復",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍腕甲β",
+                "name": {
+                    "zhTW": "精英．硫斬龍腕甲β",
+                    "jaJP": "EXディノイエロアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "昏厥耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍腰甲β",
+                "name": {
+                    "zhTW": "精英．硫斬龍腰甲β",
+                    "jaJP": "EXディノイエロコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "匠",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．硫斬龍護腿β",
+                "name": {
+                    "zhTW": "精英．硫斬龍護腿β",
+                    "jaJP": "EXディノイエログリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "精神抖擻",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．鬥技場獎賞１α",
+            "name": {
+                "zhTW": "精英．鬥技場獎賞１α",
+                "jaJP": "EXクロオビα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 150,
+            "resistance": {
+                "fire": 1,
+                "water": 1,
+                "thunder": 1,
+                "ice": 1,
+                "dragon": 2
+            },
+            "set": {
+                "id": "教官的指導"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．鬥技場獎賞１頭盔α",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１頭盔α",
+                    "jaJP": "EXクロオビヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "跑者",
+                        "level": 2
+                    },
+                    {
+                        "id": "最愛菇類",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１鎧甲α",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１鎧甲α",
+                    "jaJP": "EXクロオビメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "最愛菇類",
+                        "level": 2
+                    },
+                    {
+                        "id": "廣域化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１腕甲α",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１腕甲α",
+                    "jaJP": "EXクロオビアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "廣域化",
+                        "level": 2
+                    },
+                    {
+                        "id": "吹笛名人",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１腰甲α",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１腰甲α",
+                    "jaJP": "EXクロオビコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力回復量UP",
+                        "level": 2
+                    },
+                    {
+                        "id": "跑者",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１護腿α",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１護腿α",
+                    "jaJP": "EXクロオビグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "廣域化",
+                        "level": 2
+                    },
+                    {
+                        "id": "體力回復量UP",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．鬥技場獎賞１β",
+            "name": {
+                "zhTW": "精英．鬥技場獎賞１β",
+                "jaJP": "EXクロオビβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 150,
+            "resistance": {
+                "fire": 1,
+                "water": 1,
+                "thunder": 1,
+                "ice": 1,
+                "dragon": 2
+            },
+            "set": {
+                "id": "教官的指導"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．鬥技場獎賞１頭盔β",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１頭盔β",
+                    "jaJP": "EXクロオビヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "跑者",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１鎧甲β",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１鎧甲β",
+                    "jaJP": "EXクロオビメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "最愛菇類",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１腕甲β",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１腕甲β",
+                    "jaJP": "EXクロオビアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "廣域化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１腰甲β",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１腰甲β",
+                    "jaJP": "EXクロオビコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力回復量UP",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．鬥技場獎賞１護腿β",
+                "name": {
+                    "zhTW": "精英．鬥技場獎賞１護腿β",
+                    "jaJP": "EXクロオビグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "廣域化",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．杜賓α",
+            "name": {
+                "zhTW": "精英．杜賓α",
+                "jaJP": "EXドーベルα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 152,
+            "resistance": {
+                "fire": -2,
+                "water": 0,
+                "thunder": -1,
+                "ice": -1,
+                "dragon": 4
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．杜賓頭盔α",
+                "name": {
+                    "zhTW": "精英．杜賓頭盔α",
+                    "jaJP": "EXドーベルヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "屬性解放／裝填擴充",
+                        "level": 2
+                    },
+                    {
+                        "id": "耐力急速回復",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓鎧甲α",
+                "name": {
+                    "zhTW": "精英．杜賓鎧甲α",
+                    "jaJP": "EXドーベルメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    },
+                    {
+                        "id": "瘴氣耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓腕甲α",
+                "name": {
+                    "zhTW": "精英．杜賓腕甲α",
+                    "jaJP": "EXドーベルアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耐力急速回復",
+                        "level": 2
+                    },
+                    {
+                        "id": "最愛菇類",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓腰甲α",
+                "name": {
+                    "zhTW": "精英．杜賓腰甲α",
+                    "jaJP": "EXドーベルコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    },
+                    {
+                        "id": "昏厥耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓護腿α",
+                "name": {
+                    "zhTW": "精英．杜賓護腿α",
+                    "jaJP": "EXドーベルグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    },
+                    {
+                        "id": "最愛菇類",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．杜賓β",
+            "name": {
+                "zhTW": "精英．杜賓β",
+                "jaJP": "EXドーベルβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 152,
+            "resistance": {
+                "fire": -2,
+                "water": 0,
+                "thunder": -1,
+                "ice": -1,
+                "dragon": 4
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．杜賓頭盔β",
+                "name": {
+                    "zhTW": "精英．杜賓頭盔β",
+                    "jaJP": "EXドーベルヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "屬性解放／裝填擴充",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓鎧甲β",
+                "name": {
+                    "zhTW": "精英．杜賓鎧甲β",
+                    "jaJP": "EXドーベルメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 1
+                    },
+                    {
+                        "id": "瘴氣耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓腕甲β",
+                "name": {
+                    "zhTW": "精英．杜賓腕甲β",
+                    "jaJP": "EXドーベルアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耐力急速回復",
+                        "level": 1
+                    },
+                    {
+                        "id": "最愛菇類",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓腰甲β",
+                "name": {
+                    "zhTW": "精英．杜賓腰甲β",
+                    "jaJP": "EXドーベルコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 1
+                    },
+                    {
+                        "id": "昏厥耐性",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．杜賓護腿β",
+                "name": {
+                    "zhTW": "精英．杜賓護腿β",
+                    "jaJP": "EXドーベルグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 1
+                    },
+                    {
+                        "id": "最愛菇類",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．大馬士革α",
+            "name": {
+                "zhTW": "精英．大馬士革α",
+                "jaJP": "EXダマスクα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 152,
+            "resistance": {
+                "fire": 4,
+                "water": -2,
+                "thunder": 0,
+                "ice": 0,
+                "dragon": 0
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．大馬士革頭盔α",
+                "name": {
+                    "zhTW": "精英．大馬士革頭盔α",
+                    "jaJP": "EXダマスクヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "防禦",
+                        "level": 3
+                    },
+                    {
+                        "id": "砥石使用高速化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革鎧甲α",
+                "name": {
+                    "zhTW": "精英．大馬士革鎧甲α",
+                    "jaJP": "EXダマスクメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 2
+                    },
+                    {
+                        "id": "防禦",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革腕甲α",
+                "name": {
+                    "zhTW": "精英．大馬士革腕甲α",
+                    "jaJP": "EXダマスクアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "匠",
+                        "level": 2
+                    },
+                    {
+                        "id": "砥石使用高速化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革腰甲α",
+                "name": {
+                    "zhTW": "精英．大馬士革腰甲α",
+                    "jaJP": "EXダマスクコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 1
+                    },
+                    {
+                        "id": "防禦性能",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革護腿α",
+                "name": {
+                    "zhTW": "精英．大馬士革護腿α",
+                    "jaJP": "EXダマスクグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "防禦",
+                        "level": 2
+                    },
+                    {
+                        "id": "防禦性能",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．大馬士革β",
+            "name": {
+                "zhTW": "精英．大馬士革β",
+                "jaJP": "EXダマスクβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 152,
+            "resistance": {
+                "fire": 4,
+                "water": -2,
+                "thunder": 0,
+                "ice": 0,
+                "dragon": 0
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．大馬士革頭盔β",
+                "name": {
+                    "zhTW": "精英．大馬士革頭盔β",
+                    "jaJP": "EXダマスクヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "防禦",
+                        "level": 3
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革鎧甲β",
+                "name": {
+                    "zhTW": "精英．大馬士革鎧甲β",
+                    "jaJP": "EXダマスクメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革腕甲β",
+                "name": {
+                    "zhTW": "精英．大馬士革腕甲β",
+                    "jaJP": "EXダマスクアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "匠",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革腰甲β",
+                "name": {
+                    "zhTW": "精英．大馬士革腰甲β",
+                    "jaJP": "EXダマスクコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．大馬士革護腿β",
+                "name": {
+                    "zhTW": "精英．大馬士革護腿β",
+                    "jaJP": "EXダマスクグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "防禦",
+                        "level": 2
+                    },
+                    {
+                        "id": "防禦性能",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．紅蓮爆鱗龍α",
+            "name": {
+                "zhTW": "精英．紅蓮爆鱗龍α",
+                "jaJP": "EXプライドα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 3,
+                "water": 1,
+                "thunder": -2,
+                "ice": -4,
+                "dragon": -2
+            },
+            "set": {
+                "id": "爆鱗龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．紅蓮爆鱗龍頭盔α",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍頭盔α",
+                    "jaJP": "EXプライドヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 2
+                    },
+                    {
+                        "id": "爆破屬性強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍鎧甲α",
+                    "jaJP": "EXプライドメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "防禦性能",
+                        "level": 2
+                    },
+                    {
+                        "id": "爆破異常狀態的耐性",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍腕甲α",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍腕甲α",
+                    "jaJP": "EXプライドアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 2
+                    },
+                    {
+                        "id": "耳塞",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍腰甲α",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍腰甲α",
+                    "jaJP": "EXプライドコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "炸彈客",
+                        "level": 2
+                    },
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍護腿α",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍護腿α",
+                    "jaJP": "EXプライドグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 2
+                    },
+                    {
+                        "id": "跳躍鐵人",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．紅蓮爆鱗龍β",
+            "name": {
+                "zhTW": "精英．紅蓮爆鱗龍β",
+                "jaJP": "EXプライドβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 3,
+                "water": 1,
+                "thunder": -2,
+                "ice": -4,
+                "dragon": -2
+            },
+            "set": {
+                "id": "爆鱗龍的霸氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．紅蓮爆鱗龍頭盔β",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍頭盔β",
+                    "jaJP": "EXプライドヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 2
+                    },
+                    {
+                        "id": "爆破屬性強化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍鎧甲β",
+                    "jaJP": "EXプライドメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "防禦性能",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍腕甲β",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍腕甲β",
+                    "jaJP": "EXプライドアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍腰甲β",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍腰甲β",
+                    "jaJP": "EXプライドコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "炸彈客",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．紅蓮爆鱗龍護腿β",
+                "name": {
+                    "zhTW": "精英．紅蓮爆鱗龍護腿β",
+                    "jaJP": "EXプライドグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 1
+                    },
+                    {
+                        "id": "跳躍鐵人",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．煌怒恐暴龍α",
+            "name": {
+                "zhTW": "精英．煌怒恐暴龍α",
+                "jaJP": "EXグリードα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 156,
+            "resistance": {
+                "fire": 2,
+                "water": 1,
+                "thunder": -3,
+                "ice": 1,
+                "dragon": -3
+            },
+            "set": {
+                "id": "恐暴龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．煌怒恐暴龍頭盔α",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍頭盔α",
+                    "jaJP": "EXグリードヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 1
+                    },
+                    {
+                        "id": "匠",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍鎧甲α",
+                    "jaJP": "EXグリードメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "快吃",
+                        "level": 1
+                    },
+                    {
+                        "id": "匠",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍腕甲α",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍腕甲α",
+                    "jaJP": "EXグリードアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "奪取耐力",
+                        "level": 2
+                    },
+                    {
+                        "id": "破壞王",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍腰甲α",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍腰甲α",
+                    "jaJP": "EXグリードコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "奪取耐力",
+                        "level": 2
+                    },
+                    {
+                        "id": "匠",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍護腿α",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍護腿α",
+                    "jaJP": "EXグリードグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "快吃",
+                        "level": 2
+                    },
+                    {
+                        "id": "奪取耐力",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．煌怒恐暴龍β",
+            "name": {
+                "zhTW": "精英．煌怒恐暴龍β",
+                "jaJP": "EXグリードβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 156,
+            "resistance": {
+                "fire": 2,
+                "water": 1,
+                "thunder": -3,
+                "ice": 1,
+                "dragon": -3
+            },
+            "set": {
+                "id": "恐暴龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．煌怒恐暴龍頭盔β",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍頭盔β",
+                    "jaJP": "EXグリードヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍鎧甲β",
+                    "jaJP": "EXグリードメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "快吃",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍腕甲β",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍腕甲β",
+                    "jaJP": "EXグリードアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "奪取耐力",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍腰甲β",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍腰甲β",
+                    "jaJP": "EXグリードコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "奪取耐力",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．煌怒恐暴龍護腿β",
+                "name": {
+                    "zhTW": "精英．煌怒恐暴龍護腿β",
+                    "jaJP": "EXグリードグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "快吃",
+                        "level": 1
+                    },
+                    {
+                        "id": "奪取耐力",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．雷狼龍α",
+            "name": {
+                "zhTW": "精英．雷狼龍α",
+                "jaJP": "EXジンオウα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 158,
+            "resistance": {
+                "fire": -1,
+                "water": -1,
+                "thunder": 4,
+                "ice": -4,
+                "dragon": 1
+            },
+            "set": {
+                "id": "雷狼龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．雷狼龍頭盔α",
+                "name": {
+                    "zhTW": "精英．雷狼龍頭盔α",
+                    "jaJP": "EXジンオウヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "強化持續",
+                        "level": 2
+                    },
+                    {
+                        "id": "超會心",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．雷狼龍鎧甲α",
+                    "jaJP": "EXジンオウメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 3
+                    },
+                    {
+                        "id": "通常彈・通常箭強化",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍腕甲α",
+                "name": {
+                    "zhTW": "精英．雷狼龍腕甲α",
+                    "jaJP": "EXジンオウアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "回復速度",
+                        "level": 2
+                    },
+                    {
+                        "id": "力量解放",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍腰甲α",
+                "name": {
+                    "zhTW": "精英．雷狼龍腰甲α",
+                    "jaJP": "EXジンオウコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "強化持續",
+                        "level": 1
+                    },
+                    {
+                        "id": "雷屬性攻擊強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍護腿α",
+                "name": {
+                    "zhTW": "精英．雷狼龍護腿α",
+                    "jaJP": "EXジンオウグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "雷屬性攻擊強化",
+                        "level": 3
+                    },
+                    {
+                        "id": "力量解放",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．雷狼龍β",
+            "name": {
+                "zhTW": "精英．雷狼龍β",
+                "jaJP": "EXジンオウβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 158,
+            "resistance": {
+                "fire": -1,
+                "water": -1,
+                "thunder": 4,
+                "ice": -4,
+                "dragon": 1
+            },
+            "set": {
+                "id": "雷狼龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．雷狼龍頭盔β",
+                "name": {
+                    "zhTW": "精英．雷狼龍頭盔β",
+                    "jaJP": "EXジンオウヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "強化持續",
+                        "level": 1
+                    },
+                    {
+                        "id": "超會心",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．雷狼龍鎧甲β",
+                    "jaJP": "EXジンオウメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 3
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍腕甲β",
+                "name": {
+                    "zhTW": "精英．雷狼龍腕甲β",
+                    "jaJP": "EXジンオウアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "回復速度",
+                        "level": 1
+                    },
+                    {
+                        "id": "力量解放",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍腰甲β",
+                "name": {
+                    "zhTW": "精英．雷狼龍腰甲β",
+                    "jaJP": "EXジンオウコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "強化持續",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．雷狼龍護腿β",
+                "name": {
+                    "zhTW": "精英．雷狼龍護腿β",
+                    "jaJP": "EXジンオウグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "雷屬性攻擊強化",
+                        "level": 1
+                    },
+                    {
+                        "id": "力量解放",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．黑狼鳥α",
+            "name": {
+                "zhTW": "精英．黑狼鳥α",
+                "jaJP": "EXガルルガα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 2,
+                "water": -3,
+                "thunder": 2,
+                "ice": -2,
+                "dragon": -2
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．黑狼鳥頭盔α",
+                "name": {
+                    "zhTW": "精英．黑狼鳥頭盔α",
+                    "jaJP": "EXガルルガヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    },
+                    {
+                        "id": "怨恨",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥鎧甲α",
+                "name": {
+                    "zhTW": "精英．黑狼鳥鎧甲α",
+                    "jaJP": "EXガルルガメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 2
+                    },
+                    {
+                        "id": "看破",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥腕甲α",
+                "name": {
+                    "zhTW": "精英．黑狼鳥腕甲α",
+                    "jaJP": "EXガルルガアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 3
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥腰甲α",
+                "name": {
+                    "zhTW": "精英．黑狼鳥腰甲α",
+                    "jaJP": "EXガルルガコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    },
+                    {
+                        "id": "毒屬性強化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥護腿α",
+                "name": {
+                    "zhTW": "精英．黑狼鳥護腿α",
+                    "jaJP": "EXガルルガグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    },
+                    {
+                        "id": "貫通彈・龍之箭強化",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．黑狼鳥β",
+            "name": {
+                "zhTW": "精英．黑狼鳥β",
+                "jaJP": "EXガルルガβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 2,
+                "water": -3,
+                "thunder": 2,
+                "ice": -2,
+                "dragon": -2
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．黑狼鳥頭盔β",
+                "name": {
+                    "zhTW": "精英．黑狼鳥頭盔β",
+                    "jaJP": "EXガルルガヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 1
+                    },
+                    {
+                        "id": "怨恨",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥鎧甲β",
+                "name": {
+                    "zhTW": "精英．黑狼鳥鎧甲β",
+                    "jaJP": "EXガルルガメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 1
+                    },
+                    {
+                        "id": "看破",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥腕甲β",
+                "name": {
+                    "zhTW": "精英．黑狼鳥腕甲β",
+                    "jaJP": "EXガルルガアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "耳塞",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥腰甲β",
+                "name": {
+                    "zhTW": "精英．黑狼鳥腰甲β",
+                    "jaJP": "EXガルルガコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑狼鳥護腿β",
+                "name": {
+                    "zhTW": "精英．黑狼鳥護腿β",
+                    "jaJP": "EXガルルガグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．黑轟龍α",
+            "name": {
+                "zhTW": "精英．黑轟龍α",
+                "jaJP": "EXレックスロアα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 158,
+            "resistance": {
+                "fire": 3,
+                "water": -4,
+                "thunder": -2,
+                "ice": 0,
+                "dragon": 0
+            },
+            "set": {
+                "id": "轟龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．黑轟龍頭盔α",
+                "name": {
+                    "zhTW": "精英．黑轟龍頭盔α",
+                    "jaJP": "EXレックスロアヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 3
+                    },
+                    {
+                        "id": "滿足感",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．黑轟龍鎧甲α",
+                    "jaJP": "EXレックスロアメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 3
+                    },
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍腕甲α",
+                "name": {
+                    "zhTW": "精英．黑轟龍腕甲α",
+                    "jaJP": "EXレックスロアアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力增強",
+                        "level": 3
+                    },
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍腰甲α",
+                "name": {
+                    "zhTW": "精英．黑轟龍腰甲α",
+                    "jaJP": "EXレックスロアコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力回復量UP",
+                        "level": 3
+                    },
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍護腿α",
+                "name": {
+                    "zhTW": "精英．黑轟龍護腿α",
+                    "jaJP": "EXレックスロアグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 3
+                    },
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．黑轟龍β",
+            "name": {
+                "zhTW": "精英．黑轟龍β",
+                "jaJP": "EXレックスロアβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 158,
+            "resistance": {
+                "fire": 3,
+                "water": -4,
+                "thunder": -2,
+                "ice": 0,
+                "dragon": 0
+            },
+            "set": {
+                "id": "轟龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．黑轟龍頭盔β",
+                "name": {
+                    "zhTW": "精英．黑轟龍頭盔β",
+                    "jaJP": "EXレックスロアヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    },
+                    {
+                        "id": "滿足感",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．黑轟龍鎧甲β",
+                    "jaJP": "EXレックスロアメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    },
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍腕甲β",
+                "name": {
+                    "zhTW": "精英．黑轟龍腕甲β",
+                    "jaJP": "EXレックスロアアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力增強",
+                        "level": 2
+                    },
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍腰甲β",
+                "name": {
+                    "zhTW": "精英．黑轟龍腰甲β",
+                    "jaJP": "EXレックスロアコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力回復量UP",
+                        "level": 2
+                    },
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．黑轟龍護腿β",
+                "name": {
+                    "zhTW": "精英．黑轟龍護腿β",
+                    "jaJP": "EXレックスロアグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 2
+                    },
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．公會宮殿α",
+            "name": {
+                "zhTW": "精英．公會宮殿α",
+                "jaJP": "EXギルドパレスα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 1,
+                "water": 2,
+                "thunder": 2,
+                "ice": 1,
+                "dragon": 1
+            },
+            "set": {
+                "id": "工會的見識"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．公會宮殿頭盔α",
+                "name": {
+                    "zhTW": "精英．公會宮殿頭盔α",
+                    "jaJP": "EXギルドパレスヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力增強",
+                        "level": 2
+                    },
+                    {
+                        "id": "攻擊守勢",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿鎧甲α",
+                "name": {
+                    "zhTW": "精英．公會宮殿鎧甲α",
+                    "jaJP": "EXギルドパレスメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 2
+                    },
+                    {
+                        "id": "火場怪力",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿腕甲α",
+                "name": {
+                    "zhTW": "精英．公會宮殿腕甲α",
+                    "jaJP": "EXギルドパレスアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊守勢",
+                        "level": 2
+                    },
+                    {
+                        "id": "火場怪力",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿腰甲α",
+                "name": {
+                    "zhTW": "精英．公會宮殿腰甲α",
+                    "jaJP": "EXギルドパレスコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 3
+                    },
+                    {
+                        "id": "死裡逃生",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿護腿α",
+                "name": {
+                    "zhTW": "精英．公會宮殿護腿α",
+                    "jaJP": "EXギルドパレスグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "火場怪力",
+                        "level": 3
+                    },
+                    {
+                        "id": "體力增強",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．公會宮殿β",
+            "name": {
+                "zhTW": "精英．公會宮殿β",
+                "jaJP": "EXギルドパレスβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 1,
+                "water": 2,
+                "thunder": 2,
+                "ice": 1,
+                "dragon": 1
+            },
+            "set": {
+                "id": "工會的見識"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．公會宮殿頭盔β",
+                "name": {
+                    "zhTW": "精英．公會宮殿頭盔β",
+                    "jaJP": "EXギルドパレスヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "體力增強",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿鎧甲β",
+                "name": {
+                    "zhTW": "精英．公會宮殿鎧甲β",
+                    "jaJP": "EXギルドパレスメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 1
+                    },
+                    {
+                        "id": "火場怪力",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿腕甲β",
+                "name": {
+                    "zhTW": "精英．公會宮殿腕甲β",
+                    "jaJP": "EXギルドパレスアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊守勢",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿腰甲β",
+                "name": {
+                    "zhTW": "精英．公會宮殿腰甲β",
+                    "jaJP": "EXギルドパレスコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 2
+                    },
+                    {
+                        "id": "死裡逃生",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．公會宮殿護腿β",
+                "name": {
+                    "zhTW": "精英．公會宮殿護腿β",
+                    "jaJP": "EXギルドパレスグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "火場怪力",
+                        "level": 2
+                    },
+                    {
+                        "id": "體力增強",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．敏捷耳飾α",
+            "rare": 12,
+            "gender": "general",
+            "name": {
+                "zhTW": "精英．敏捷耳飾α",
+                "jaJP": "EX身軽さの耳飾りα",
+                "enUS": null
+            },
+            "defense": 154,
+            "resistance": {
+                "fire": 1,
+                "water": 1,
+                "thunder": 1,
+                "ice": 1,
+                "dragon": 1
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．敏捷耳飾α",
+                "name": {
+                    "zhTW": "精英．敏捷耳飾α",
+                    "jaJP": "EX身軽さの耳飾りα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "受身術",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．金色α",
+            "name": {
+                "zhTW": "精英．金色α",
+                "jaJP": "EX金色α",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 158,
+            "resistance": {
+                "fire": 2,
+                "water": 0,
+                "thunder": 3,
+                "ice": -5,
+                "dragon": 2
+            },
+            "set": {
+                "id": "金獅子的怒氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．金色毛髮α",
+                "name": {
+                    "zhTW": "精英．金色毛髮α",
+                    "jaJP": "EX金色ノ添髪α",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": null,
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 2
+                    },
+                    {
+                        "id": "匠",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色羽織α",
+                "name": {
+                    "zhTW": "精英．金色羽織α",
+                    "jaJP": "EX金色ノ羽織α",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    },
+                    {
+                        "id": "砥石使用高速化",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色臂甲α",
+                "name": {
+                    "zhTW": "精英．金色臂甲α",
+                    "jaJP": "EX金色ノ篭手α",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 1
+                    },
+                    {
+                        "id": "匠",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色帶α",
+                "name": {
+                    "zhTW": "精英．金色帶α",
+                    "jaJP": "EX金色ノ帯α",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    },
+                    {
+                        "id": "匠",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色下裳α",
+                "name": {
+                    "zhTW": "精英．金色下裳α",
+                    "jaJP": "EX金色ノ袴α",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    },
+                    {
+                        "id": "攻擊",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．金色β",
+            "name": {
+                "zhTW": "精英．金色β",
+                "jaJP": "EX金色β",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 158,
+            "resistance": {
+                "fire": 2,
+                "water": 0,
+                "thunder": 3,
+                "ice": -5,
+                "dragon": 2
+            },
+            "set": {
+                "id": "金獅子的怒氣"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．金色毛髮β",
+                "name": {
+                    "zhTW": "精英．金色毛髮β",
+                    "jaJP": "EX金色ノ添髪β",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色羽織β",
+                "name": {
+                    "zhTW": "精英．金色羽織β",
+                    "jaJP": "EX金色ノ羽織β",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色臂甲β",
+                "name": {
+                    "zhTW": "精英．金色臂甲β",
+                    "jaJP": "EX金色ノ篭手β",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色帶β",
+                "name": {
+                    "zhTW": "精英．金色帶β",
+                    "jaJP": "EX金色ノ帯β",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "弱點特效",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．金色下裳β",
+                "name": {
+                    "zhTW": "精英．金色下裳β",
+                    "jaJP": "EX金色ノ袴β",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "怨恨",
+                        "level": 2
+                    },
+                    {
+                        "id": "攻擊",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．獄狼龍α",
+            "name": {
+                "zhTW": "精英．獄狼龍α",
+                "jaJP": "EXゴクオウα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 160,
+            "resistance": {
+                "fire": 2,
+                "water": -4,
+                "thunder": -5,
+                "ice": 0,
+                "dragon": 4
+            },
+            "set": {
+                "id": "雷狼龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．獄狼龍頭盔α",
+                "name": {
+                    "zhTW": "精英．獄狼龍頭盔α",
+                    "jaJP": "EXゴクオウヘルムα",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 3
+                    },
+                    {
+                        "id": "耐震",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．獄狼龍鎧甲α",
+                    "jaJP": "EXゴクオウメイルα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "風壓耐性",
+                        "level": 3
+                    },
+                    {
+                        "id": "減輕膽怯",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍腕甲α",
+                "name": {
+                    "zhTW": "精英．獄狼龍腕甲α",
+                    "jaJP": "EXゴクオウアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 2
+                    },
+                    {
+                        "id": "龍屬性攻擊強化",
+                        "level": 3
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍腰甲α",
+                "name": {
+                    "zhTW": "精英．獄狼龍腰甲α",
+                    "jaJP": "EXゴクオウコイルα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 3
+                    },
+                    {
+                        "id": "耳塞",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍護腿α",
+                "name": {
+                    "zhTW": "精英．獄狼龍護腿α",
+                    "jaJP": "EXゴクオウグリーヴα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 2
+                    },
+                    {
+                        "id": "龍封力強化",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．獄狼龍β",
+            "name": {
+                "zhTW": "精英．獄狼龍β",
+                "jaJP": "EXゴクオウβ",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 160,
+            "resistance": {
+                "fire": 2,
+                "water": -4,
+                "thunder": -5,
+                "ice": 0,
+                "dragon": 4
+            },
+            "set": {
+                "id": "雷狼龍的真髓"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．獄狼龍頭盔β",
+                "name": {
+                    "zhTW": "精英．獄狼龍頭盔β",
+                    "jaJP": "EXゴクオウヘルムβ",
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 3
+                    },
+                    {
+                        "id": "耐震",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．獄狼龍鎧甲β",
+                    "jaJP": "EXゴクオウメイルβ",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "風壓耐性",
+                        "level": 3
+                    },
+                    {
+                        "id": "減輕膽怯",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍腕甲β",
+                "name": {
+                    "zhTW": "精英．獄狼龍腕甲β",
+                    "jaJP": "EXゴクオウアームβ",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "破壞王",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍腰甲β",
+                "name": {
+                    "zhTW": "精英．獄狼龍腰甲β",
+                    "jaJP": "EXゴクオウコイルβ",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "力量解放",
+                        "level": 3
+                    },
+                    {
+                        "id": "耳塞",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．獄狼龍護腿β",
+                "name": {
+                    "zhTW": "精英．獄狼龍護腿β",
+                    "jaJP": "EXゴクオウグリーヴβ",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "集中",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．健美α",
+            "name": {
+                "zhTW": "精英．健美α",
+                "jaJP": "EXマッスルα",
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 154,
+            "resistance": {
+                "fire": 2,
+                "water": -1,
+                "thunder": 0,
+                "ice": -1,
+                "dragon": -3
+            },
+            "set": null
+        },
+        "items": [
+            {
+                "id": "精英．健美身體α",
+                "name": {
+                    "zhTW": "精英．健美身體α",
+                    "jaJP": "EXマッスルボディα",
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 3
+                    },
+                    {
+                        "id": "不屈",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．健美腕甲α",
+                "name": {
+                    "zhTW": "精英．健美腕甲α",
+                    "jaJP": "EXマッスルアームα",
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 3
+                    },
+                    {
+                        "id": "死裡逃生",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．健美腰部α",
+                "name": {
+                    "zhTW": "精英．健美腰部α",
+                    "jaJP": "EXマッスルウエストα",
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "挑戰者",
+                        "level": 2
+                    },
+                    {
+                        "id": "火場怪力",
+                        "level": 3
+                    }
+                ]
+            },
+            {
+                "id": "精英．健美護腿α",
+                "name": {
+                    "zhTW": "精英．健美護腿α",
+                    "jaJP": "EXマッスルレッグα",
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 3
+                    },
+                    {
+                        "id": "火場怪力",
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．霜刃冰牙龍α",
+            "name": {
+                "zhTW": "精英．霜刃冰牙龍α",
+                "jaJP": null,
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 162,
+            "resistance": {
+                "fire": 3,
+                "water": 2,
+                "thunder": -2,
+                "ice": 3,
+                "dragon": 0
+            },
+            "set": {
+                "id": "冰牙龍的絕技"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．霜刃冰牙龍頭盔α",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍頭盔α",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    },
+                    {
+                        "id": "收刀術",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍鎧甲α",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍鎧甲α",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 3
+                    },
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍腕甲α",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍腕甲α",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    },
+                    {
+                        "id": "KO術",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍腰甲α",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍腰甲α",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "收刀術",
+                        "level": 1
+                    },
+                    {
+                        "id": "拔刀術【技】",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍護腿α",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍護腿α",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 1
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 1
+                    },
+                    {
+                        "id": "KO術",
+                        "level": 3
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "series": {
+            "id": "精英．霜刃冰牙龍β",
+            "name": {
+                "zhTW": "精英．霜刃冰牙龍β",
+                "jaJP": null,
+                "enUS": null
+            },
+            "rare": 11,
+            "gender": "general",
+            "defense": 162,
+            "resistance": {
+                "fire": 3,
+                "water": 2,
+                "thunder": -2,
+                "ice": 3,
+                "dragon": 0
+            },
+            "set": {
+                "id": "冰牙龍的絕技"
+            }
+        },
+        "items": [
+            {
+                "id": "精英．霜刃冰牙龍頭盔β",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍頭盔β",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "helm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍鎧甲β",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍鎧甲β",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "chest",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 2
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 3
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍腕甲β",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍腕甲β",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "arm",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "看破",
+                        "level": 2
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍腰甲β",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍腰甲β",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "waist",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 3
+                    },
+                    {
+                        "size": 1
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "收刀術",
+                        "level": 1
+                    }
+                ]
+            },
+            {
+                "id": "精英．霜刃冰牙龍護腿β",
+                "name": {
+                    "zhTW": "精英．霜刃冰牙龍護腿β",
+                    "jaJP": null,
+                    "enUS": null
+                },
+                "type": "leg",
+                "slots": [
+                    {
+                        "size": 4
+                    },
+                    {
+                        "size": 4
+                    }
+                ],
+                "skills": [
+                    {
+                        "id": "攻擊",
+                        "level": 1
+                    }
+                ]
+            }
+        ]
+    }
+]

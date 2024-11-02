@@ -1,0 +1,252 @@
+[
+    {
+        "id": "鉻鋼突擊弩 II",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "礦石素材",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鉻鋼突擊弩 II",
+            "jaJP": null,
+            "enUS": "Chrome Assault II"
+        },
+        "attack": 255,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "激流加農砲 III",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "水屬性",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "激流加農砲 III",
+            "jaJP": null,
+            "enUS": "Water Cannon III"
+        },
+        "attack": 255,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "長尾重裝弩 III",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "眩鳥",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "長尾重裝弩 III",
+            "jaJP": null,
+            "enUS": "Arma Destroyer III"
+        },
+        "attack": 255,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "動能發射器 II",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "駭骨素材",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "動能發射器 II",
+            "jaJP": null,
+            "enUS": "Power Shooter II"
+        },
+        "attack": 270,
+        "criticalRate": 0,
+        "defense": 10,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "曼陀羅爆破砲 III",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "毒妖鳥",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "曼陀羅爆破砲 III",
+            "jaJP": null,
+            "enUS": "Datura Blaster III"
+        },
+        "attack": 255,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "骨鎚龍加農砲 III",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "骨鎚龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "骨鎚龍加農砲 III",
+            "jaJP": null,
+            "enUS": "Baan Roar III"
+        },
+        "attack": 270,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "飛雷龍之針 III",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "飛雷龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "飛雷龍之針 III",
+            "jaJP": null,
+            "enUS": "Kadachi Lion III"
+        },
+        "attack": 255,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "龍骨砲 III",
+        "rare": 6,
+        "type": "heavyBowgun",
+        "series": {
+            "zhTW": "龍骨",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "龍骨砲 III",
+            "jaJP": null,
+            "enUS": "Dragonbone Cannon III"
+        },
+        "attack": 255,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    }
+]

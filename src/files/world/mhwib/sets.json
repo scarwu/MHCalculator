@@ -1,0 +1,847 @@
+[
+    {
+        "id": "蠻顎龍的霸氣",
+        "name": {
+            "zhTW": "蠻顎龍的霸氣",
+            "jaJP": "蛮顎竜の覇気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "突破耐力上限",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "雌火龍的真髓",
+        "name": {
+            "zhTW": "雌火龍的真髓",
+            "jaJP": "雌火竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "毒傷害強化",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "太古的神祕",
+        "name": {
+            "zhTW": "太古的神祕",
+            "jaJP": "太古の神秘",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "調查團的鍊金術",
+        "name": {
+            "zhTW": "調查團的鍊金術",
+            "jaJP": "調査団の錬金術",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "炸彈客．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "冰牙龍的秘技",
+        "name": {
+            "zhTW": "冰牙龍的秘技",
+            "jaJP": "氷牙竜の秘技",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "拔刀術【力】",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "火龍的真髓",
+        "name": {
+            "zhTW": "火龍的真髓",
+            "jaJP": "火竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "心眼／彈導強化",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "角龍的霸氣",
+        "name": {
+            "zhTW": "角龍的霸氣",
+            "jaJP": "角竜の覇気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "KO術．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "風漂龍的霸氣",
+        "name": {
+            "zhTW": "風漂龍的霸氣",
+            "jaJP": "風漂竜の覇気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "解放弓的蓄力階段",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "慘爪龍的真髓",
+        "name": {
+            "zhTW": "慘爪龍的真髓",
+            "jaJP": "惨爪竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "剛刃研磨",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "爆鎚龍的霸氣",
+        "name": {
+            "zhTW": "爆鎚龍的霸氣",
+            "jaJP": "爆鎚竜の覇気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "防禦強化",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "迅龍的真髓",
+        "name": {
+            "zhTW": "迅龍的真髓",
+            "jaJP": "迅竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "真．利刃／彈藥節約",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "斬龍的真髓",
+        "name": {
+            "zhTW": "斬龍的真髓",
+            "jaJP": "斬竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "精神抖擻．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "碎龍的真髓",
+        "name": {
+            "zhTW": "碎龍的真髓",
+            "jaJP": "砕竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "挑戰者．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "轟龍的真髓",
+        "name": {
+            "zhTW": "轟龍的真髓",
+            "jaJP": "轟竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "滿足感．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "教官的指導",
+        "name": {
+            "zhTW": "教官的指導",
+            "jaJP": "教官の導き",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "捕獲名人",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "爆鱗龍的霸氣",
+        "name": {
+            "zhTW": "爆鱗龍的霸氣",
+            "jaJP": "爆鱗竜の覇気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "恐暴龍的真髓",
+        "name": {
+            "zhTW": "恐暴龍的真髓",
+            "jaJP": "恐暴竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "奪取耐力．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "雷狼龍的真髓",
+        "name": {
+            "zhTW": "雷狼龍的真髓",
+            "jaJP": "雷狼竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "力量解放．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "冰呪龍的神祕",
+        "name": {
+            "zhTW": "冰呪龍的神祕",
+            "jaJP": "冰龍の神秘",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "冰氣練成",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "幻獸的神秘",
+        "name": {
+            "zhTW": "幻獸的神秘",
+            "jaJP": "幻獣の神秘",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "強運",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "溟波龍的神祕",
+        "name": {
+            "zhTW": "溟波龍的神祕",
+            "jaJP": "溟龍の神秘",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "属性加速",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "真．屬性加速",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "天地煌啼龍的神祕",
+        "name": {
+            "zhTW": "天地煌啼龍的神祕",
+            "jaJP": "地啼龍の神秘",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "大地縫纏",
+                "level": 1,
+                "require": 4
+            },
+            {
+                "id": "真．大地縫纏",
+                "level": 1,
+                "require": 5
+            }
+        ]
+    },
+    {
+        "id": "熔山龍的真髓",
+        "name": {
+            "zhTW": "熔山龍的真髓",
+            "jaJP": "熔山龍の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "砲術．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "工會的見識",
+        "name": {
+            "zhTW": "工會的見識",
+            "jaJP": "ギルドの見識",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "幸運",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "剝取名人",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "滅盡龍的霸氣",
+        "name": {
+            "zhTW": "滅盡龍的霸氣",
+            "jaJP": "滅尽龍の覇気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "炎妃龍的真髓",
+        "name": {
+            "zhTW": "炎妃龍的真髓",
+            "jaJP": "炎妃龍の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "整備．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "金火竜の真髄",
+        "name": {
+            "zhTW": "金火龍的真髓",
+            "jaJP": "金火竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "精靈加護．極意",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "真．會心擊【特殊】",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "銀火龍的真髓",
+        "name": {
+            "zhTW": "銀火龍的真髓",
+            "jaJP": "鎮火竜の真髄",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "投射器裝填．極意",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "真．會心擊【屬性】",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "萬福的祝福",
+        "name": {
+            "zhTW": "萬福的祝福",
+            "jaJP": "万福の祝福",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "萬福的贈禮",
+                "level": 1,
+                "require": 3
+            },
+            {
+                "id": "萬福的恩惠",
+                "level": 1,
+                "require": 5
+            }
+        ]
+    },
+    {
+        "id": "大感謝的祝福",
+        "name": {
+            "zhTW": "大感謝的祝福",
+            "jaJP": "大感謝の祝福",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "大感謝的贈禮",
+                "level": 1,
+                "require": 3
+            },
+            {
+                "id": "大感謝的恩惠",
+                "level": 1,
+                "require": 5
+            }
+        ]
+    },
+    {
+        "id": "金獅子的怒氣",
+        "name": {
+            "zhTW": "金獅子的怒氣",
+            "jaJP": "金獅子の怒気",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "心眼／彈導強化",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "剛刃研磨",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "冥赤龍的封印",
+        "name": {
+            "zhTW": "冥赤龍的封印",
+            "jaJP": "赤龍の封印",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "龍脈覺醒",
+                "level": 1,
+                "require": 3
+            },
+            {
+                "id": "真．龍脈覺醒",
+                "level": 1,
+                "require": 5
+            }
+        ]
+    },
+    {
+        "id": "金獅子的鬥志",
+        "name": {
+            "zhTW": "金獅子的鬥志",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "精神抖擻．極意",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "火場怪力．極意",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "碎龍之鬥志",
+        "name": {
+            "zhTW": "碎龍之鬥志",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "挑戰者．極意",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "砲術．極意",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "絢輝龍的真髓",
+        "name": {
+            "zhTW": "絢輝龍的真髓",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "滿足感．極意",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    },
+    {
+        "id": "盛放之祝福",
+        "name": {
+            "zhTW": "盛放之祝福",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "盛放的獻禮",
+                "level": 1,
+                "require": 3
+            },
+            {
+                "id": "盛放之恩惠",
+                "level": 1,
+                "require": 5
+            }
+        ]
+    },
+    {
+        "id": "屍套龍的靈脈",
+        "name": {
+            "zhTW": "屍套龍的靈脈",
+            "jaJP": "屍套龍の霊脈",
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "超回復力",
+                "level": 1,
+                "require": 2
+            }
+        ]
+    },
+    {
+        "id": "煌黑龍的神祕",
+        "name": {
+            "zhTW": "煌黑龍的神祕",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": false
+        },
+        "skills": [
+            {
+                "id": "耐性變換【屬性】",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "全屬性耐性強化",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "冰牙龍的絕技",
+        "name": {
+            "zhTW": "冰牙龍的絕技",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "拔刀術【力】",
+                "level": 1,
+                "require": 1
+            },
+            {
+                "id": "KO術．極意",
+                "level": 1,
+                "require": 3
+            }
+        ]
+    },
+    {
+        "id": "黑龍的傳說",
+        "name": {
+            "zhTW": "黑龍的傳說",
+            "jaJP": null,
+            "enUS": null
+        },
+        "from": {
+            "armor": true,
+            "weapon": true
+        },
+        "skills": [
+            {
+                "id": "繼承",
+                "level": 1,
+                "require": 2
+            },
+            {
+                "id": "超越",
+                "level": 1,
+                "require": 4
+            }
+        ]
+    }
+]

@@ -1,0 +1,929 @@
+[
+    {
+        "id": "燒滅種火",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "滅盡龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "燒滅種火",
+            "jaJP": null,
+            "enUS": "Eradication Flame"
+        },
+        "attack": 483,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 400,
+            "steps": {
+                "red": 110,
+                "orange": 120,
+                "yellow": 40,
+                "green": 50,
+                "blue": 80,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 150,
+                "maxValue": 200,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "high"
+        },
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "藍色戰車",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "火龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "藍色戰車",
+            "jaJP": null,
+            "enUS": "Blue Chariot"
+        },
+        "attack": 437,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 80,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 50,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 240,
+                "maxValue": 310,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "驚天動地熔山龍銃槍",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "熔山龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "驚天動地熔山龍銃槍",
+            "jaJP": null,
+            "enUS": "Earthshaker Magda Lahat"
+        },
+        "attack": 460,
+        "criticalRate": -10,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 210,
+                "orange": 30,
+                "yellow": 40,
+                "green": 90,
+                "blue": 30,
+                "white": 0,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 420,
+                "maxValue": 510,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鋼龍爪銃槍",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "黑鋼",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鋼龍爪銃槍",
+            "jaJP": null,
+            "enUS": "Daora's Brigia"
+        },
+        "attack": 414,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 90,
+                "orange": 60,
+                "yellow": 80,
+                "green": 80,
+                "blue": 70,
+                "white": 20,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 240,
+                "maxValue": 310,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "冥燈龍銃槍",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "冥燈龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "冥燈龍銃槍",
+            "jaJP": null,
+            "enUS": "Xeno Hemta"
+        },
+        "attack": 391,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 130,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 60,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "low"
+        },
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅銃槍．水",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅銃槍．水",
+            "jaJP": null,
+            "enUS": "Taroth Buster \"Water\""
+        },
+        "attack": 437,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 70,
+                "orange": 60,
+                "yellow": 60,
+                "green": 100,
+                "blue": 80,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 450,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅銃槍．睡眠",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅銃槍．睡眠",
+            "jaJP": null,
+            "enUS": "Taroth Buster \"Sleep\""
+        },
+        "attack": 437,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 180,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 70,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "sleep",
+                "minValue": 450,
+                "maxValue": null,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅銃槍．毒",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅銃槍．毒",
+            "jaJP": null,
+            "enUS": "Taroth Buster \"Poison\""
+        },
+        "attack": 460,
+        "criticalRate": 15,
+        "defense": 20,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 60,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 70,
+                "white": 40,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "poison",
+                "minValue": 450,
+                "maxValue": 550,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "皇后杖．炎妃",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "炎妃龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后杖．炎妃",
+            "jaJP": null,
+            "enUS": "Empress Howl \"Blaze\""
+        },
+        "attack": 437,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 180,
+                "maxValue": 230,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "毅力",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后杖．滅盡",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "炎妃龍．滅盡",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后杖．滅盡",
+            "jaJP": null,
+            "enUS": "Empress Howl \"Ruin\""
+        },
+        "attack": 460,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 150,
+                "maxValue": 190,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": [
+            {
+                "id": "加速再生",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "皇后杖．冥燈",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "炎妃龍．冥燈",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "皇后杖．冥燈",
+            "jaJP": null,
+            "enUS": "Empress Howl \"Styx\""
+        },
+        "attack": 437,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": {
+            "value": 350,
+            "steps": {
+                "red": 100,
+                "orange": 30,
+                "yellow": 60,
+                "green": 80,
+                "blue": 40,
+                "white": 90,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 240,
+                "maxValue": 300,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            },
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "利刃／彈藥節約",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "鎧羅銃槍．冰",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅銃槍．冰",
+            "jaJP": null,
+            "enUS": "Taroth Buster \"Ice\""
+        },
+        "attack": 414,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 220,
+                "orange": 20,
+                "yellow": 20,
+                "green": 20,
+                "blue": 30,
+                "white": 80,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 450,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 3
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．風漂",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．風漂",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"Stream\""
+        },
+        "attack": 414,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 160,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 90,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．屍套",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．屍套",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"Decay\""
+        },
+        "attack": 437,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 180,
+                "orange": 70,
+                "yellow": 20,
+                "green": 20,
+                "blue": 70,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "medium"
+        },
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．王",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．王",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"King\""
+        },
+        "attack": 414,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 490,
+            "steps": {
+                "red": 60,
+                "orange": 50,
+                "yellow": 50,
+                "green": 80,
+                "blue": 150,
+                "white": 150,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．爆鱗",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．爆鱗",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"Bomber\""
+        },
+        "attack": 414,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": {
+            "value": 480,
+            "steps": {
+                "red": 70,
+                "orange": 50,
+                "yellow": 50,
+                "green": 80,
+                "blue": 140,
+                "white": 140,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．飛雷",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．飛雷",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"Spark\""
+        },
+        "attack": 414,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 70,
+                "orange": 50,
+                "yellow": 60,
+                "green": 120,
+                "blue": 60,
+                "white": 30,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．麻痺",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．麻痺",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"Paralysis\""
+        },
+        "attack": 414,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": {
+            "value": 460,
+            "steps": {
+                "red": 90,
+                "orange": 50,
+                "yellow": 50,
+                "green": 80,
+                "blue": 120,
+                "white": 120,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "paralysis",
+                "minValue": 360,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【特殊】",
+                "level": 1
+            }
+        ],
+        "set": null
+    },
+    {
+        "id": "帝王金銃槍．水",
+        "rare": 8,
+        "type": "gunlance",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": "マム鑑定",
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "帝王金銃槍．水",
+            "jaJP": null,
+            "enUS": "Kjárr Buster \"Water\""
+        },
+        "attack": 437,
+        "criticalRate": 10,
+        "defense": 0,
+        "sharpness": {
+            "value": 340,
+            "steps": {
+                "red": 60,
+                "orange": 60,
+                "yellow": 60,
+                "green": 100,
+                "blue": 90,
+                "white": 20,
+                "purple": 0
+            }
+        },
+        "element": {
+            "attack": {
+                "type": "water",
+                "minValue": 420,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": [
+            {
+                "id": "會心攻擊【屬性】",
+                "level": 1
+            }
+        ],
+        "set": null
+    }
+]

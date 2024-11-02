@@ -1,0 +1,438 @@
+[
+    {
+        "id": "火龍強弓 III",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "火龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "火龍強弓 III",
+            "jaJP": null,
+            "enUS": "Rathslinger III"
+        },
+        "attack": 216,
+        "criticalRate": 20,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 240,
+                "maxValue": 310,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "屍套龍弓 II",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "屍套龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "屍套龍弓 II",
+            "jaJP": null,
+            "enUS": "Hazak Velos II"
+        },
+        "attack": 228,
+        "criticalRate": 0,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 270,
+                "maxValue": 350,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "medium"
+        },
+        "slots": [
+            {
+                "size": 2
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "飛雷弓【羽羽矢】",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "飛雷龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "飛雷弓【羽羽矢】",
+            "jaJP": null,
+            "enUS": "Flying Kadachi Strikebow"
+        },
+        "attack": 204,
+        "criticalRate": 15,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 270,
+                "maxValue": 350,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": [
+            {
+                "size": 1
+            }
+        ],
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "惡棍之弓",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "恐暴龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "惡棍之弓",
+            "jaJP": null,
+            "enUS": "Villainous Brace"
+        },
+        "attack": 276,
+        "criticalRate": -25,
+        "defense": 0,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 210,
+                "maxValue": 270,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "high"
+        },
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．風漂",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．風漂",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Stream\""
+        },
+        "attack": 180,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 390,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．飛雷",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．飛雷",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Spark\""
+        },
+        "attack": 204,
+        "criticalRate": 20,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "thunder",
+                "minValue": 270,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．搔",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．搔",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Thief\""
+        },
+        "attack": 204,
+        "criticalRate": 30,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 150,
+                "maxValue": null,
+                "isHidden": false
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．王",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．王",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"King\""
+        },
+        "attack": 216,
+        "criticalRate": 30,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 240,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．女王",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．女王",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Queen\""
+        },
+        "attack": 216,
+        "criticalRate": 10,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 330,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "low"
+        },
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．毒妖",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．毒妖",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Spew\""
+        },
+        "attack": 216,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": null,
+            "status": {
+                "type": "blast",
+                "minValue": 240,
+                "maxValue": null,
+                "isHidden": true
+            }
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．屍套",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．屍套",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Decay\""
+        },
+        "attack": 228,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "dragon",
+                "minValue": 270,
+                "maxValue": 350,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": {
+            "affinity": "medium"
+        },
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．蠻顎",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．蠻顎",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Rage\""
+        },
+        "attack": 252,
+        "criticalRate": 0,
+        "defense": 20,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "fire",
+                "minValue": 210,
+                "maxValue": null,
+                "isHidden": false
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    },
+    {
+        "id": "鎧羅弓．角",
+        "rare": 7,
+        "type": "bow",
+        "series": {
+            "zhTW": "絢輝龍",
+            "jaJP": null,
+            "enUS": null
+        },
+        "name": {
+            "zhTW": "鎧羅弓．角",
+            "jaJP": null,
+            "enUS": "Taroth Arrow \"Horn\""
+        },
+        "attack": 264,
+        "criticalRate": -20,
+        "defense": 25,
+        "sharpness": null,
+        "element": {
+            "attack": {
+                "type": "ice",
+                "minValue": 300,
+                "maxValue": null,
+                "isHidden": true
+            },
+            "status": null
+        },
+        "elderseal": null,
+        "slots": null,
+        "skills": null,
+        "set": null
+    }
+]
