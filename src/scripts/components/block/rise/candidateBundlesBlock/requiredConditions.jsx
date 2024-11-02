@@ -14,7 +14,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
 import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 import SetDataset from '@/scripts/libraries/rise/dataset/set'

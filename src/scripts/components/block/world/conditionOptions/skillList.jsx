@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -54,15 +54,15 @@ const renderSkillItem = (skill, enableSkillIdList) => {
     })
 
     return (
-        <div key={skillInfo.id} className="col-12 mhwc-content">
-            <div className="col-12 mhwc-name">
+        <div key={skillInfo.id} className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 {(currentSkillLevel === totalSkillLevel) ? (
                     <span>{_(skillInfo.name)} Lv.{skill.level} / {currentSkillLevel}</span>
                 ) : (
                     <span>{_(skillInfo.name)} Lv.{skill.level} / {currentSkillLevel} ({totalSkillLevel})</span>
                 )}
 
-                <div className="mhwc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="minus-circle" altName={_('down')}
                         onClick={() => {States.world.actions.decreaseRequiredSkillLevel(skill.id)}} />
@@ -74,7 +74,7 @@ const renderSkillItem = (skill, enableSkillIdList) => {
                         onClick={() => {States.world.actions.removeRequiredSkill(skill.id)}} />
                 </div>
             </div>
-            <div className="col-12 mhwc-value mhwc-description">
+            <div className="col-12 mhc-value mhc-description">
                 <span>
                     {(0 !== skill.level)
                         ? _(skillInfo.list[skill.level - 1].description)
@@ -145,10 +145,10 @@ export default function SkillList(props) {
         })
 
         return (
-            <div className="mhwc-item mhwc-item-3-step">
-                <div className="col-12 mhwc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('skill')}</span>
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton
                             iconName="plus" altName={_('add')}
                             onClick={handleShowSkillItemSelector} />

@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
@@ -39,11 +39,11 @@ const handleModeChange = (event) => {
  */
 const renderSetItem = (set) => {
     return (
-        <div key={set.id} className="mhwc-item mhwc-item-2-step">
-            <div className="col-12 mhwc-name">
+        <div key={set.id} className="mhc-item mhc-item-2-step">
+            <div className="col-12 mhc-name">
                 <span>{_(set.name)}</span>
 
-                <div className="mhwc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {set.isSelect ? (
                         <IconButton
                             iconName="minus" altName={_('remove')}
@@ -55,16 +55,16 @@ const renderSetItem = (set) => {
                     )}
                 </div>
             </div>
-            <div className="col-12 mhwc-content">
+            <div className="col-12 mhc-content">
                 {set.skills.map((skill, index) => {
                     let skillInfo = SkillDataset.getInfo(skill.id)
 
                     return Helper.isNotEmpty(skillInfo) ? (
                         <Fragment key={index}>
-                            <div className="col-12 mhwc-name">
+                            <div className="col-12 mhc-name">
                                 <span>({skill.require}) {_(skillInfo.name)} Lv.{skill.level}</span>
                             </div>
-                            <div className="col-12 mhwc-value mhwc-description">
+                            <div className="col-12 mhc-value mhc-description">
                                 <span>{_(skillInfo.list[0].description)}</span>
                             </div>
                         </Fragment>
@@ -77,11 +77,11 @@ const renderSetItem = (set) => {
 
 const renderSkillItem = (skill) => {
     return (
-        <div key={skill.id} className="mhwc-item mhwc-item-2-step">
-            <div className="col-12 mhwc-name">
+        <div key={skill.id} className="mhc-item mhc-item-2-step">
+            <div className="col-12 mhc-name">
                 <span>{_(skill.name)}</span>
 
-                <div className="mhwc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     {skill.isSelect ? (
                         <IconButton
                             iconName="minus" altName={_('remove')}
@@ -93,18 +93,18 @@ const renderSkillItem = (skill) => {
                     )}
                 </div>
             </div>
-            <div className="col-12 mhwc-content">
+            <div className="col-12 mhc-content">
                 {skill.list.map((item, index) => {
                     return (
                         <Fragment key={index}>
-                            <div className="col-2 mhwc-name">
+                            <div className="col-2 mhc-name">
                                 {item.isHidden ? (
                                     <span>(Lv.{item.level})</span>
                                 ) : (
                                     <span>Lv.{item.level}</span>
                                 )}
                             </div>
-                            <div className="col-10 mhwc-value mhwc-description">
+                            <div className="col-10 mhc-value mhc-description">
                                 <span>{_(item.description)}</span>
                             </div>
                         </Fragment>
@@ -321,12 +321,12 @@ export default function ConditionItemSelector(props) {
     }, [stateMode, stateSortedList, stateSegment])
 
     return (stateIsShow && Helper.isNotEmpty(stateBypassData)) ? (
-        <div className="mhwc-selector" ref={refModal} onClick={handleFastWindowClose}>
-            <div className="mhwc-modal">
-                <div className="mhwc-panel">
-                    <span className="mhwc-title">{_(stateMode + 'List')}</span>
+        <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <span className="mhc-title">{_(stateMode + 'List')}</span>
 
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             defaultValue={stateSegment} onChange={handleSegmentInput} />
@@ -338,8 +338,8 @@ export default function ConditionItemSelector(props) {
                             onClick={States.world.actions.hideConditionItemSelector} />
                     </div>
                 </div>
-                <div className="mhwc-list">
-                    <div className="mhwc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {getContent()}
                     </div>
                 </div>

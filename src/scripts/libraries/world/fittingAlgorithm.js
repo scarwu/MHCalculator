@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import MD5 from 'md5'
@@ -316,7 +316,7 @@ class FittingAlgorithm {
             return
         }
 
-        let bundle = Helper.deepCopy(Constant.default.bundle)
+        let bundle = Helper.deepCopy(Constant.world.default.bundle)
 
         // Create First Bundle
         for (let equipType of ['weapon', 'helm', 'chest', 'arm', 'waist', 'leg', 'charm']) {
@@ -1193,7 +1193,7 @@ class FittingAlgorithm {
      * Convert Equip Info To Candidate Equip
      */
     convertEquipInfoToCandidateEquip = (equipInfo, equipType) => {
-        let candidateEquip = Helper.deepCopy(Constant.default.candidateEquip)
+        let candidateEquip = Helper.deepCopy(Constant.world.default.candidateEquip)
 
         // Set Id, Type & Defense
         candidateEquip.id = equipInfo.id
@@ -1244,7 +1244,7 @@ class FittingAlgorithm {
      * Get Empty Candidate Equip
      */
     getEmptyCandidateEquip = (equipType) => {
-        let candidateEquip = Helper.deepCopy(Constant.default.candidateEquip)
+        let candidateEquip = Helper.deepCopy(Constant.world.default.candidateEquip)
 
         candidateEquip.id = 'empty' + Helper.ucfirst(equipType)
         candidateEquip.type = equipType

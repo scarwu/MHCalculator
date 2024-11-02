@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -45,11 +45,11 @@ const renderSetItem = (set) => {
     let setRequire = setInfo.skills[set.step - 1].require
 
     return (
-        <div key={setInfo.id} className="col-12 mhwc-content">
-            <div className="col-12 mhwc-name">
+        <div key={setInfo.id} className="col-12 mhc-content">
+            <div className="col-12 mhc-name">
                 <span>{_(setInfo.name)} x {setRequire}</span>
 
-                <div className="mhwc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="minus-circle" altName={_('down')}
                         onClick={() => {States.world.actions.decreaseRequiredSetStep(set.id)}} />
@@ -61,7 +61,7 @@ const renderSetItem = (set) => {
                         onClick={() => {States.world.actions.removeRequiredSet(set.id)}} />
                 </div>
             </div>
-            <div className="col-12 mhwc-value">
+            <div className="col-12 mhc-value">
                 {setInfo.skills.map((skill) => {
                     if (setRequire < skill.require) {
                         return false
@@ -102,10 +102,10 @@ export default function SetList (props) {
         Helper.debug('Component: ConditionOptions -> SetList')
 
         return (
-            <div className="mhwc-item mhwc-item-3-step">
-                <div className="col-12 mhwc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('set')}</span>
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton
                             iconName="plus" altName={_('add')}
                             onClick={handleShowSetItemSelector} />

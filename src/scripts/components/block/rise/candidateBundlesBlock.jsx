@@ -18,7 +18,7 @@ import Helper from '@/scripts/core/helper'
 import Event from '@/scripts/core/event'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'

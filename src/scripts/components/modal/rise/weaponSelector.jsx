@@ -245,7 +245,7 @@ export default function WeaponSelectorModal (props) {
         let weaponItem = WeaponDataset.getItem(tempData.id)
 
         // Set Type List
-        tempData.typeList = Constant.weaponTypes.map((type) => {
+        tempData.typeList = Constant.rise.weaponTypes.map((type) => {
             return {
                 key: type,
                 value: _(type)

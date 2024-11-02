@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useCallback, useRef } from 'react'
@@ -163,12 +163,12 @@ export default function AlgorithmSetting(props) {
      * Render Functions
      */
     return stateIsShow ? (
-        <div className="mhwc-selector" ref={refModal} onClick={handleFastWindowClose}>
-            <div className="mhwc-modal">
-                <div className="mhwc-panel">
+        <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
                     <strong>{_('algorithmSetting')}</strong>
 
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             defaultValue={stateSegment} onChange={handleSegmentInput} />
@@ -180,35 +180,35 @@ export default function AlgorithmSetting(props) {
                             onClick={States.world.actions.hideAlgorithmSetting} />
                     </div>
                 </div>
-                <div className="mhwc-list">
-                    <div className="mhwc-wrapper">
-                        <div className="mhwc-item mhwc-item-2-step">
-                            <div className="col-12 mhwc-name">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
+                        <div className="mhc-item mhc-item-2-step">
+                            <div className="col-12 mhc-name">
                                 <span>{_('strategy')}</span>
                             </div>
-                            <div className="col-12 mhwc-content">
-                                <div className="col-6 mhwc-name">
+                            <div className="col-12 mhc-content">
+                                <div className="col-6 mhc-name">
                                     <span>{_('resultLimit')}</span>
                                 </div>
-                                <div className="col-6 mhwc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicInput
                                         iconName="list-alt"
                                         defaultValue={stateAlgorithmParams.limit}
                                         onChange={handleLimitChange} />
                                 </div>
-                                <div className="col-6 mhwc-name">
+                                <div className="col-6 mhc-name">
                                     <span>{_('sortBy')}</span>
                                 </div>
-                                <div className="col-6 mhwc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
                                         defaultValue={stateAlgorithmParams.sort}
                                         options={getSortList()} onChange={handleSortChange} />
                                 </div>
-                                <div className="col-6 mhwc-name">
+                                <div className="col-6 mhc-name">
                                     <span>{_('sortOrder')}</span>
                                 </div>
-                                <div className="col-6 mhwc-value">
+                                <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
                                         defaultValue={stateAlgorithmParams.order}
@@ -218,16 +218,16 @@ export default function AlgorithmSetting(props) {
                         </div>
 
                         {'all' === stateMode || 'armorFactor' === stateMode || 'byRequiredConditions' === stateMode ? (
-                            <div className="mhwc-item mhwc-item-2-step">
-                                <div className="col-12 mhwc-name">
+                            <div className="mhc-item mhc-item-2-step">
+                                <div className="col-12 mhc-name">
                                     <span>{_('armorFactor')}</span>
                                 </div>
-                                <div className="col-12 mhwc-content">
+                                <div className="col-12 mhc-content">
                                     {armorRareList.map((rare) => {
                                         return (
-                                            <div key={rare} className="col-6 mhwc-value">
+                                            <div key={rare} className="col-6 mhc-value">
                                                 <span>{_('rare') + `: ${rare}`}</span>
-                                                <div className="mhwc-icons_bundle">
+                                                <div className="mhc-icons_bundle">
                                                     {stateAlgorithmParams.usingFactor.armor['rare' + rare] ? (
                                                         <IconButton
                                                             iconName="star"
@@ -248,16 +248,16 @@ export default function AlgorithmSetting(props) {
                         ) : false}
 
                         {'all' === stateMode || 'jewelFactor' === stateMode || 'byRequiredConditions' === stateMode ? (
-                            <div className="mhwc-item mhwc-item-2-step">
-                                <div className="col-12 mhwc-name">
+                            <div className="mhc-item mhc-item-2-step">
+                                <div className="col-12 mhc-name">
                                     <span>{_('jewelFactor')}</span>
                                 </div>
-                                <div className="col-12 mhwc-content">
+                                <div className="col-12 mhc-content">
                                     {jewelSizeList.map((size) => {
                                         return (
-                                            <div key={size} className="col-6 mhwc-value">
+                                            <div key={size} className="col-6 mhc-value">
                                                 <span>{_('size') + `: ${size}`}</span>
-                                                <div className="mhwc-icons_bundle">
+                                                <div className="mhc-icons_bundle">
                                                     {stateAlgorithmParams.usingFactor.jewel['size' + size] ? (
                                                         <IconButton
                                                             iconName="star"

@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -37,14 +37,14 @@ const renderEquipItem = (equipType, requiredEquip) => {
     if ('weapon' === equipType) {
         if ('customWeapon' === requiredEquip.id) {
             return (
-                <div key={requiredEquip.id} className="col-12 mhwc-content">
-                    <div className="col-4 mhwc-name">
+                <div key={requiredEquip.id} className="col-12 mhc-content">
+                    <div className="col-4 mhc-name">
                         <span>{_(equipType)}</span>
                     </div>
-                    <div className="col-8 mhwc-value">
+                    <div className="col-8 mhc-value">
                         <span>{_('customWeapon')}: {_(requiredEquip.customWeapon.type)}</span>
 
-                        <div className="mhwc-icons_bundle">
+                        <div className="mhc-icons_bundle">
                             <IconButton
                                 iconName="times" altName={_('clean')}
                                 onClick={() => {States.world.actions.setRequiredEquips(equipType, null)}} />
@@ -73,14 +73,14 @@ const renderEquipItem = (equipType, requiredEquip) => {
     }
 
     return (
-        <div key={equipInfo.id} className="col-12 mhwc-content">
-            <div className="col-4 mhwc-name">
+        <div key={equipInfo.id} className="col-12 mhc-content">
+            <div className="col-4 mhc-name">
                 <span>{_(equipType)}</span>
             </div>
-            <div className="col-8 mhwc-value">
+            <div className="col-8 mhc-value">
                 <span>{_(equipInfo.name)}</span>
 
-                <div className="mhwc-icons_bundle">
+                <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="times" altName={_('clean')}
                         onClick={() => {States.world.actions.setRequiredEquips(equipType, null)}} />
@@ -116,8 +116,8 @@ export default function EquipList (props) {
         }
 
         return (
-            <div className="mhwc-item mhwc-item-3-step">
-                <div className="col-12 mhwc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('equip')}</span>
                 </div>
 

@@ -1,10 +1,10 @@
 /**
  * Algorithm Setting: Jewel Factors
  *
- * @package     MHW Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (http://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -143,12 +143,12 @@ export default function JewelFactors(props) {
 
             for (let blockIndex = 0; blockIndex < Math.ceil(jewelIds.length / 10); blockIndex++) {
                 blocks.push(
-                    <div key={size + '_' + blockIndex} className="mhwc-item mhwc-item-2-step">
-                        <div className="col-12 mhwc-name">
+                    <div key={size + '_' + blockIndex} className="mhc-item mhc-item-2-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('jewelFactor')}: [{size}]</span>
                         </div>
 
-                        <div className="col-12 mhwc-content">
+                        <div className="col-12 mhc-content">
                             {jewelIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((jewelId) => {
                                 let selectLevel = Helper.isNotEmpty(jewelFactor[jewelId])
                                     ? jewelFactor[jewelId] : -1
@@ -165,10 +165,10 @@ export default function JewelFactors(props) {
                                 })
 
                                 return (
-                                    <div key={jewelId} className="col-6 mhwc-value">
+                                    <div key={jewelId} className="col-6 mhc-value">
                                         <span>{_(jewelSizeMapping[size][jewelId].name)}</span>
 
-                                        <div className="mhwc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             <BasicSelector
                                                 iconName="sort-numeric-asc"
                                                 defaultValue={selectLevel}

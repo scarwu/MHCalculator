@@ -17,7 +17,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 import WeaponDataset from '@/scripts/libraries/rise/dataset/weapon'
 import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
 import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
@@ -48,7 +48,7 @@ const handleBundlePickUp = (bundle, requiredConditions) => {
         }
 
         // Create Temp Equip Data
-        let tempEquipData = Object.assign({}, Helper.deepCopy(Constant.defaultPlayerEquips[equipType]), {
+        let tempEquipData = Object.assign({}, Helper.deepCopy(Constant.rise.defaultPlayerEquips[equipType]), {
             id: bundle.equipIdMapping[equipType]
         })
 
@@ -232,7 +232,7 @@ export default function BundleList (props) {
                     })
                 }
 
-                return Object.assign({}, Constant.defaultPlayerEquips[equipType], {
+                return Object.assign({}, Constant.rise.defaultPlayerEquips[equipType], {
                     id: bundle.equipIdMapping[equipType],
                     type: equipType
                 })

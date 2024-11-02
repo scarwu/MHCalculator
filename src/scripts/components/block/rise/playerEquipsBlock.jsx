@@ -18,7 +18,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
 import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 // import RampageDecorationDataset from '@/scripts/libraries/rise/dataset/rampageDecoration'
@@ -28,8 +28,8 @@ import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 import SharpnessBar from '@/scripts/components/ui/sharpnessBar'
-import CustomWeapon from '@/scripts/components/ui/customWeapon'
-import CustomCharm from '@/scripts/components/ui/customCharm'
+import CustomWeapon from '@/scripts/components/ui/rise/customWeapon'
+import CustomCharm from '@/scripts/components/ui/rise/customCharm'
 
 // Load States
 import States from '@/scripts/states'
@@ -243,7 +243,7 @@ const renderArmorProperties = (equipExtendItem) => {
                     <span>{equipExtendItem.defense}</span>
                 </div>
 
-                {Constant.resistanceTypes.map((resistanceType) => {
+                {Constant.rise.resistanceTypes.map((resistanceType) => {
                     return (
                         <Fragment key={resistanceType}>
                             <div className="col-3 mhc-name">

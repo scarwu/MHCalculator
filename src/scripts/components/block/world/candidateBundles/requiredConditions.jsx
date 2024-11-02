@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -86,18 +86,18 @@ export default function RequiredConditions(props) {
         })
 
         return (
-            <div className="mhwc-item mhwc-item-3-step">
-                <div className="col-12 mhwc-name">
+            <div className="mhc-item mhc-item-3-step">
+                <div className="col-12 mhc-name">
                     <span>{_('conditions')}</span>
                 </div>
 
                 {0 !== currentRequiredEquips.length ? (
-                    <div className="col-12 mhwc-content">
-                        <div className="col-12 mhwc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('equip')}</span>
                         </div>
 
-                        <div className="col-12 mhwc-content">
+                        <div className="col-12 mhc-content">
                             {currentRequiredEquips.map((equip) => {
                                 let isNotRequire = true
 
@@ -132,10 +132,10 @@ export default function RequiredConditions(props) {
                                         equipInfo = equip.customWeapon
 
                                         return Helper.isNotEmpty(equipInfo) ? (
-                                            <div key={equip.type} className="col-6 mhwc-value">
+                                            <div key={equip.type} className="col-6 mhc-value">
                                                 <span>{_(equipInfo.name)}: {_(equipInfo.type)}</span>
 
-                                                <div className="mhwc-icons_bundle">
+                                                <div className="mhc-icons_bundle">
                                                     {isNotRequire ? (
                                                         <IconButton
                                                             iconName="arrow-left" altName={_('include')}
@@ -159,10 +159,10 @@ export default function RequiredConditions(props) {
                                 }
 
                                 return Helper.isNotEmpty(equipInfo) ? (
-                                    <div key={equip.type} className="col-6 mhwc-value">
+                                    <div key={equip.type} className="col-6 mhc-value">
                                         <span>{_(equipInfo.name)}</span>
 
-                                        <div className="mhwc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             {isNotRequire ? (
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
@@ -177,24 +177,24 @@ export default function RequiredConditions(props) {
                 ) : false}
 
                 {0 !== currentRequiredSets.length ? (
-                    <div className="col-12 mhwc-content">
-                        <div className="col-12 mhwc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('set')}</span>
                         </div>
 
-                        <div className="col-12 mhwc-content">
+                        <div className="col-12 mhc-content">
                             {currentRequiredSets.map((set) => {
                                 let setInfo = SetDataset.getInfo(set.id)
 
                                 return (
-                                    <div key={set.id} className="col-6 mhwc-value">
+                                    <div key={set.id} className="col-6 mhc-value">
                                         <span>
                                             {`${_(setInfo.name)}`}{setInfo.skills.slice(0, set.step).map((skill) => {
                                                 return ` (${skill.require})`
                                             })}
                                         </span>
                                         {(-1 === requiredSetIds.indexOf(setInfo.id)) ? (
-                                            <div className="mhwc-icons_bundle">
+                                            <div className="mhc-icons_bundle">
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {States.world.actions.addRequiredSet(setInfo.id)}} />
@@ -208,20 +208,20 @@ export default function RequiredConditions(props) {
                 ) : false}
 
                 {0 !== currentRequiredSkills.length ? (
-                    <div className="col-12 mhwc-content">
-                        <div className="col-12 mhwc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-12 mhc-name">
                             <span>{_('skill')}</span>
                         </div>
 
-                        <div className="col-12 mhwc-content">
+                        <div className="col-12 mhc-content">
                             {currentRequiredSkills.map((skill) => {
                                 let skillInfo = SkillDataset.getInfo(skill.id)
 
                                 return (Helper.isNotEmpty(skillInfo)) ? (
-                                    <div key={skill.id} className="col-6 mhwc-value">
+                                    <div key={skill.id} className="col-6 mhc-value">
                                         <span>{`${_(skillInfo.name)} Lv.${skill.level}`}</span>
                                         {(-1 === requiredSkillIds.indexOf(skillInfo.id)) ? (
-                                            <div className="mhwc-icons_bundle">
+                                            <div className="mhc-icons_bundle">
                                                 <IconButton
                                                     iconName="arrow-left" altName={_('include')}
                                                     onClick={() => {States.world.actions.addRequiredSkill(skillInfo.id)}} />

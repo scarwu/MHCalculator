@@ -14,7 +14,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Custom Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
 import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'

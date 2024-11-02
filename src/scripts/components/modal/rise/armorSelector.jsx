@@ -102,7 +102,7 @@ const renderArmorItem = (armorItem, tempData) => {
                     <span>{armorItem.minDefense} - {armorItem.maxDefense}</span>
                 </div>
 
-                {Constant.resistanceTypes.map((resistanceType) => {
+                {Constant.rise.resistanceTypes.map((resistanceType) => {
                     return (
                         <Fragment key={resistanceType}>
                             <div className="col-3 mhc-name">
@@ -216,7 +216,7 @@ export default function ArmorSelectorModal (props) {
         let armorItem = ArmorDataset.getItem(tempData.id)
 
         // Set Type List
-        tempData.typeList = Constant.armorTypes.map((type) => {
+        tempData.typeList = Constant.rise.armorTypes.map((type) => {
             return {
                 key: type,
                 value: _(type)

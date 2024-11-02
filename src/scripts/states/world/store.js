@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 // Load Core Libraries
@@ -59,10 +59,10 @@ const initialState = {
     requiredSets: Status.get(statusMapping.requiredSets) || Helper.deepCopy(TestData.requireList[0]).sets,
     requiredSkills: Status.get(statusMapping.requiredSkills) || Helper.deepCopy(TestData.requireList[0]).skills,
     currentEquips: Status.get(statusMapping.currentEquips) || Helper.deepCopy(TestData.equipsList[0]),
-    algorithmParams: Status.get(statusMapping.algorithmParams) || Helper.deepCopy(Constant.default.algorithmParams),
+    algorithmParams: Status.get(statusMapping.algorithmParams) || Helper.deepCopy(Constant.world.default.algorithmParams),
     computedResult: Status.get(statusMapping.computedResult) || null,
     reservedBundles: Status.get(statusMapping.reservedBundles) || [],
-    customWeapon: Status.get(statusMapping.customWeapon) || Helper.deepCopy(Constant.default.customWeapon),
+    customWeapon: Status.get(statusMapping.customWeapon) || Helper.deepCopy(Constant.world.default.customWeapon),
 
     changelog: Status.get(statusMapping.changelog) || {
         isShow: false
@@ -161,7 +161,7 @@ export default (state = initialState, action) => {
                 if (Helper.isEmpty(tempData[target].list[index])) {
                     tempData[target].list[index] = {
                         currentEquips: {},
-                        customWeapon: Helper.deepCopy(Constant.default.customWeapon)
+                        customWeapon: Helper.deepCopy(Constant.world.default.customWeapon)
                     }
                 }
 
@@ -601,7 +601,7 @@ export default (state = initialState, action) => {
         })
     case 'CLEAN_CURRENT_EQUIPS':
         return Object.assign({}, state, {
-            currentEquips: Helper.deepCopy(Constant.default.equips)
+            currentEquips: Helper.deepCopy(Constant.world.default.equips)
         })
 
     // Algorithm Params

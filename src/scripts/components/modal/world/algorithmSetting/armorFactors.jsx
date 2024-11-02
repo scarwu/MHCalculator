@@ -1,10 +1,10 @@
 /**
  * Algorithm Setting: Armor Factors
  *
- * @package     MHW Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (http://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useMemo } from 'react'
@@ -193,20 +193,20 @@ export default function ArmorFactors(props) {
 
             for (let blockIndex = 0; blockIndex < Math.ceil(seriesIds.length / 10); blockIndex++) {
                 blocks.push(
-                    <div key={rare + '_' + blockIndex} className="mhwc-item mhwc-item-2-step">
-                        <div className="col-12 mhwc-name">
+                    <div key={rare + '_' + blockIndex} className="mhc-item mhc-item-2-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('armorFactor')}: R{rare}</span>
                         </div>
 
-                        <div className="col-12 mhwc-content">
+                        <div className="col-12 mhc-content">
                             {seriesIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((seriesId) => {
                                 let isInclude = Helper.isNotEmpty(armorFactor[seriesId])
                                     ? armorFactor[seriesId] : true
 
                                 return (
-                                    <div key={seriesId} className="col-6 mhwc-value">
+                                    <div key={seriesId} className="col-6 mhc-value">
                                         <span>{_(armorSeriesMapping[rare][seriesId].name)}</span>
-                                        <div className="mhwc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             {isInclude ? (
                                                 <IconButton
                                                     iconName="star"

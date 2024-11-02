@@ -17,7 +17,7 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 import SetDataset from '@/scripts/libraries/rise/dataset/set'
 import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 import WeaponDataset from '@/scripts/libraries/rise/dataset/weapon'
@@ -103,7 +103,7 @@ const generatePassiveSkills = (equipInfos) => {
 }
 
 const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
-    let status = Helper.deepCopy(Constant.defaultStatus)
+    let status = Helper.deepCopy(Constant.rise.defaultStatus)
 
     equipInfos = Helper.deepCopy(equipInfos)
 
@@ -126,7 +126,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
             continue
         }
 
-        Constant.resistanceTypes.forEach((elementType) => {
+        Constant.rise.resistanceTypes.forEach((elementType) => {
             status.resistance[elementType] += equipInfos[equipType].resistance[elementType]
         })
     }
@@ -257,20 +257,20 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
             case 'elementAttackCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.attack
-                        < Constant.elementCriticalMultiple.attack[weaponType][reactionData.value])
+                        < Constant.rise.elementCriticalMultiple.attack[weaponType][reactionData.value])
                 ) {
                     status.elementCriticalMultiple.attack
-                        = Constant.elementCriticalMultiple.attack[weaponType][reactionData.value]
+                        = Constant.rise.elementCriticalMultiple.attack[weaponType][reactionData.value]
                 }
 
                 break
             case 'elementStatusCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.status
-                        < Constant.elementCriticalMultiple.status[weaponType][reactionData.value])
+                        < Constant.rise.elementCriticalMultiple.status[weaponType][reactionData.value])
                 ) {
                     status.elementCriticalMultiple.status
-                        = Constant.elementCriticalMultiple.status[weaponType][reactionData.value]
+                        = Constant.rise.elementCriticalMultiple.status[weaponType][reactionData.value]
                 }
 
                 break
@@ -310,7 +310,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
                 break
             case 'resistance':
                 if ('all' === reactionData.type) {
-                    Constant.resistanceTypes.forEach((elementType) => {
+                    Constant.rise.resistanceTypes.forEach((elementType) => {
                         status.resistance[elementType] += reactionData.value
                     })
                 } else {
@@ -465,7 +465,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
 }
 
 const generateBenefitAnalysis = (equipInfos, status, tuning) => {
-    let benefitAnalysis = Helper.deepCopy(Constant.defaultBenefitAnalysis)
+    let benefitAnalysis = Helper.deepCopy(Constant.rise.defaultBenefitAnalysis)
     let result = getBasicBenefitAnalysis(equipInfos, Helper.deepCopy(status), {})
 
     benefitAnalysis.physicalAttack = result.physicalAttack
@@ -609,8 +609,8 @@ const getSharpnessMultiple = (data) => {
     }
 
     return {
-        physical: Constant.sharpnessMultiple.physical[currentStep],
-        element: Constant.sharpnessMultiple.element[currentStep]
+        physical: Constant.rise.sharpnessMultiple.physical[currentStep],
+        element: Constant.rise.sharpnessMultiple.element[currentStep]
     }
 }
 
@@ -622,8 +622,8 @@ export default function PlayerStatusBlock (props) {
     const [statePlayerStatus, updatePlayerStatus] = useState(States.rise.getters.getPlayerStatus())
     const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
     const [stateEquipInfos, updateEquipInfos] = useState({})
-    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.defaultStatus))
-    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.defaultBenefitAnalysis))
+    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.rise.defaultStatus))
+    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.rise.defaultBenefitAnalysis))
     const [statePassiveSkills, updatePassiveSkills] = useState({})
     const [stateTuning, updateTuning] = useState({
         physicalAttack: 5,
@@ -947,7 +947,7 @@ export default function PlayerStatusBlock (props) {
                             <span>{status.defense}</span>
                         </div>
 
-                        {Constant.resistanceTypes.map((elementType) => {
+                        {Constant.rise.resistanceTypes.map((elementType) => {
                             return (
                                 <Fragment key={elementType}>
                                     <div className="col-3 mhc-name">

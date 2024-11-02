@@ -1,10 +1,10 @@
 /**
  * Condition Options
  *
- * @package     MHW Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (http://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useCallback } from 'react'
@@ -55,11 +55,11 @@ export default function ConditionOptions(props) {
     }, [])
 
     return (
-        <div className="col mhwc-conditions">
-            <div className="mhwc-panel">
-                <span className="mhwc-title">{_('requireCondition')}</span>
+        <div className="col mhc-conditions">
+            <div className="mhc-panel">
+                <span className="mhc-title">{_('requireCondition')}</span>
 
-                <div className="mhwc-icons_bundle-left">
+                <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle-o" altName={_('tab') + ' 1'}
                         isActive={0 === stateTempData.conditionOptions.index}
@@ -78,14 +78,14 @@ export default function ConditionOptions(props) {
                         onClick={() => {handleSwitchTempData(3)}} />
                 </div>
 
-                <div className="mhwc-icons_bundle-right">
+                <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
                         onClick={handleRequireConditionRefresh} />
                 </div>
             </div>
 
-            <div className="mhwc-list">
+            <div className="mhc-list">
                 <EquipList />
                 <SetList />
                 <SkillList />

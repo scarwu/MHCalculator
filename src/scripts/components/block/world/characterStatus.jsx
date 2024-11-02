@@ -1,10 +1,10 @@
 /**
  * Character Status
  *
- * @package     MHW Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (http://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { Fragment, useState, useEffect, useCallback, useRef } from 'react'
@@ -107,7 +107,7 @@ const generatePassiveSkills = (equipInfos) => {
 }
 
 const generateStatus = (equipInfos, passiveSkills) => {
-    let status = Helper.deepCopy(Constant.default.status)
+    let status = Helper.deepCopy(Constant.world.default.status)
 
     equipInfos = Helper.deepCopy(equipInfos)
 
@@ -128,7 +128,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
             continue
         }
 
-        Constant.resistances.forEach((elementType) => {
+        Constant.world.resistances.forEach((elementType) => {
             status.resistance[elementType] += equipInfos[equipType].resistance[elementType]
         })
     }
@@ -273,20 +273,20 @@ const generateStatus = (equipInfos, passiveSkills) => {
             case 'elementAttackCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.attack
-                        < Constant.elementCriticalMultiple.attack[weaponType][data.value])
+                        < Constant.world.elementCriticalMultiple.attack[weaponType][data.value])
                 ) {
                     status.elementCriticalMultiple.attack
-                        = Constant.elementCriticalMultiple.attack[weaponType][data.value]
+                        = Constant.world.elementCriticalMultiple.attack[weaponType][data.value]
                 }
 
                 break
             case 'elementStatusCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.status
-                        < Constant.elementCriticalMultiple.status[weaponType][data.value])
+                        < Constant.world.elementCriticalMultiple.status[weaponType][data.value])
                 ) {
                     status.elementCriticalMultiple.status
-                        = Constant.elementCriticalMultiple.status[weaponType][data.value]
+                        = Constant.world.elementCriticalMultiple.status[weaponType][data.value]
                 }
 
                 break
@@ -322,7 +322,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
                 break
             case 'resistance':
                 if ('all' === data.type) {
-                    Constant.resistances.forEach((elementType) => {
+                    Constant.world.resistances.forEach((elementType) => {
                         status.resistance[elementType] += data.value
                     })
                 } else {
@@ -365,7 +365,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
         let weaponAttack = equipInfos.weapon.attack
         let weaponType = equipInfos.weapon.type
 
-        status.attack *= Constant.weaponMultiple[weaponType] // 武器倍率
+        status.attack *= Constant.world.weaponMultiple[weaponType] // 武器倍率
 
         if (Helper.isEmpty(enableElement)
             && Helper.isNotEmpty(noneElementAttackMultiple)
@@ -452,7 +452,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
 }
 
 const generateBenefitAnalysis = (equipInfos, status, tuning) => {
-    let benefitAnalysis = Helper.deepCopy(Constant.default.benefitAnalysis)
+    let benefitAnalysis = Helper.deepCopy(Constant.world.default.benefitAnalysis)
     let result = getBasicBenefitAnalysis(equipInfos, Helper.deepCopy(status), {})
 
     benefitAnalysis.physicalAttack = result.physicalAttack
@@ -508,7 +508,7 @@ const getBasicBenefitAnalysis = (equipInfos, status, tuning) => {
     let expectedValue = 0
 
     if (Helper.isNotEmpty(equipInfos.weapon)) {
-        let weaponMultiple = Constant.weaponMultiple[equipInfos.weapon.type]
+        let weaponMultiple = Constant.world.weaponMultiple[equipInfos.weapon.type]
         let sharpnessMultiple = getSharpnessMultiple(status.sharpness)
 
         physicalAttack = (status.attack / weaponMultiple)
@@ -597,8 +597,8 @@ const getSharpnessMultiple = (data) => {
     }
 
     return {
-        physical: Constant.sharpnessMultiple.physical[currentStep],
-        element: Constant.sharpnessMultiple.element[currentStep]
+        physical: Constant.world.sharpnessMultiple.physical[currentStep],
+        element: Constant.world.sharpnessMultiple.element[currentStep]
     }
 }
 
@@ -610,8 +610,8 @@ export default function CharacterStatus(props) {
     const [stateCustomWeapon, updateCustomWeapon] = useState(States.world.getters.getCustomWeapon())
     const [stateCurrentEquips, updateCurrentEquips] = useState(States.world.getters.getCurrentEquips())
     const [stateEquipInfos, updateEquipInfos] = useState({})
-    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.default.status))
-    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.default.benefitAnalysis))
+    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.world.default.status))
+    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.world.default.benefitAnalysis))
     const [statePassiveSkills, updatePassiveSkills] = useState({})
     const [stateTuning, updateTuning] = useState({
         physicalAttack: 5,
@@ -706,134 +706,134 @@ export default function CharacterStatus(props) {
     }
 
     return (
-        <div className="col mhwc-status">
-            <div className="mhwc-panel">
-                <span className="mhwc-title">{_('status')}</span>
+        <div className="col mhc-status">
+            <div className="mhc-panel">
+                <span className="mhc-title">{_('status')}</span>
             </div>
 
-            <div className="mhwc-list">
-                <div className="mhwc-item mhwc-item-3-step">
-                    <div className="col-12 mhwc-name">
+            <div className="mhc-list">
+                <div className="mhc-item mhc-item-3-step">
+                    <div className="col-12 mhc-name">
                         <span>{_('benefitAnalysis')}</span>
                     </div>
-                    <div className="col-12 mhwc-content">
-                        <div className="col-3 mhwc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-3 mhc-name">
                             <span>{_('physicalAttack')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.physicalAttack}</span>
                         </div>
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elementAttack')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.elementAttack}</span>
                         </div>
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('physicalCriticalAttack')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.physicalCriticalAttack}</span>
                         </div>
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elementCriticalAttack')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.elementCriticalAttack}</span>
                         </div>
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('physicalEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.physicalExpectedValue}</span>
                         </div>
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('elementEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.elementExpectedValue}</span>
                         </div>
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('totalEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.expectedValue}</span>
                         </div>
                     </div>
-                    <div className="col-12 mhwc-content">
-                        <div className="col-6 mhwc-name mhwc-input-ev">
+                    <div className="col-12 mhc-content">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perPhysicalAttackEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput defaultValue={stateTuning.physicalAttack}
                                 bypassRef={refTuningPhysicalAttack} onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perPhysicalAttackExpectedValue}</span>
                         </div>
-                        <div className="col-6 mhwc-name mhwc-input-ev">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perCriticalRateEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput defaultValue={stateTuning.physicalCriticalRate}
                                 bypassRef={refTuningPhysicalCriticalRate} onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perPhysicalCriticalRateExpectedValue}</span>
                         </div>
-                        <div className="col-6 mhwc-name mhwc-input-ev">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perCriticalMultipleEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput defaultValue={stateTuning.physicalCriticalMultiple}
                                 bypassRef={refTuningPhysicalCriticalMultiple} onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perPhysicalCriticalMultipleExpectedValue}</span>
                         </div>
-                        <div className="col-6 mhwc-name mhwc-input-ev">
+                        <div className="col-6 mhc-name mhc-input-ev">
                             <span>{_('perElementAttackEV')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <BasicInput defaultValue={stateTuning.elementAttack}
                                 bypassRef={refTuningElementAttack} onChange={handleTuningChange} />
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{benefitAnalysis.perElementAttackExpectedValue}</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="mhwc-item mhwc-item-3-step">
-                    <div className="col-12 mhwc-name">
+                <div className="mhc-item mhc-item-3-step">
+                    <div className="col-12 mhc-name">
                         <span>{_('property')}</span>
                     </div>
-                    <div className="col-12 mhwc-content">
-                        <div className="col-3 mhwc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-3 mhc-name">
                             <span>{_('health')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.health}</span>
                         </div>
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('stamina')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.stamina}</span>
                         </div>
                     </div>
 
-                    <div className="col-12 mhwc-content">
+                    <div className="col-12 mhc-content">
                         {Helper.isNotEmpty(status.sharpness) ? (
                             <Fragment>
-                                <div className="col-3 mhwc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('sharpness')}</span>
                                 </div>
-                                <div className="col-9 mhwc-value mhwc-sharpness">
+                                <div className="col-9 mhc-value mhc-sharpness">
                                     <SharpnessBar
                                         key={Helper.jsonHash(originalSharpness) + ':1'}
                                         data={originalSharpness} />
@@ -844,24 +844,24 @@ export default function CharacterStatus(props) {
                             </Fragment>
                         ) : false}
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('attack')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.attack}</span>
                         </div>
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('criticalRate')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.critical.rate}%</span>
                         </div>
 
-                        <div className="col-3 mhwc-name">
+                        <div className="col-3 mhc-name">
                             <span>{_('criticalMultiple')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             {(0 <= status.critical.rate) ? (
                                 <span>{status.critical.multiple.positive}x</span>
                             ) : (
@@ -873,10 +873,10 @@ export default function CharacterStatus(props) {
                             && Helper.isNotEmpty(status.element.attack)
                         ) ? (
                             <Fragment>
-                                <div className="col-3 mhwc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('element')}: {_(status.element.attack.type)}</span>
                                 </div>
-                                <div className="col-3 mhwc-value">
+                                <div className="col-3 mhc-value">
                                     {status.element.attack.isHidden ? (
                                         <span>({status.element.attack.value})</span>
                                     ) : (
@@ -890,10 +890,10 @@ export default function CharacterStatus(props) {
                             && Helper.isNotEmpty(status.element.status)
                         ) ? (
                             <Fragment>
-                                <div className="col-3 mhwc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('element')}: {_(status.element.status.type)}</span>
                                 </div>
-                                <div className="col-3 mhwc-value">
+                                <div className="col-3 mhc-value">
                                     {status.element.status.isHidden ? (
                                         <span>({status.element.status.value})</span>
                                     ) : (
@@ -905,31 +905,31 @@ export default function CharacterStatus(props) {
 
                         {(Helper.isNotEmpty(status.elderseal)) ? (
                             <Fragment>
-                                <div className="col-3 mhwc-name">
+                                <div className="col-3 mhc-name">
                                     <span>{_('elderseal')}</span>
                                 </div>
-                                <div className="col-3 mhwc-value">
+                                <div className="col-3 mhc-value">
                                     <span>{_(status.elderseal.affinity)}</span>
                                 </div>
                             </Fragment>
                         ) : false}
                     </div>
 
-                    <div className="col-12 mhwc-content">
-                        <div className="col-3 mhwc-name">
+                    <div className="col-12 mhc-content">
+                        <div className="col-3 mhc-name">
                             <span>{_('defense')}</span>
                         </div>
-                        <div className="col-3 mhwc-value">
+                        <div className="col-3 mhc-value">
                             <span>{status.defense}</span>
                         </div>
 
-                        {Constant.resistances.map((elementType) => {
+                        {Constant.world.resistances.map((elementType) => {
                             return (
                                 <Fragment key={elementType}>
-                                    <div className="col-3 mhwc-name">
+                                    <div className="col-3 mhc-name">
                                         <span>{_('resistance')}: {_(elementType)}</span>
                                     </div>
-                                    <div className="col-3 mhwc-value">
+                                    <div className="col-3 mhc-value">
                                         <span>{status.resistance[elementType]}</span>
                                     </div>
                                 </Fragment>
@@ -939,8 +939,8 @@ export default function CharacterStatus(props) {
                 </div>
 
                 {(0 !== status.sets.length) ? (
-                    <div className="mhwc-item mhwc-item-3-step">
-                        <div className="col-12 mhwc-name">
+                    <div className="mhc-item mhc-item-3-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('set')}</span>
                         </div>
                         {status.sets.map((data, index) => {
@@ -950,11 +950,11 @@ export default function CharacterStatus(props) {
                             return (Helper.isNotEmpty(setInfo)
                                 && Helper.isNotEmpty(skillInfo))
                             ? (
-                                <div key={`${index}:${data.id}`} className="col-12 mhwc-content">
-                                    <div className="col-12 mhwc-name">
+                                <div key={`${index}:${data.id}`} className="col-12 mhc-content">
+                                    <div className="col-12 mhc-name">
                                         <span>{_(setInfo.name)} ({data.require})</span>
                                     </div>
-                                    <div className="col-12 mhwc-value">
+                                    <div className="col-12 mhc-value">
                                         <span>{_(skillInfo.name)} Lv.{data.skill.level}</span>
                                     </div>
                                 </div>
@@ -964,8 +964,8 @@ export default function CharacterStatus(props) {
                 ) : false}
 
                 {(0 !== status.skills.length) ? (
-                    <div className="mhwc-item mhwc-item-3-step">
-                        <div className="col-12 mhwc-name">
+                    <div className="mhc-item mhc-item-3-step">
+                        <div className="col-12 mhc-name">
                             <span>{_('skill')}</span>
                         </div>
                         {status.skills.sort((skillA, skillB) => {
@@ -974,11 +974,11 @@ export default function CharacterStatus(props) {
                             let skillInfo = SkillDataset.getInfo(data.id)
 
                             return (Helper.isNotEmpty(skillInfo)) ? (
-                                <div key={data.id} className="col-12 mhwc-content">
-                                    <div className="col-12 mhwc-name">
+                                <div key={data.id} className="col-12 mhc-content">
+                                    <div className="col-12 mhc-name">
                                         <span>{_(skillInfo.name)} Lv.{data.level}</span>
 
-                                        <div className="mhwc-icons_bundle">
+                                        <div className="mhc-icons_bundle">
                                             {Helper.isNotEmpty(passiveSkills[data.id]) ? (
                                                 <IconButton
                                                     iconName={passiveSkills[data.id].isActive ? 'eye' : 'eye-slash'}
@@ -987,7 +987,7 @@ export default function CharacterStatus(props) {
                                             ) : false}
                                         </div>
                                     </div>
-                                    <div className="col-12 mhwc-value mhwc-description">
+                                    <div className="col-12 mhc-value mhc-description">
                                         <span>{_(data.description)}</span>
                                     </div>
                                 </div>

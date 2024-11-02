@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import Helper from '@/scripts/core/helper'
@@ -73,7 +73,7 @@ let getAppliedWeaponInfo = (extend) => {
 
             switch (reactionType) {
             case 'attack':
-                info.attack += data.value * Constant.weaponMultiple[info.type]
+                info.attack += data.value * Constant.world.weaponMultiple[info.type]
                 info.attack = parseInt(Math.round(info.attack))
 
                 break

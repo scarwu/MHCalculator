@@ -14,13 +14,13 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/misc'
+import Misc from '@/scripts/libraries/rise/misc'
 import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
-import CustomWeapon from '@/scripts/components/ui/customWeapon'
-import CustomCharm from '@/scripts/components/ui/customCharm'
+import CustomWeapon from '@/scripts/components/ui/rise/customWeapon'
+import CustomCharm from '@/scripts/components/ui/rise/customCharm'
 
 // Load States
 import States from '@/scripts/states'

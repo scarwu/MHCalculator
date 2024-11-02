@@ -4,7 +4,7 @@
  * @package     Monster Hunter World - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHWCalculator
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useCallback, useRef, createRef } from 'react'
@@ -134,18 +134,18 @@ export default function BundleItemSelector(props) {
         }
 
         return (
-            <div key={bundleId} className="mhwc-item mhwc-item-2-step">
-                <div className="col-12 mhwc-name">
+            <div key={bundleId} className="mhc-item mhc-item-2-step">
+                <div className="col-12 mhc-name">
                     <BasicInput placeholder={_('inputName')} bypassRef={refName} />
 
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton
                             iconName="floppy-o" altName={_('save')}
                             onClick={() => {handleBundleSave(null)}} />
                     </div>
                 </div>
 
-                <div className="col-12 mhwc-content">
+                <div className="col-12 mhc-content">
                     {Object.keys(stateCurrentEquips).map((equipType, index) => {
                         if (Helper.isEmpty(stateCurrentEquips[equipType])) {
                             return false
@@ -158,7 +158,7 @@ export default function BundleItemSelector(props) {
                                 equipInfo = States.world.getters.getCustomWeapon()
 
                                 return Helper.isNotEmpty(equipInfo) ? (
-                                    <div key={equipType} className="col-6 mhwc-value">
+                                    <div key={equipType} className="col-6 mhc-value">
                                         <span>{_(equipInfo.name)}: {_(equipInfo.type)}</span>
                                     </div>
                                 ) : false
@@ -177,7 +177,7 @@ export default function BundleItemSelector(props) {
                         }
 
                         return Helper.isNotEmpty(equipInfo) ? (
-                            <div key={index} className="col-6 mhwc-value">
+                            <div key={index} className="col-6 mhc-value">
                                 <span>{_(equipInfo.name)}</span>
                             </div>
                         ) : false
@@ -189,12 +189,12 @@ export default function BundleItemSelector(props) {
 
     let renderItem = (data, index) => {
         return (
-            <div key={`${data.id}:${index}`} className="mhwc-item mhwc-item-2-step">
-                <div className="col-12 mhwc-name">
+            <div key={`${data.id}:${index}`} className="mhc-item mhc-item-2-step">
+                <div className="col-12 mhc-name">
                     <BasicInput placeholder={_('inputName')} defaultValue={data.name}
                         bypassRef={refNameList.current[index]} />
 
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton
                             iconName="check" altName={_('select')}
                             onClick={() => {handleBundlePickUp(index)}} />
@@ -206,7 +206,7 @@ export default function BundleItemSelector(props) {
                             onClick={() => {handleBundleSave(index)}} />
                     </div>
                 </div>
-                <div className="col-12 mhwc-content">
+                <div className="col-12 mhc-content">
                     {Object.keys(data.equips).map((equipType, index) => {
                         if (Helper.isEmpty(data.equips[equipType])) {
                             return false
@@ -219,7 +219,7 @@ export default function BundleItemSelector(props) {
                                 equipInfo = data.customWeapon
 
                                 return Helper.isNotEmpty(equipInfo) ? (
-                                    <div key={equipType} className="col-6 mhwc-value">
+                                    <div key={equipType} className="col-6 mhc-value">
                                         <span>{_(equipInfo.name)}: {_(equipInfo.type)}</span>
                                     </div>
                                 ) : false
@@ -238,7 +238,7 @@ export default function BundleItemSelector(props) {
                         }
 
                         return Helper.isNotEmpty(equipInfo) ? (
-                            <div key={index} className="col-6 mhwc-value">
+                            <div key={index} className="col-6 mhc-value">
                                 <span>{_(equipInfo.name)}</span>
                             </div>
                         ) : false
@@ -249,19 +249,19 @@ export default function BundleItemSelector(props) {
     }
 
     return stateIsShow ? (
-        <div className="mhwc-selector" ref={refModal} onClick={handleFastWindowClose}>
-            <div className="mhwc-modal">
-                <div className="mhwc-panel">
-                    <span className="mhwc-title">{_('bundleList')}</span>
+        <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
+            <div className="mhc-modal">
+                <div className="mhc-panel">
+                    <span className="mhc-title">{_('bundleList')}</span>
 
-                    <div className="mhwc-icons_bundle">
+                    <div className="mhc-icons_bundle">
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={States.world.actions.hideBundleItemSelector} />
                     </div>
                 </div>
-                <div className="mhwc-list">
-                    <div className="mhwc-wrapper">
+                <div className="mhc-list">
+                    <div className="mhc-wrapper">
                         {renderDefaultItem()}
                         {stateReservedBundles.map(renderItem)}
                     </div>
