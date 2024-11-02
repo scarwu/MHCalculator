@@ -28,12 +28,19 @@ import Helper from '@/scripts/core/helper'
 import States from '@/scripts/states'
 
 // Load Components
-import IconButton from '@/scripts/components/common/iconButton'
-import IconSelector from '@/scripts/components/common/iconSelector'
+import IconButton from '@/scripts/components/ui/iconButton'
+import IconSelector from '@/scripts/components/ui/iconSelector'
+
+import ChangeLogModal    from '@/scripts/components/modal/changeLog'
+
+// Load Styles
+import '@/styles/global.sass'
+import '@/styles/ui.sass'
+import '@/styles/app.sass'
 
 if ('production' === Config.env) {
     if (Config.buildTime !== Status.get('sys:buildTime')) {
-        States.setter.showModal('changeLog')
+        States.rise.setter.showModal('changeLog')
     }
 
     Status.set('sys:buildTime', Config.buildTime)
@@ -64,7 +71,7 @@ const seriesList = [
  * Handle Functions
  */
 const handlePlayerEquipsExport = () => {
-    let equips = Helper.deepCopy(States.getter.getPlayerEquips())
+    let equips = Helper.deepCopy(States.rise.getter.getPlayerEquips())
     let hash = Helper.base64Encode(JSON.stringify(equips))
 
     let protocol = window.location.protocol
@@ -99,7 +106,7 @@ export default function App () {
 
             // TODO: need verify
 
-            States.setter.replacePlayerEquips(playerEquips)
+            States.rise.setter.replacePlayerEquips(playerEquips)
         }
     }, [])
 
@@ -143,7 +150,7 @@ export default function App () {
                         onClick={handlePlayerEquipsExport} />
                     <IconButton
                         iconName="info" altName={_('changeLog')}
-                        onClick={() => { States.setter.showModal('changeLog') }} />
+                        onClick={() => { States.rise.setter.showModal('changeLog') }} />
                     <IconButton
                         iconName="question" altName={_('readme')}
                         onClick={handleOpenReadme} />
@@ -169,6 +176,8 @@ export default function App () {
                     </a>
                 </div>
             </div>
+
+            <ChangeLogModal />
         </div>
     )
 }

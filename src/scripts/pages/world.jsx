@@ -19,9 +19,12 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
+// Load Styles
+import '@/styles/pages/world.sass'
+
 export default function WorldPage () {
     return (
-        <div>
+        <div className="mhc-page mhc-world-page">
 
         </div>
     )

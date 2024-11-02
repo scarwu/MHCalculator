@@ -19,31 +19,32 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
-import RequiredConditionsBlock from '@/scripts/components/block/requiredConditionsBlock'
-import CandidateBundlesBlock from '@/scripts/components/block/candidateBundlesBlock'
-import PlayerEquipsBlock from '@/scripts/components/block/playerEquipsBlock'
-import PlayerStatusBlock from '@/scripts/components/block/playerStatusBlock'
+import RequiredConditionsBlock  from '@/scripts/components/block/rise/requiredConditionsBlock'
+import CandidateBundlesBlock    from '@/scripts/components/block/rise/candidateBundlesBlock'
+import PlayerEquipsBlock        from '@/scripts/components/block/rise/playerEquipsBlock'
+import PlayerStatusBlock        from '@/scripts/components/block/rise/playerStatusBlock'
 
-import ChangeLogModal from '@/scripts/components/modal/changeLog'
-import AlgorithmSettingModal from '@/scripts/components/modal/algorithmSetting'
-import WeaponSelectorModal from '@/scripts/components/modal/weaponSelector'
-import ArmorSelectorModal from '@/scripts/components/modal/armorSelector'
-import PetalaceSelectorModal from '@/scripts/components/modal/petalaceSelector'
-import SetSelectorModal from '@/scripts/components/modal/setSelector'
-import SkillSelectorModal from '@/scripts/components/modal/skillSelector'
-import DecorationSelectorModal from '@/scripts/components/modal/decorationSelector'
-// import RampageDecorationSelectorModal from '@/scripts/components/modal/rampageDecorationSelector'
-import RampageSkillSelectorModal from '@/scripts/components/modal/rampageSkillSelector'
+import AlgorithmSettingModal    from '@/scripts/components/modal/rise/algorithmSetting'
+import WeaponSelectorModal      from '@/scripts/components/modal/rise/weaponSelector'
+import ArmorSelectorModal       from '@/scripts/components/modal/rise/armorSelector'
+import PetalaceSelectorModal    from '@/scripts/components/modal/rise/petalaceSelector'
+import SetSelectorModal         from '@/scripts/components/modal/rise/setSelector'
+import SkillSelectorModal       from '@/scripts/components/modal/rise/skillSelector'
+import DecorationSelectorModal  from '@/scripts/components/modal/rise/decorationSelector'
+// import RampageDecorationSelectorModal from '@/scripts/components/modal/rise/rampageDecorationSelector'
+import RampageSkillSelectorModal from '@/scripts/components/modal/rise/rampageSkillSelector'
+
+// Load Styles
+import '@/styles/pages/rise.sass'
 
 export default function RisePage () {
     return (
-        <div>
+        <div className="mhc-page mhc-rise-page">
             <RequiredConditionsBlock />
             <CandidateBundlesBlock />
             <PlayerEquipsBlock />
             <PlayerStatusBlock />
 
-            <ChangeLogModal />
             <AlgorithmSettingModal />
             <WeaponSelectorModal />
             <ArmorSelectorModal />

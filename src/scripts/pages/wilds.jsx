@@ -19,9 +19,12 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
+// Load Styles
+import '@/styles/pages/wilds.sass'
+
 export default function WildsPage () {
     return (
-        <div>
+        <div className="mhc-page mhc-wilds-page">
 
         </div>
     )

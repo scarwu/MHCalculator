@@ -9,7 +9,7 @@
 
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import * as Sentry from '@sentry/browser'
 
 // Load Config
@@ -17,10 +17,6 @@ import Config from '@/scripts/config'
 
 // import States from '@/scripts/states'
 import Router from '@/scripts/router'
-
-// Load Styles
-import '@/styles/global.sass'
-import '@/styles/main.sass'
 
 // Set Sentry Endpoint
 if ('production' === Config.env) {

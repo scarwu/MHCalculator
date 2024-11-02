@@ -1,0 +1,86 @@
+// Website Style
+// @package     Monster Hunter - Calculator
+// @author      Scar Wu
+// @copyright   Copyright (c) Scar Wu (https://scar.tw)
+// @link        https://github.com/scarwu/MHCalculator
+
+// Load Specify Styles
+@import '@/styles/libraries/common'
+
+// Module & Option Style
+#mhc
+    position: relative
+    height: 100vh
+    +font-size(1.4)
+
+#mhc-app
+    > .mhc-header
+        position: relative
+        padding: 0 10px
+        height: $header-height
+        background-color: #333
+        text-align: center
+
+        .mhc-title
+            display: inline-block
+            color: #ccc
+
+            &:hover
+                color: #fff
+
+            h1
+                margin: 0
+                padding: 0
+                line-height: $header-height
+                font-weight: bold
+                +font-size(2.4)
+
+        .mhc-icons_bundle-left,
+        .mhc-icons_bundle-right
+            display: flex
+            flex-direction: row
+            gap: 2px
+            align-items: center
+            position: absolute
+            top: 0
+            height: $header-height
+
+            .mhc-icon_selector,
+            .mhc-icon_button
+                .mhc-body
+                    background-color: #999
+
+                &:hover
+                    .mhc-body
+                        background-color: #666
+
+        .mhc-icons_bundle-left
+            left: 10px
+
+        .mhc-icons_bundle-right
+            right: 10px
+
+    > .mhc-body
+        height: calc(100vh - (#{$header-height} + #{$footer-height}))
+
+    > .mhc-footer
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        padding: 0 10px
+        height: $footer-height
+        background-color: #333
+        color: #ccc
+
+        .bh-top
+            +font-size(1.4)
+
+        .bh-bottom
+            +font-size(1.2)
+
+            a
+                color: #ccc
+
+                &:hover
+                    color: #fff

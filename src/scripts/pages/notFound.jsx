@@ -19,9 +19,12 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
+// Load Styles
+import '@/styles/pages/notFound.sass'
+
 export default function NotFoundPage () {
     return (
-        <div>
+        <div className="mhc-page mhc-not-found-page">
 
         </div>
     )
