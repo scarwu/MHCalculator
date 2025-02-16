@@ -7,7 +7,8 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import store from './store'
+// Load Store
+import store from '@/scripts/states/store'
 
 // Switch Temp Data
 export const switchTempData = (target, index) => {

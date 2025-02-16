@@ -48,7 +48,7 @@ const handleBundlePickUp = (bundle, requiredConditions) => {
         }
 
         // Create Temp Equip Data
-        let tempEquipData = Object.assign({}, Helper.deepCopy(Constant.rise.defaultPlayerEquips[equipType]), {
+        let tempEquipData = Object.assign({}, Helper.deepCopy(Constant.rise.default.playerEquips[equipType]), {
             id: bundle.equipIdMapping[equipType]
         })
 
@@ -232,7 +232,7 @@ export default function BundleList (props) {
                     })
                 }
 
-                return Object.assign({}, Constant.rise.defaultPlayerEquips[equipType], {
+                return Object.assign({}, Constant.rise.default.playerEquips[equipType], {
                     id: bundle.equipIdMapping[equipType],
                     type: equipType
                 })

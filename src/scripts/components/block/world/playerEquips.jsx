@@ -25,7 +25,7 @@ import SetDataset from '@/scripts/libraries/world/dataset/set'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 
 // Load Components
-import CustomWeapon from '@/scripts/components/block/world/equipsDisplayer/customWeapon'
+import CustomWeapon from '@/scripts/components/block/world/playerEquips/customWeapon'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 import SharpnessBar from '@/scripts/components/ui/sharpnessBar'
@@ -41,7 +41,7 @@ const handleEquipsDisplayerRefresh = () => {
 }
 
 const handleSwitchTempData = (index) => {
-    States.world.actions.switchTempData('equipsDisplayer', index)
+    States.world.actions.switchTempData('playerEquips', index)
 }
 
 /**
@@ -475,7 +475,7 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
     )
 }
 
-export default function EquipsDisplayer(props) {
+export default function PlayerEquips(props) {
 
     /**
      * Hooks
@@ -520,26 +520,26 @@ export default function EquipsDisplayer(props) {
     }, [stateCurrentEquips, stateRequiredEquips])
 
     return (
-        <div className="col mhc-equips">
+        <div className="mhc-block mhc-equips">
             <div className="mhc-panel">
                 <span className="mhc-title">{_('equipBundle')}</span>
 
                 <div className="mhc-icons_bundle-left">
                     <IconTab
-                        iconName="circle-o" altName={_('tab') + ' 1'}
-                        isActive={0 === stateTempData.equipsDisplayer.index}
+                        iconName="circle" altName={_('tab') + ' 1'}
+                        isActive={0 === stateTempData.playerEquips.index}
                         onClick={() => {handleSwitchTempData(0)}} />
                     <IconTab
-                        iconName="circle-o" altName={_('tab') + ' 2'}
-                        isActive={1 === stateTempData.equipsDisplayer.index}
+                        iconName="circle" altName={_('tab') + ' 2'}
+                        isActive={1 === stateTempData.playerEquips.index}
                         onClick={() => {handleSwitchTempData(1)}} />
                     <IconTab
-                        iconName="circle-o" altName={_('tab') + ' 3'}
-                        isActive={2 === stateTempData.equipsDisplayer.index}
+                        iconName="circle" altName={_('tab') + ' 3'}
+                        isActive={2 === stateTempData.playerEquips.index}
                         onClick={() => {handleSwitchTempData(2)}} />
                     <IconTab
-                        iconName="circle-o" altName={_('tab') + ' 4'}
-                        isActive={3 === stateTempData.equipsDisplayer.index}
+                        iconName="circle" altName={_('tab') + ' 4'}
+                        isActive={3 === stateTempData.playerEquips.index}
                         onClick={() => {handleSwitchTempData(3)}} />
                 </div>
 

@@ -602,7 +602,7 @@ const getSharpnessMultiple = (data) => {
     }
 }
 
-export default function CharacterStatus(props) {
+export default function PlayerStatus(props) {
 
     /**
      * Hooks
@@ -706,7 +706,7 @@ export default function CharacterStatus(props) {
     }
 
     return (
-        <div className="col mhc-status">
+        <div className="mhc-block mhc-status">
             <div className="mhc-panel">
                 <span className="mhc-title">{_('status')}</span>
             </div>

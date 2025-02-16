@@ -225,28 +225,28 @@ export default function CandidateBundles(props) {
     let tabIndex = stateTempData.candidateBundles.index
 
     return (
-        <div className="col mhc-bundles">
+        <div className="mhc-block mhc-bundles">
             <div className="mhc-panel">
                 <span className="mhc-title">{_('candidateBundle')}</span>
 
                 <div className="mhc-icons_bundle-left">
                     <IconTab
-                        iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle-o'}
+                        iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 1'}
                         isActive={0 === tabIndex}
                         onClick={() => {handleSwitchTempData(0)}} />
                     <IconTab
-                        iconName={Helper.isNotEmpty(stateTasks[1]) ? 'cog fa-spin' : 'circle-o'}
+                        iconName={Helper.isNotEmpty(stateTasks[1]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 2'}
                         isActive={1 === tabIndex}
                         onClick={() => {handleSwitchTempData(1)}} />
                     <IconTab
-                        iconName={Helper.isNotEmpty(stateTasks[2]) ? 'cog fa-spin' : 'circle-o'}
+                        iconName={Helper.isNotEmpty(stateTasks[2]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 3'}
                         isActive={2 === tabIndex}
                         onClick={() => {handleSwitchTempData(2)}} />
                     <IconTab
-                        iconName={Helper.isNotEmpty(stateTasks[3]) ? 'cog fa-spin' : 'circle-o'}
+                        iconName={Helper.isNotEmpty(stateTasks[3]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 4'}
                         isActive={3 === tabIndex}
                         onClick={() => {handleSwitchTempData(3)}} />

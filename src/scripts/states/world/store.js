@@ -42,7 +42,7 @@ const statusMapping = {
 // Initial State
 const initialState = {
     tempData: Status.get(statusMapping.tempData) || {
-        conditionOptions: {
+        requiredConditions: {
             index: 0,
             list: []
         },
@@ -50,7 +50,7 @@ const initialState = {
             index: 0,
             list: []
         },
-        equipsDisplayer: {
+        playerEquips: {
             index: 0,
             list: []
         }
@@ -107,7 +107,7 @@ export default (state = initialState, action) => {
             }
 
             switch (target) {
-            case 'conditionOptions':
+            case 'requiredConditions':
                 if (Helper.isEmpty(tempData[target].list[index])) {
                     tempData[target].list[index] = {
                         requiredEquips: {
@@ -157,7 +157,7 @@ export default (state = initialState, action) => {
                     tempData: tempData,
                     computedResult: bundle.computedResult
                 })
-            case 'equipsDisplayer':
+            case 'playerEquips':
                 if (Helper.isEmpty(tempData[target].list[index])) {
                     tempData[target].list[index] = {
                         currentEquips: {},

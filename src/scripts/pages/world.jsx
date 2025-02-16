@@ -19,10 +19,10 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
-import ConditionOptionsBlock from 'components/block/world/conditionOptions'
+import ConditionOptionsBlock from 'components/block/world/requiredConditions'
 import CandidateBundlesBlock from 'components/block/world/candidateBundles'
-import EquipsDisplayerBlock from 'components/block/world/equipsDisplayer'
-import CharacterStatusBlock from 'components/block/world/characterStatus'
+import EquipsDisplayerBlock from 'components/block/world/playerEquips'
+import CharacterStatusBlock from 'components/block/world/playerStatus'
 
 import AlgorithmSettingModal from 'components/modal/world/algorithmSetting'
 import ConditionItemSelectorModal from 'components/modal/world/conditionItemSelector'

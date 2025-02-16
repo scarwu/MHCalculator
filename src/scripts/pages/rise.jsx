@@ -19,10 +19,10 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
-import RequiredConditionsBlock  from '@/scripts/components/block/rise/requiredConditionsBlock'
-import CandidateBundlesBlock    from '@/scripts/components/block/rise/candidateBundlesBlock'
-import PlayerEquipsBlock        from '@/scripts/components/block/rise/playerEquipsBlock'
-import PlayerStatusBlock        from '@/scripts/components/block/rise/playerStatusBlock'
+import RequiredConditionsBlock  from '@/scripts/components/block/rise/requiredConditions'
+import CandidateBundlesBlock    from '@/scripts/components/block/rise/candidateBundles'
+import PlayerEquipsBlock        from '@/scripts/components/block/rise/playerEquips'
+import PlayerStatusBlock        from '@/scripts/components/block/rise/playerStatus'
 
 import AlgorithmSettingModal    from '@/scripts/components/modal/rise/algorithmSetting'
 import WeaponSelectorModal      from '@/scripts/components/modal/rise/weaponSelector'

@@ -103,7 +103,7 @@ const generatePassiveSkills = (equipInfos) => {
 }
 
 const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
-    let status = Helper.deepCopy(Constant.rise.defaultStatus)
+    let status = Helper.deepCopy(Constant.rise.default.status)
 
     equipInfos = Helper.deepCopy(equipInfos)
 
@@ -465,7 +465,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
 }
 
 const generateBenefitAnalysis = (equipInfos, status, tuning) => {
-    let benefitAnalysis = Helper.deepCopy(Constant.rise.defaultBenefitAnalysis)
+    let benefitAnalysis = Helper.deepCopy(Constant.rise.default.benefitAnalysis)
     let result = getBasicBenefitAnalysis(equipInfos, Helper.deepCopy(status), {})
 
     benefitAnalysis.physicalAttack = result.physicalAttack
@@ -622,8 +622,8 @@ export default function PlayerStatusBlock (props) {
     const [statePlayerStatus, updatePlayerStatus] = useState(States.rise.getters.getPlayerStatus())
     const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
     const [stateEquipInfos, updateEquipInfos] = useState({})
-    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.rise.defaultStatus))
-    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.rise.defaultBenefitAnalysis))
+    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.rise.default.status))
+    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.rise.default.benefitAnalysis))
     const [statePassiveSkills, updatePassiveSkills] = useState({})
     const [stateTuning, updateTuning] = useState({
         physicalAttack: 5,

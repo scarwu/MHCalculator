@@ -24,9 +24,9 @@ import Misc from '@/scripts/libraries/rise/misc'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 
-import QuickSetting from '@/scripts/components/block/rise/candidateBundlesBlock/quickSetting'
-import RequiredConditions from '@/scripts/components/block/rise/candidateBundlesBlock/requiredConditions'
-import BundleList from '@/scripts/components/block/rise/candidateBundlesBlock/bundleList'
+import QuickSetting from '@/scripts/components/block/rise/candidateBundles/quickSetting'
+import RequiredConditions from '@/scripts/components/block/rise/candidateBundles/requiredConditions'
+import BundleList from '@/scripts/components/block/rise/candidateBundles/bundleList'
 
 // Load States
 import States from '@/scripts/states'

@@ -7,74 +7,78 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import Store from './store'
+// Load Core
+import Helper from '@/scripts/core/helper'
+
+// Load Store
+import store from '@/scripts/states/store'
 
 export const getTempData = () => {
-    return Store.getState().world.tempData
+    return store.getState().world.tempData
 }
 
 export const getRequiredSets = () => {
-    return Store.getState().world.requiredSets
+    return store.getState().world.requiredSets
 }
 
 export const getRequiredSkills = () => {
-    return Store.getState().world.requiredSkills
+    return store.getState().world.requiredSkills
 }
 
 export const getRequiredEquips = () => {
-    return Store.getState().world.requiredEquips
+    return store.getState().world.requiredEquips
 }
 
 export const getCurrentEquips = () => {
-    return Store.getState().world.currentEquips
+    return store.getState().world.currentEquips
 }
 
 export const getAlgorithmParams = () => {
-    return Store.getState().world.algorithmParams
+    return store.getState().world.algorithmParams
 }
 
 export const getComputedResult = () => {
-    return Store.getState().world.computedResult
+    return store.getState().world.computedResult
 }
 
 export const getReservedBundles = () => {
-    return Store.getState().world.reservedBundles
+    return store.getState().world.reservedBundles
 }
 
 export const getCustomWeapon = () => {
-    return Store.getState().world.customWeapon
+    return store.getState().world.customWeapon
 }
 
 export const isShowChangelog = () => {
-    return Store.getState().world.changelog.isShow
+    return store.getState().world.changelog.isShow
 }
 
 export const isShowAlgorithmSetting = () => {
-    return Store.getState().world.algorithmSetting.isShow
+    return store.getState().world.algorithmSetting.isShow
 }
 
 export const getAlgorithmSettingBypassData = () => {
-    return Store.getState().world.algorithmSetting.bypassData
+    return store.getState().world.algorithmSetting.bypassData
 }
 
 export const isShowBundleItemSelector = () => {
-    return Store.getState().world.bundleItemSelector.isShow
+    return store.getState().world.bundleItemSelector.isShow
 }
 
 export const isShowConditionItemSelector = () => {
-    return Store.getState().world.conditionItemSelector.isShow
+    return store.getState().world.conditionItemSelector.isShow
 }
 
 export const getConditionItemSelectorBypassData = () => {
-    return Store.getState().world.conditionItemSelector.bypassData
+    return store.getState().world.conditionItemSelector.bypassData
 }
 
 export const isShowEquipItemSelector = () => {
-    return Store.getState().world.equipItemSelector.isShow
+    return store.getState().world.equipItemSelector.isShow
 }
 
 export const getEquipItemSelectorBypassData = () => {
-    return Store.getState().world.equipItemSelector.bypassData
+    return store.getState().world.equipItemSelector.bypassData
 }
 
 export default {

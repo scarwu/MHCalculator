@@ -3,49 +3,50 @@
  *
  * @package     Monster Hunter - Calculator
  * @author      Scar Wu
- * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHCalculator
+ * @copyright   Copyright (c) Scar Wu (http://scar.tw)
+ * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
 import React, { useState, useEffect, useCallback } from 'react'
 
-// Load Core Libraries
+// Load Core
 import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Components
+import EquipList from '@/scripts/components/block/world/requiredConditions/equipList'
+import SetList from '@/scripts/components/block/world/requiredConditions/setList'
+import SkillList from '@/scripts/components/block/world/requiredConditions/skillList'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 
-import EquipList from '@/scripts/components/block/rise/requiredConditionsBlock/equipList'
-import SetList from '@/scripts/components/block/rise/requiredConditionsBlock/setList'
-import SkillList from '@/scripts/components/block/rise/requiredConditionsBlock/skillList'
-
-// Load States
+// Load State Control
 import States from '@/scripts/states'
 
 /**
  * Handle Functions
  */
 const handleRequireConditionRefresh = () => {
-    States.rise.actions.cleanRequiredConditions()
+    States.world.actions.cleanRequiredEquips()
+    States.world.actions.cleanRequiredSets()
+    States.world.actions.cleanRequiredSkills()
 }
 
-const handleSwitchDataStore = (index) => {
-    States.rise.actions.switchDataStore('requiredConditions', index)
+const handleSwitchTempData = (index) => {
+    States.world.actions.switchTempData('requiredConditions', index)
 }
 
-export default function RequiredConditionsBlock (props) {
+export default function RequiredConditions(props) {
 
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
+    const [stateTempData, updateTempData] = useState(States.world.getters.getTempData())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
         const unsubscribe = States.store.subscribe(() => {
-            updateDataStore(States.rise.getters.getDataStore())
+            updateTempData(States.world.getters.getTempData())
         })
 
         return () => {
@@ -61,20 +62,20 @@ export default function RequiredConditionsBlock (props) {
                 <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
-                        isActive={0 === stateDataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchDataStore(0)}} />
+                        isActive={0 === stateTempData.requiredConditions.index}
+                        onClick={() => {handleSwitchTempData(0)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
-                        isActive={1 === stateDataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchDataStore(1)}} />
+                        isActive={1 === stateTempData.requiredConditions.index}
+                        onClick={() => {handleSwitchTempData(1)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
-                        isActive={2 === stateDataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchDataStore(2)}} />
+                        isActive={2 === stateTempData.requiredConditions.index}
+                        onClick={() => {handleSwitchTempData(2)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
-                        isActive={3 === stateDataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchDataStore(3)}} />
+                        isActive={3 === stateTempData.requiredConditions.index}
+                        onClick={() => {handleSwitchTempData(3)}} />
                 </div>
 
                 <div className="mhc-icons_bundle-right">
