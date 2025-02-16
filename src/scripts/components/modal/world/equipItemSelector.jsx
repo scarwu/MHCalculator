@@ -34,26 +34,28 @@ import SharpnessBar from '@/scripts/components/ui/sharpnessBar'
 // Load State Control
 import States from '@/scripts/states'
 
+const targetModalKey = 'equipItemSelector'
+
 /**
  * Handle Functions
  */
-const handleItemPickUp = (bypassData, itemId) => {
-    if (Helper.isNotEmpty(bypassData.enhanceIndex)) {
-        bypassData.enhanceId = itemId
-    } else if (Helper.isNotEmpty(bypassData.slotIndex)) {
-        bypassData.jewelId = itemId
+const handleItemPickUp = (data, itemId) => {
+    if (Helper.isNotEmpty(data.enhanceIndex)) {
+        data.enhanceId = itemId
+    } else if (Helper.isNotEmpty(data.slotIndex)) {
+        data.jewelId = itemId
     } else {
-        bypassData.equipId = itemId
+        data.equipId = itemId
     }
 
-    States.world.actions.setCurrentEquip(bypassData)
-    States.world.actions.hideEquipItemSelector()
+    States.world.actions.setCurrentEquip(data)
+    States.common.actions.hideModal(targetModalKey)
 }
 
 /**
  * Render Functions
  */
-const renderWeaponItem = (weapon, bypassData) => {
+const renderWeaponItem = (weapon, data) => {
     let originalSharpness = null
     let enhancedSharpness = null
 
@@ -84,7 +86,7 @@ const renderWeaponItem = (weapon, bypassData) => {
                     {(false === weapon.isSelect) ? (
                         <IconButton
                             iconName="check" altName={_('select')}
-                            onClick={() => {handleItemPickUp(bypassData, weapon.id)}} />
+                            onClick={() => {handleItemPickUp(data, weapon.id)}} />
                     ) : false}
                 </div>
             </div>
@@ -198,12 +200,12 @@ const renderWeaponItem = (weapon, bypassData) => {
     )
 }
 
-const renderArmorItem = (armor, bypassData) => {
+const renderArmorItem = (armor, data) => {
     let setInfo = Helper.isNotEmpty(armor.set)
         ? SetDataset.getInfo(armor.set.id) : false
 
     // Re-write BypassData
-    bypassData.equipType = armor.type
+    data.equipType = armor.type
 
     return (
         <div key={armor.id} className="mhc-item mhc-item-2-step">
@@ -214,7 +216,7 @@ const renderArmorItem = (armor, bypassData) => {
                     {(false === armor.isSelect) ? (
                         <IconButton
                             iconName="check" altName={_('select')}
-                            onClick={() => {handleItemPickUp(bypassData, armor.id)}} />
+                            onClick={() => {handleItemPickUp(data, armor.id)}} />
                     ) : false}
                 </div>
             </div>
@@ -287,7 +289,7 @@ const renderArmorItem = (armor, bypassData) => {
     )
 }
 
-const renderCharmItem = (charm, bypassData) => {
+const renderCharmItem = (charm, data) => {
     return (
         <div key={charm.id} className="mhc-item mhc-item-2-step">
             <div className="col-12 mhc-name">
@@ -297,7 +299,7 @@ const renderCharmItem = (charm, bypassData) => {
                     {(false === charm.isSelect) ? (
                         <IconButton
                             iconName="check" altName={_('select')}
-                            onClick={() => {handleItemPickUp(bypassData, charm.id)}} />
+                            onClick={() => {handleItemPickUp(data, charm.id)}} />
                     ) : false}
                 </div>
             </div>
@@ -321,7 +323,7 @@ const renderCharmItem = (charm, bypassData) => {
     )
 }
 
-const renderJewelItem = (jewel, bypassData) => {
+const renderJewelItem = (jewel, data) => {
     return (
         <div key={jewel.id} className="mhc-item mhc-item-2-step">
             <div className="col-12 mhc-name">
@@ -331,7 +333,7 @@ const renderJewelItem = (jewel, bypassData) => {
                     {(false === jewel.isSelect) ? (
                         <IconButton
                             iconName="check" altName={_('select')}
-                            onClick={() => {handleItemPickUp(bypassData, jewel.id)}} />
+                            onClick={() => {handleItemPickUp(data, jewel.id)}} />
                     ) : false}
                 </div>
             </div>
@@ -355,7 +357,7 @@ const renderJewelItem = (jewel, bypassData) => {
     )
 }
 
-const renderEnhanceItem = (enhance, bypassData) => {
+const renderEnhanceItem = (enhance, data) => {
     return (
         <div key={enhance.id} className="mhc-item mhc-item-2-step">
             <div className="col-12 mhc-name">
@@ -365,7 +367,7 @@ const renderEnhanceItem = (enhance, bypassData) => {
                     {(false === enhance.isSelect) ? (
                         <IconButton
                             iconName="check" altName={_('select')}
-                            onClick={() => {handleItemPickUp(bypassData, enhance.id)}} />
+                            onClick={() => {handleItemPickUp(data, enhance.id)}} />
                     ) : false}
                 </div>
             </div>
@@ -392,8 +394,8 @@ export default function EquipItemSelector(props) {
     /**
      * Hooks
      */
-    const [stateIsShow, updateIsShow] = useState(States.world.getters.isShowEquipItemSelector())
-    const [stateBypassData, updateBypassData] = useState(States.world.getters.getEquipItemSelectorBypassData())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+
     const [stateMode, updateMode] = useState(null)
     const [stateSortedList, updateSortedList] = useState([])
     const [stateType, updateType] = useState(null)
@@ -401,10 +403,11 @@ export default function EquipItemSelector(props) {
     const [stateTypeList, updateTypeList] = useState([])
     const [stateRareList, updateRareList] = useState([])
     const [stateSegment, updateSegment] = useState(null)
-    const refModal = useRef()
+
+    const refModal = useRef(null)
 
     useEffect(() => {
-        if (Helper.isEmpty(stateBypassData)) {
+        if (Helper.isEmpty(_modalData)) {
             return
         }
 
@@ -415,29 +418,29 @@ export default function EquipItemSelector(props) {
         let type = null
         let rare = null
 
-        if (Helper.isNotEmpty(stateBypassData.enhanceIndex)) {
+        if (Helper.isNotEmpty(_modalData.enhanceIndex)) {
             mode = 'enhance'
             sortedList = EnhanceDataset.getItems().map((enhanceInfo) => {
-                enhanceInfo.isSelect = (stateBypassData.enhanceId === enhanceInfo.id)
+                enhanceInfo.isSelect = (_modalData.enhanceId === enhanceInfo.id)
 
                 return enhanceInfo
             })
-        } else if (Helper.isNotEmpty(stateBypassData.slotIndex)) {
+        } else if (Helper.isNotEmpty(_modalData.slotIndex)) {
             mode = 'jewel'
 
-            for (let size = stateBypassData.slotSize; size >= 1; size--) {
+            for (let size = _modalData.slotSize; size >= 1; size--) {
                 for (let rare = 9; rare >= 5; rare--) {
                     sortedList = sortedList.concat(
                         JewelDataset.rareIs(rare).sizeIs(size).getItems().map((jewelInfo) => {
-                            jewelInfo.isSelect = (stateBypassData.jewelId === jewelInfo.id)
+                            jewelInfo.isSelect = (_modalData.jewelId === jewelInfo.id)
 
                             return jewelInfo
                         })
                     )
                 }
             }
-        } else if ('weapon' === stateBypassData.equipType) {
-            let weaponInfo = WeaponDataset.getInfo(stateBypassData.equipId)
+        } else if ('weapon' === _modalData.equipType) {
+            let weaponInfo = WeaponDataset.getInfo(_modalData.equipId)
 
             typeList = Constant.world.weaponTypes.map((type) => {
                 return { key: type, value: _(type) }
@@ -449,7 +452,7 @@ export default function EquipItemSelector(props) {
             sortedList =  WeaponDataset.getItems().map((weaponInfo) => {
                 rareList[weaponInfo.rare] = weaponInfo.rare
 
-                weaponInfo.isSelect = (stateBypassData.equipId === weaponInfo.id)
+                weaponInfo.isSelect = (_modalData.equipId === weaponInfo.id)
 
                 return weaponInfo
             })
@@ -458,25 +461,25 @@ export default function EquipItemSelector(props) {
                 return { key: rare, value: _('rare') + `: ${rare}` }
             })
             rare = (Helper.isNotEmpty(weaponInfo)) ? weaponInfo.rare : rareList[0].key
-        } else if ('helm' === stateBypassData.equipType
-            || 'chest' === stateBypassData.equipType
-            || 'arm' === stateBypassData.equipType
-            || 'waist' === stateBypassData.equipType
-            || 'leg' === stateBypassData.equipType
+        } else if ('helm' === _modalData.equipType
+            || 'chest' === _modalData.equipType
+            || 'arm' === _modalData.equipType
+            || 'waist' === _modalData.equipType
+            || 'leg' === _modalData.equipType
         ) {
-            let armoreInfo = ArmorDataset.getInfo(stateBypassData.equipId)
+            let armoreInfo = ArmorDataset.getInfo(_modalData.equipId)
 
             typeList = Constant.world.armorTypes.map((type) => {
                 return { key: type, value: _(type) }
             })
-            type = (Helper.isNotEmpty(stateBypassData.equipType))
-                ? stateBypassData.equipType : typeList[0].key
+            type = (Helper.isNotEmpty(_modalData.equipType))
+                ? _modalData.equipType : typeList[0].key
 
             mode = 'armor'
             sortedList = ArmorDataset.getItems().map((armorInfo) => {
                 rareList[armorInfo.rare] = armorInfo.rare
 
-                armorInfo.isSelect = (stateBypassData.equipId === armorInfo.id)
+                armorInfo.isSelect = (_modalData.equipId === armorInfo.id)
 
                 return armorInfo
             })
@@ -485,10 +488,10 @@ export default function EquipItemSelector(props) {
                 return { key: rare, value: _('rare') + `: ${rare}` }
             })
             rare = (Helper.isNotEmpty(armoreInfo)) ? armoreInfo.rare : rareList[0].key
-        } else if ('charm' === stateBypassData.equipType) {
+        } else if ('charm' === _modalData.equipType) {
             mode = 'charm'
             sortedList = CharmDataset.getItems().map((charmInfo) => {
-                charmInfo.isSelect = (stateBypassData.equipId === charmInfo.id)
+                charmInfo.isSelect = (_modalData.equipId === charmInfo.id)
 
                 return charmInfo
             })
@@ -500,19 +503,7 @@ export default function EquipItemSelector(props) {
         updateRareList(rareList)
         updateType(type)
         updateRare(rare)
-    }, [stateBypassData])
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribeModel = States.store.subscribe(() => {
-            updateIsShow(States.world.getters.isShowEquipItemSelector())
-            updateBypassData(States.world.getters.getEquipItemSelectorBypassData())
-        })
-
-        return () => {
-            unsubscribeModel()
-        }
-    }, [])
+    }, [_modalData])
 
     /**
      * Handle Functions
@@ -522,7 +513,7 @@ export default function EquipItemSelector(props) {
             return
         }
 
-        States.world.actions.hideEquipItemSelector()
+        States.common.actions.hideModal(targetModalKey)
     }, [])
 
     const handleSegmentInput = useCallback((event) => {
@@ -543,11 +534,11 @@ export default function EquipItemSelector(props) {
     }, [])
 
     const getContent = useMemo(() => {
-        if (Helper.isEmpty(stateBypassData)) {
+        if (Helper.isEmpty(_modalData)) {
             return false
         }
 
-        let bypassData = Helper.deepCopy(stateBypassData)
+        let data = Helper.deepCopy(_modalData)
 
         switch (stateMode) {
         case 'weapon':
@@ -596,7 +587,7 @@ export default function EquipItemSelector(props) {
             }).sort((dataA, dataB) => {
                 return _(dataA.id) > _(dataB.id) ? 1 : -1
             }).map((data) => {
-                return renderWeaponItem(data, bypassData)
+                return renderWeaponItem(data, data)
             })
         case 'armor':
             return stateSortedList.filter((data) => {
@@ -639,7 +630,7 @@ export default function EquipItemSelector(props) {
             }).sort((dataA, dataB) => {
                 return _(dataA.id) > _(dataB.id) ? 1 : -1
             }).map((data) => {
-                return renderArmorItem(data, bypassData)
+                return renderArmorItem(data, data)
             })
         case 'charm':
             return stateSortedList.filter((data) => {
@@ -666,7 +657,7 @@ export default function EquipItemSelector(props) {
             }).sort((dataA, dataB) => {
                 return _(dataA.id) > _(dataB.id) ? 1 : -1
             }).map((data) => {
-                return renderCharmItem(data, bypassData)
+                return renderCharmItem(data, data)
             })
         case 'jewel':
             return stateSortedList.filter((data) => {
@@ -693,7 +684,7 @@ export default function EquipItemSelector(props) {
             }).sort((dataA, dataB) => {
                 return _(dataA.id) > _(dataB.id) ? 1 : -1
             }).map((data) => {
-                return renderJewelItem(data, bypassData)
+                return renderJewelItem(data, data)
             })
         case 'enhance':
             return stateSortedList.filter((data) => {
@@ -714,18 +705,18 @@ export default function EquipItemSelector(props) {
 
                 return true
             }).filter((data) => {
-                return -1 !== data.allowRares.indexOf(bypassData.equipRare)
-                    && -1 === bypassData.enhanceIds.indexOf(data.id)
+                return -1 !== data.allowRares.indexOf(data.equipRare)
+                    && -1 === data.enhanceIds.indexOf(data.id)
             }).sort((dataA, dataB) => {
                 return _(dataA.id) > _(dataB.id) ? 1 : -1
             }).map((data) => {
-                return renderEnhanceItem(data, bypassData)
+                return renderEnhanceItem(data, data)
             })
         default:
             return false
         }
     }, [
-        stateBypassData,
+        _modalData,
         stateMode,
         stateSortedList,
         stateTypeList,
@@ -735,13 +726,11 @@ export default function EquipItemSelector(props) {
         stateSegment
     ])
 
-    return (stateIsShow && Helper.isNotEmpty(stateBypassData)) ? (
+    return Helper.isNotEmpty(_modalData) ? (
         <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
             <div className="mhc-modal">
                 <div className="mhc-panel">
-                    <span className="mhc-title">{_(stateMode + 'List')}</span>
-
-                    <div className="mhc-icons_bundle">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                              defaultValue={stateSegment} onChange={handleSegmentInput} />
@@ -757,10 +746,14 @@ export default function EquipItemSelector(props) {
                                 iconName="globe" defaultValue={stateRare}
                                 options={stateRareList} onChange={handleRareChange} />
                         ) : false}
+                    </div>
 
+                    <span className="mhc-title">{_(stateMode + 'List')}</span>
+
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={States.world.actions.hideEquipItemSelector} />
+                            onClick={() => { States.common.actions.hideModal(targetModalKey) }} />
                     </div>
                 </div>
                 <div className="mhc-list">

@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -27,7 +27,7 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleShowSkillItemSelector = () => {
-    States.world.actions.showConditionItemSelector({
+    States.common.actions.showModal('conditionItemSelector', {
         mode: 'skill'
     })
 }
@@ -90,27 +90,15 @@ export default function SkillList(props) {
     /**
      * Hooks
      */
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredSets(States.world.getters.getRequiredSets())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> SkillList')
 
         let enableSkillIdList = []
 
-        stateRequiredSets.forEach((set) => {
+        _requiredSets.forEach((set) => {
             let setInfo = SetDataset.getInfo(set.id)
 
             if (Helper.isEmpty(setInfo)) {
@@ -155,10 +143,10 @@ export default function SkillList(props) {
                     </div>
                 </div>
 
-                {stateRequiredSkills.map((skill) => {
+                {_requiredSkills.map((skill) => {
                     return renderSkillItem(skill, enableSkillIdList)
                 })}
              </div>
         )
-    }, [stateRequiredSkills, stateRequiredSets])
+    }, [_requiredSkills, _requiredSets])
 }

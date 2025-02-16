@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -34,24 +34,10 @@ export default function ArmorFactors(props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.world.getters.getAlgorithmParams())
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.world.getters.getAlgorithmParams())
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-            updateRequiredSets(States.world.getters.getRequiredSets())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.world.hooks.useAlgorithmParams()
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> ArmorFactors')
@@ -59,18 +45,18 @@ export default function ArmorFactors(props) {
         let armorSeriesMapping = {}
         let skillLevelMapping = {}
         let dataset = ArmorDataset
-        let armorFactor = stateAlgorithmParams.usingFactor.armor
+        let armorFactor = _algorithmParams.usingFactor.armor
 
-        const equipTypes = Object.keys(stateRequiredEquips).filter((equipType) => {
+        const equipTypes = Object.keys(_requiredEquips).filter((equipType) => {
             if ('weapon' === equipType || 'charm' === equipType) {
                 return false
             }
 
-            return Helper.isEmpty(stateRequiredEquips[equipType])
+            return Helper.isEmpty(_requiredEquips[equipType])
         })
 
         if (true === byRequiredConditions) {
-            const setIds = stateRequiredSets.map((set) => {
+            const setIds = _requiredSets.map((set) => {
                 return set.id
             })
 
@@ -88,7 +74,7 @@ export default function ArmorFactors(props) {
 
             return true
         }).forEach((armorInfo) => {
-            if (false === stateAlgorithmParams.usingFactor.armor['rare' + armorInfo.rare]) {
+            if (false === _algorithmParams.usingFactor.armor['rare' + armorInfo.rare]) {
                 return
             }
 
@@ -120,7 +106,7 @@ export default function ArmorFactors(props) {
         })
 
         if (true === byRequiredConditions) {
-            const skillIds = stateRequiredSkills.map((skill) => {
+            const skillIds = _requiredSkills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
@@ -229,5 +215,5 @@ export default function ArmorFactors(props) {
 
             return blocks
         })
-    }, [segment, byRequiredConditions, stateAlgorithmParams, stateRequiredEquips, stateRequiredSets, stateRequiredSkills])
+    }, [segment, byRequiredConditions, _algorithmParams, _requiredEquips, _requiredSets, _requiredSkills])
 }

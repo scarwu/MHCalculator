@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -72,24 +72,13 @@ export default function SkillList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> SkillList')
 
         const showModal = () => {
-            States.rise.actions.showModal('skillSelector', {
+            States.common.actions.showModal('skillSelector', {
                 target: 'requiredConditions'
             })
         }
@@ -103,12 +92,12 @@ export default function SkillList (props) {
                     </div>
                 </div>
 
-                {stateRequiredConditions.skills.map((skillData) => {
+                {_requiredConditions.skills.map((skillData) => {
                     return renderSkillItem(skillData)
                 })}
              </div>
         )
     }, [
-        stateRequiredConditions
+        _requiredConditions
     ])
 }

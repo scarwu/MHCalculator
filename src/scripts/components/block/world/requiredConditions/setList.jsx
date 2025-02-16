@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -27,7 +27,7 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleShowSetItemSelector = () => {
-    States.world.actions.showConditionItemSelector({
+    States.common.actions.showModal('conditionItemSelector', {
         mode: 'set'
     })
 }
@@ -85,18 +85,7 @@ export default function SetList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredSets(States.world.getters.getRequiredSets())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredSets = States.world.hooks.useRequiredSets()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> SetList')
@@ -112,8 +101,8 @@ export default function SetList (props) {
                     </div>
                 </div>
 
-                {stateRequiredSets.map(renderSetItem)}
+                {_requiredSets.map(renderSetItem)}
             </div>
         )
-    }, [stateRequiredSets])
+    }, [_requiredSets])
 }

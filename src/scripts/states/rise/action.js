@@ -8,26 +8,6 @@
 // Load Store
 import store from '@/scripts/states/store'
 
-// Modal Hub
-export const showModal = (target, bypassData = null) => {
-    store.dispatch({
-        type: 'SHOW_MODAL',
-        payload: {
-            target: target,
-            bypassData: bypassData
-        }
-    })
-}
-
-export const hideModal = (target) => {
-    store.dispatch({
-        type: 'HIDE_MODAL',
-        payload: {
-            target: target
-        }
-    })
-}
-
 // Data Store
 export const switchDataStore = (target, index) => {
     store.dispatch({
@@ -291,9 +271,6 @@ export const replaceCandidateBundles = (candidateBundles) => {
 }
 
 export default {
-    showModal,
-    hideModal,
-
     switchDataStore,
 
     togglePlayerStatusUsingItem,

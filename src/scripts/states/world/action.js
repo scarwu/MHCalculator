@@ -11,9 +11,9 @@
 import store from '@/scripts/states/store'
 
 // Switch Temp Data
-export const switchTempData = (target, index) => {
+export const switchDataStore = (target, index) => {
     store.dispatch({
-        type: 'SWITCH_TEMP_DATA',
+        type: 'SWITCH_DATA_STORE',
         payload: {
             target: target,
             index: index
@@ -332,86 +332,8 @@ export const setCustomWeaponSet = (id) => {
     })
 }
 
-export const showAlgorithmSetting = (bypassData = null) => {
-    store.dispatch({
-        type: 'UPDATE_ALGORITHM_SETTING',
-        payload: {
-            isShow: true,
-            bypassData: bypassData
-        }
-    })
-}
-
-export const hideAlgorithmSetting = () => {
-    store.dispatch({
-        type: 'UPDATE_ALGORITHM_SETTING',
-        payload: {
-            isShow: false,
-            bypassData: null
-        }
-    })
-}
-
-export const showBundleItemSelector = () => {
-    store.dispatch({
-        type: 'UPDATE_BUNDLE_ITEM_SELECTOR',
-        payload: {
-            isShow: true
-        }
-    })
-}
-
-export const hideBundleItemSelector = () => {
-    store.dispatch({
-        type: 'UPDATE_BUNDLE_ITEM_SELECTOR',
-        payload: {
-            isShow: false
-        }
-    })
-}
-
-export const showConditionItemSelector = (bypassData = null) => {
-    store.dispatch({
-        type: 'UPDATE_CONDITION_ITEM_SELECTOR',
-        payload: {
-            isShow: true,
-            bypassData: bypassData
-        }
-    })
-}
-
-export const hideConditionItemSelector = () => {
-    store.dispatch({
-        type: 'UPDATE_CONDITION_ITEM_SELECTOR',
-        payload: {
-            isShow: false,
-            bypassData: null
-        }
-    })
-}
-
-export const showEquipItemSelector = (bypassData = null) => {
-    store.dispatch({
-        type: 'UPDATE_EQUIP_ITEM_SELECTOR',
-        payload: {
-            isShow: true,
-            bypassData: bypassData
-        }
-    })
-}
-
-export const hideEquipItemSelector = () => {
-    store.dispatch({
-        type: 'UPDATE_EQUIP_ITEM_SELECTOR',
-        payload: {
-            isShow: false,
-            bypassData: null
-        }
-    })
-}
-
 export default {
-    switchTempData,
+    switchDataStore,
     addRequiredSet,
     removeRequiredSet,
     increaseRequiredSetStep,
@@ -445,14 +367,5 @@ export default {
     setCustomWeaponElementValue,
     setCustomWeaponSlot,
     setCustomWeaponSkill,
-    setCustomWeaponSet,
-
-    showAlgorithmSetting,
-    hideAlgorithmSetting,
-    showBundleItemSelector,
-    hideBundleItemSelector,
-    showConditionItemSelector,
-    hideConditionItemSelector,
-    showEquipItemSelector,
-    hideEquipItemSelector
+    setCustomWeaponSet
 }

@@ -13,6 +13,22 @@ import store from '@/scripts/states/store'
 // Load Getter
 import * as getters from './getter'
 
+export const useIsInited = () => {
+    const [value, setValue] = useState(getters.isInited())
+
+    useEffect(() => {
+        const unsubscribe = store.subscribe(() => {
+            setValue(getters.isInited())
+        })
+
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
+    return value
+}
+
 export const useLocale = () => {
     const [value, setValue] = useState(getters.locale())
 
@@ -29,12 +45,12 @@ export const useLocale = () => {
     return value
 }
 
-export const useModalData = (targetKey) => {
-    const [value, setValue] = useState(getters.modalData(targetKey))
+export const useSeries = () => {
+    const [value, setValue] = useState(getters.series())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.modalData(targetKey))
+            setValue(getters.series())
         })
 
         return () => {
@@ -45,12 +61,12 @@ export const useModalData = (targetKey) => {
     return value
 }
 
-export const useIsInited = () => {
-    const [value, setValue] = useState(getters.isInited())
+export const useModalData = (targetKey) => {
+    const [value, setValue] = useState(getters.modalData(targetKey))
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.isInited())
+            setValue(getters.modalData(targetKey))
         })
 
         return () => {

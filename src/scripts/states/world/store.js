@@ -22,37 +22,35 @@ import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 import TestData from '@/scripts/datasets/world/testData.json'
 
 const statusMapping = {
-    tempData:           'state:common:tempData',
-    requiredEquips:     'state:common:requiredEquips',
-    requiredSets:       'state:common:requiredSets',
-    requiredSkills:     'state:common:requiredSkills',
-    currentEquips:      'state:common:currentEquips',
-    algorithmParams:    'state:common:algorithmParams',
-    computedResult:     'state:common:computedResult',
-    reservedBundles:    'state:common:reservedBundles',
-    customWeapon:       'state:common:customWeapon',
-
-    changelog:              'state:modal:changelog',
-    algorithmSetting:       'state:modal:algorithmSetting',
-    bundleItemSelector:     'state:modal:bundleItemSelector',
-    conditionItemSelector:  'state:modal:conditionItemSelector',
-    equipItemSelector:      'state:modal:equipItemSelector'
+    dataStore:          'state:world:dataStore',
+    requiredConditions: 'state:world:requiredConditions',
+    requiredEquips:     'state:world:requiredEquips',
+    requiredSets:       'state:world:requiredSets',
+    requiredSkills:     'state:world:requiredSkills',
+    currentEquips:      'state:world:currentEquips',
+    algorithmParams:    'state:world:algorithmParams',
+    computedResult:     'state:world:computedResult',
+    reservedBundles:    'state:world:reservedBundles',
+    customWeapon:       'state:world:customWeapon'
 }
 
 // Initial State
 const initialState = {
-    tempData: Status.get(statusMapping.tempData) || {
+    dataStore: Status.get(statusMapping.dataStore) || {
         requiredConditions: {
             index: 0,
-            list: []
+            list: [],
+            emptyItem: {}
         },
         candidateBundles: {
             index: 0,
-            list: []
+            list: [],
+            emptyItem: {}
         },
         playerEquips: {
             index: 0,
-            list: []
+            list: [],
+            emptyItem: {}
         }
     },
     requiredEquips: Status.get(statusMapping.requiredEquips) || Helper.deepCopy(TestData.requireList[0]).equips,
@@ -62,54 +60,38 @@ const initialState = {
     algorithmParams: Status.get(statusMapping.algorithmParams) || Helper.deepCopy(Constant.world.default.algorithmParams),
     computedResult: Status.get(statusMapping.computedResult) || null,
     reservedBundles: Status.get(statusMapping.reservedBundles) || [],
-    customWeapon: Status.get(statusMapping.customWeapon) || Helper.deepCopy(Constant.world.default.customWeapon),
-
-    changelog: Status.get(statusMapping.changelog) || {
-        isShow: false
-    },
-    algorithmSetting: Status.get(statusMapping.algorithmSetting) || {
-        isShow: false,
-        bypassData: null
-    },
-    bundleItemSelector: Status.get(statusMapping.bundleItemSelector) || {
-        isShow: false
-    },
-    conditionItemSelector: Status.get(statusMapping.conditionItemSelector) || {
-        isShow: false,
-        bypassData: null
-    },
-    equipItemSelector: Status.get(statusMapping.equipItemSelector) || {
-        isShow: false,
-        bypassData: null
-    }
+    customWeapon: Status.get(statusMapping.customWeapon) || Helper.deepCopy(Constant.world.default.customWeapon)
 }
 
 export default (state = initialState, action) => {
-    switch (action.type) {
+    let type = action.type
+    let payload = action.payload
+
+    switch (type) {
 
     // Switch Temp Data
-    case 'SWITCH_TEMP_DATA':
+    case 'SWITCH_DATA_STORE':
         return (() => {
             let target = action.payload.target
             let index = action.payload.index
-            let tempData = Helper.deepCopy(state.tempData)
+            let dataStore = Helper.deepCopy(state.dataStore)
             let bundle = null
 
-            if (Helper.isEmpty(tempData[target])) {
-                tempData[target] = {
+            if (Helper.isEmpty(dataStore[target])) {
+                dataStore[target] = {
                     index: 0,
                     list: []
                 }
             }
 
-            if (index === tempData[target].index) {
+            if (index === dataStore[target].index) {
                 return state
             }
 
             switch (target) {
             case 'requiredConditions':
-                if (Helper.isEmpty(tempData[target].list[index])) {
-                    tempData[target].list[index] = {
+                if (Helper.isEmpty(dataStore[target].list[index])) {
+                    dataStore[target].list[index] = {
                         requiredEquips: {
                             weapon: null,
                             helm: null,
@@ -124,57 +106,57 @@ export default (state = initialState, action) => {
                     }
                 }
 
-                bundle = Helper.deepCopy(tempData[target].list[index])
+                bundle = Helper.deepCopy(dataStore[target].list[index])
 
-                tempData[target].list[tempData[target].index] = Helper.deepCopy({
+                dataStore[target].list[dataStore[target].index] = Helper.deepCopy({
                     requiredEquips: state.requiredEquips,
                     requiredSets: state.requiredSets,
                     requiredSkills: state.requiredSkills
                 })
-                tempData[target].index = index
+                dataStore[target].index = index
 
                 return Object.assign({}, state, {
-                    tempData: tempData,
+                    dataStore: dataStore,
                     requiredEquips: bundle.requiredEquips,
                     requiredSets: bundle.requiredSets,
                     requiredSkills: bundle.requiredSkills
                 })
             case 'candidateBundles':
-                if (Helper.isEmpty(tempData[target].list[index])) {
-                    tempData[target].list[index] = {
+                if (Helper.isEmpty(dataStore[target].list[index])) {
+                    dataStore[target].list[index] = {
                         computedResult: null
                     }
                 }
 
-                bundle = Helper.deepCopy(tempData[target].list[index])
+                bundle = Helper.deepCopy(dataStore[target].list[index])
 
-                tempData[target].list[tempData[target].index] = Helper.deepCopy({
+                dataStore[target].list[dataStore[target].index] = Helper.deepCopy({
                     computedResult: state.computedResult
                 })
-                tempData[target].index = index
+                dataStore[target].index = index
 
                 return Object.assign({}, state, {
-                    tempData: tempData,
+                    dataStore: dataStore,
                     computedResult: bundle.computedResult
                 })
             case 'playerEquips':
-                if (Helper.isEmpty(tempData[target].list[index])) {
-                    tempData[target].list[index] = {
+                if (Helper.isEmpty(dataStore[target].list[index])) {
+                    dataStore[target].list[index] = {
                         currentEquips: {},
                         customWeapon: Helper.deepCopy(Constant.world.default.customWeapon)
                     }
                 }
 
-                bundle = Helper.deepCopy(tempData[target].list[index])
+                bundle = Helper.deepCopy(dataStore[target].list[index])
 
-                tempData[target].list[tempData[target].index] = Helper.deepCopy({
+                dataStore[target].list[dataStore[target].index] = Helper.deepCopy({
                     currentEquips: state.currentEquips,
                     customWeapon: state.customWeapon
                 })
-                tempData[target].index = index
+                dataStore[target].index = index
 
                 return Object.assign({}, state, {
-                    tempData: tempData,
+                    dataStore: dataStore,
                     currentEquips: bundle.currentEquips,
                     customWeapon: bundle.customWeapon
                 })
@@ -916,40 +898,6 @@ export default (state = initialState, action) => {
                 customWeapon: customWeapon
             })
         })()
-
-    case 'UPDATE_CHANGELOG':
-        return Object.assign({}, state, {
-            changelog: {
-                isShow: action.payload.isShow
-            }
-        })
-    case 'UPDATE_ALGORITHM_SETTING':
-        return Object.assign({}, state, {
-            algorithmSetting: {
-                isShow: action.payload.isShow,
-                bypassData: action.payload.bypassData
-            }
-        })
-    case 'UPDATE_BUNDLE_ITEM_SELECTOR':
-        return Object.assign({}, state, {
-            bundleItemSelector: {
-                isShow: action.payload.isShow
-            }
-        })
-    case 'UPDATE_CONDITION_ITEM_SELECTOR':
-        return Object.assign({}, state, {
-            conditionItemSelector: {
-                isShow: action.payload.isShow,
-                bypassData: action.payload.bypassData
-            }
-        })
-    case 'UPDATE_EQUIP_ITEM_SELECTOR':
-        return Object.assign({}, state, {
-            equipItemSelector: {
-                isShow: action.payload.isShow,
-                bypassData: action.payload.bypassData
-            }
-        })
 
     // Default
     default:

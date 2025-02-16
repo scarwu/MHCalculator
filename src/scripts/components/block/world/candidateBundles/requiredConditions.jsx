@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -31,22 +31,9 @@ export default function RequiredConditions(props) {
     /**
      * Hooks
      */
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-            updateRequiredSets(States.world.getters.getRequiredSets())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> RequiredConditions')
@@ -56,17 +43,17 @@ export default function RequiredConditions(props) {
         }
 
         // Required Ids
-        const requiredEquipIds = Object.keys(stateRequiredEquips).map((equipType) => {
-            if (Helper.isEmpty(stateRequiredEquips[equipType])) {
+        const requiredEquipIds = Object.keys(_requiredEquips).map((equipType) => {
+            if (Helper.isEmpty(_requiredEquips[equipType])) {
                 return false
             }
 
-            return stateRequiredEquips[equipType].id
+            return _requiredEquips[equipType].id
         })
-        const requiredSetIds = stateRequiredSets.map((set) => {
+        const requiredSetIds = _requiredSets.map((set) => {
             return set.id
         })
-        const requiredSkillIds = stateRequiredSkills.map((skill) => {
+        const requiredSkillIds = _requiredSkills.map((skill) => {
             return skill.id
         })
 
@@ -101,27 +88,27 @@ export default function RequiredConditions(props) {
                             {currentRequiredEquips.map((equip) => {
                                 let isNotRequire = true
 
-                                if (Helper.isNotEmpty(stateRequiredEquips[equip.type])) {
+                                if (Helper.isNotEmpty(_requiredEquips[equip.type])) {
                                     if ('weapon' === equip.type) {
                                         if ('customWeapon' === equip.id) {
                                             isNotRequire = Helper.jsonHash({
                                                 customWeapon: equip.customWeapon,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                customWeapon: stateRequiredEquips[equip.type].customWeapon,
-                                                enhances: stateRequiredEquips[equip.type].enhances
+                                                customWeapon: _requiredEquips[equip.type].customWeapon,
+                                                enhances: _requiredEquips[equip.type].enhances
                                             })
                                         } else {
                                             isNotRequire = Helper.jsonHash({
                                                 id: equip.id,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                id: stateRequiredEquips[equip.type].id,
-                                                enhances: stateRequiredEquips[equip.type].enhances
+                                                id: _requiredEquips[equip.type].id,
+                                                enhances: _requiredEquips[equip.type].enhances
                                             })
                                         }
                                     } else {
-                                        isNotRequire = equip.id !== stateRequiredEquips[equip.type].id
+                                        isNotRequire = equip.id !== _requiredEquips[equip.type].id
                                     }
                                 }
 
@@ -235,5 +222,5 @@ export default function RequiredConditions(props) {
                 ) : false}
             </div>
         )
-    }, [data, stateRequiredEquips, stateRequiredSets, stateRequiredSkills])
+    }, [data, _requiredEquips, _requiredSets, _requiredSkills])
 }

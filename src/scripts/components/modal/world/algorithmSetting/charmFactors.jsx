@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -34,22 +34,9 @@ export default function CharmFactors(props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.world.getters.getAlgorithmParams())
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.world.getters.getAlgorithmParams())
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.world.hooks.useAlgorithmParams()
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> CharmFactors')
@@ -57,14 +44,14 @@ export default function CharmFactors(props) {
         let charmSeriesMapping = {}
         let skillLevelMapping = {}
         let dataset = CharmDataset
-        let charmFactor = stateAlgorithmParams.usingFactor.charm
+        let charmFactor = _algorithmParams.usingFactor.charm
 
         if (true === byRequiredConditions) {
-            if (Helper.isNotEmpty(stateRequiredEquips.charm)) {
+            if (Helper.isNotEmpty(_requiredEquips.charm)) {
                 return false
             }
 
-            const skillIds = stateRequiredSkills.map((skill) => {
+            const skillIds = _requiredSkills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
@@ -169,5 +156,5 @@ export default function CharmFactors(props) {
         }
 
         return blocks
-    }, [segment, byRequiredConditions, stateAlgorithmParams, stateRequiredSkills])
+    }, [segment, byRequiredConditions, _algorithmParams, _requiredSkills])
 }

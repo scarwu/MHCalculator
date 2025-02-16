@@ -8,9 +8,10 @@
 // Load Store
 import store from '@/scripts/states/store'
 
-export const reset = (payload = {}) => {
+export const setInitToggle = (payload = {}) => {
     store.dispatch({
-        type: 'RESET'
+        type: 'INIT_TOGGLE',
+        payload: payload
     })
 }
 
@@ -21,16 +22,38 @@ export const setLocale = (payload = {}) => {
     })
 }
 
-export const setModalHub = (payload = {}) => {
+export const setSeries = (payload = {}) => {
     store.dispatch({
-        type: 'MODAL_HUB',
+        type: 'SERIES',
         payload: payload
     })
 }
 
-export const setInitToggle = (payload = {}) => {
+// Modal Hub
+export const showModal = (target, data = null) => {
     store.dispatch({
-        type: 'INIT_TOGGLE',
-        payload: payload
+        type: 'SHOW_MODAL',
+        payload: {
+            target: target,
+            data: data
+        }
     })
+}
+
+export const hideModal = (target) => {
+    store.dispatch({
+        type: 'HIDE_MODAL',
+        payload: {
+            target: target
+        }
+    })
+}
+
+export default {
+    setInitToggle,
+    setLocale,
+    setSeries,
+
+    showModal,
+    hideModal
 }

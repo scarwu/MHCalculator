@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core Libraries
 import _ from '@/scripts/core/lang'
@@ -40,18 +40,7 @@ export default function RequiredConditionsBlock (props) {
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateDataStore(States.rise.getters.getDataStore())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _dataStore = States.rise.hooks.useDataStore()
 
     return (
         <div className="mhc-block mhc-conditions">
@@ -61,19 +50,19 @@ export default function RequiredConditionsBlock (props) {
                 <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
-                        isActive={0 === stateDataStore.requiredConditions.index}
+                        isActive={0 === _dataStore.requiredConditions.index}
                         onClick={() => {handleSwitchDataStore(0)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
-                        isActive={1 === stateDataStore.requiredConditions.index}
+                        isActive={1 === _dataStore.requiredConditions.index}
                         onClick={() => {handleSwitchDataStore(1)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
-                        isActive={2 === stateDataStore.requiredConditions.index}
+                        isActive={2 === _dataStore.requiredConditions.index}
                         onClick={() => {handleSwitchDataStore(2)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
-                        isActive={3 === stateDataStore.requiredConditions.index}
+                        isActive={3 === _dataStore.requiredConditions.index}
                         onClick={() => {handleSwitchDataStore(3)}} />
                 </div>
 

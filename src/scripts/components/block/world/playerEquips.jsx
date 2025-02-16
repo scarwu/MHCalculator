@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { Fragment, useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Config & Constant
 import Config from '@/scripts/config'
@@ -41,7 +41,7 @@ const handleEquipsDisplayerRefresh = () => {
 }
 
 const handleSwitchTempData = (index) => {
-    States.world.actions.switchTempData('playerEquips', index)
+    States.world.actions.switchDataStore('playerEquips', index)
 }
 
 /**
@@ -66,7 +66,7 @@ const renderEnhanceBlock = (equipInfo) => {
                 <div className="mhc-icons_bundle">
                     {(usedSize < equipInfo.enhanceSize) ? (
                         <IconButton key={equipInfo.enhances.length} iconName="plus" altName={_('add')} onClick={() => {
-                            States.world.actions.showEquipItemSelector({
+                            States.common.actions.showModal('equipItemSelector', {
                                 equipType: equipInfo.type,
                                 equipRare: equipInfo.rare,
                                 enhanceIndex: equipInfo.enhances.length,
@@ -162,7 +162,7 @@ const renderJewelOption = (equipType, slotIndex, slotSize, jewelInfo) => {
                     <div className="mhc-icons_bundle">
                         <IconButton
                             iconName="plus" altName={_('add')}
-                            onClick={() => {States.world.actions.showEquipItemSelector(selectorData)}} />
+                            onClick={() => { States.common.actions.showModal('equipItemSelector', selectorData) }} />
                     </div>
                 </div>
             </Fragment>
@@ -179,10 +179,10 @@ const renderJewelOption = (equipType, slotIndex, slotSize, jewelInfo) => {
                 <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="exchange" altName={_('change')}
-                        onClick={() => {States.world.actions.showEquipItemSelector(selectorData)}} />
+                        onClick={() => { States.common.actions.showModal('equipItemSelector', selectorData) }} />
                     <IconButton
                         iconName="times" altName={_('clean')}
-                        onClick={() => {States.world.actions.setCurrentEquip(emptySelectorData)}} />
+                        onClick={() => { States.world.actions.setCurrentEquip(emptySelectorData) }} />
                 </div>
             </div>
         </Fragment>
@@ -371,14 +371,16 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
                         {'weapon' === equipType ? (
                             <IconButton
                                 iconName="wrench" altName={_('customWeapon')}
-                                onClick={() => {States.world.actions.setCurrentEquip({
-                                    equipType: 'weapon',
-                                    equipId: 'customWeapon'
-                                })}} />
+                                onClick={() => {
+                                    States.world.actions.setCurrentEquip({
+                                        equipType: 'weapon',
+                                        equipId: 'customWeapon'
+                                    })
+                                }} />
                         ) : false}
                         <IconButton
                             iconName="plus" altName={_('add')}
-                            onClick={() => {States.world.actions.showEquipItemSelector(selectorData)}} />
+                            onClick={() => { States.common.actions.showModal('equipItemSelector', selectorData) }} />
                     </div>
                 </div>
             </div>
@@ -396,22 +398,24 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
                     {isNotRequire ? (
                         <IconButton
                             iconName="arrow-left" altName={_('include')}
-                            onClick={() => {States.world.actions.setRequiredEquips(equipType, currentEquip)}} />
+                            onClick={() => { States.world.actions.setRequiredEquips(equipType, currentEquip) }} />
                     ) : false}
                     {'weapon' === equipType ? (
                         <IconButton
                             iconName="wrench" altName={_('customWeapon')}
-                            onClick={() => {States.world.actions.setCurrentEquip({
-                                equipType: 'weapon',
-                                equipId: 'customWeapon'
-                            })}} />
+                            onClick={() => {
+                                States.world.actions.setCurrentEquip({
+                                    equipType: 'weapon',
+                                    equipId: 'customWeapon'
+                                })
+                            }} />
                     ) : false}
                     <IconButton
                         iconName="exchange" altName={_('change')}
-                        onClick={() => {States.world.actions.showEquipItemSelector(selectorData)}} />
+                        onClick={() => { States.common.actions.showModal('equipItemSelector', selectorData) }} />
                     <IconButton
                         iconName="times" altName={_('clean')}
-                        onClick={() => {States.world.actions.setCurrentEquip(emptySelectorData)}} />
+                        onClick={() => { States.world.actions.setCurrentEquip(emptySelectorData) }} />
                 </div>
             </div>
 
@@ -480,29 +484,16 @@ export default function PlayerEquips(props) {
     /**
      * Hooks
      */
-    const [stateTempData, updateTempData] = useState(States.world.getters.getTempData())
-    const [stateCurrentEquips, updateCurrentEquips] = useState(States.world.getters.getCurrentEquips())
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateTempData(States.world.getters.getTempData())
-            updateCurrentEquips(States.world.getters.getCurrentEquips())
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _dataStore = States.world.hooks.useDataStore()
+    const _currentEquips = States.world.hooks.useCurrentEquips()
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
 
     const getContent = useMemo(() => {
         let blocks = []
 
-        Object.keys(stateCurrentEquips).forEach((equipType) => {
-            if (Helper.isNotEmpty(stateCurrentEquips[equipType])
-                && 'customWeapon' === stateCurrentEquips[equipType].id
+        Object.keys(_currentEquips).forEach((equipType) => {
+            if (Helper.isNotEmpty(_currentEquips[equipType])
+                && 'customWeapon' === _currentEquips[equipType].id
             ) {
                 blocks.push((
                     <CustomWeapon key="customWeapon" />
@@ -510,14 +501,14 @@ export default function PlayerEquips(props) {
             } else {
                 blocks.push(renderEquipBlock(
                     equipType,
-                    stateCurrentEquips[equipType],
-                    stateRequiredEquips[equipType]
+                    _currentEquips[equipType],
+                    _requiredEquips[equipType]
                 ))
             }
         })
 
         return blocks
-    }, [stateCurrentEquips, stateRequiredEquips])
+    }, [_currentEquips, _requiredEquips])
 
     return (
         <div className="mhc-block mhc-equips">
@@ -527,19 +518,19 @@ export default function PlayerEquips(props) {
                 <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
-                        isActive={0 === stateTempData.playerEquips.index}
+                        isActive={0 === _dataStore.playerEquips.index}
                         onClick={() => {handleSwitchTempData(0)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
-                        isActive={1 === stateTempData.playerEquips.index}
+                        isActive={1 === _dataStore.playerEquips.index}
                         onClick={() => {handleSwitchTempData(1)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
-                        isActive={2 === stateTempData.playerEquips.index}
+                        isActive={2 === _dataStore.playerEquips.index}
                         onClick={() => {handleSwitchTempData(2)}} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
-                        isActive={3 === stateTempData.playerEquips.index}
+                        isActive={3 === _dataStore.playerEquips.index}
                         onClick={() => {handleSwitchTempData(3)}} />
                 </div>
 
@@ -549,7 +540,7 @@ export default function PlayerEquips(props) {
                         onClick={handleEquipsDisplayerRefresh} />
                     <IconButton
                         iconName="th-list" altName={_('bundleList')}
-                        onClick={States.world.actions.showBundleItemSelector} />
+                        onClick={() => { States.common.actions.showModal('bundleItemSelector', ) }} />
                 </div>
             </div>
 

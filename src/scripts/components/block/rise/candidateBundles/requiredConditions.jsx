@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -31,18 +31,7 @@ export default function RequiredConditions (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> RequiredConditions')
@@ -52,17 +41,17 @@ export default function RequiredConditions (props) {
         }
 
         // Required Ids
-        const requiredEquipIds = Object.keys(stateRequiredConditions.equips).map((equipType) => {
-            if (Helper.isEmpty(stateRequiredConditions.equips[equipType])) {
+        const requiredEquipIds = Object.keys(_requiredConditions.equips).map((equipType) => {
+            if (Helper.isEmpty(_requiredConditions.equips[equipType])) {
                 return false
             }
 
-            return stateRequiredConditions.equips[equipType].id
+            return _requiredConditions.equips[equipType].id
         })
-        const requiredSetIds = stateRequiredConditions.sets.map((setData) => {
+        const requiredSetIds = _requiredConditions.sets.map((setData) => {
             return setData.id
         })
-        const requiredSkillIds = stateRequiredConditions.skills.map((skillData) => {
+        const requiredSkillIds = _requiredConditions.skills.map((skillData) => {
             return skillData.id
         })
 
@@ -95,7 +84,7 @@ export default function RequiredConditions (props) {
 
                         <div className="col-12 mhc-content">
                             {currentRequiredConditionsEquips.map((currentEquipData) => {
-                                let requiredEquipData = stateRequiredConditions.equips[currentEquipData.type]
+                                let requiredEquipData = _requiredConditions.equips[currentEquipData.type]
 
                                 // Can Add to Required Contditions
                                 let isNotRequire = false
@@ -195,6 +184,6 @@ export default function RequiredConditions (props) {
         )
     }, [
         data,
-        stateRequiredConditions
+        _requiredConditions
     ])
 }

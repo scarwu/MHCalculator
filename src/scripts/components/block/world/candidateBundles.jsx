@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { Fragment, useState, useEffect, useCallback } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Config & Constant
 import Config from '@/scripts/config'
@@ -19,73 +19,27 @@ import Helper from '@/scripts/core/helper'
 import Event from '@/scripts/core/event'
 
 // Load Components
-import QuickSetting from '@/scripts/components/block/world/candidateBundles/quickSetting'
-import RequiredConditions from '@/scripts/components/block/world/candidateBundles/requiredConditions'
-import BundleList from '@/scripts/components/block/world/candidateBundles/bundleList'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 
-// Load State Control
+import QuickSetting from '@/scripts/components/block/world/candidateBundles/quickSetting'
+import RequiredConditions from '@/scripts/components/block/world/candidateBundles/requiredConditions'
+import BundleList from '@/scripts/components/block/world/candidateBundles/bundleList'
+
+// Load States
 import States from '@/scripts/states'
-
-// Variables
-let workers = {}
-
-/**
- * Handle Functions
- */
-const handleShowAllAlgorithmSetting = () => {
-    States.world.actions.showAlgorithmSetting({
-        mode: 'all'
-    })
-}
-
-const handleSwitchTempData = (index) => {
-    States.world.actions.switchTempData('candidateBundles', index)
-}
-
-const convertTimeFormat = (seconds) => {
-    let text = ''
-
-    if (seconds > 3600) {
-        let hours = parseInt(seconds / 3600)
-
-        seconds -= hours * 3600
-        text += hours + ' ' + _('hour') + ' '
-    }
-
-    if (seconds > 60) {
-        let minutes = parseInt(seconds / 60)
-
-        seconds -= minutes * 60
-        text += minutes + ' ' + _('minute') + ' '
-    }
-
-    text += seconds + ' ' + _('second')
-
-    return text
-}
 
 export default function CandidateBundles(props) {
 
     /**
      * Hooks
      */
-    const [stateTempData, updateTempData] = useState(States.world.getters.getTempData())
-    const [stateComputedResult, updateComputedResult] = useState(States.world.getters.getComputedResult())
+    const _dataStore = States.world.hooks.useDataStore()
+    const _computedResult = States.world.hooks.useComputedResult()
+
     const [stateTasks, updateTasks] = useState({})
 
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateTempData(States.world.getters.getTempData())
-            updateComputedResult(States.world.getters.getComputedResult())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refWorkers = useRef({})
 
     // Worker Callback
     useEffect(() => {
@@ -116,8 +70,8 @@ export default function CandidateBundles(props) {
 
                 States.world.actions.saveComputedResult(payload.computedResult)
 
-                // workers[tabIndex].terminate()
-                // workers[tabIndex] = null
+                // refWorkers.current[tabIndex].terminate()
+                // refWorkers.current[tabIndex] = null
 
                 stateTasks[tabIndex] = null
 
@@ -136,7 +90,7 @@ export default function CandidateBundles(props) {
 
     // Search Remaining Timer
     useEffect(() => {
-        let tabIndex = stateTempData.candidateBundles.index
+        let tabIndex = _dataStore.candidateBundles.index
 
         if (Helper.isEmpty(stateTasks[tabIndex])) {
             return
@@ -155,24 +109,24 @@ export default function CandidateBundles(props) {
         return () => {
             clearInterval(timerId)
         }
-    }, [stateTasks, stateTempData])
+    }, [stateTasks, _dataStore])
 
     /**
      * Handle Functions
      */
     const handleCandidateBundlesSearch = useCallback(() => {
-        let tabIndex = stateTempData.candidateBundles.index
+        let tabIndex = _dataStore.candidateBundles.index
 
         if (Helper.isNotEmpty(stateTasks[tabIndex])) {
             return
         }
 
         // Get All Data From Store
-        let customWeapon = States.world.getters.getCustomWeapon()
-        let requiredEquips = States.world.getters.getRequiredEquips()
-        let requiredSets = States.world.getters.getRequiredSets()
-        let requiredSkills = States.world.getters.getRequiredSkills()
-        let algorithmParams = States.world.getters.getAlgorithmParams()
+        let customWeapon = States.world.getters.customWeapon()
+        let requiredEquips = States.world.getters.requiredEquips()
+        let requiredSets = States.world.getters.requiredSets()
+        let requiredSkills = States.world.getters.requiredSkills()
+        let algorithmParams = States.world.getters.algorithmParams()
 
         if (0 === requiredSets.length && 0 === requiredSkills.length) {
             return
@@ -191,9 +145,9 @@ export default function CandidateBundles(props) {
 
         updateTasks(Helper.deepCopy(stateTasks))
 
-        if (Helper.isEmpty(workers[tabIndex])) {
-            workers[tabIndex] = new Worker('assets/scripts/worker.min.js?' + Config.buildTime + '&' + tabIndex)
-            workers[tabIndex].onmessage = (event) => {
+        if (Helper.isEmpty(refWorkers.current[tabIndex])) {
+            refWorkers.current[tabIndex] = new Worker('assets/scripts/worker.min.js?' + Config.buildTime + '&' + tabIndex)
+            refWorkers.current[tabIndex].onmessage = (event) => {
                 Event.trigger('workerCallback', {
                     tabIndex: tabIndex,
                     action: event.data.action,
@@ -202,27 +156,35 @@ export default function CandidateBundles(props) {
             }
         }
 
-        workers[tabIndex].postMessage({
+        refWorkers.current[tabIndex].postMessage({
             customWeapon: customWeapon,
             requiredSets: requiredSets,
             requiredSkills: requiredSkills,
             requiredEquips: requiredEquips,
             algorithmParams: algorithmParams
         })
-    }, [stateTasks, stateTempData])
+    }, [stateTasks, _dataStore])
 
     const handleCandidateBundlesCancel = useCallback(() => {
-        let tabIndex = stateTempData.candidateBundles.index
+        let tabIndex = _dataStore.candidateBundles.index
 
-        workers[tabIndex].terminate()
-        workers[tabIndex] = null
+        refWorkers.current[tabIndex].terminate()
+        refWorkers.current[tabIndex] = null
 
         stateTasks[tabIndex] = null
 
         updateTasks(Helper.deepCopy(stateTasks))
-    }, [stateTasks, stateTempData])
+    }, [stateTasks, _dataStore])
 
-    let tabIndex = stateTempData.candidateBundles.index
+    const handleShowAllAlgorithmSetting = useCallback(() => {
+        States.common.actions.showModal('algorithmSetting', {
+            mode: 'all'
+        })
+    }, [])
+
+    const handleSwitchTempData = useCallback((index) => {
+        States.world.actions.switchDataStore('candidateBundles', index)
+    }, [])
 
     return (
         <div className="mhc-block mhc-bundles">
@@ -233,22 +195,22 @@ export default function CandidateBundles(props) {
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 1'}
-                        isActive={0 === tabIndex}
+                        isActive={0 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchTempData(0)}} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[1]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 2'}
-                        isActive={1 === tabIndex}
+                        isActive={1 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchTempData(1)}} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[2]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 3'}
-                        isActive={2 === tabIndex}
+                        isActive={2 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchTempData(2)}} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[3]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 4'}
-                        isActive={3 === tabIndex}
+                        isActive={3 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchTempData(3)}} />
                 </div>
 
@@ -266,7 +228,7 @@ export default function CandidateBundles(props) {
             </div>
 
             <div key="list" className="mhc-list">
-                {Helper.isNotEmpty(stateTasks[tabIndex]) ? (
+                {Helper.isNotEmpty(stateTasks[_dataStore.candidateBundles.index]) ? (
                     <Fragment>
                         <div className="mhc-item mhc-item-3-step">
                             <div className="col-12 mhc-name">
@@ -282,30 +244,30 @@ export default function CandidateBundles(props) {
                                     <span>{_('bundleCount')}</span>
                                 </div>
                                 <div className="col-3 mhc-value">
-                                    <span>{stateTasks[tabIndex].bundleCount}</span>
+                                    <span>{stateTasks[_dataStore.candidateBundles.index].bundleCount}</span>
                                 </div>
                                 <div className="col-3 mhc-name">
                                     <span>{_('searchPercent')}</span>
                                 </div>
                                 <div className="col-3 mhc-value">
-                                    <span>{stateTasks[tabIndex].searchPercent} %</span>
+                                    <span>{stateTasks[_dataStore.candidateBundles.index].searchPercent} %</span>
                                 </div>
                                 <div className="col-3 mhc-name">
                                     <span>{_('timeRemaining')}</span>
                                 </div>
                                 <div className="col-9 mhc-value">
-                                    <span>{convertTimeFormat(stateTasks[tabIndex].timeRemaining)}</span>
+                                    <span>{Helper.convertTimeFormat(stateTasks[_dataStore.candidateBundles.index].timeRemaining)}</span>
                                 </div>
                             </div>
                         </div>
-                        <RequiredConditions data={stateTasks[tabIndex].required} />
+                        <RequiredConditions data={stateTasks[_dataStore.candidateBundles.index].required} />
                     </Fragment>
                 ) : (
-                    Helper.isEmpty(stateComputedResult) ? (
+                    Helper.isEmpty(_computedResult) ? (
                         <QuickSetting />
                     ) : (
                         <Fragment>
-                            <RequiredConditions data={stateComputedResult.required} />
+                            <RequiredConditions data={_computedResult.required} />
                             <BundleList />
                         </Fragment>
                     )

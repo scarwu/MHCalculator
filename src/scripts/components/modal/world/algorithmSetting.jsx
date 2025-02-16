@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -26,6 +26,8 @@ import BasicInput from '@/scripts/components/ui/basicInput'
 
 // Load State Control
 import States from '@/scripts/states'
+
+const targetModalKey = 'algorithmSetting'
 
 /**
  * Variables
@@ -67,7 +69,7 @@ const jewelSizeList = [ 1, 2, 3, 4 ]
  * Handler Functions
  */
 const handleModeChange = (event) => {
-    States.world.actions.showAlgorithmSetting({
+    States.common.actions.showModal(targetModalKey, {
         mode: event.target.value
     })
 }
@@ -103,41 +105,21 @@ export default function AlgorithmSetting(props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.world.getters.getAlgorithmParams())
-    const [stateIsShow, updateIsShow] = useState(States.world.getters.isShowAlgorithmSetting())
-    const [stateBypassData, updateBypassData] = useState(States.world.getters.getAlgorithmSettingBypassData())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _algorithmParams = States.world.hooks.useAlgorithmParams()
+
     const [stateSegment, updateSegment] = useState(null)
-    const [stateMode, updateMode] = useState(null)
-    const refModal = useRef()
 
+    const refModal = useRef(null)
+
+    // Initialize
     useEffect(() => {
-        if (Helper.isEmpty(stateBypassData)) {
-            return
+        if (Helper.isNotEmpty(_modalData)) {
+            // pass
+        } else {
+            // pass
         }
-
-        if (Helper.isEmpty(stateBypassData.mode)) {
-            return
-        }
-
-        updateMode(stateBypassData.mode)
-    }, [stateBypassData])
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribeCommon = States.store.subscribe(() => {
-            updateAlgorithmParams(States.world.getters.getAlgorithmParams())
-        })
-
-        const unsubscribeModal = States.store.subscribe(() => {
-            updateIsShow(States.world.getters.isShowAlgorithmSetting())
-            updateBypassData(States.world.getters.getAlgorithmSettingBypassData())
-        })
-
-        return () => {
-            unsubscribeCommon()
-            unsubscribeModal()
-        }
-    }, [])
+    }, [_modalData])
 
     /**
      * Handle Functions
@@ -147,7 +129,7 @@ export default function AlgorithmSetting(props) {
             return
         }
 
-        States.world.actions.hideAlgorithmSetting()
+        States.common.actions.hideModal(targetModalKey)
     }, [])
 
     const handleSegmentInput = useCallback((event) => {
@@ -162,22 +144,25 @@ export default function AlgorithmSetting(props) {
     /**
      * Render Functions
      */
-    return stateIsShow ? (
+    return Helper.isNotEmpty(_modalData) ? (
         <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
             <div className="mhc-modal">
                 <div className="mhc-panel">
-                    <strong>{_('algorithmSetting')}</strong>
-
-                    <div className="mhc-icons_bundle">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             defaultValue={stateSegment} onChange={handleSegmentInput} />
                         <IconSelector
-                            iconName="globe" defaultValue={stateMode}
+                            iconName="globe" defaultValue={_modalData.mode}
                             options={getModeList()} onChange={handleModeChange} />
+                    </div>
+
+                    <strong>{_('algorithmSetting')}</strong>
+
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={States.world.actions.hideAlgorithmSetting} />
+                            onClick={() => { States.common.actions.hideModal(targetModalKey) }} />
                     </div>
                 </div>
                 <div className="mhc-list">
@@ -193,7 +178,7 @@ export default function AlgorithmSetting(props) {
                                 <div className="col-6 mhc-value">
                                     <BasicInput
                                         iconName="list-alt"
-                                        defaultValue={stateAlgorithmParams.limit}
+                                        defaultValue={_algorithmParams.limit}
                                         onChange={handleLimitChange} />
                                 </div>
                                 <div className="col-6 mhc-name">
@@ -202,7 +187,7 @@ export default function AlgorithmSetting(props) {
                                 <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
-                                        defaultValue={stateAlgorithmParams.sort}
+                                        defaultValue={_algorithmParams.sort}
                                         options={getSortList()} onChange={handleSortChange} />
                                 </div>
                                 <div className="col-6 mhc-name">
@@ -211,13 +196,13 @@ export default function AlgorithmSetting(props) {
                                 <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
-                                        defaultValue={stateAlgorithmParams.order}
+                                        defaultValue={_algorithmParams.order}
                                         options={getOrderList()} onChange={handleOrderChange} />
                                 </div>
                             </div>
                         </div>
 
-                        {'all' === stateMode || 'armorFactor' === stateMode || 'byRequiredConditions' === stateMode ? (
+                        {'all' === _modalData.mode || 'armorFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode ? (
                             <div className="mhc-item mhc-item-2-step">
                                 <div className="col-12 mhc-name">
                                     <span>{_('armorFactor')}</span>
@@ -228,7 +213,7 @@ export default function AlgorithmSetting(props) {
                                             <div key={rare} className="col-6 mhc-value">
                                                 <span>{_('rare') + `: ${rare}`}</span>
                                                 <div className="mhc-icons_bundle">
-                                                    {stateAlgorithmParams.usingFactor.armor['rare' + rare] ? (
+                                                    {_algorithmParams.usingFactor.armor['rare' + rare] ? (
                                                         <IconButton
                                                             iconName="star"
                                                             altName={_('exclude')}
@@ -247,7 +232,7 @@ export default function AlgorithmSetting(props) {
                             </div>
                         ) : false}
 
-                        {'all' === stateMode || 'jewelFactor' === stateMode || 'byRequiredConditions' === stateMode ? (
+                        {'all' === _modalData.mode || 'jewelFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode ? (
                             <div className="mhc-item mhc-item-2-step">
                                 <div className="col-12 mhc-name">
                                     <span>{_('jewelFactor')}</span>
@@ -258,7 +243,7 @@ export default function AlgorithmSetting(props) {
                                             <div key={size} className="col-6 mhc-value">
                                                 <span>{_('size') + `: ${size}`}</span>
                                                 <div className="mhc-icons_bundle">
-                                                    {stateAlgorithmParams.usingFactor.jewel['size' + size] ? (
+                                                    {_algorithmParams.usingFactor.jewel['size' + size] ? (
                                                         <IconButton
                                                             iconName="star"
                                                             altName={_('exclude')}
@@ -277,17 +262,17 @@ export default function AlgorithmSetting(props) {
                             </div>
                         ) : false}
 
-                        {'all' === stateMode || 'armorFactor' === stateMode || 'byRequiredConditions' === stateMode
+                        {'all' === _modalData.mode || 'armorFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode
                             ? <ArmorFactors segment={stateSegment}
-                                byRequiredConditions={'byRequiredConditions' === stateMode} />
+                                byRequiredConditions={'byRequiredConditions' === _modalData.mode} />
                             : false}
-                        {'all' === stateMode || 'charmFactor' === stateMode || 'byRequiredConditions' === stateMode
+                        {'all' === _modalData.mode || 'charmFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode
                             ? <CharmFactors segment={stateSegment}
-                                byRequiredConditions={'byRequiredConditions' === stateMode} />
+                                byRequiredConditions={'byRequiredConditions' === _modalData.mode} />
                             : false}
-                        {'all' === stateMode || 'jewelFactor' === stateMode || 'byRequiredConditions' === stateMode
+                        {'all' === _modalData.mode || 'jewelFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode
                             ? <JewelFactors segment={stateSegment}
-                                byRequiredConditions={'byRequiredConditions' === stateMode} />
+                                byRequiredConditions={'byRequiredConditions' === _modalData.mode} />
                             : false}
                     </div>
                 </div>

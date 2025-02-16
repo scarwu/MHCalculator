@@ -24,11 +24,13 @@ import IconInput from '@/scripts/components/ui/iconInput'
 // Load States
 import States from '@/scripts/states'
 
+const targetModalKey = 'setSelector'
+
 /**
  * Handle Functions
  */
-const handleItemPickUp = (itemId, action, tempData) => {
-    if ('requiredConditions' === tempData.target) {
+const handleItemPickUp = (itemId, action, dataStore) => {
+    if ('requiredConditions' === dataStore.target) {
         if ('add' === action) {
             States.rise.actions.addRequiredConditionsSet(itemId)
         }
@@ -42,12 +44,12 @@ const handleItemPickUp = (itemId, action, tempData) => {
 /**
  * Render Functions
  */
-const renderSetItem = (setItem, tempData) => {
+const renderSetItem = (setItem, dataStore) => {
     let classNames = [
         'mhc-item'
     ]
 
-    if (-1 === tempData.ids.indexOf(setItem.id)) {
+    if (-1 === dataStore.ids.indexOf(setItem.id)) {
         classNames.push('mhc-item-2-step')
     } else {
         classNames.push('mhc-item-3-step')
@@ -59,18 +61,18 @@ const renderSetItem = (setItem, tempData) => {
                 <span>{_(setItem.name)}</span>
 
                 <div className="mhc-icons_bundle">
-                    {Helper.isNotEmpty(tempData.target) ? (
-                        (-1 === tempData.ids.indexOf(setItem.id)) ? (
+                    {Helper.isNotEmpty(dataStore.target) ? (
+                        (-1 === dataStore.ids.indexOf(setItem.id)) ? (
                             <IconButton
                                 iconName="check" altName={_('select')}
                                 onClick={() => {
-                                    handleItemPickUp(setItem.id, 'add', tempData)
+                                    handleItemPickUp(setItem.id, 'add', dataStore)
                                 }} />
                         ) : (
                             <IconButton
                                 iconName="times" altName={_('remove')}
                                 onClick={() => {
-                                    handleItemPickUp(setItem.id, 'remove', tempData)
+                                    handleItemPickUp(setItem.id, 'remove', dataStore)
                                 }} />
                         )
                     ) : false}
@@ -108,30 +110,18 @@ export default function SetSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('setSelector'))
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
 
-    const refModal = useRef()
-    const refSearch = useRef()
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateModalData(States.rise.getters.getModalData('setSelector'))
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refModal = useRef(null)
+    const refSearch = useRef(null)
 
     // Initialize
     useEffect(() => {
-        if (Helper.isEmpty(stateModalData)) {
+        if (Helper.isEmpty(_modalData)) {
             updateTempData(null)
 
             window.removeEventListener('keydown', handleSearchFocus)
@@ -139,30 +129,30 @@ export default function SetSelectorModal (props) {
             return
         }
 
-        let tempData = Helper.deepCopy(stateModalData)
+        let dataStore = Helper.deepCopy(_modalData)
 
         // Set Ids
-        tempData.ids = []
+        dataStore.ids = []
 
-        if (Helper.isNotEmpty(tempData.target)) {
-            if ('requiredConditions' === tempData.target) {
-                tempData.ids = stateRequiredConditions.sets.map((setData) => {
+        if (Helper.isNotEmpty(dataStore.target)) {
+            if ('requiredConditions' === dataStore.target) {
+                dataStore.ids = _requiredConditions.sets.map((setData) => {
                     return setData.id
                 })
             }
         }
 
         // Set List
-        tempData.list = SetDataset.getList().filter((setItem) => {
+        dataStore.list = SetDataset.getList().filter((setItem) => {
             return 3 <= setItem.items.length
         })
 
         window.addEventListener('keydown', handleSearchFocus)
 
-        updateTempData(tempData)
+        updateTempData(dataStore)
     }, [
-        stateModalData,
-        stateRequiredConditions
+        _modalData,
+        _requiredConditions
     ])
 
     /**
@@ -173,7 +163,7 @@ export default function SetSelectorModal (props) {
             return
         }
 
-        States.rise.actions.hideModal('setSelector')
+        States.common.actions.showModal(targetModalKey)
 
         updateFilter({})
     }, [])
@@ -242,7 +232,7 @@ export default function SetSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.actions.hideModal('setSelector')
+                                States.common.actions.showModal(targetModalKey)
                             }} />
                     </div>
                 </div>

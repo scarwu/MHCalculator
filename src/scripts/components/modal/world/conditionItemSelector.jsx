@@ -25,11 +25,13 @@ import IconInput from '@/scripts/components/ui/iconInput'
 // Load State Control
 import States from '@/scripts/states'
 
+const targetModalKey = 'conditionItemSelector'
+
 /**
  * Handle Functions
  */
 const handleModeChange = (event) => {
-    States.world.actions.showConditionItemSelector({
+    States.common.actions.showModal(targetModalKey, {
         mode: event.target.value
     })
 }
@@ -143,17 +145,18 @@ export default function ConditionItemSelector(props) {
     /**
      * Hooks
      */
-    const [stateIsShow, updateIsShow] = useState(States.world.getters.isShowConditionItemSelector())
-    const [stateBypassData, updateBypassData] = useState(States.world.getters.getConditionItemSelectorBypassData())
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
+
     const [stateMode, updateMode] = useState(null)
     const [stateSortedList, updateSortedList] = useState([])
     const [stateSegment, updateSegment] = useState(null)
-    const refModal = useRef()
+
+    const refModal = useRef(null)
 
     useEffect(() => {
-        if (Helper.isEmpty(stateBypassData)) {
+        if (Helper.isEmpty(_modalData)) {
             return
         }
 
@@ -161,9 +164,9 @@ export default function ConditionItemSelector(props) {
         let selectedList = []
         let unselectedList = []
 
-        switch (stateBypassData.mode) {
+        switch (_modalData.mode) {
         case 'set':
-            idList = stateRequiredSets.map((set) => {
+            idList = _requiredSets.map((set) => {
                 return set.id
             })
 
@@ -181,7 +184,7 @@ export default function ConditionItemSelector(props) {
 
             break
         case 'skill':
-            idList = stateRequiredSkills.map((skill) => {
+            idList = _requiredSkills.map((skill) => {
                 return skill.id
             })
 
@@ -207,27 +210,9 @@ export default function ConditionItemSelector(props) {
             return
         }
 
-        updateMode(stateBypassData.mode)
+        updateMode(_modalData.mode)
         updateSortedList(selectedList.concat(unselectedList))
-    }, [stateBypassData, stateRequiredSets, stateRequiredSkills])
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribeCommon = States.store.subscribe(() => {
-            updateRequiredSets(States.world.getters.getRequiredSets())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        const unsubscribeModal = States.store.subscribe(() => {
-            updateIsShow(States.world.getters.isShowConditionItemSelector())
-            updateBypassData(States.world.getters.getConditionItemSelectorBypassData())
-        })
-
-        return () => {
-            unsubscribeCommon()
-            unsubscribeModal()
-        }
-    }, [])
+    }, [_modalData, _requiredSets, _requiredSkills])
 
     /**
      * Variables
@@ -247,7 +232,7 @@ export default function ConditionItemSelector(props) {
             return
         }
 
-        States.world.actions.hideConditionItemSelector()
+        States.common.actions.hideModal(targetModalKey)
     }, [])
 
     const handleSegmentInput = useCallback((event) => {
@@ -320,22 +305,25 @@ export default function ConditionItemSelector(props) {
         }
     }, [stateMode, stateSortedList, stateSegment])
 
-    return (stateIsShow && Helper.isNotEmpty(stateBypassData)) ? (
+    return Helper.isNotEmpty(_modalData) ? (
         <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
             <div className="mhc-modal">
                 <div className="mhc-panel">
-                    <span className="mhc-title">{_(stateMode + 'List')}</span>
-
-                    <div className="mhc-icons_bundle">
+                    <div className="mhc-icons_bundle-left">
                         <IconInput
                             iconName="search" placeholder={_('inputKeyword')}
                             defaultValue={stateSegment} onChange={handleSegmentInput} />
                         <IconSelector
                             iconName="globe" defaultValue={stateMode}
                             options={getModeList()} onChange={handleModeChange} />
+                    </div>
+
+                    <span className="mhc-title">{_(stateMode + 'List')}</span>
+
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={States.world.actions.hideConditionItemSelector} />
+                            onClick={() => { States.common.actions.hideModal(targetModalKey) }} />
                     </div>
                 </div>
                 <div className="mhc-list">

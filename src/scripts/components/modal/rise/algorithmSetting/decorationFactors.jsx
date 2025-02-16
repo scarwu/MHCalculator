@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -30,26 +30,14 @@ export default function DecorationFactors (props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getters.getAlgorithmParams())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.rise.getters.getAlgorithmParams())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.rise.hooks.useAlgorithmParams()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> DecorationFactors')
 
         let decorationList = (true === byRequiredConditions)
-            ? Misc.getDecorationListByRequiredConditions(stateRequiredConditions)
+            ? Misc.getDecorationListByRequiredConditions(_requiredConditions)
             : DecorationDataset.getList()
         let decorationSizeMapping = {}
 
@@ -64,7 +52,7 @@ export default function DecorationFactors (props) {
 
             return true
         }).forEach((decorationItem) => {
-            if (false === stateAlgorithmParams.usingFactor['decoration:size:' + decorationItem.size]) {
+            if (false === _algorithmParams.usingFactor['decoration:size:' + decorationItem.size]) {
                 return false
             }
 
@@ -115,8 +103,8 @@ export default function DecorationFactors (props) {
 
                         <div className="col-12 mhc-content">
                             {decorationIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((decorationId) => {
-                                let selectLevel = Helper.isNotEmpty(stateAlgorithmParams.usingFactor['decoration:id:' + decorationId])
-                                    ? stateAlgorithmParams.usingFactor['decoration:id:' + decorationId] : -1
+                                let selectLevel = Helper.isNotEmpty(_algorithmParams.usingFactor['decoration:id:' + decorationId])
+                                    ? _algorithmParams.usingFactor['decoration:id:' + decorationId] : -1
                                 let diffLevel = decorationSizeMapping[size][decorationId].max - decorationSizeMapping[size][decorationId].min + 1
                                 let levelList = [
                                     { key: -1, value: _('unlimited') },
@@ -152,7 +140,7 @@ export default function DecorationFactors (props) {
     }, [
         segment,
         byRequiredConditions,
-        stateAlgorithmParams,
-        stateRequiredConditions
+        _algorithmParams,
+        _requiredConditions
     ])
 }

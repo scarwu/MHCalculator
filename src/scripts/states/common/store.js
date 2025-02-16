@@ -6,13 +6,21 @@
  */
 
 // Load Core
+import Status from '@/scripts/core/status'
 import Helper from '@/scripts/core/helper'
+
+const statusMapping = {
+    locale:     'state:locale',
+    series:     'state:series',
+    modalHub:   'state:modalHub'
+}
 
 // Initial State
 const initialState = {
-    locale: null,
-    modalHub: {},
-    initToggle: false
+    initToggle: false,
+    locale: Status.get(statusMapping.locale) || null,
+    series: Status.get(statusMapping.series) || null,
+    modalHub: Status.get(statusMapping.modalHub) || {}
 }
 
 export default (state = initialState, action) => {
@@ -20,24 +28,49 @@ export default (state = initialState, action) => {
     let payload = action.payload
 
     switch (type) {
+    case 'INIT_TOGGLE':
+        return (() => {
+            return Object.assign({}, state, {
+                initToggle: !!payload
+            })
+        })()
+
     case 'LOCALE':
         return (() => {
             return Object.assign({}, state, {
                 locale: payload
             })
         })()
-    case 'MODAL_HUB':
-        return (() => {
-            state.modalHub[payload.target] = payload.data
 
+    case 'SERIES':
+        return (() => {
             return Object.assign({}, state, {
-                modalHub: Object.assign({}, state.modalHub)
+                series: payload
             })
         })()
-    case 'INIT_TOGGLE':
+
+    // Modal Hub
+    case 'SHOW_MODAL':
         return (() => {
+            let modalHub = Helper.deepCopy(state.modalHub)
+            let target = payload.target
+            let data = payload.data
+
+            modalHub[target] = Helper.isNotEmpty(data) ? data : {}
+
             return Object.assign({}, state, {
-                initToggle: !!payload
+                modalHub: modalHub
+            })
+        })()
+    case 'HIDE_MODAL':
+        return (() => {
+            let modalHub = Helper.deepCopy(state.modalHub)
+            let target = payload.target
+
+            modalHub[target] = null
+
+            return Object.assign({}, state, {
+                modalHub: modalHub
             })
         })()
     default:

@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { Fragment, useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Config & Constant
 import Config from '@/scripts/config'
@@ -54,7 +54,7 @@ const handleSwitchDataStore = (index) => {
     let rampageSkillItem = RampageSkillDataset.getItem(rampageSkillId)
 
     const showModal = () => {
-        States.rise.actions.showModal('rampageSkillSelector', {
+        States.common.actions.showModal('rampageSkillSelector', {
             target: 'playerEquips',
             idIndex: rampageSkillIndex
         })
@@ -95,7 +95,7 @@ const renderDecorationOption = (equipType, slotIndex, slotSize, decorationId) =>
     let decorationItem = DecorationDataset.getItem(decorationId)
 
     const showModal = () => {
-        States.rise.actions.showModal('decorationSelector', {
+        States.common.actions.showModal('decorationSelector', {
             target: 'playerEquips',
             equipType: equipType,
             idIndex: slotIndex,
@@ -327,7 +327,7 @@ const renderEquipPartBlock = (equipType, currentEquipData, requiredEquipData) =>
     }
 
     const showModal = () => {
-        States.rise.actions.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
+        States.common.actions.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
             target: 'playerEquips',
             equipType: equipType
         })
@@ -449,29 +449,16 @@ export default function PlayerEquipsBlock (props) {
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateDataStore(States.rise.getters.getDataStore())
-            updatePlayerEquips(States.rise.getters.getPlayerEquips())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _dataStore = States.rise.hooks.useDataStore()
+    const _playerEquips = States.rise.hooks.usePlayerEquips()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     const getContent = useMemo(() => {
         let blocks = []
 
-        Object.keys(statePlayerEquips).forEach((equipType) => {
+        Object.keys(_playerEquips).forEach((equipType) => {
             if ('weapon' === Misc.equipTypeToDatasetType(equipType)
-                && 'customWeapon' === statePlayerEquips[equipType].id
+                && 'customWeapon' === _playerEquips[equipType].id
             ) {
                 blocks.push((
                     <CustomWeapon key="customWeapon" target="playerEquips" />
@@ -481,7 +468,7 @@ export default function PlayerEquipsBlock (props) {
             }
 
             if ('charm' === Misc.equipTypeToDatasetType(equipType)
-                && 'customCharm' === statePlayerEquips[equipType].id
+                && 'customCharm' === _playerEquips[equipType].id
             ) {
                 blocks.push((
                     <CustomCharm key="customCharm" target="playerEquips" />
@@ -492,13 +479,13 @@ export default function PlayerEquipsBlock (props) {
 
             blocks.push(renderEquipPartBlock(
                 equipType,
-                statePlayerEquips[equipType],
-                stateRequiredConditions.equips[equipType]
+                _playerEquips[equipType],
+                _requiredConditions.equips[equipType]
             ))
         })
 
         return blocks
-    }, [statePlayerEquips, stateRequiredConditions])
+    }, [_playerEquips, _requiredConditions])
 
     return (
         <div className="mhc-block mhc-equips">
@@ -508,19 +495,19 @@ export default function PlayerEquipsBlock (props) {
                 <div className="mhc-icons_bundle-left">
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
-                        isActive={0 === stateDataStore.playerEquips.index}
+                        isActive={0 === _dataStore.playerEquips.index}
                         onClick={() => { handleSwitchDataStore(0) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
-                        isActive={1 === stateDataStore.playerEquips.index}
+                        isActive={1 === _dataStore.playerEquips.index}
                         onClick={() => { handleSwitchDataStore(1) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
-                        isActive={2 === stateDataStore.playerEquips.index}
+                        isActive={2 === _dataStore.playerEquips.index}
                         onClick={() => { handleSwitchDataStore(2) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
-                        isActive={3 === stateDataStore.playerEquips.index}
+                        isActive={3 === _dataStore.playerEquips.index}
                         onClick={() => { handleSwitchDataStore(3) }} />
                 </div>
 

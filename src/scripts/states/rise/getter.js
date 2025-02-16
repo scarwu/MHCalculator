@@ -11,19 +11,7 @@ import Helper from '@/scripts/core/helper'
 // Load Store
 import store from '@/scripts/states/store'
 
-export const getModalData = (target = null) => {
-    if (Helper.isEmpty(target)) {
-        return store.getState().rise.modalHub
-    }
-
-    if (Helper.isEmpty(store.getState().rise.modalHub[target])) {
-        return null
-    }
-
-    return store.getState().rise.modalHub[target]
-}
-
-export const getDataStore = (target = null) => {
+export const dataStore = (target = null) => {
     if (Helper.isEmpty(target)) {
         return store.getState().rise.dataStore
     }
@@ -35,11 +23,11 @@ export const getDataStore = (target = null) => {
     return store.getState().rise.dataStore[target]
 }
 
-export const getPlayerStatus = () => {
+export const playerStatus = () => {
     return store.getState().rise.playerStatus
 }
 
-export const getPlayerEquips = (target = null) => {
+export const playerEquips = (target = null) => {
     if (Helper.isEmpty(target)) {
         return store.getState().rise.playerEquips
     }
@@ -51,7 +39,7 @@ export const getPlayerEquips = (target = null) => {
     return store.getState().rise.playerEquips[target]
 }
 
-export const getRequiredConditions = (target = null) => {
+export const requiredConditions = (target = null) => {
     if (Helper.isEmpty(target)) {
         return store.getState().rise.requiredConditions
     }
@@ -63,20 +51,19 @@ export const getRequiredConditions = (target = null) => {
     return store.getState().rise.requiredConditions[target]
 }
 
-export const getAlgorithmParams = () => {
+export const algorithmParams = () => {
     return store.getState().rise.algorithmParams
 }
 
-export const getCandidateBundles = () => {
+export const candidateBundles = () => {
     return store.getState().rise.candidateBundles
 }
 
 export default {
-    getModalData,
-    getDataStore,
-    getPlayerStatus,
-    getPlayerEquips,
-    getRequiredConditions,
-    getAlgorithmParams,
-    getCandidateBundles
+    dataStore,
+    playerStatus,
+    playerEquips,
+    requiredConditions,
+    algorithmParams,
+    candidateBundles
 }

@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { Fragment, useState, useEffect, useCallback, useRef } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Constant
 import Constant from '@/scripts/constant'
@@ -40,7 +40,7 @@ const generateEquipInfos = (equips) => {
     //     && 'customWeapon' === equips.weapon.id
     // ) {
     //     let isCompleted = true
-    //     let customWeapon = States.rise.getters.getCustomWeapon()
+    //     let customWeapon = States.rise.getters.customWeapon()
 
     //     if (Helper.isEmpty(customWeapon.type)
     //         || Helper.isEmpty(customWeapon.rare)
@@ -619,8 +619,9 @@ export default function PlayerStatusBlock (props) {
     /**
      * Hooks
      */
-    const [statePlayerStatus, updatePlayerStatus] = useState(States.rise.getters.getPlayerStatus())
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const _playerStatus = States.rise.hooks.usePlayerStatus()
+    const _playerEquips = States.rise.hooks.usePlayerEquips()
+
     const [stateEquipInfos, updateEquipInfos] = useState({})
     const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.rise.default.status))
     const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.rise.default.benefitAnalysis))
@@ -631,16 +632,16 @@ export default function PlayerStatusBlock (props) {
         physicalCriticalMultiple: 0.1,
         elementAttack: 100
     })
-    const refTuningPhysicalAttack = useRef()
-    const refTuningPhysicalCriticalRate = useRef()
-    const refTuningPhysicalCriticalMultiple = useRef()
-    const refTuningElementAttack = useRef()
+    const refTuningPhysicalAttack = useRef(null)
+    const refTuningPhysicalCriticalRate = useRef(null)
+    const refTuningPhysicalCriticalMultiple = useRef(null)
+    const refTuningElementAttack = useRef(null)
 
     // Initialize
     useEffect(() => {
-        const equipInfos = generateEquipInfos(statePlayerEquips)
+        const equipInfos = generateEquipInfos(_playerEquips)
         const passiveSkills = generatePassiveSkills(equipInfos)
-        const status = generateStatus(equipInfos, passiveSkills, statePlayerStatus)
+        const status = generateStatus(equipInfos, passiveSkills, _playerStatus)
         const benefitAnalysis = generateBenefitAnalysis(equipInfos, status, stateTuning)
 
         updateEquipInfos(equipInfos)
@@ -648,21 +649,9 @@ export default function PlayerStatusBlock (props) {
         updateStatus(status)
         updateBenefitAnalysis(benefitAnalysis)
     }, [
-        statePlayerStatus,
-        statePlayerEquips
+        _playerStatus,
+        _playerEquips
     ])
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updatePlayerStatus(States.rise.getters.getPlayerStatus())
-            updatePlayerEquips(States.rise.getters.getPlayerEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
 
     /**
      * Handle Functions
@@ -674,13 +663,13 @@ export default function PlayerStatusBlock (props) {
 
         passiveSkills[skillId].isActive = !passiveSkills[skillId].isActive
 
-        const status = generateStatus(equipInfos, passiveSkills, statePlayerStatus)
+        const status = generateStatus(equipInfos, passiveSkills, _playerStatus)
 
         updatePassiveSkills(passiveSkills)
         updateStatus(status)
         updateBenefitAnalysis(generateBenefitAnalysis(equipInfos, status, tuning))
     }, [
-        statePlayerStatus,
+        _playerStatus,
         stateEquipInfos,
         statePassiveSkills,
         stateTuning
@@ -972,8 +961,8 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={statePlayerStatus.usingItem['powerCharm'] ? 'circle' : 'circle'}
-                                    altName={statePlayerStatus.usingItem['powerCharm'] ? _('deactive') : _('active')}
+                                    iconName={_playerStatus.usingItem['powerCharm'] ? 'circle' : 'circle'}
+                                    altName={_playerStatus.usingItem['powerCharm'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('powerCharm')
                                     }} />
@@ -985,8 +974,8 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={statePlayerStatus.usingItem['armorCharm'] ? 'circle' : 'circle'}
-                                    altName={statePlayerStatus.usingItem['armorCharm'] ? _('deactive') : _('active')}
+                                    iconName={_playerStatus.usingItem['armorCharm'] ? 'circle' : 'circle'}
+                                    altName={_playerStatus.usingItem['armorCharm'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('armorCharm')
                                     }} />
@@ -998,8 +987,8 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={statePlayerStatus.usingItem['powerTalon'] ? 'circle' : 'circle'}
-                                    altName={statePlayerStatus.usingItem['powerTalon'] ? _('deactive') : _('active')}
+                                    iconName={_playerStatus.usingItem['powerTalon'] ? 'circle' : 'circle'}
+                                    altName={_playerStatus.usingItem['powerTalon'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('powerTalon')
                                     }} />
@@ -1011,8 +1000,8 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={statePlayerStatus.usingItem['armorTalon'] ? 'circle' : 'circle'}
-                                    altName={statePlayerStatus.usingItem['armorTalon'] ? _('deactive') : _('active')}
+                                    iconName={_playerStatus.usingItem['armorTalon'] ? 'circle' : 'circle'}
+                                    altName={_playerStatus.usingItem['armorTalon'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('armorTalon')
                                     }} />

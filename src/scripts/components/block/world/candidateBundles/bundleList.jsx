@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -33,7 +33,7 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleBundlePickUp = (bundle, required) => {
-    let currentEquips = Helper.deepCopy(States.world.getters.getCurrentEquips())
+    let currentEquips = Helper.deepCopy(States.world.getters.currentEquips())
     let slotMap = {
         1: [],
         2: [],
@@ -137,47 +137,33 @@ export default function BundleList(props) {
     /**
      * Hooks
      */
-    const [stateComputedResult, updateComputedResult] = useState(States.world.getters.getComputedResult())
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateComputedResult(States.world.getters.getComputedResult())
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-            updateRequiredSets(States.world.getters.getRequiredSets())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _computedResult = States.world.hooks.useComputedResult()
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     /**
      * Handle Functions
      */
     const handleJewelPackageChange = useCallback((bundleIndex, packageIndex) => {
-        let computedResult = Helper.deepCopy(stateComputedResult)
+        let computedResult = Helper.deepCopy(_computedResult)
 
         computedResult.list[bundleIndex].jewelPackageIndex = packageIndex
 
         States.world.actions.saveComputedResult(computedResult)
-    }, [stateComputedResult])
+    }, [_computedResult])
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> BundleList')
 
-        if (Helper.isEmpty(stateComputedResult)
-            || Helper.isEmpty(stateComputedResult.required)
-            || Helper.isEmpty(stateComputedResult.list)
+        if (Helper.isEmpty(_computedResult)
+            || Helper.isEmpty(_computedResult.required)
+            || Helper.isEmpty(_computedResult.list)
         ) {
             return false
         }
 
-        if (0 === stateComputedResult.list.length) {
+        if (0 === _computedResult.list.length) {
             return (
                 <div className="mhc-item mhc-item-3-step">
                     <div className="col-12 mhc-name">
@@ -187,21 +173,21 @@ export default function BundleList(props) {
             )
         }
 
-        let bundleList = stateComputedResult.list
-        let bundleRequired = stateComputedResult.required
+        let bundleList = _computedResult.list
+        let bundleRequired = _computedResult.required
 
         // Required Ids
-        const requiredEquipIds = Object.keys(stateRequiredEquips).map((equipType) => {
-            if (Helper.isEmpty(stateRequiredEquips[equipType])) {
+        const requiredEquipIds = Object.keys(_requiredEquips).map((equipType) => {
+            if (Helper.isEmpty(_requiredEquips[equipType])) {
                 return false
             }
 
-            return stateRequiredEquips[equipType].id
+            return _requiredEquips[equipType].id
         })
-        const requiredSetIds = stateRequiredSets.map((set) => {
+        const requiredSetIds = _requiredSets.map((set) => {
             return set.id
         })
-        const requiredSkillIds = stateRequiredSkills.map((skill) => {
+        const requiredSkillIds = _requiredSkills.map((skill) => {
             return skill.id
         })
 
@@ -361,27 +347,27 @@ export default function BundleList(props) {
                             {bundleEquips.map((equip) => {
                                 let isNotRequire = true
 
-                                if (Helper.isNotEmpty(stateRequiredEquips[equip.type])) {
+                                if (Helper.isNotEmpty(_requiredEquips[equip.type])) {
                                     if ('weapon' === equip.type) {
                                         if ('customWeapon' === equip.id) {
                                             isNotRequire = Helper.jsonHash({
                                                 customWeapon: equip.customWeapon,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                customWeapon: stateRequiredEquips[equip.type].customWeapon,
-                                                enhances: stateRequiredEquips[equip.type].enhances
+                                                customWeapon: _requiredEquips[equip.type].customWeapon,
+                                                enhances: _requiredEquips[equip.type].enhances
                                             })
                                         } else {
                                             isNotRequire = Helper.jsonHash({
                                                 id: equip.id,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                id: stateRequiredEquips[equip.type].id,
-                                                enhances: stateRequiredEquips[equip.type].enhances
+                                                id: _requiredEquips[equip.type].id,
+                                                enhances: _requiredEquips[equip.type].enhances
                                             })
                                         }
                                     } else {
-                                        isNotRequire = equip.id !== stateRequiredEquips[equip.type].id
+                                        isNotRequire = equip.id !== _requiredEquips[equip.type].id
                                     }
                                 }
 
@@ -550,5 +536,5 @@ export default function BundleList(props) {
                 </div>
             )
         })
-    }, [stateComputedResult, stateRequiredEquips, stateRequiredSets, stateRequiredSkills])
+    }, [_computedResult, _requiredEquips, _requiredSets, _requiredSkills])
 }

@@ -23,18 +23,16 @@ import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'
 import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 const statusMapping = {
-    modalHub: 'state:modalHub',
-    dataStore: 'state:dataStore',
-    requiredConditions: 'state:requiredConditions',
-    playerEquips: 'state:playerEquips',
-    playerStatus: 'state:playerStatus',
-    algorithmParams: 'state:algorithmParams',
-    candidateBundles: 'state:candidateBundles'
+    dataStore:          'state:rise:dataStore',
+    requiredConditions: 'state:rise:requiredConditions',
+    playerEquips:       'state:rise:playerEquips',
+    playerStatus:       'state:rise:playerStatus',
+    algorithmParams:    'state:rise:algorithmParams',
+    candidateBundles:   'state:rise:candidateBundles'
 }
 
 // Initial State
 const initialState = {
-    modalHub: Status.get(statusMapping.modalHub) || {},
     dataStore: Status.get(statusMapping.dataStore) || {
         requiredConditions: {
             index: 0,
@@ -64,31 +62,6 @@ export default (state = initialState, action) => {
     let payload = action.payload
 
     switch (type) {
-
-    // Modal Hub
-    case 'SHOW_MODAL':
-        return (() => {
-            let modalHub = Helper.deepCopy(state.modalHub)
-            let target = payload.target
-            let bypassData = payload.bypassData
-
-            modalHub[target] = Helper.isNotEmpty(bypassData) ? bypassData : {}
-
-            return Object.assign({}, state, {
-                modalHub: modalHub
-            })
-        })()
-    case 'HIDE_MODAL':
-        return (() => {
-            let modalHub = Helper.deepCopy(state.modalHub)
-            let target = payload.target
-
-            modalHub[target] = null
-
-            return Object.assign({}, state, {
-                modalHub: modalHub
-            })
-        })()
 
     // Data Store
     case 'SWITCH_DATA_STORE':

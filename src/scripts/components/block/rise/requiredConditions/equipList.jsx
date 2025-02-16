@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { Fragment, useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -36,7 +36,7 @@ const renderEquipItem = (equipType, requiredEquipData) => {
     let equipItem = Misc.getEquipItem(equipType, requiredEquipData)
 
     const showModal = () => {
-        States.rise.actions.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
+        States.common.actions.showModal(Misc.equipTypeToDatasetType(equipType) + 'Selector', {
             target: 'requiredConditions',
             equipType: equipType
         })
@@ -97,23 +97,12 @@ export default function EquipList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> EquipList')
 
-        if (Helper.isEmpty(stateRequiredConditions.equips)) {
+        if (Helper.isEmpty(_requiredConditions.equips)) {
             return false
         }
 
@@ -123,9 +112,9 @@ export default function EquipList (props) {
                     <span>{_('equip')}</span>
                 </div>
 
-                {Object.keys(stateRequiredConditions.equips).map((equipType) => {
+                {Object.keys(_requiredConditions.equips).map((equipType) => {
                     if ('weapon' === Misc.equipTypeToDatasetType(equipType)
-                        && 'customWeapon' === stateRequiredConditions.equips[equipType].id
+                        && 'customWeapon' === _requiredConditions.equips[equipType].id
                     ) {
                         return (
                             <CustomWeapon key="customWeapon" target="requiredConditions" />
@@ -133,16 +122,16 @@ export default function EquipList (props) {
                     }
 
                     if ('charm' === Misc.equipTypeToDatasetType(equipType)
-                        && 'customCharm' === stateRequiredConditions.equips[equipType].id
+                        && 'customCharm' === _requiredConditions.equips[equipType].id
                     ) {
                         return (
                             <CustomCharm key="customCharm" target="requiredConditions" />
                         )
                     }
 
-                    return renderEquipItem(equipType, stateRequiredConditions.equips[equipType])
+                    return renderEquipItem(equipType, _requiredConditions.equips[equipType])
                 })}
             </div>
         )
-    }, [stateRequiredConditions])
+    }, [_requiredConditions])
 }

@@ -53,7 +53,7 @@ function getExistLang (key) {
 }
 
 export default (key, payload = null) => {
-    let translated = ''
+    let translated = null
 
     if (Helper.isNotEmpty(langs[currentLang]) && Helper.isNotEmpty(langs[currentLang][key])) {
         translated = langs[currentLang][key]
@@ -85,6 +85,10 @@ export default (key, payload = null) => {
                 translated = translated.replace(`:${key}:`, '')
             }
         }
+    }
+
+    if (Helper.isEmpty(translated)) {
+        translated = key
     }
 
     return translated

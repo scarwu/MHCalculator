@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { Fragment, useState, useEffect, useCallback, useRef } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Constant
 import Constant from '@/scripts/constant'
@@ -40,7 +40,7 @@ const generateEquipInfos = (equips) => {
         && 'customWeapon' === equips.weapon.id
     ) {
         let isCompleted = true
-        let customWeapon = States.world.getters.getCustomWeapon()
+        let customWeapon = States.world.getters.customWeapon()
 
         if (Helper.isEmpty(customWeapon.type)
             || Helper.isEmpty(customWeapon.rare)
@@ -607,8 +607,9 @@ export default function PlayerStatus(props) {
     /**
      * Hooks
      */
-    const [stateCustomWeapon, updateCustomWeapon] = useState(States.world.getters.getCustomWeapon())
-    const [stateCurrentEquips, updateCurrentEquips] = useState(States.world.getters.getCurrentEquips())
+    const _customWeapon = States.world.hooks.useCustomWeapon()
+    const _currentEquips = States.world.hooks.useCurrentEquips()
+
     const [stateEquipInfos, updateEquipInfos] = useState({})
     const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.world.default.status))
     const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.world.default.benefitAnalysis))
@@ -619,13 +620,14 @@ export default function PlayerStatus(props) {
         physicalCriticalMultiple: 0.1,
         elementAttack: 100
     })
-    const refTuningPhysicalAttack = useRef()
-    const refTuningPhysicalCriticalRate = useRef()
-    const refTuningPhysicalCriticalMultiple = useRef()
-    const refTuningElementAttack = useRef()
+
+    const refTuningPhysicalAttack = useRef(null)
+    const refTuningPhysicalCriticalRate = useRef(null)
+    const refTuningPhysicalCriticalMultiple = useRef(null)
+    const refTuningElementAttack = useRef(null)
 
     useEffect(() => {
-        const equipInfos = generateEquipInfos(stateCurrentEquips)
+        const equipInfos = generateEquipInfos(_currentEquips)
         const passiveSkills = generatePassiveSkills(equipInfos)
         const status = generateStatus(equipInfos, passiveSkills)
         const benefitAnalysis = generateBenefitAnalysis(equipInfos, status, stateTuning)
@@ -634,19 +636,7 @@ export default function PlayerStatus(props) {
         updatePassiveSkills(passiveSkills)
         updateStatus(status)
         updateBenefitAnalysis(benefitAnalysis)
-    }, [stateCustomWeapon, stateCurrentEquips])
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateCustomWeapon(States.world.getters.getCustomWeapon())
-            updateCurrentEquips(States.world.getters.getCurrentEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    }, [_customWeapon, _currentEquips])
 
     /**
      * Handle Functions

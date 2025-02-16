@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import {
     Outlet,
     useLocation as useRouteLocation,
@@ -40,7 +40,7 @@ import '@/styles/app.sass'
 
 if ('production' === Config.env) {
     if (Config.buildTime !== Status.get('sys:buildTime')) {
-        States.rise.actions.showModal('changeLog')
+        States.common.actions.showModal('changeLog')
     }
 
     Status.set('sys:buildTime', Config.buildTime)
@@ -71,7 +71,7 @@ const seriesList = [
  * Handle Functions
  */
 const handlePlayerEquipsExport = () => {
-    let equips = Helper.deepCopy(States.rise.getters.getPlayerEquips())
+    let equips = Helper.deepCopy(States.rise.getters.playerEquips())
     let hash = Helper.base64Encode(JSON.stringify(equips))
 
     let protocol = window.location.protocol
@@ -114,14 +114,22 @@ export default function App () {
      * Handle Functions
      */
     const handleLangChange = useCallback((event) => {
-        Status.set('sys:lang', event.target.value)
-        setLang(event.target.value)
-    }, [])
+        let lang = event.target.value
+
+        Status.set('sys:lang', lang)
+        setLang(lang)
+
+        routeNavigate(`/${lang}/${stateSeries}`)
+    }, [ stateSeries ])
 
     const handleSeriesChange = useCallback((event) => {
-        Status.set('sys:series', event.target.value)
-        setSeries(event.target.value)
-    }, [])
+        let series = event.target.value
+
+        Status.set('sys:series', series)
+        setSeries(series)
+
+        routeNavigate(`/${stateLang}/${series}`)
+    }, [ stateLang ])
 
     /**
      * Render Functions
@@ -150,7 +158,7 @@ export default function App () {
                         onClick={handlePlayerEquipsExport} />
                     <IconButton
                         iconName="info" altName={_('changeLog')}
-                        onClick={() => { States.rise.actions.showModal('changeLog') }} />
+                        onClick={() => { States.common.actions.showModal('changeLog') }} />
                     <IconButton
                         iconName="question" altName={_('readme')}
                         onClick={handleOpenReadme} />

@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -32,32 +32,20 @@ export default function QuickSetting (props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getters.getAlgorithmParams())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.rise.getters.getAlgorithmParams())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.rise.hooks.useAlgorithmParams()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> QuickFactorSetting')
 
-        let armorList = Misc.getArmorListByRequiredConditions(stateRequiredConditions)
-        let decorationList = Misc.getDecorationListByRequiredConditions(stateRequiredConditions)
+        let armorList = Misc.getArmorListByRequiredConditions(_requiredConditions)
+        let decorationList = Misc.getDecorationListByRequiredConditions(_requiredConditions)
 
         let armorSeriesMapping = {}
         let decorationSizeMapping = {}
 
         armorList.forEach((armorItem) => {
-            if (false === stateAlgorithmParams.usingFactor['armor:rare:' + armorItem.rare]) {
+            if (false === _algorithmParams.usingFactor['armor:rare:' + armorItem.rare]) {
                 return
             }
 
@@ -71,7 +59,7 @@ export default function QuickSetting (props) {
         })
 
         decorationList.forEach((decorationItem) => {
-            if (false === stateAlgorithmParams.usingFactor['decoration:size:' + decorationItem.size]) {
+            if (false === _algorithmParams.usingFactor['decoration:size:' + decorationItem.size]) {
                 return
             }
 
@@ -115,8 +103,8 @@ export default function QuickSetting (props) {
                                 {Object.keys(armorSeriesMapping[rare]).sort((seriesIdA, seriesIdB) => {
                                     return _(seriesIdA) > _(seriesIdB) ? 1 : -1
                                 }).map((seriesId) => {
-                                    let isInclude = Helper.isNotEmpty(stateAlgorithmParams.usingFactor['armor:series:' + seriesId])
-                                        ? stateAlgorithmParams.usingFactor['armor:series:' + seriesId] : true
+                                    let isInclude = Helper.isNotEmpty(_algorithmParams.usingFactor['armor:series:' + seriesId])
+                                        ? _algorithmParams.usingFactor['armor:series:' + seriesId] : true
 
                                     return (
                                         <div key={seriesId} className="col-6 mhc-value">
@@ -157,8 +145,8 @@ export default function QuickSetting (props) {
                                 {Object.keys(decorationSizeMapping[size]).sort((decorationIdA, decorationIdB) => {
                                     return _(decorationIdA) > _(decorationIdB) ? 1 : -1
                                 }).map((decorationId) => {
-                                    let selectLevel = Helper.isNotEmpty(stateAlgorithmParams.usingFactor['decoration:id:' + decorationId])
-                                        ? stateAlgorithmParams.usingFactor['decoration:id:' + decorationId] : -1
+                                    let selectLevel = Helper.isNotEmpty(_algorithmParams.usingFactor['decoration:id:' + decorationId])
+                                        ? _algorithmParams.usingFactor['decoration:id:' + decorationId] : -1
                                     let diffLevel = decorationSizeMapping[size][decorationId].max - decorationSizeMapping[size][decorationId].min + 1
                                     let levelList = [
                                         { key: -1, value: _('unlimited') },
@@ -191,7 +179,7 @@ export default function QuickSetting (props) {
             </div>
         )
     }, [
-        stateAlgorithmParams,
-        stateRequiredConditions
+        _algorithmParams,
+        _requiredConditions
     ])
 }

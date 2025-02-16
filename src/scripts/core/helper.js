@@ -61,6 +61,28 @@ export const ucfirst = (text) => {
     return text.charAt(0).toUpperCase() + text.slice(1)
 }
 
+export const convertTimeFormat = (seconds) => {
+    let text = ''
+
+    if (seconds > 3600) {
+        let hours = parseInt(seconds / 3600)
+
+        seconds -= hours * 3600
+        text += hours + ' ' + _('hour') + ' '
+    }
+
+    if (seconds > 60) {
+        let minutes = parseInt(seconds / 60)
+
+        seconds -= minutes * 60
+        text += minutes + ' ' + _('minute') + ' '
+    }
+
+    text += seconds + ' ' + _('second')
+
+    return text
+}
+
 export default {
     log,
     debug,
@@ -70,5 +92,6 @@ export default {
     jsonHash,
     base64Encode,
     base64Decode,
-    ucfirst
+    ucfirst,
+    convertTimeFormat
 }

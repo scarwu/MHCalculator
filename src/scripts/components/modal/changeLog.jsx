@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -60,24 +60,16 @@ const getChangeLog = () => {
     })
 }
 
+const targetModalKey = 'changeLog'
+
 export default function ChangeLogModal (props) {
 
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('changeLog'))
-    const refModal = useRef()
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
 
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateModalData(States.rise.getters.getModalData('changeLog'))
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refModal = useRef(null)
 
     /**
      * Handle Functions
@@ -87,10 +79,10 @@ export default function ChangeLogModal (props) {
             return
         }
 
-        States.rise.actions.hideModal('changeLog')
+        States.common.actions.showModal(targetModalKey)
     }, [])
 
-    return Helper.isNotEmpty(stateModalData) ? (
+    return Helper.isNotEmpty(_modalData) ? (
         <div className="mhc-selector" ref={refModal} onClick={handleFastCloseModal}>
             <div className="mhc-modal mhc-slim-modal">
                 <div className="mhc-panel">
@@ -99,7 +91,7 @@ export default function ChangeLogModal (props) {
                     <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={() => { States.rise.actions.hideModal('changeLog') }} />
+                            onClick={() => { States.common.actions.showModal(targetModalKey) }} />
                     </div>
                 </div>
                 <div className="mhc-list">

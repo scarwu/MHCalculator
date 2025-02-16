@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -25,6 +25,8 @@ import DecorationFactors from '@/scripts/components/modal/rise/algorithmSetting/
 
 // Load States
 import States from '@/scripts/states'
+
+const targetModalKey = 'algorithmSetting'
 
 /**
  * Variables
@@ -94,30 +96,18 @@ export default function AlgorithmSettingModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('algorithmSetting'))
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getters.getAlgorithmParams())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _algorithmParams = States.rise.hooks.useAlgorithmParams()
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
 
-    const refModal = useRef()
-    const refSearch = useRef()
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateModalData(States.rise.getters.getModalData('algorithmSetting'))
-            updateAlgorithmParams(States.rise.getters.getAlgorithmParams())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refModal = useRef(null)
+    const refSearch = useRef(null)
 
     // Initialize
     useEffect(() => {
-        if (Helper.isEmpty(stateModalData)) {
+        if (Helper.isEmpty(_modalData)) {
             updateTempData(null)
 
             window.removeEventListener('keydown', handleSearchFocus)
@@ -125,7 +115,7 @@ export default function AlgorithmSettingModal (props) {
             return
         }
 
-        let tempData = Helper.deepCopy(stateModalData)
+        let dataStore = Helper.deepCopy(_modalData)
         let filter = {}
 
         // Set filter
@@ -133,9 +123,9 @@ export default function AlgorithmSettingModal (props) {
 
         window.addEventListener('keydown', handleSearchFocus)
 
-        updateTempData(tempData)
+        updateTempData(dataStore)
         updateFilter(filter)
-    }, [stateModalData])
+    }, [_modalData])
 
     /**
      * Handle Functions
@@ -145,7 +135,7 @@ export default function AlgorithmSettingModal (props) {
             return
         }
 
-        States.rise.actions.hideModal('algorithmSetting')
+        States.common.actions.showModal(targetModalKey)
 
         updateFilter({})
     }, [])
@@ -200,7 +190,7 @@ export default function AlgorithmSettingModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.actions.hideModal('algorithmSetting')
+                                States.common.actions.showModal(targetModalKey)
                             }} />
                     </div>
                 </div>
@@ -219,7 +209,7 @@ export default function AlgorithmSettingModal (props) {
                                 <div className="col-6 mhc-value">
                                     <BasicInput
                                         iconName="list-alt"
-                                        defaultValue={stateAlgorithmParams.limit}
+                                        defaultValue={_algorithmParams.limit}
                                         onChange={handleLimitChange} />
                                 </div>
 
@@ -229,7 +219,7 @@ export default function AlgorithmSettingModal (props) {
                                 <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
-                                        defaultValue={stateAlgorithmParams.sort}
+                                        defaultValue={_algorithmParams.sort}
                                         options={getSortList()} onChange={handleSortChange} />
                                 </div>
 
@@ -239,7 +229,7 @@ export default function AlgorithmSettingModal (props) {
                                 <div className="col-6 mhc-value">
                                     <BasicSelector
                                         iconName="sort-amount-desc"
-                                        defaultValue={stateAlgorithmParams.order}
+                                        defaultValue={_algorithmParams.order}
                                         options={getOrderList()} onChange={handleOrderChange} />
                                 </div>
                             </div>
@@ -256,7 +246,7 @@ export default function AlgorithmSettingModal (props) {
                                             <div key={rare} className="col-6 mhc-value">
                                                 <span>{_('rare') + `: ${rare}`}</span>
                                                 <div className="mhc-icons_bundle">
-                                                    {stateAlgorithmParams.usingFactor['armor:rare:' + rare] ? (
+                                                    {_algorithmParams.usingFactor['armor:rare:' + rare] ? (
                                                         <IconButton
                                                             iconName="star" altName={_('exclude')}
                                                             onClick={() => {States.rise.actions.setAlgorithmParamsUsingFactor('armor:rare:' + rare, false)}} />
@@ -284,7 +274,7 @@ export default function AlgorithmSettingModal (props) {
                                             <div key={size} className="col-6 mhc-value">
                                                 <span>{_('size') + `: ${size}`}</span>
                                                 <div className="mhc-icons_bundle">
-                                                    {stateAlgorithmParams.usingFactor['decoration:size:' + size] ? (
+                                                    {_algorithmParams.usingFactor['decoration:size:' + size] ? (
                                                         <IconButton
                                                             iconName="star" altName={_('exclude')}
                                                             onClick={() => {States.rise.actions.setAlgorithmParamsUsingFactor('decoration:size:' + size, false)}} />

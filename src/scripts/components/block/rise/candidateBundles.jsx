@@ -7,18 +7,16 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { Fragment, useState, useEffect, useCallback } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
-// Load Config
+// Load Config & Constant
 import Config from '@/scripts/config'
+import Constant from '@/scripts/constant'
 
 // Load Core
 import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 import Event from '@/scripts/core/event'
-
-// Load Libraries
-import Misc from '@/scripts/libraries/rise/misc'
 
 // Load Components
 import IconButton from '@/scripts/components/ui/iconButton'
@@ -31,64 +29,17 @@ import BundleList from '@/scripts/components/block/rise/candidateBundles/bundleL
 // Load States
 import States from '@/scripts/states'
 
-// Variables
-let workers = {}
-
-/**
- * Handle Functions
- */
-const handleShowAllAlgorithmSetting = () => {
-    States.rise.actions.showModal('algorithmSetting', {
-        mode: 'all'
-    })
-}
-
-const handleSwitchDataStore = (index) => {
-    States.rise.actions.switchDataStore('candidateBundles', index)
-}
-
-const convertTimeFormat = (seconds) => {
-    let text = ''
-
-    if (seconds > 3600) {
-        let hours = parseInt(seconds / 3600)
-
-        seconds -= hours * 3600
-        text += hours + ' ' + _('hour') + ' '
-    }
-
-    if (seconds > 60) {
-        let minutes = parseInt(seconds / 60)
-
-        seconds -= minutes * 60
-        text += minutes + ' ' + _('minute') + ' '
-    }
-
-    text += seconds + ' ' + _('second')
-
-    return text
-}
-
 export default function CandidateBundlesBlock (props) {
 
     /**
      * Hooks
      */
-    const [stateDataStore, updateDataStore] = useState(States.rise.getters.getDataStore())
-    const [stateCandidateBundles, updateCandidateBundles] = useState(States.rise.getters.getCandidateBundles())
+    const _dataStore = States.rise.hooks.useDataStore()
+    const _candidateBundles = States.rise.hooks.useCandidateBundles()
+
     const [stateTasks, updateTasks] = useState({})
 
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateDataStore(States.rise.getters.getDataStore())
-            updateCandidateBundles(States.rise.getters.getCandidateBundles())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refWorkers = useRef({})
 
     // Worker Callback
     useEffect(() => {
@@ -119,8 +70,8 @@ export default function CandidateBundlesBlock (props) {
 
                 States.rise.actions.replaceCandidateBundles(payload.candidateBundles)
 
-                // workers[tabIndex].terminate()
-                // workers[tabIndex] = null
+                // refWorkers.current[tabIndex].terminate()
+                // refWorkers.current[tabIndex] = null
 
                 stateTasks[tabIndex] = null
 
@@ -139,7 +90,7 @@ export default function CandidateBundlesBlock (props) {
 
     // Search Remaining Timer
     useEffect(() => {
-        let tabIndex = stateDataStore.candidateBundles.index
+        let tabIndex = _dataStore.candidateBundles.index
 
         if (Helper.isEmpty(stateTasks[tabIndex])) {
             return
@@ -158,21 +109,21 @@ export default function CandidateBundlesBlock (props) {
         return () => {
             clearInterval(timerId)
         }
-    }, [stateTasks, stateDataStore])
+    }, [stateTasks, _dataStore])
 
     /**
      * Handle Functions
      */
     const handleCandidateBundlesSearch = useCallback(() => {
-        let tabIndex = stateDataStore.candidateBundles.index
+        let tabIndex = _dataStore.candidateBundles.index
 
         if (Helper.isNotEmpty(stateTasks[tabIndex])) {
             return
         }
 
         // Get All Data From Store
-        let requiredConditions = States.rise.getters.getRequiredConditions()
-        let algorithmParams = States.rise.getters.getAlgorithmParams()
+        let requiredConditions = States.rise.getters.requiredConditions()
+        let algorithmParams = States.rise.getters.algorithmParams()
 
         if (Helper.isEmpty(requiredConditions.sets) && Helper.isEmpty(requiredConditions.skills)) {
             return
@@ -191,9 +142,9 @@ export default function CandidateBundlesBlock (props) {
 
         updateTasks(Helper.deepCopy(stateTasks))
 
-        if (Helper.isEmpty(workers[tabIndex])) {
-            workers[tabIndex] = new Worker('assets/scripts/worker.min.js?' + Config.buildTime + '&' + tabIndex)
-            workers[tabIndex].onmessage = (event) => {
+        if (Helper.isEmpty(refWorkers.current[tabIndex])) {
+            refWorkers.current[tabIndex] = new Worker('assets/scripts/worker.min.js?' + Config.buildTime + '&' + tabIndex)
+            refWorkers.current[tabIndex].onmessage = (event) => {
                 Event.trigger('workerCallback', {
                     tabIndex: tabIndex,
                     action: event.data.action,
@@ -202,24 +153,32 @@ export default function CandidateBundlesBlock (props) {
             }
         }
 
-        workers[tabIndex].postMessage({
+        refWorkers.current[tabIndex].postMessage({
             requiredConditions: requiredConditions,
             algorithmParams: algorithmParams
         })
-    }, [stateTasks, stateDataStore])
+    }, [stateTasks, _dataStore])
 
     const handleCandidateBundlesCancel = useCallback(() => {
-        let tabIndex = stateDataStore.candidateBundles.index
+        let tabIndex = _dataStore.candidateBundles.index
 
-        workers[tabIndex].terminate()
-        workers[tabIndex] = null
+        refWorkers.current[tabIndex].terminate()
+        refWorkers.current[tabIndex] = null
 
         stateTasks[tabIndex] = null
 
         updateTasks(Helper.deepCopy(stateTasks))
-    }, [stateTasks, stateDataStore])
+    }, [stateTasks, _dataStore])
 
-    let tabIndex = stateDataStore.candidateBundles.index
+    const handleShowAllAlgorithmSetting = useCallback(() => {
+        States.common.actions.showModal('algorithmSetting', {
+            mode: 'all'
+        })
+    }, [])
+
+    const handleSwitchDataStore = useCallback((index) => {
+        States.rise.actions.switchDataStore('candidateBundles', index)
+    }, [])
 
     return (
         <div className="mhc-block mhc-bundles">
@@ -230,22 +189,22 @@ export default function CandidateBundlesBlock (props) {
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 1'}
-                        isActive={0 === tabIndex}
+                        isActive={0 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchDataStore(0)}} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[1]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 2'}
-                        isActive={1 === tabIndex}
+                        isActive={1 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchDataStore(1)}} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[2]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 3'}
-                        isActive={2 === tabIndex}
+                        isActive={2 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchDataStore(2)}} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[3]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 4'}
-                        isActive={3 === tabIndex}
+                        isActive={3 === _dataStore.candidateBundles.index}
                         onClick={() => {handleSwitchDataStore(3)}} />
                 </div>
 
@@ -263,12 +222,12 @@ export default function CandidateBundlesBlock (props) {
             </div>
 
             <div key="list" className="mhc-list">
-                {Helper.isNotEmpty(stateTasks[tabIndex]) ? (
+                {Helper.isNotEmpty(stateTasks[_dataStore.candidateBundles.index]) ? (
                     <Fragment>
                         <div className="mhc-item mhc-item-3-step">
                             <div className="col-12 mhc-name">
                                 <span>{_('searching')} ...</span>
-                                <div className="mhc-icons_bundle">
+                                <div className="mhc-icons_bundle-right">
                                     <IconButton
                                         iconName="times" altName={_('cancel')}
                                         onClick={handleCandidateBundlesCancel} />
@@ -279,30 +238,30 @@ export default function CandidateBundlesBlock (props) {
                                     <span>{_('bundleCount')}</span>
                                 </div>
                                 <div className="col-3 mhc-value">
-                                    <span>{stateTasks[tabIndex].bundleCount}</span>
+                                    <span>{stateTasks[_dataStore.candidateBundles.index].bundleCount}</span>
                                 </div>
                                 <div className="col-3 mhc-name">
                                     <span>{_('searchPercent')}</span>
                                 </div>
                                 <div className="col-3 mhc-value">
-                                    <span>{stateTasks[tabIndex].searchPercent} %</span>
+                                    <span>{stateTasks[_dataStore.candidateBundles.index].searchPercent} %</span>
                                 </div>
                                 <div className="col-3 mhc-name">
                                     <span>{_('timeRemaining')}</span>
                                 </div>
                                 <div className="col-9 mhc-value">
-                                    <span>{convertTimeFormat(stateTasks[tabIndex].timeRemaining)}</span>
+                                    <span>{Helper.convertTimeFormat(stateTasks[_dataStore.candidateBundles.index].timeRemaining)}</span>
                                 </div>
                             </div>
                         </div>
-                        <RequiredConditions data={stateTasks[tabIndex].requiredConditions} />
+                        <RequiredConditions data={stateTasks[_dataStore.candidateBundles.index].requiredConditions} />
                     </Fragment>
                 ) : (
-                    Helper.isEmpty(stateCandidateBundles.requiredConditions) ? (
+                    Helper.isEmpty(_candidateBundles.requiredConditions) ? (
                         <QuickSetting />
                     ) : (
                         <Fragment>
-                            <RequiredConditions data={stateCandidateBundles.requiredConditions} />
+                            <RequiredConditions data={_candidateBundles.requiredConditions} />
                             <BundleList />
                         </Fragment>
                     )

@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -29,26 +29,14 @@ export default function ArmorFactors (props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.rise.getters.getAlgorithmParams())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.rise.getters.getAlgorithmParams())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.rise.hooks.useAlgorithmParams()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> ArmorFactors')
 
         let armorList = (true === byRequiredConditions)
-            ? Misc.getArmorListByRequiredConditions(stateRequiredConditions)
+            ? Misc.getArmorListByRequiredConditions(_requiredConditions)
             : ArmorDataset.getList()
         let armorSeriesMapping = {}
 
@@ -63,7 +51,7 @@ export default function ArmorFactors (props) {
 
             return true
         }).forEach((armorItem) => {
-            if (false === stateAlgorithmParams.usingFactor['armor:rare:' + armorItem.rare]) {
+            if (false === _algorithmParams.usingFactor['armor:rare:' + armorItem.rare]) {
                 return
             }
 
@@ -103,8 +91,8 @@ export default function ArmorFactors (props) {
 
                         <div className="col-12 mhc-content">
                             {seriesIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((seriesId) => {
-                                let isInclude = Helper.isNotEmpty(stateAlgorithmParams.usingFactor['armor:series:' + seriesId])
-                                    ? stateAlgorithmParams.usingFactor['armor:series:' + seriesId] : true
+                                let isInclude = Helper.isNotEmpty(_algorithmParams.usingFactor['armor:series:' + seriesId])
+                                    ? _algorithmParams.usingFactor['armor:series:' + seriesId] : true
 
                                 return (
                                     <div key={seriesId} className="col-6 mhc-value">
@@ -137,7 +125,7 @@ export default function ArmorFactors (props) {
     }, [
         segment,
         byRequiredConditions,
-        stateAlgorithmParams,
-        stateRequiredConditions
+        _algorithmParams,
+        _requiredConditions
     ])
 }

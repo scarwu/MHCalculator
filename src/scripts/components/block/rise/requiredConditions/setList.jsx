@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -65,24 +65,13 @@ export default function SetList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> SetList')
 
         const showModal = () => {
-            States.rise.actions.showModal('setSelector', {
+            States.common.actions.showModal('setSelector', {
                 target: 'requiredConditions'
             })
         }
@@ -92,7 +81,7 @@ export default function SetList (props) {
                 <div className="col-12 mhc-name">
                     <span>{_('set')}</span>
                     <div className="mhc-icons_bundle">
-                        {(0 === stateRequiredConditions.sets.length) ? (
+                        {(0 === _requiredConditions.sets.length) ? (
                             <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                         ) : (
                             <IconButton iconName = "exchange" altName={ _('change') } onClick = { showModal } />
@@ -100,12 +89,12 @@ export default function SetList (props) {
                     </div>
                 </div>
 
-                {stateRequiredConditions.sets.map((setData) => {
+                {_requiredConditions.sets.map((setData) => {
                     return renderSetItem(setData)
                 })}
              </div>
         )
     }, [
-        stateRequiredConditions
+        _requiredConditions
     ])
 }

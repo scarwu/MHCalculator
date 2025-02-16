@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -35,20 +35,8 @@ export default function JewelFactors(props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.world.getters.getAlgorithmParams())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.world.getters.getAlgorithmParams())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.world.hooks.useAlgorithmParams()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> JewelFactors')
@@ -56,10 +44,10 @@ export default function JewelFactors(props) {
         let jewelSizeMapping = {}
         let skillLevelMapping = {}
         let dataset = JewelDataset
-        let jewelFactor = stateAlgorithmParams.usingFactor.jewel
+        let jewelFactor = _algorithmParams.usingFactor.jewel
 
         if (true === byRequiredConditions) {
-            const skillIds = stateRequiredSkills.map((skill) => {
+            const skillIds = _requiredSkills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
@@ -186,5 +174,5 @@ export default function JewelFactors(props) {
 
             return blocks
         })
-    }, [segment, byRequiredConditions, stateAlgorithmParams, stateRequiredSkills])
+    }, [segment, byRequiredConditions, _algorithmParams, _requiredSkills])
 }

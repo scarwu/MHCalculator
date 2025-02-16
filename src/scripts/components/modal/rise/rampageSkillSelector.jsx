@@ -23,24 +23,26 @@ import IconInput from '@/scripts/components/ui/iconInput'
 // Load States
 import States from '@/scripts/states'
 
+const targetModalKey = 'rampageSkillSelector'
+
 /**
  * Handle Functions
  */
-const handleItemPickUp = (itemId, tempData) => {
-    if ('playerEquips' === tempData.target) {
-        States.rise.actions.setPlayerEquipRampageSkill('weapon', tempData.idIndex, itemId)
+const handleItemPickUp = (itemId, dataStore) => {
+    if ('playerEquips' === dataStore.target) {
+        States.rise.actions.setPlayerEquipRampageSkill('weapon', dataStore.idIndex, itemId)
     }
 }
 
 /**
  * Render Functions
  */
-const renderRampageSkillItem = (rampageSkillItem, tempData) => {
+const renderRampageSkillItem = (rampageSkillItem, dataStore) => {
     let classNames = [
         'mhc-item'
     ]
 
-    if (Helper.isEmpty(tempData.target) || rampageSkillItem.id !== tempData.id) {
+    if (Helper.isEmpty(dataStore.target) || rampageSkillItem.id !== dataStore.id) {
         classNames.push('mhc-item-2-step')
     } else {
         classNames.push('mhc-item-3-step')
@@ -52,18 +54,18 @@ const renderRampageSkillItem = (rampageSkillItem, tempData) => {
                 <span>{_(rampageSkillItem.name)}</span>
 
                 <div className="mhc-icons_bundle">
-                    {Helper.isNotEmpty(tempData.target) ? (
-                        (rampageSkillItem.id !== tempData.id) ? (
+                    {Helper.isNotEmpty(dataStore.target) ? (
+                        (rampageSkillItem.id !== dataStore.id) ? (
                             <IconButton
                                 iconName="check" altName={_('select')}
                                 onClick={() => {
-                                    handleItemPickUp(rampageSkillItem.id, tempData)
+                                    handleItemPickUp(rampageSkillItem.id, dataStore)
                                 }} />
                         ) : (
                             <IconButton
                                 iconName="times" altName={_('remove')}
                                 onClick={() => {
-                                    handleItemPickUp(null, tempData)
+                                    handleItemPickUp(null, dataStore)
                                 }} />
                         )
                     ) : false}
@@ -81,30 +83,18 @@ export default function RampageSkillSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('rampageSkillSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _playerEquips = States.rise.hooks.usePlayerEquips()
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
 
-    const refModal = useRef()
-    const refSearch = useRef()
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateModalData(States.rise.getters.getModalData('rampageSkillSelector'))
-            updatePlayerEquips(States.rise.getters.getPlayerEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refModal = useRef(null)
+    const refSearch = useRef(null)
 
     // Initialize
     useEffect(() => {
-        if (Helper.isEmpty(stateModalData)) {
+        if (Helper.isEmpty(_modalData)) {
             updateTempData(null)
 
             window.removeEventListener('keydown', handleSearchFocus)
@@ -112,33 +102,33 @@ export default function RampageSkillSelectorModal (props) {
             return
         }
 
-        let tempData = Helper.deepCopy(stateModalData)
+        let dataStore = Helper.deepCopy(_modalData)
 
         // Set Id
-        tempData.id = null
+        dataStore.id = null
 
-        if (Helper.isNotEmpty(tempData.target)) {
-            let equipType = tempData.equipType
-            let idIndex = tempData.idIndex
+        if (Helper.isNotEmpty(dataStore.target)) {
+            let equipType = dataStore.equipType
+            let idIndex = dataStore.idIndex
 
-            if ('playerEquips' === tempData.target
-                && Helper.isNotEmpty(statePlayerEquips.weapon)
-                && Helper.isNotEmpty(statePlayerEquips.weapon.rampageSkillIds)
-                && Helper.isNotEmpty(statePlayerEquips.weapon.rampageSkillIds[idIndex])
+            if ('playerEquips' === dataStore.target
+                && Helper.isNotEmpty(_playerEquips.weapon)
+                && Helper.isNotEmpty(_playerEquips.weapon.rampageSkillIds)
+                && Helper.isNotEmpty(_playerEquips.weapon.rampageSkillIds[idIndex])
             ) {
-                tempData.id = statePlayerEquips.weapon.rampageSkillIds[idIndex]
+                dataStore.id = _playerEquips.weapon.rampageSkillIds[idIndex]
             }
         }
 
         // Set List
-        tempData.list = RampageSkillDataset.getList()
+        dataStore.list = RampageSkillDataset.getList()
 
         window.addEventListener('keydown', handleSearchFocus)
 
-        updateTempData(tempData)
+        updateTempData(dataStore)
     }, [
-        stateModalData,
-        statePlayerEquips
+        _modalData,
+        _playerEquips
     ])
 
     /**
@@ -149,7 +139,7 @@ export default function RampageSkillSelectorModal (props) {
             return
         }
 
-        States.rise.actions.hideModal('rampageSkillSelector')
+        States.common.actions.showModal(targetModalKey)
 
         updateFilter({})
     }, [])
@@ -218,7 +208,7 @@ export default function RampageSkillSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.actions.hideModal('rampageSkillSelector')
+                                States.common.actions.showModal(targetModalKey)
                             }} />
                     </div>
                 </div>

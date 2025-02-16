@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useCallback, useRef, createRef } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef, createRef } from 'react'
 import MD5 from 'md5'
 
 // Load Constant
@@ -29,36 +29,33 @@ import BasicInput from '@/scripts/components/ui/basicInput'
 // Load State Control
 import States from '@/scripts/states'
 
+const targetModalKey = 'bundleItemSelector'
+
 export default function BundleItemSelector(props) {
 
     /**
      * Hooks
      */
-    const [stateIsShow, updateIsShow] = useState(States.world.getters.isShowBundleItemSelector())
-    const [stateReservedBundles, updateReservedBundles] = useState(States.world.getters.getReservedBundles())
-    const [stateCurrentEquips, updateCurrentEquips] = useState(States.world.getters.getCurrentEquips())
-    const refModal = useRef()
-    const refName = useRef()
-    const refNameList = useRef(stateReservedBundles.map(() => createRef()))
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _reservedBundles = States.world.hooks.useReservedBundles()
+    const _currentEquips = States.world.hooks.useCurrentEquips()
 
-    // Like Did Mount & Will Unmount Cycle
+    const refModal = useRef(null)
+    const refName = useRef(null)
+    const refNameList = useRef(_reservedBundles.map(() => createRef()))
+
+    // Initialize
     useEffect(() => {
-        const unsubscribeCommon = States.store.subscribe(() => {
-            updateReservedBundles(States.world.getters.getReservedBundles())
-            updateCurrentEquips(States.world.getters.getCurrentEquips())
-
-            refNameList.current = States.world.getters.getReservedBundles().map(() => createRef())
-        })
-
-        const unsubscribeModal = States.store.subscribe(() => {
-            updateIsShow(States.world.getters.isShowBundleItemSelector())
-        })
-
-        return () => {
-            unsubscribeCommon()
-            unsubscribeModal()
+        if (Helper.isNotEmpty(_modalData)) {
+            // pass
+        } else {
+            // pass
         }
-    }, [])
+    }, [_modalData])
+
+    useEffect(() => {
+        refNameList.current = _reservedBundles.map(() => createRef())
+    }, [ _reservedBundles ])
 
     /**
      * Handle Functions
@@ -68,7 +65,7 @@ export default function BundleItemSelector(props) {
             return
         }
 
-        States.world.actions.hideBundleItemSelector()
+        States.common.actions.hideModal(targetModalKey)
     }, [])
 
     const handleBundleSave = useCallback((index) => {
@@ -85,50 +82,50 @@ export default function BundleItemSelector(props) {
         } else {
             let customWeapon = null
 
-            if (Helper.isNotEmpty(stateCurrentEquips.weapon)
-                && 'customWeapon' === stateCurrentEquips.weapon.id
+            if (Helper.isNotEmpty(_currentEquips.weapon)
+                && 'customWeapon' === _currentEquips.weapon.id
             ) {
-                customWeapon = States.world.getters.getCustomWeapon()
+                customWeapon = States.world.getters.customWeapon()
             }
 
             States.world.actions.addReservedBundle({
-                id: MD5(JSON.stringify(stateCurrentEquips)),
+                id: MD5(JSON.stringify(_currentEquips)),
                 name: name,
-                equips: stateCurrentEquips,
+                equips: _currentEquips,
                 customWeapon: customWeapon
             })
         }
-    }, [stateCurrentEquips])
+    }, [_currentEquips])
 
     const handleBundlePickUp = useCallback((index) => {
-        if (Helper.isNotEmpty(stateReservedBundles[index].customWeapon)) {
-            States.world.actions.replaceCustomWeapon(stateReservedBundles[index].customWeapon)
+        if (Helper.isNotEmpty(_reservedBundles[index].customWeapon)) {
+            States.world.actions.replaceCustomWeapon(_reservedBundles[index].customWeapon)
         }
 
-        States.world.actions.replaceCurrentEquips(stateReservedBundles[index].equips)
+        States.world.actions.replaceCurrentEquips(_reservedBundles[index].equips)
 
-        States.world.actions.hideBundleItemSelector()
-    }, [stateReservedBundles])
+        States.common.actions.hideModal(targetModalKey)
+    }, [_reservedBundles])
 
     /**
      * Render Functions
      */
     let renderDefaultItem = () => {
-        if (Helper.isEmpty(stateCurrentEquips.weapon.id)
-            && Helper.isEmpty(stateCurrentEquips.helm.id)
-            && Helper.isEmpty(stateCurrentEquips.chest.id)
-            && Helper.isEmpty(stateCurrentEquips.arm.id)
-            && Helper.isEmpty(stateCurrentEquips.waist.id)
-            && Helper.isEmpty(stateCurrentEquips.leg.id)
-            && Helper.isEmpty(stateCurrentEquips.charm.id)
+        if (Helper.isEmpty(_currentEquips.weapon.id)
+            && Helper.isEmpty(_currentEquips.helm.id)
+            && Helper.isEmpty(_currentEquips.chest.id)
+            && Helper.isEmpty(_currentEquips.arm.id)
+            && Helper.isEmpty(_currentEquips.waist.id)
+            && Helper.isEmpty(_currentEquips.leg.id)
+            && Helper.isEmpty(_currentEquips.charm.id)
         ) {
             return false
         }
 
-        let bundleId = MD5(JSON.stringify(stateCurrentEquips))
+        let bundleId = MD5(JSON.stringify(_currentEquips))
 
-        for (let index in stateReservedBundles) {
-            if (bundleId === stateReservedBundles[index].id) {
+        for (let index in _reservedBundles) {
+            if (bundleId === _reservedBundles[index].id) {
                 return false
             }
         }
@@ -146,16 +143,16 @@ export default function BundleItemSelector(props) {
                 </div>
 
                 <div className="col-12 mhc-content">
-                    {Object.keys(stateCurrentEquips).map((equipType, index) => {
-                        if (Helper.isEmpty(stateCurrentEquips[equipType])) {
+                    {Object.keys(_currentEquips).map((equipType, index) => {
+                        if (Helper.isEmpty(_currentEquips[equipType])) {
                             return false
                         }
 
                         let equipInfo = null
 
                         if ('weapon' === equipType) {
-                            if ('customWeapon' === stateCurrentEquips[equipType].id) {
-                                equipInfo = States.world.getters.getCustomWeapon()
+                            if ('customWeapon' === _currentEquips[equipType].id) {
+                                equipInfo = States.world.getters.customWeapon()
 
                                 return Helper.isNotEmpty(equipInfo) ? (
                                     <div key={equipType} className="col-6 mhc-value">
@@ -164,16 +161,16 @@ export default function BundleItemSelector(props) {
                                 ) : false
                             }
 
-                            equipInfo = WeaponDataset.getInfo(stateCurrentEquips[equipType].id)
+                            equipInfo = WeaponDataset.getInfo(_currentEquips[equipType].id)
                         } else if ('helm' === equipType
                             || 'chest' === equipType
                             || 'arm' === equipType
                             || 'waist' === equipType
                             || 'leg' === equipType
                         ) {
-                            equipInfo = ArmorDataset.getInfo(stateCurrentEquips[equipType].id)
+                            equipInfo = ArmorDataset.getInfo(_currentEquips[equipType].id)
                         } else if ('charm' === equipType) {
-                            equipInfo = CharmDataset.getInfo(stateCurrentEquips[equipType].id)
+                            equipInfo = CharmDataset.getInfo(_currentEquips[equipType].id)
                         }
 
                         return Helper.isNotEmpty(equipInfo) ? (
@@ -248,22 +245,22 @@ export default function BundleItemSelector(props) {
         )
     }
 
-    return stateIsShow ? (
+    return Helper.isNotEmpty(_modalData) ? (
         <div className="mhc-selector" ref={refModal} onClick={handleFastWindowClose}>
             <div className="mhc-modal">
                 <div className="mhc-panel">
                     <span className="mhc-title">{_('bundleList')}</span>
 
-                    <div className="mhc-icons_bundle">
+                    <div className="mhc-icons_bundle-right">
                         <IconButton
                             iconName="times" altName={_('close')}
-                            onClick={States.world.actions.hideBundleItemSelector} />
+                            onClick={() => { States.common.actions.hideModal(targetModalKey) }} />
                     </div>
                 </div>
                 <div className="mhc-list">
                     <div className="mhc-wrapper">
                         {renderDefaultItem()}
-                        {stateReservedBundles.map(renderItem)}
+                        {_reservedBundles.map(renderItem)}
                     </div>
                 </div>
             </div>

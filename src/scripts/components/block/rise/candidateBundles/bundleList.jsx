@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Constant
 import Constant from '@/scripts/constant'
@@ -35,7 +35,7 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleBundlePickUp = (bundle, requiredConditions) => {
-    let playerEquips = Helper.deepCopy(States.rise.getters.getPlayerEquips())
+    let playerEquips = Helper.deepCopy(States.rise.getters.playerEquips())
     let slotMetaMap = {
         1: [],
         2: [],
@@ -130,43 +130,31 @@ export default function BundleList (props) {
     /**
      * Hooks
      */
-    const [stateCandidateBundles, updateCandidateBundles] = useState(States.rise.getters.getCandidateBundles())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateCandidateBundles(States.rise.getters.getCandidateBundles())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _candidateBundles = States.rise.hooks.useCandidateBundles()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     /**
      * Handle Functions
      */
     const handleDecorationPackageChange = useCallback((bundleIndex, packageIndex) => {
-        let computedResult = Helper.deepCopy(stateCandidateBundles)
+        let computedResult = Helper.deepCopy(_candidateBundles)
 
         computedResult.list[bundleIndex].decorationPackageIndex = packageIndex
 
         States.rise.actions.saveCandidateBundles(computedResult)
-    }, [stateCandidateBundles])
+    }, [_candidateBundles])
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> BundleList')
 
-        if (Helper.isEmpty(stateCandidateBundles)
-            || Helper.isEmpty(stateCandidateBundles.requiredConditions)
-            || Helper.isEmpty(stateCandidateBundles.list)
+        if (Helper.isEmpty(_candidateBundles)
+            || Helper.isEmpty(_candidateBundles.requiredConditions)
+            || Helper.isEmpty(_candidateBundles.list)
         ) {
             return false
         }
 
-        if (0 === stateCandidateBundles.list.length) {
+        if (0 === _candidateBundles.list.length) {
             return (
                 <div className="mhc-item mhc-item-3-step">
                     <div className="col-12 mhc-name">
@@ -176,21 +164,21 @@ export default function BundleList (props) {
             )
         }
 
-        let bundleList = stateCandidateBundles.list
-        let bundleRequiredConditions = stateCandidateBundles.requiredConditions
+        let bundleList = _candidateBundles.list
+        let bundleRequiredConditions = _candidateBundles.requiredConditions
 
         // Required Ids
-        const requiredEquipIds = Object.keys(stateRequiredConditions.equips).map((equipType) => {
-            if (Helper.isEmpty(stateRequiredConditions.equips[equipType])) {
+        const requiredEquipIds = Object.keys(_requiredConditions.equips).map((equipType) => {
+            if (Helper.isEmpty(_requiredConditions.equips[equipType])) {
                 return false
             }
 
-            return stateRequiredConditions.equips[equipType].id
+            return _requiredConditions.equips[equipType].id
         })
-        const requiredSetIds = stateRequiredConditions.sets.map((set) => {
+        const requiredSetIds = _requiredConditions.sets.map((set) => {
             return set.id
         })
-        const requiredSkillIds = stateRequiredConditions.skills.map((skill) => {
+        const requiredSkillIds = _requiredConditions.skills.map((skill) => {
             return skill.id
         })
 
@@ -347,7 +335,7 @@ export default function BundleList (props) {
                         </div>
                         <div className="col-12 mhc-content">
                             {bundleEquipList.map((bundleEquipData) => {
-                                let requiredEquipData = stateRequiredConditions.equips[bundleEquipData.type]
+                                let requiredEquipData = _requiredConditions.equips[bundleEquipData.type]
 
                                 // Can Add to Required Contditions
                                 let isNotRequire = false
@@ -503,7 +491,7 @@ export default function BundleList (props) {
             )
         })
     }, [
-        stateCandidateBundles,
-        stateRequiredConditions
+        _candidateBundles,
+        _requiredConditions
     ])
 }

@@ -221,23 +221,11 @@ export default function CustomWeapon (props) {
     /**
      * Hooks
      */
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
+    const _playerEquips = States.rise.hooks.usePlayerEquips()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     const [stateMajorData, updateMajorData] = useState(null)
     const [stateMinorData, updateMinorData] = useState(null)
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updatePlayerEquips(States.rise.getters.getPlayerEquips())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
 
     // Initialize
     useEffect(() => {
@@ -245,12 +233,12 @@ export default function CustomWeapon (props) {
         let minorData = null
 
         if ('playerEquips' === target) {
-            majorData = Helper.deepCopy(statePlayerEquips.weapon)
-            minorData = Helper.deepCopy(stateRequiredConditions.equips.weapon)
+            majorData = Helper.deepCopy(_playerEquips.weapon)
+            minorData = Helper.deepCopy(_requiredConditions.equips.weapon)
         }
 
         if ('requiredConditions' === target) {
-            majorData = Helper.deepCopy(stateRequiredConditions.equips.weapon)
+            majorData = Helper.deepCopy(_requiredConditions.equips.weapon)
         }
 
         // Set Target
@@ -260,8 +248,8 @@ export default function CustomWeapon (props) {
         updateMinorData(minorData)
     }, [
         target,
-        statePlayerEquips,
-        stateRequiredConditions
+        _playerEquips,
+        _requiredConditions
     ])
 
     return useMemo(() => {

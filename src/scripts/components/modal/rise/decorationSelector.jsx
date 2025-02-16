@@ -24,24 +24,26 @@ import IconInput from '@/scripts/components/ui/iconInput'
 // Load States
 import States from '@/scripts/states'
 
+const targetModalKey = 'decorationSelector'
+
 /**
  * Handle Functions
  */
-const handleItemPickUp = (itemId, tempData) => {
-    if ('playerEquips' === tempData.target) {
-        States.rise.actions.setPlayerEquipDecoration(tempData.equipType, tempData.idIndex, itemId)
+const handleItemPickUp = (itemId, dataStore) => {
+    if ('playerEquips' === dataStore.target) {
+        States.rise.actions.setPlayerEquipDecoration(dataStore.equipType, dataStore.idIndex, itemId)
     }
 }
 
 /**
  * Render Functions
  */
-const renderDecorationItem = (decorationItem, tempData) => {
+const renderDecorationItem = (decorationItem, dataStore) => {
     let classNames = [
         'mhc-item'
     ]
 
-    if (Helper.isEmpty(tempData.target) || decorationItem.id !== tempData.id) {
+    if (Helper.isEmpty(dataStore.target) || decorationItem.id !== dataStore.id) {
         classNames.push('mhc-item-2-step')
     } else {
         classNames.push('mhc-item-3-step')
@@ -53,18 +55,18 @@ const renderDecorationItem = (decorationItem, tempData) => {
                 <span>[{decorationItem.size}] {_(decorationItem.name)}</span>
 
                 <div className="mhc-icons_bundle">
-                    {Helper.isNotEmpty(tempData.target) ? (
-                        (decorationItem.id !== tempData.id) ? (
+                    {Helper.isNotEmpty(dataStore.target) ? (
+                        (decorationItem.id !== dataStore.id) ? (
                             <IconButton
                                 iconName="check" altName={_('select')}
                                 onClick={() => {
-                                    handleItemPickUp(decorationItem.id, tempData)
+                                    handleItemPickUp(decorationItem.id, dataStore)
                                 }} />
                         ) : (
                             <IconButton
                                 iconName="times" altName={_('remove')}
                                 onClick={() => {
-                                    handleItemPickUp(null, tempData)
+                                    handleItemPickUp(null, dataStore)
                                 }} />
                         )
                     ) : false}
@@ -95,30 +97,18 @@ export default function DecorationSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('decorationSelector'))
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _playerEquips = States.rise.hooks.usePlayerEquips()
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
 
-    const refModal = useRef()
-    const refSearch = useRef()
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateModalData(States.rise.getters.getModalData('decorationSelector'))
-            updatePlayerEquips(States.rise.getters.getPlayerEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refModal = useRef(null)
+    const refSearch = useRef(null)
 
     // Initialize
     useEffect(() => {
-        if (Helper.isEmpty(stateModalData)) {
+        if (Helper.isEmpty(_modalData)) {
             updateTempData(null)
 
             window.removeEventListener('keydown', handleSearchFocus)
@@ -126,44 +116,44 @@ export default function DecorationSelectorModal (props) {
             return
         }
 
-        let tempData = Helper.deepCopy(stateModalData)
+        let dataStore = Helper.deepCopy(_modalData)
 
         // Set Id
-        tempData.id = null
+        dataStore.id = null
 
-        if (Helper.isNotEmpty(tempData.target)) {
-            let equipType = tempData.equipType
-            let idIndex = tempData.idIndex
+        if (Helper.isNotEmpty(dataStore.target)) {
+            let equipType = dataStore.equipType
+            let idIndex = dataStore.idIndex
 
-            if ('playerEquips' === tempData.target
-                && Helper.isNotEmpty(statePlayerEquips[equipType])
-                && Helper.isNotEmpty(statePlayerEquips[equipType].decorationIds)
-                && Helper.isNotEmpty(statePlayerEquips[equipType].decorationIds[idIndex])
+            if ('playerEquips' === dataStore.target
+                && Helper.isNotEmpty(_playerEquips[equipType])
+                && Helper.isNotEmpty(_playerEquips[equipType].decorationIds)
+                && Helper.isNotEmpty(_playerEquips[equipType].decorationIds[idIndex])
             ) {
-                tempData.id = statePlayerEquips[equipType].decorationIds[idIndex]
+                dataStore.id = _playerEquips[equipType].decorationIds[idIndex]
             }
         }
 
         // Set Size
-        if (Helper.isEmpty(tempData.size)) {
-            tempData.size = 3
+        if (Helper.isEmpty(dataStore.size)) {
+            dataStore.size = 3
         }
 
         // Set List
-        tempData.list = []
+        dataStore.list = []
 
-        for (let size = tempData.size; size >= 1; size--) {
+        for (let size = dataStore.size; size >= 1; size--) {
             for (let rare = 9; rare >= 1; rare--) {
-                tempData.list = tempData.list.concat(DecorationDataset.rareIs(rare).sizeIs(size).getList())
+                dataStore.list = dataStore.list.concat(DecorationDataset.rareIs(rare).sizeIs(size).getList())
             }
         }
 
         window.addEventListener('keydown', handleSearchFocus)
 
-        updateTempData(tempData)
+        updateTempData(dataStore)
     }, [
-        stateModalData,
-        statePlayerEquips
+        _modalData,
+        _playerEquips
     ])
 
     /**
@@ -174,7 +164,7 @@ export default function DecorationSelectorModal (props) {
             return
         }
 
-        States.rise.actions.hideModal('decorationSelector')
+        States.common.actions.showModal(targetModalKey)
 
         updateFilter({})
     }, [])
@@ -251,7 +241,7 @@ export default function DecorationSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.actions.hideModal('decorationSelector')
+                                States.common.actions.showModal(targetModalKey)
                             }} />
                     </div>
                 </div>

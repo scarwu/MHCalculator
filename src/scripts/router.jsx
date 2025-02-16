@@ -14,11 +14,11 @@ export default function Router () {
         <Suspense fallback={<div></div>}>
             <Routes>
                 <Route path="/" element={<App />}>
-                    <Route index element={<WorldPage />} />
+                    <Route index element={<WildsPage />} />
 
-                    <Route path="wilds" element={<WildsPage />} />
-                    <Route path="rise" element={<RisePage />} />
-                    <Route path="world" element={<WorldPage />} />
+                    <Route path=":lang/wilds" element={<WildsPage />} />
+                    <Route path=":lang/rise" element={<RisePage />} />
+                    <Route path=":lang/world" element={<WorldPage />} />
 
                     <Route path="404" element={<NotFoundPage />} />
                     <Route path="*" element={<NotFoundPage />} />

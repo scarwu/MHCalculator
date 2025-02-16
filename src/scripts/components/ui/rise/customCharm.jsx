@@ -85,7 +85,7 @@ const renderDecorationOption = (target, equipType, slotIndex, slotSize, decorati
     let decorationItem = DecorationDataset.getItem(decorationId)
 
     const showModal = () => {
-        States.rise.actions.showModal('decorationSelector', {
+        States.common.actions.showModal('decorationSelector', {
             target: target,
             equipType: equipType,
             idIndex: slotIndex,
@@ -127,23 +127,11 @@ export default function CustomCharm (props) {
     /**
      * Hooks
      */
-    const [statePlayerEquips, updatePlayerEquips] = useState(States.rise.getters.getPlayerEquips())
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
+    const _playerEquips = States.rise.hooks.usePlayerEquips()
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     const [stateMajorData, updateMajorData] = useState(null)
     const [stateMinorData, updateMinorData] = useState(null)
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updatePlayerEquips(States.rise.getters.getPlayerEquips())
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
 
     // Initialize
     useEffect(() => {
@@ -151,12 +139,12 @@ export default function CustomCharm (props) {
         let minorData = null
 
         if ('playerEquips' === target) {
-            majorData = Helper.deepCopy(statePlayerEquips.charm)
-            minorData = Helper.deepCopy(stateRequiredConditions.equips.charm)
+            majorData = Helper.deepCopy(_playerEquips.charm)
+            minorData = Helper.deepCopy(_requiredConditions.equips.charm)
         }
 
         if ('requiredConditions' === target) {
-            majorData = Helper.deepCopy(stateRequiredConditions.equips.charm)
+            majorData = Helper.deepCopy(_requiredConditions.equips.charm)
         }
 
         // Set Target
@@ -166,8 +154,8 @@ export default function CustomCharm (props) {
         updateMinorData(minorData)
     }, [
         target,
-        statePlayerEquips,
-        stateRequiredConditions
+        _playerEquips,
+        _requiredConditions
     ])
 
     return useMemo(() => {

@@ -23,11 +23,13 @@ import IconInput from '@/scripts/components/ui/iconInput'
 // Load States
 import States from '@/scripts/states'
 
+const targetModalKey = 'skillSelector'
+
 /**
  * Handle Functions
  */
-const handleItemPickUp = (itemId, action, tempData) => {
-    if ('requiredConditions' === tempData.target) {
+const handleItemPickUp = (itemId, action, dataStore) => {
+    if ('requiredConditions' === dataStore.target) {
         if ('add' === action) {
             States.rise.actions.addRequiredConditionsSkill(itemId)
         }
@@ -41,12 +43,12 @@ const handleItemPickUp = (itemId, action, tempData) => {
 /**
  * Render Functions
  */
-const renderSkillItem = (skillItem, tempData) => {
+const renderSkillItem = (skillItem, dataStore) => {
     let classNames = [
         'mhc-item'
     ]
 
-    if (-1 === tempData.ids.indexOf(skillItem.id)) {
+    if (-1 === dataStore.ids.indexOf(skillItem.id)) {
         classNames.push('mhc-item-2-step')
     } else {
         classNames.push('mhc-item-3-step')
@@ -58,18 +60,18 @@ const renderSkillItem = (skillItem, tempData) => {
                 <span>{_(skillItem.name)}</span>
 
                 <div className="mhc-icons_bundle">
-                    {Helper.isNotEmpty(tempData.target) ? (
-                        (-1 === tempData.ids.indexOf(skillItem.id)) ? (
+                    {Helper.isNotEmpty(dataStore.target) ? (
+                        (-1 === dataStore.ids.indexOf(skillItem.id)) ? (
                             <IconButton
                                 iconName="plus" altName={_('add')}
                                 onClick={() => {
-                                    handleItemPickUp(skillItem.id, 'add', tempData)
+                                    handleItemPickUp(skillItem.id, 'add', dataStore)
                                 }} />
                         ) : (
                             <IconButton
                                 iconName="minus" altName={_('remove')}
                                 onClick={() => {
-                                    handleItemPickUp(skillItem.id, 'remove', tempData)
+                                    handleItemPickUp(skillItem.id, 'remove', dataStore)
                                 }} />
                         )
                     ) : false}
@@ -98,30 +100,18 @@ export default function SkillSelectorModal (props) {
     /**
      * Hooks
      */
-    const [stateModalData, updateModalData] = useState(States.rise.getters.getModalData('skillSelector'))
-    const [stateRequiredConditions, updateRequiredConditions] = useState(States.rise.getters.getRequiredConditions())
+    const _modalData = States.common.hooks.useModalData(targetModalKey)
+    const _requiredConditions = States.rise.hooks.useRequiredConditions()
 
     const [stateTempData, updateTempData] = useState(null)
     const [stateFilter, updateFilter] = useState({})
 
-    const refModal = useRef()
-    const refSearch = useRef()
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateModalData(States.rise.getters.getModalData('skillSelector'))
-            updateRequiredConditions(States.rise.getters.getRequiredConditions())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const refModal = useRef(null)
+    const refSearch = useRef(null)
 
     // Initialize
     useEffect(() => {
-        if (Helper.isEmpty(stateModalData)) {
+        if (Helper.isEmpty(_modalData)) {
             updateTempData(null)
 
             window.removeEventListener('keydown', handleSearchFocus)
@@ -129,28 +119,28 @@ export default function SkillSelectorModal (props) {
             return
         }
 
-        let tempData = Helper.deepCopy(stateModalData)
+        let dataStore = Helper.deepCopy(_modalData)
 
         // Set Ids
-        tempData.ids = []
+        dataStore.ids = []
 
-        if (Helper.isNotEmpty(tempData.target)) {
-            if ('requiredConditions' === tempData.target) {
-                tempData.ids = stateRequiredConditions.skills.map((setData) => {
+        if (Helper.isNotEmpty(dataStore.target)) {
+            if ('requiredConditions' === dataStore.target) {
+                dataStore.ids = _requiredConditions.skills.map((setData) => {
                     return setData.id
                 })
             }
         }
 
         // Set List
-        tempData.list = SkillDataset.getList()
+        dataStore.list = SkillDataset.getList()
 
         window.addEventListener('keydown', handleSearchFocus)
 
-        updateTempData(tempData)
+        updateTempData(dataStore)
     }, [
-        stateModalData,
-        stateRequiredConditions
+        _modalData,
+        _requiredConditions
     ])
 
     /**
@@ -161,7 +151,7 @@ export default function SkillSelectorModal (props) {
             return
         }
 
-        States.rise.actions.hideModal('skillSelector')
+        States.common.actions.showModal(targetModalKey)
 
         updateFilter({})
     }, [])
@@ -234,7 +224,7 @@ export default function SkillSelectorModal (props) {
                         <IconButton
                             iconName="times" altName={_('close')}
                             onClick={() => {
-                                States.rise.actions.hideModal('skillSelector')
+                                States.common.actions.showModal(targetModalKey)
                             }} />
                     </div>
                 </div>

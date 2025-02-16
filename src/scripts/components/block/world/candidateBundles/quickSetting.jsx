@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -34,24 +34,10 @@ export default function QuickSetting(props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.world.getters.getAlgorithmParams())
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-    const [stateRequiredSets, updateRequiredSets] = useState(States.world.getters.getRequiredSets())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(States.world.getters.getRequiredSkills())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateAlgorithmParams(States.world.getters.getAlgorithmParams())
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-            updateRequiredSets(States.world.getters.getRequiredSets())
-            updateRequiredSkills(States.world.getters.getRequiredSkills())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _algorithmParams = States.world.hooks.useAlgorithmParams()
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredSkills = States.world.hooks.useRequiredSkills()
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> QuickFactorSetting')
@@ -61,24 +47,24 @@ export default function QuickSetting(props) {
         let jewelMapping = {}
         let skillLevelMapping = {}
 
-        const equipTypes = Object.keys(stateRequiredEquips).filter((equipType) => {
+        const equipTypes = Object.keys(_requiredEquips).filter((equipType) => {
             if ('weapon' === equipType || 'charm' === equipType) {
                 return false
             }
 
-            return Helper.isEmpty(stateRequiredEquips[equipType])
+            return Helper.isEmpty(_requiredEquips[equipType])
         })
-        const setIds = stateRequiredSets.map((set) => {
+        const setIds = _requiredSets.map((set) => {
             return set.id
         })
-        const skillIds = stateRequiredSkills.map((skill) => {
+        const skillIds = _requiredSkills.map((skill) => {
             skillLevelMapping[skill.id] = skill.level
 
             return skill.id
         })
 
         ArmorDataset.typesIs(equipTypes).setsIs(setIds).getItems().forEach((armorInfo) => {
-            if (false === stateAlgorithmParams.usingFactor.armor['rare' + armorInfo.rare]) {
+            if (false === _algorithmParams.usingFactor.armor['rare' + armorInfo.rare]) {
                 return
             }
 
@@ -110,7 +96,7 @@ export default function QuickSetting(props) {
         })
 
         ArmorDataset.typesIs(equipTypes).hasSkills(skillIds).getItems().forEach((armorInfo) => {
-            if (false === stateAlgorithmParams.usingFactor.armor['rare' + armorInfo.rare]) {
+            if (false === _algorithmParams.usingFactor.armor['rare' + armorInfo.rare]) {
                 return
             }
 
@@ -141,7 +127,7 @@ export default function QuickSetting(props) {
             }
         })
 
-        if (Helper.isEmpty(stateRequiredEquips.charm)) {
+        if (Helper.isEmpty(_requiredEquips.charm)) {
             CharmDataset.hasSkills(skillIds).getItems().forEach((charmInfo) => {
                 let isSkip = false
 
@@ -215,9 +201,9 @@ export default function QuickSetting(props) {
             })
         })
 
-        let armorFactor = stateAlgorithmParams.usingFactor.armor
-        let charmFactor = stateAlgorithmParams.usingFactor.charm
-        let jewelFactor = stateAlgorithmParams.usingFactor.jewel
+        let armorFactor = _algorithmParams.usingFactor.armor
+        let charmFactor = _algorithmParams.usingFactor.charm
+        let jewelFactor = _algorithmParams.usingFactor.jewel
 
         return (
             <div className="mhc-item mhc-item-3-step">
@@ -354,5 +340,5 @@ export default function QuickSetting(props) {
                 }) : false}
             </div>
         )
-    }, [data, stateAlgorithmParams, stateRequiredEquips, stateRequiredSets, stateRequiredSkills])
+    }, [data, _algorithmParams, _requiredEquips, _requiredSets, _requiredSkills])
 }

@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/Monster Hunter - Calculator
  */
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
 // Load Core
 import _ from '@/scripts/core/lang'
@@ -95,23 +95,12 @@ export default function EquipList (props) {
     /**
      * Hooks
      */
-    const [stateRequiredEquips, updateRequiredEquips] = useState(States.world.getters.getRequiredEquips())
-
-    // Like Did Mount & Will Unmount Cycle
-    useEffect(() => {
-        const unsubscribe = States.store.subscribe(() => {
-            updateRequiredEquips(States.world.getters.getRequiredEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    const _requiredEquips = States.world.hooks.useRequiredEquips()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> EquipList')
 
-        if (Helper.isEmpty(stateRequiredEquips)) {
+        if (Helper.isEmpty(_requiredEquips)) {
             return false
         }
 
@@ -121,10 +110,10 @@ export default function EquipList (props) {
                     <span>{_('equip')}</span>
                 </div>
 
-                {Object.keys(stateRequiredEquips).map((equipType) => {
-                    return renderEquipItem(equipType, stateRequiredEquips[equipType])
+                {Object.keys(_requiredEquips).map((equipType) => {
+                    return renderEquipItem(equipType, _requiredEquips[equipType])
                 })}
             </div>
         )
-    }, [stateRequiredEquips])
+    }, [_requiredEquips])
 }
