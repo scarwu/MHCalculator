@@ -20,7 +20,7 @@ import Helper from '@/scripts/core/helper'
 import WeaponDataset from '@/scripts/libraries/world/dataset/weapon'
 import ArmorDataset from '@/scripts/libraries/world/dataset/armor'
 import CharmDataset from '@/scripts/libraries/world/dataset/charm'
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import EnhanceDataset from '@/scripts/libraries/world/dataset/enhance'
 import SetDataset from '@/scripts/libraries/world/dataset/set'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
@@ -43,12 +43,12 @@ const handleItemPickUp = (data, itemId) => {
     if (Helper.isNotEmpty(data.enhanceIndex)) {
         data.enhanceId = itemId
     } else if (Helper.isNotEmpty(data.slotIndex)) {
-        data.jewelId = itemId
+        data.decorationId = itemId
     } else {
         data.equipId = itemId
     }
 
-    States.world.actions.setCurrentEquip(data)
+    States.world.actions.setPlayerEquip(data)
     States.common.actions.hideModal(targetModalKey)
 }
 
@@ -323,22 +323,22 @@ const renderCharmItem = (charm, data) => {
     )
 }
 
-const renderJewelItem = (jewel, data) => {
+const renderDecorationItem = (decoration, data) => {
     return (
-        <div key={jewel.id} className="mhc-item mhc-item-2-step">
+        <div key={decoration.id} className="mhc-item mhc-item-2-step">
             <div className="col-12 mhc-name">
-                <span>[{jewel.size}] {_(jewel.name)}</span>
+                <span>[{decoration.size}] {_(decoration.name)}</span>
 
                 <div className="mhc-icons_bundle">
-                    {(false === jewel.isSelect) ? (
+                    {(false === decoration.isSelect) ? (
                         <IconButton
                             iconName="check" altName={_('select')}
-                            onClick={() => {handleItemPickUp(data, jewel.id)}} />
+                            onClick={() => {handleItemPickUp(data, decoration.id)}} />
                     ) : false}
                 </div>
             </div>
             <div className="col-12 mhc-content">
-                {jewel.skills.map((skill, index) => {
+                {decoration.skills.map((skill, index) => {
                     let skillInfo = SkillDataset.getInfo(skill.id)
 
                     return Helper.isNotEmpty(skillInfo) ? (
@@ -426,15 +426,15 @@ export default function EquipItemSelector(props) {
                 return enhanceInfo
             })
         } else if (Helper.isNotEmpty(_modalData.slotIndex)) {
-            mode = 'jewel'
+            mode = 'decoration'
 
             for (let size = _modalData.slotSize; size >= 1; size--) {
                 for (let rare = 9; rare >= 5; rare--) {
                     sortedList = sortedList.concat(
-                        JewelDataset.rareIs(rare).sizeIs(size).getItems().map((jewelInfo) => {
-                            jewelInfo.isSelect = (_modalData.jewelId === jewelInfo.id)
+                        DecorationDataset.rareIs(rare).sizeIs(size).getItems().map((decorationInfo) => {
+                            decorationInfo.isSelect = (_modalData.decorationId === decorationInfo.id)
 
-                            return jewelInfo
+                            return decorationInfo
                         })
                     )
                 }
@@ -659,7 +659,7 @@ export default function EquipItemSelector(props) {
             }).map((data) => {
                 return renderCharmItem(data, data)
             })
-        case 'jewel':
+        case 'decoration':
             return stateSortedList.filter((data) => {
 
                 // Create Text
@@ -684,7 +684,7 @@ export default function EquipItemSelector(props) {
             }).sort((dataA, dataB) => {
                 return _(dataA.id) > _(dataB.id) ? 1 : -1
             }).map((data) => {
-                return renderJewelItem(data, data)
+                return renderDecorationItem(data, data)
             })
         case 'enhance':
             return stateSortedList.filter((data) => {

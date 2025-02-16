@@ -13,20 +13,14 @@ import Status from '@/scripts/core/status'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import Misc from '@/scripts/libraries/rise/misc'
-import WeaponDataset from '@/scripts/libraries/rise/dataset/weapon'
-import ArmorDataset from '@/scripts/libraries/rise/dataset/armor'
 import SetDataset from '@/scripts/libraries/rise/dataset/set'
-import PetalaceDataset from '@/scripts/libraries/rise/dataset/petalace'
-import DecorationDataset from '@/scripts/libraries/rise/dataset/decoration'
-import RampageSkillDataset from '@/scripts/libraries/rise/dataset/rampageSkill'
 import SkillDataset from '@/scripts/libraries/rise/dataset/skill'
 
 const statusMapping = {
     dataStore:          'state:rise:dataStore',
-    requiredConditions: 'state:rise:requiredConditions',
     playerEquips:       'state:rise:playerEquips',
     playerStatus:       'state:rise:playerStatus',
+    requiredConditions: 'state:rise:requiredConditions',
     algorithmParams:    'state:rise:algorithmParams',
     candidateBundles:   'state:rise:candidateBundles'
 }
@@ -96,19 +90,6 @@ export default (state = initialState, action) => {
             newState[target] = oldData
 
             return Object.assign({}, state, newState)
-        })()
-
-    // Player Status
-    case 'TOGGLE_PLAYER_STATUS_USING_ITEM':
-        return (() => {
-            let playerStatus = Helper.deepCopy(state.playerStatus)
-            let flag = payload.flag
-
-            playerStatus.usingItem[flag] = !playerStatus.usingItem[flag]
-
-            return Object.assign({}, state, {
-                playerStatus: playerStatus
-            })
         })()
 
     // Player Equips
@@ -215,6 +196,19 @@ export default (state = initialState, action) => {
 
             return Object.assign({}, state, {
                 playerEquips: playerEquips
+            })
+        })()
+
+    // Player Status
+    case 'TOGGLE_PLAYER_STATUS_USING_ITEM':
+        return (() => {
+            let playerStatus = Helper.deepCopy(state.playerStatus)
+            let flag = payload.flag
+
+            playerStatus.usingItem[flag] = !playerStatus.usingItem[flag]
+
+            return Object.assign({}, state, {
+                playerStatus: playerStatus
             })
         })()
 

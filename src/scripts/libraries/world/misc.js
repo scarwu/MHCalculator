@@ -16,7 +16,7 @@ import Constant from '@/scripts/constant'
 import WeaponDataset from '@/scripts/libraries/world/dataset/weapon'
 import ArmorDataset from '@/scripts/libraries/world/dataset/armor'
 import CharmDataset from '@/scripts/libraries/world/dataset/charm'
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import EnhanceDataset from '@/scripts/libraries/world/dataset/enhance'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 
@@ -109,27 +109,27 @@ let getAppliedWeaponInfo = (extend) => {
     })
 
     info.slots && info.slots.forEach((data, index) => {
-        let jewelInfo = null
+        let decorationInfo = null
 
         if (Helper.isNotEmpty(extend.slotIds)
             && Helper.isNotEmpty(extend.slotIds[index])
         ) {
-            jewelInfo = JewelDataset.getInfo(extend.slotIds[index])
+            decorationInfo = DecorationDataset.getInfo(extend.slotIds[index])
         }
 
-        if (Helper.isEmpty(jewelInfo)) {
-            info.slots[index].jewel = {}
+        if (Helper.isEmpty(decorationInfo)) {
+            info.slots[index].decoration = {}
 
             return false
         }
 
         // Update Info
-        info.slots[index].jewel = {
-            id: jewelInfo.id,
-            size: jewelInfo.size
+        info.slots[index].decoration = {
+            id: decorationInfo.id,
+            size: decorationInfo.size
         }
 
-        jewelInfo.skills && jewelInfo.skills.forEach((data, index) => {
+        decorationInfo.skills && decorationInfo.skills.forEach((data, index) => {
             let skillId = data.id
 
             if (Helper.isEmpty(skillLevelMapping[skillId])) {
@@ -193,27 +193,27 @@ let getAppliedArmorInfo = (extend) => {
     })
 
     info.slots && info.slots.forEach((data, index) => {
-        let jewelInfo = null
+        let decorationInfo = null
 
         if (Helper.isNotEmpty(extend.slotIds)
             && Helper.isNotEmpty(extend.slotIds[index])
         ) {
-            jewelInfo = JewelDataset.getInfo(extend.slotIds[index])
+            decorationInfo = DecorationDataset.getInfo(extend.slotIds[index])
         }
 
-        if (Helper.isEmpty(jewelInfo)) {
-            info.slots[index].jewel = {}
+        if (Helper.isEmpty(decorationInfo)) {
+            info.slots[index].decoration = {}
 
             return false
         }
 
         // Update Info
-        info.slots[index].jewel = {
-            id: jewelInfo.id,
-            size: jewelInfo.size
+        info.slots[index].decoration = {
+            id: decorationInfo.id,
+            size: decorationInfo.size
         }
 
-        jewelInfo.skills && jewelInfo.skills.forEach((data, index) => {
+        decorationInfo.skills && decorationInfo.skills.forEach((data, index) => {
             let skillId = data.id
 
             if (Helper.isEmpty(skillLevelMapping[skillId])) {

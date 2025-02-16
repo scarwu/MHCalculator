@@ -29,12 +29,12 @@ export const useDataStore = () => {
     return value
 }
 
-export const useRequiredSets = () => {
-    const [value, setValue] = useState(getters.requiredSets())
+export const usePlayerEquips = () => {
+    const [value, setValue] = useState(getters.playerEquips())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.requiredSets())
+            setValue(getters.playerEquips())
         })
 
         return () => {
@@ -45,12 +45,12 @@ export const useRequiredSets = () => {
     return value
 }
 
-export const useRequiredSkills = () => {
-    const [value, setValue] = useState(getters.requiredSkills())
+export const usePlayerStatus = () => {
+    const [value, setValue] = useState(getters.playerStatus())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.requiredSkills())
+            setValue(getters.playerStatus())
         })
 
         return () => {
@@ -61,28 +61,12 @@ export const useRequiredSkills = () => {
     return value
 }
 
-export const useRequiredEquips = () => {
-    const [value, setValue] = useState(getters.requiredEquips())
+export const useRequiredConditions = () => {
+    const [value, setValue] = useState(getters.requiredConditions())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.requiredEquips())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
-    return value
-}
-
-export const useCurrentEquips = () => {
-    const [value, setValue] = useState(getters.currentEquips())
-
-    useEffect(() => {
-        const unsubscribe = store.subscribe(() => {
-            setValue(getters.currentEquips())
+            setValue(getters.requiredConditions())
         })
 
         return () => {
@@ -109,44 +93,12 @@ export const useAlgorithmParams = () => {
     return value
 }
 
-export const useComputedResult = () => {
-    const [value, setValue] = useState(getters.computedResult())
+export const useCandidateBundles = () => {
+    const [value, setValue] = useState(getters.candidateBundles())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.computedResult())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
-    return value
-}
-
-export const useReservedBundles = () => {
-    const [value, setValue] = useState(getters.reservedBundles())
-
-    useEffect(() => {
-        const unsubscribe = store.subscribe(() => {
-            setValue(getters.reservedBundles())
-        })
-
-        return () => {
-            unsubscribe()
-        }
-    }, [])
-
-    return value
-}
-
-export const useCustomWeapon = () => {
-    const [value, setValue] = useState(getters.customWeapon())
-
-    useEffect(() => {
-        const unsubscribe = store.subscribe(() => {
-            setValue(getters.customWeapon())
+            setValue(getters.candidateBundles())
         })
 
         return () => {

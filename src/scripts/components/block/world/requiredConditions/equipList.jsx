@@ -95,12 +95,12 @@ export default function EquipList (props) {
     /**
      * Hooks
      */
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> EquipList')
 
-        if (Helper.isEmpty(_requiredEquips)) {
+        if (Helper.isEmpty(_requiredConditions.equips)) {
             return false
         }
 
@@ -110,10 +110,10 @@ export default function EquipList (props) {
                     <span>{_('equip')}</span>
                 </div>
 
-                {Object.keys(_requiredEquips).map((equipType) => {
-                    return renderEquipItem(equipType, _requiredEquips[equipType])
+                {Object.keys(_requiredConditions.equips).map((equipType) => {
+                    return renderEquipItem(equipType, _requiredConditions.equips[equipType])
                 })}
             </div>
         )
-    }, [_requiredEquips])
+    }, [_requiredConditions])
 }

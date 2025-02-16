@@ -1,5 +1,5 @@
 /**
- * Algorithm Setting: Jewel Factors
+ * Algorithm Setting: Decoration Factors
  *
  * @package     Monster Hunter - Calculator
  * @author      Scar Wu
@@ -15,7 +15,7 @@ import Status from '@/scripts/core/status'
 import Helper from '@/scripts/core/helper'
 
 // Load Libraries
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 
 // Load Components
@@ -27,27 +27,27 @@ import States from '@/scripts/states'
 /**
  * Variables
  */
-const jewelSizeList = [ 1, 2, 3, 4 ]
+const decorationSizeList = [ 1, 2, 3, 4 ]
 
-export default function JewelFactors(props) {
+export default function DecorationFactors(props) {
     const {segment, byRequiredConditions} = props
 
     /**
      * Hooks
      */
     const _algorithmParams = States.world.hooks.useAlgorithmParams()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
-        Helper.debug('Component: AlgorithmSetting -> JewelFactors')
+        Helper.debug('Component: AlgorithmSetting -> DecorationFactors')
 
-        let jewelSizeMapping = {}
+        let decorationSizeMapping = {}
         let skillLevelMapping = {}
-        let dataset = JewelDataset
-        let jewelFactor = _algorithmParams.usingFactor.jewel
+        let dataset = DecorationDataset
+        let decorationFactor = _algorithmParams.usingFactor.decoration
 
         if (true === byRequiredConditions) {
-            const skillIds = _requiredSkills.map((skill) => {
+            const skillIds = _requiredConditions.skills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
@@ -56,8 +56,8 @@ export default function JewelFactors(props) {
             dataset = dataset.hasSkills(skillIds, true)
         }
 
-        dataset.getItems().filter((jewelInfo) => {
-            let text = _(jewelInfo.name)
+        dataset.getItems().filter((decorationInfo) => {
+            let text = _(decorationInfo.name)
 
             if (Helper.isNotEmpty(segment)
                 && -1 === text.toLowerCase().search(segment.toLowerCase())
@@ -66,15 +66,15 @@ export default function JewelFactors(props) {
             }
 
             return true
-        }).forEach((jewelInfo) => {
-            if (false === jewelFactor['size' + jewelInfo.size]) {
+        }).forEach((decorationInfo) => {
+            if (false === decorationFactor['size' + decorationInfo.size]) {
                 return false
             }
 
             if (true === byRequiredConditions) {
                 let isSkip = false
 
-                jewelInfo.skills.forEach((skill) => {
+                decorationInfo.skills.forEach((skill) => {
                     if (true === isSkip) {
                         return
                     }
@@ -91,56 +91,56 @@ export default function JewelFactors(props) {
                 }
             }
 
-            if (Helper.isEmpty(jewelSizeMapping[jewelInfo.size])) {
-                jewelSizeMapping[jewelInfo.size] = {}
+            if (Helper.isEmpty(decorationSizeMapping[decorationInfo.size])) {
+                decorationSizeMapping[decorationInfo.size] = {}
             }
 
-            if (Helper.isEmpty(jewelSizeMapping[jewelInfo.size][jewelInfo.id])) {
-                jewelSizeMapping[jewelInfo.size][jewelInfo.id] = {
-                    name: jewelInfo.name,
+            if (Helper.isEmpty(decorationSizeMapping[decorationInfo.size][decorationInfo.id])) {
+                decorationSizeMapping[decorationInfo.size][decorationInfo.id] = {
+                    name: decorationInfo.name,
                     min: 1,
                     max: 1
                 }
             }
 
-            jewelInfo.skills.forEach((skill) => {
+            decorationInfo.skills.forEach((skill) => {
                 let skillInfo = SkillDataset.getInfo(skill.id)
 
-                if (jewelSizeMapping[jewelInfo.size][jewelInfo.id].max < skillInfo.list.length) {
-                    jewelSizeMapping[jewelInfo.size][jewelInfo.id].max = skillInfo.list.length
+                if (decorationSizeMapping[decorationInfo.size][decorationInfo.id].max < skillInfo.list.length) {
+                    decorationSizeMapping[decorationInfo.size][decorationInfo.id].max = skillInfo.list.length
                 }
             })
         })
 
-        if (0 === Object.keys(jewelSizeMapping).length) {
+        if (0 === Object.keys(decorationSizeMapping).length) {
             return false
         }
 
-        return Object.keys(jewelSizeMapping).sort((sizeA, sizeB) => {
+        return Object.keys(decorationSizeMapping).sort((sizeA, sizeB) => {
             return sizeA > sizeB ? 1 : -1
         }).map((size) => {
-            let jewelIds = Object.keys(jewelSizeMapping[size]).sort((jewelIdA, jewelIdB) => {
-                return _(jewelIdA) > _(jewelIdB) ? 1 : -1
+            let decorationIds = Object.keys(decorationSizeMapping[size]).sort((decorationIdA, decorationIdB) => {
+                return _(decorationIdA) > _(decorationIdB) ? 1 : -1
             })
 
-            if (0 === jewelIds.length) {
+            if (0 === decorationIds.length) {
                 return false
             }
 
             let blocks = []
 
-            for (let blockIndex = 0; blockIndex < Math.ceil(jewelIds.length / 10); blockIndex++) {
+            for (let blockIndex = 0; blockIndex < Math.ceil(decorationIds.length / 10); blockIndex++) {
                 blocks.push(
                     <div key={size + '_' + blockIndex} className="mhc-item mhc-item-2-step">
                         <div className="col-12 mhc-name">
-                            <span>{_('jewelFactor')}: [{size}]</span>
+                            <span>{_('decorationFactor')}: [{size}]</span>
                         </div>
 
                         <div className="col-12 mhc-content">
-                            {jewelIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((jewelId) => {
-                                let selectLevel = Helper.isNotEmpty(jewelFactor[jewelId])
-                                    ? jewelFactor[jewelId] : -1
-                                let diffLevel = jewelSizeMapping[size][jewelId].max - jewelSizeMapping[size][jewelId].min + 1
+                            {decorationIds.slice(blockIndex * 10, (blockIndex + 1) * 10).map((decorationId) => {
+                                let selectLevel = Helper.isNotEmpty(decorationFactor[decorationId])
+                                    ? decorationFactor[decorationId] : -1
+                                let diffLevel = decorationSizeMapping[size][decorationId].max - decorationSizeMapping[size][decorationId].min + 1
                                 let levelList = [
                                     { key: -1, value: _('unlimited') },
                                     { key: 0, value: _('exclude') }
@@ -153,15 +153,15 @@ export default function JewelFactors(props) {
                                 })
 
                                 return (
-                                    <div key={jewelId} className="col-6 mhc-value">
-                                        <span>{_(jewelSizeMapping[size][jewelId].name)}</span>
+                                    <div key={decorationId} className="col-6 mhc-value">
+                                        <span>{_(decorationSizeMapping[size][decorationId].name)}</span>
 
                                         <div className="mhc-icons_bundle">
                                             <BasicSelector
                                                 iconName="sort-numeric-asc"
                                                 defaultValue={selectLevel}
                                                 options={levelList} onChange={(event) => {
-                                                    States.world.actions.setAlgorithmParamsUsingFactor('jewel', jewelId, parseInt(event.target.value))
+                                                    States.world.actions.setAlgorithmParamsUsingFactor('decoration', decorationId, parseInt(event.target.value))
                                                 }} />
                                         </div>
                                     </div>
@@ -174,5 +174,5 @@ export default function JewelFactors(props) {
 
             return blocks
         })
-    }, [segment, byRequiredConditions, _algorithmParams, _requiredSkills])
+    }, [segment, byRequiredConditions, _algorithmParams, _requiredConditions])
 }

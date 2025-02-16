@@ -23,10 +23,6 @@ export const dataStore = (target = null) => {
     return store.getState().rise.dataStore[target]
 }
 
-export const playerStatus = () => {
-    return store.getState().rise.playerStatus
-}
-
 export const playerEquips = (target = null) => {
     if (Helper.isEmpty(target)) {
         return store.getState().rise.playerEquips
@@ -37,6 +33,10 @@ export const playerEquips = (target = null) => {
     }
 
     return store.getState().rise.playerEquips[target]
+}
+
+export const playerStatus = () => {
+    return store.getState().rise.playerStatus
 }
 
 export const requiredConditions = (target = null) => {
@@ -61,8 +61,8 @@ export const candidateBundles = () => {
 
 export default {
     dataStore,
-    playerStatus,
     playerEquips,
+    playerStatus,
     requiredConditions,
     algorithmParams,
     candidateBundles

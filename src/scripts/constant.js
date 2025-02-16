@@ -69,78 +69,6 @@ const elementCriticalMultiple = {
     }
 }
 
-const customWeaponTemplate = {
-    id: 'customWeapon',
-    name: 'customWeapon',
-    type: 'greatSword',
-    series: null,
-    attack: 100,
-    criticalRate: 0,
-    defense: 0,
-    sharpness: {
-        value: 350,
-        steps: {
-            red: 0,
-            orange: 0,
-            yellow: 0,
-            green: 0,
-            blue: 0,
-            white: 400,
-            purple: 0
-        }
-    },
-    element: {
-        attack: {
-            type: null,
-            value: null
-        },
-        status: {
-            type: null,
-            value: null
-        }
-    },
-    slots: [
-        {
-            size: null
-        },
-        {
-            size: null
-        },
-        {
-            size: null
-        }
-    ],
-    rampageSkill: {
-        amount: 3
-    }
-}
-
-const customCharmTemplate = {
-    id: 'customCharm',
-    name: 'customCharm',
-    slots: [
-        {
-            size: null
-        },
-        {
-            size: null
-        },
-        {
-            size: null
-        }
-    ],
-    skills: [
-        {
-            id: null,
-            level: null
-        },
-        {
-            id: null,
-            level: null
-        }
-    ]
-}
-
 export const wilds = {}
 
 export const rise = {
@@ -225,7 +153,51 @@ export const rise = {
                 decorationIds: [],
                 rampageDecorationId: null,
                 rampageSkillIds: [],
-                custom: customWeaponTemplate
+                custom: {
+                    id: 'customWeapon',
+                    name: 'customWeapon',
+                    type: 'greatSword',
+                    series: null,
+                    attack: 100,
+                    criticalRate: 0,
+                    defense: 0,
+                    sharpness: {
+                        value: 350,
+                        steps: {
+                            red: 0,
+                            orange: 0,
+                            yellow: 0,
+                            green: 0,
+                            blue: 0,
+                            white: 400,
+                            purple: 0
+                        }
+                    },
+                    element: {
+                        attack: {
+                            type: null,
+                            value: null
+                        },
+                        status: {
+                            type: null,
+                            value: null
+                        }
+                    },
+                    slots: [
+                        {
+                            size: null
+                        },
+                        {
+                            size: null
+                        },
+                        {
+                            size: null
+                        }
+                    ],
+                    rampageSkill: {
+                        amount: 3
+                    }
+                }
             },
             helm: {
                 id: null,
@@ -253,7 +225,31 @@ export const rise = {
             charm: {
                 id: null,
                 decorationIds: [],
-                custom: customCharmTemplate
+                custom: {
+                    id: 'customCharm',
+                    name: 'customCharm',
+                    slots: [
+                        {
+                            size: null
+                        },
+                        {
+                            size: null
+                        },
+                        {
+                            size: null
+                        }
+                    ],
+                    skills: [
+                        {
+                            id: null,
+                            level: null
+                        },
+                        {
+                            id: null,
+                            level: null
+                        }
+                    ]
+                }
             }
         }
 
@@ -403,7 +399,7 @@ export const world = {
                     'rare5': false
                 },
                 charm: {},
-                jewel: {
+                decoration: {
                     'size4': true,
                     'size3': true,
                     'size2': true,
@@ -412,81 +408,40 @@ export const world = {
             }
         }
 
-        const candidateEquip = {
-            id: null,
-            type: null,
-            defense: 0,
-            resistance: {
-                fire: 0,
-                water: 0,
-                thunder: 0,
-                ice: 0,
-                dragon: 0
-            },
-            skillLevelMapping: {},
-            setId: null,
-            slotCountMapping: {
-                1: 0,
-                2: 0,
-                3: 0,
-                4: 0
-            },
-            totalExpectedValue: 0,
-            totalExpectedLevel: 0,
-            skillExpectedValue: 0,
-            skillExpectedLevel: 0
-        }
-
-        const bundle = {
-            equipIdMapping: {
-                weapon: null,
-                helm: null,
-                chest: null,
-                arm: null,
-                waist: null,
-                leg: null,
-                charm: null
-            },
-            skillLevelMapping: {},
-            setCountMapping: {},
-            slotCountMapping: {
-                1: 0,
-                2: 0,
-                3: 0,
-                4: 0
-            },
-            jewelPackages: [],
-            meta: {
-                equipCount: 0,
-                defense: 0,
-                resistance: {
-                    fire: 0,
-                    water: 0,
-                    thunder: 0,
-                    ice: 0,
-                    dragon: 0
-                },
-                completedSkills: {},
-                completedSets: {},
-                remainingSlotCountMapping: {
-                    1: 0,
-                    2: 0,
-                    3: 0,
-                    4: 0,
-                    all: 0
-                },
-                totalExpectedValue: 0,
-                totalExpectedLevel: 0,
-                skillExpectedValue: 0,
-                skillExpectedLevel: 0
-            }
-        }
-
-        const equips = {
+        const playerEquips = {
             weapon: {
                 id: null,
                 enhances: {},
-                slotIds: []
+                slotIds: [],
+                custom: {
+                    id: 'customWeapon',
+                    name: 'customWeapon',
+                    type: 'greatSword',
+                    series: null,
+                    attack: 100,
+                    criticalRate: 0,
+                    defense: 0,
+                    sharpness: {
+                        value: 350,
+                        steps: {
+                            red: 0,
+                            orange: 0,
+                            yellow: 0,
+                            green: 0,
+                            blue: 0,
+                            white: 0,
+                            purple: 400
+                        }
+                    },
+                    element: {
+                        attack: null,
+                        status: null
+                    },
+                    elderseal: null,
+                    slots: [],
+                    skills: [],
+                    set: null
+                }
             },
             helm: {
                 id: null,
@@ -513,35 +468,13 @@ export const world = {
             }
         }
 
-        const customWeapon = {
-            id: 'customWeapon',
-            rare: 12,
-            type: 'greatSword',
-            series: null,
-            name: 'customWeapon',
-            attack: 100,
-            criticalRate: 0,
-            defense: 0,
-            sharpness: {
-                value: 350,
-                steps: {
-                    red: 0,
-                    orange: 0,
-                    yellow: 0,
-                    green: 0,
-                    blue: 0,
-                    white: 0,
-                    purple: 400
-                }
-            },
-            element: {
-                attack: null,
-                status: null
-            },
-            elderseal: null,
-            slots: [],
-            skills: [],
-            set: null
+        const playerStatus = {
+            usingItem: {
+                'powerCharm': true, // 力量護符
+                'powerTalon': true, // 力量之爪
+                'armorCharm': true, // 守護護符
+                'armorTalon': true // 守護之爪
+            }
         }
 
         const status = {
@@ -590,14 +523,19 @@ export const world = {
             perNElementAttackExpectedValue: 0
         }
 
+        const requiredConditions = {
+            equips: playerEquips,
+            sets: [],
+            skills: []
+        }
+
         return {
             algorithmParams,
-            candidateEquip,
-            bundle,
-            equips,
-            customWeapon,
+            playerEquips,
+            playerStatus,
             status,
-            benefitAnalysis
+            benefitAnalysis,
+            requiredConditions
         }
     })()
 }

@@ -17,7 +17,7 @@ import Helper from '@/scripts/core/helper'
 // Load Components
 import ArmorFactors from '@/scripts/components/modal/world/algorithmSetting/armorFactors'
 import CharmFactors from '@/scripts/components/modal/world/algorithmSetting/charmFactors'
-import JewelFactors from '@/scripts/components/modal/world/algorithmSetting/jewelFactors'
+import DecorationFactors from '@/scripts/components/modal/world/algorithmSetting/decorationFactors'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconSelector from '@/scripts/components/ui/iconSelector'
 import IconInput from '@/scripts/components/ui/iconInput'
@@ -57,13 +57,13 @@ const getModeList = () => {
         { key: 'all',                   value: _('all') },
         { key: 'armorFactor',           value: _('armorFactor') },
         { key: 'charmFactor',           value: _('charmFactor') },
-        { key: 'jewelFactor',           value: _('jewelFactor') },
+        { key: 'decorationFactor',           value: _('decorationFactor') },
         { key: 'byRequiredConditions',  value: _('byRequiredConditions') }
     ]
 }
 
 const armorRareList = [ 5, 6, 7, 8, 9, 10, 11, 12 ]
-const jewelSizeList = [ 1, 2, 3, 4 ]
+const decorationSizeList = [ 1, 2, 3, 4 ]
 
 /**
  * Handler Functions
@@ -232,27 +232,27 @@ export default function AlgorithmSetting(props) {
                             </div>
                         ) : false}
 
-                        {'all' === _modalData.mode || 'jewelFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode ? (
+                        {'all' === _modalData.mode || 'decorationFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode ? (
                             <div className="mhc-item mhc-item-2-step">
                                 <div className="col-12 mhc-name">
-                                    <span>{_('jewelFactor')}</span>
+                                    <span>{_('decorationFactor')}</span>
                                 </div>
                                 <div className="col-12 mhc-content">
-                                    {jewelSizeList.map((size) => {
+                                    {decorationSizeList.map((size) => {
                                         return (
                                             <div key={size} className="col-6 mhc-value">
                                                 <span>{_('size') + `: ${size}`}</span>
                                                 <div className="mhc-icons_bundle">
-                                                    {_algorithmParams.usingFactor.jewel['size' + size] ? (
+                                                    {_algorithmParams.usingFactor.decoration['size' + size] ? (
                                                         <IconButton
                                                             iconName="star"
                                                             altName={_('exclude')}
-                                                            onClick={() => {States.world.actions.setAlgorithmParamsUsingFactor('jewel', 'size' + size, false)}} />
+                                                            onClick={() => {States.world.actions.setAlgorithmParamsUsingFactor('decoration', 'size' + size, false)}} />
                                                     ) : (
                                                         <IconButton
                                                             iconName="star-o"
                                                             altName={_('include')}
-                                                            onClick={() => {States.world.actions.setAlgorithmParamsUsingFactor('jewel', 'size' + size, true)}} />
+                                                            onClick={() => {States.world.actions.setAlgorithmParamsUsingFactor('decoration', 'size' + size, true)}} />
                                                     )}
                                                 </div>
                                             </div>
@@ -270,8 +270,8 @@ export default function AlgorithmSetting(props) {
                             ? <CharmFactors segment={stateSegment}
                                 byRequiredConditions={'byRequiredConditions' === _modalData.mode} />
                             : false}
-                        {'all' === _modalData.mode || 'jewelFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode
-                            ? <JewelFactors segment={stateSegment}
+                        {'all' === _modalData.mode || 'decorationFactor' === _modalData.mode || 'byRequiredConditions' === _modalData.mode
+                            ? <DecorationFactors segment={stateSegment}
                                 byRequiredConditions={'byRequiredConditions' === _modalData.mode} />
                             : false}
                     </div>

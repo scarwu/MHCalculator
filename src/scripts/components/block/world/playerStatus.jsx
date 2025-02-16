@@ -607,8 +607,7 @@ export default function PlayerStatus(props) {
     /**
      * Hooks
      */
-    const _customWeapon = States.world.hooks.useCustomWeapon()
-    const _currentEquips = States.world.hooks.useCurrentEquips()
+    const _playerEquips = States.world.hooks.usePlayerEquips()
 
     const [stateEquipInfos, updateEquipInfos] = useState({})
     const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.world.default.status))
@@ -627,7 +626,7 @@ export default function PlayerStatus(props) {
     const refTuningElementAttack = useRef(null)
 
     useEffect(() => {
-        const equipInfos = generateEquipInfos(_currentEquips)
+        const equipInfos = generateEquipInfos(_playerEquips)
         const passiveSkills = generatePassiveSkills(equipInfos)
         const status = generateStatus(equipInfos, passiveSkills)
         const benefitAnalysis = generateBenefitAnalysis(equipInfos, status, stateTuning)
@@ -636,7 +635,7 @@ export default function PlayerStatus(props) {
         updatePassiveSkills(passiveSkills)
         updateStatus(status)
         updateBenefitAnalysis(benefitAnalysis)
-    }, [_customWeapon, _currentEquips])
+    }, [_playerEquips])
 
     /**
      * Handle Functions

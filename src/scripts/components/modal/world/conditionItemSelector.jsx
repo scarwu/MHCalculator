@@ -146,8 +146,7 @@ export default function ConditionItemSelector(props) {
      * Hooks
      */
     const _modalData = States.common.hooks.useModalData(targetModalKey)
-    const _requiredSets = States.world.hooks.useRequiredSets()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     const [stateMode, updateMode] = useState(null)
     const [stateSortedList, updateSortedList] = useState([])
@@ -166,7 +165,7 @@ export default function ConditionItemSelector(props) {
 
         switch (_modalData.mode) {
         case 'set':
-            idList = _requiredSets.map((set) => {
+            idList = _requiredConditions.sets.map((set) => {
                 return set.id
             })
 
@@ -184,12 +183,12 @@ export default function ConditionItemSelector(props) {
 
             break
         case 'skill':
-            idList = _requiredSkills.map((skill) => {
+            idList = _requiredConditions.skills.map((skill) => {
                 return skill.id
             })
 
             SkillDataset.getItems().forEach((skillInfo) => {
-                if (true === skillInfo.from.jewel
+                if (true === skillInfo.from.decoration
                     || true === skillInfo.from.armor
                     || true === skillInfo.from.charm
                 ) {
@@ -212,7 +211,7 @@ export default function ConditionItemSelector(props) {
 
         updateMode(_modalData.mode)
         updateSortedList(selectedList.concat(unselectedList))
-    }, [_modalData, _requiredSets, _requiredSkills])
+    }, [_modalData, _requiredConditions])
 
     /**
      * Variables

@@ -21,131 +21,169 @@ export const switchDataStore = (target, index) => {
     })
 }
 
-// Required Sets
-export const addRequiredSet = (setId) => {
+// Player Status
+export const togglePlayerStatusUsingItem = (flag) => {
     store.dispatch({
-        type: 'ADD_REQUIRED_SET',
+        type: 'TOGGLE_PLAYER_STATUS_USING_ITEM',
         payload: {
-            setId: setId
+            flag: flag
         }
     })
 }
 
-export const removeRequiredSet = (setId) => {
+// Player Equips
+export const cleanPlayerEquips = () => {
     store.dispatch({
-        type: 'REMOVE_REQUIRED_SET',
+        type: 'CLEAN_PLAYER_EQUIP'
+    })
+}
+
+export const replacePlayerEquips = (playerEquips) => {
+    store.dispatch({
+        type: 'REPLACE_PLAYER_EQUIP',
         payload: {
-            setId: setId
+            playerEquips: playerEquips
         }
     })
 }
 
-export const increaseRequiredSetStep = (setId) => {
+export const setPlayerEquip = (equipType, equipId) => {
     store.dispatch({
-        type: 'INCREASE_REQUIRED_SET_STEP',
-        payload: {
-            setId: setId
-        }
-    })
-}
-
-export const decreaseRequiredSetStep = (setId) => {
-    store.dispatch({
-        type: 'DECREASE_REQUIRED_SET_STEP',
-        payload: {
-            setId: setId
-        }
-    })
-}
-
-export const cleanRequiredSets = () => {
-    store.dispatch({
-        type: 'CLEAN_REQUIRED_SETS'
-    })
-}
-
-// Required Skills
-export const addRequiredSkill = (skillId) => {
-    store.dispatch({
-        type: 'ADD_REQUIRED_SKILL',
-        payload: {
-            skillId: skillId
-        }
-    })
-}
-
-export const removeRequiredSkill = (skillId) => {
-    store.dispatch({
-        type: 'REMOVE_REQUIRED_SKILL',
-        payload: {
-            skillId: skillId
-        }
-    })
-}
-
-export const increaseRequiredSkillLevel = (skillId) => {
-    store.dispatch({
-        type: 'INCREASE_REQUIRED_SKILL_LEVEL',
-        payload: {
-            skillId: skillId
-        }
-    })
-}
-
-export const decreaseRequiredSkillLevel = (skillId) => {
-    store.dispatch({
-        type: 'DECREASE_REQUIRED_SKILL_LEVEL',
-        payload: {
-            skillId: skillId
-        }
-    })
-}
-
-export const cleanRequiredSkills = () => {
-    store.dispatch({
-        type: 'CLEAN_REQUIRED_SKILLS'
-    })
-}
-
-// Required Equips
-export const setRequiredEquips = (equipType, currentEquip) => {
-    store.dispatch({
-        type: 'SET_REQUIRED_EQUIPS',
+        type: 'SET_PLAYER_EQUIP',
         payload: {
             equipType: equipType,
-            currentEquip: currentEquip
+            equipId: equipId
         }
     })
 }
 
-export const cleanRequiredEquips = () => {
+export const setPlayerEquipDecoration = (equipType, idIndex, decorationId) => {
     store.dispatch({
-        type: 'CLEAN_REQUIRED_EQUIPS'
-    })
-}
-
-// CurrentEquips
-export const setCurrentEquip = (data) => {
-    store.dispatch({
-        type: 'SET_CURRENT_EQUIP',
+        type: 'SET_PLAYER_EQUIP_DECORATION',
         payload: {
-            data: data
+            equipType: equipType,
+            idIndex: idIndex,
+            decorationId: decorationId
         }
     })
 }
 
-export const replaceCurrentEquips = (data) => {
+export const setPlayerEquipCustomDataset = (equipType, customDataset) => {
     store.dispatch({
-        type: 'REPLACE_CURRENT_EQUIPS',
+        type: 'SET_PLAYER_EQUIP_CUSTOM',
         payload: {
-            data: data
+            equipType: equipType,
+            customDataset: customDataset
         }
     })
 }
 
-export const cleanCurrentEquips = () => {
+// Required Conditions
+export const cleanRequiredConditions = () => {
     store.dispatch({
-        type: 'CLEAN_CURRENT_EQUIPS'
+        type: 'CLEAN_REQUIRED_CONDITIONS'
+    })
+}
+
+export const replaceRequiredConditionsEquipData = (equipType, equipData) => {
+    store.dispatch({
+        type: 'REPLACE_REQUIRED_CONDITIONS_EQUIP',
+        payload: {
+            equipType: equipType,
+            equipData: equipData
+        }
+    })
+}
+
+export const setRequiredConditionsEquip = (equipType, equipId) => {
+    store.dispatch({
+        type: 'SET_REQUIRED_CONDITIONS_EQUIP',
+        payload: {
+            equipType: equipType,
+            equipId: equipId
+        }
+    })
+}
+
+export const setRequiredConditionsEquipCustomDataset = (equipType, customDataset) => {
+    store.dispatch({
+        type: 'SET_REQUIRED_CONDITIONS_EQUIP_CUSTOM',
+        payload: {
+            equipType: equipType,
+            customDataset: customDataset
+        }
+    })
+}
+
+export const addRequiredConditionsSet = (setId) => {
+    store.dispatch({
+        type: 'ADD_REQUIRED_CONDITIONS_SET',
+        payload: {
+            setId: setId
+        }
+    })
+}
+
+export const removeRequiredConditionsSet = (setId) => {
+    store.dispatch({
+        type: 'REMOVE_REQUIRED_CONDITIONS_SET',
+        payload: {
+            setId: setId
+        }
+    })
+}
+
+export const increaseRequiredConditionsSetCount = (setId) => {
+    store.dispatch({
+        type: 'INCREASE_REQUIRED_CONDITIONS_SET_COUNT',
+        payload: {
+            setId: setId
+        }
+    })
+}
+
+export const decreaseRequiredConditionsSetCount = (setId) => {
+    store.dispatch({
+        type: 'DECREASE_REQUIRED_CONDITIONS_SET_COUNT',
+        payload: {
+            setId: setId
+        }
+    })
+}
+
+export const addRequiredConditionsSkill = (skillId) => {
+    store.dispatch({
+        type: 'ADD_REQUIRED_CONDITIONS_SKILL',
+        payload: {
+            skillId: skillId
+        }
+    })
+}
+
+export const removeRequiredConditionsSkill = (skillId) => {
+    store.dispatch({
+        type: 'REMOVE_REQUIRED_CONDITIONS_SKILL',
+        payload: {
+            skillId: skillId
+        }
+    })
+}
+
+export const increaseRequiredConditionsSkillLevel = (skillId) => {
+    store.dispatch({
+        type: 'INCREASE_REQUIRED_CONDITIONS_SKILL_LEVEL',
+        payload: {
+            skillId: skillId
+        }
+    })
+}
+
+export const decreaseRequiredConditionsSkillLevel = (skillId) => {
+    store.dispatch({
+        type: 'DECREASE_REQUIRED_CONDITIONS_SKILL_LEVEL',
+        payload: {
+            skillId: skillId
+        }
     })
 }
 
@@ -197,175 +235,52 @@ export const setAlgorithmParamsUsingFactor = (target, flag, value) => {
     })
 }
 
-// Computed Result
-export const saveComputedResult = (data) => {
+// Candidate Bundles
+export const cleanCandidateBundles = () => {
     store.dispatch({
-        type: 'UPDATE_COMPUTED_RESULT',
-        payload: {
-            data: data
-        }
+        type: 'CLEAN_CANDIDATE_BUNDLES'
     })
 }
 
-export const cleanComputedResult = () => {
+export const replaceCandidateBundles = (candidateBundles) => {
     store.dispatch({
-        type: 'UPDATE_COMPUTED_RESULT',
+        type: 'REPLACE_CANDIDATE_BUNDLES',
         payload: {
-            data: null
-        }
-    })
-}
-
-// Reserved Bundles
-export const addReservedBundle = (data) => {
-    store.dispatch({
-        type: 'ADD_RESERVED_BUNDLE',
-        payload: {
-            data: data
-        }
-    })
-}
-
-export const updateReservedBundleName = (index, name) => {
-    store.dispatch({
-        type: 'UPDATE_RESERVED_BUNDLE_NAME',
-        payload: {
-            index: index,
-            name: name
-        }
-    })
-}
-
-export const removeReservedBundle = (index) => {
-    store.dispatch({
-        type: 'REMOVE_RESERVED_BUNDLE',
-        payload: {
-            index: index
-        }
-    })
-}
-
-// Custom Weapon
-export const replaceCustomWeapon = (data) => {
-    store.dispatch({
-        type: 'REPLACE_CUSTOM_WEAPON',
-        payload: {
-            data: data
-        }
-    })
-}
-
-export const setCustomWeaponValue = (target, value) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_VALUE',
-        payload: {
-            target: target,
-            value: value
-        }
-    })
-}
-
-export const setCustomWeaponElderseal = (affinity) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_ELDERSEAL',
-        payload: {
-            affinity: affinity
-        }
-    })
-}
-
-export const setCustomWeaponSharpness = (step) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_SHARPNESS',
-        payload: {
-            step: step
-        }
-    })
-}
-
-export const setCustomWeaponElementType = (target, type) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_ELEMENT_TYPE',
-        payload: {
-            target: target,
-            type: type
-        }
-    })
-}
-
-export const setCustomWeaponElementValue = (target, value) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_ELEMENT_VALUE',
-        payload: {
-            target: target,
-            value: value
-        }
-    })
-}
-
-export const setCustomWeaponSlot = (index, size) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_SLOT',
-        payload: {
-            index: index,
-            size: size
-        }
-    })
-}
-
-export const setCustomWeaponSkill = (index, id) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_SKILL',
-        payload: {
-            index: index,
-            id: id
-        }
-    })
-}
-
-export const setCustomWeaponSet = (id) => {
-    store.dispatch({
-        type: 'SET_CUSTOM_WEAPON_SET',
-        payload: {
-            id: id
+            candidateBundles: candidateBundles
         }
     })
 }
 
 export default {
     switchDataStore,
-    addRequiredSet,
-    removeRequiredSet,
-    increaseRequiredSetStep,
-    decreaseRequiredSetStep,
-    cleanRequiredSets,
-    addRequiredSkill,
-    removeRequiredSkill,
-    increaseRequiredSkillLevel,
-    decreaseRequiredSkillLevel,
-    cleanRequiredSkills,
-    setRequiredEquips,
-    cleanRequiredEquips,
-    setCurrentEquip,
-    replaceCurrentEquips,
-    cleanCurrentEquips,
+
+    togglePlayerStatusUsingItem,
+
+    cleanPlayerEquips,
+    replacePlayerEquips,
+    setPlayerEquip,
+    setPlayerEquipDecoration,
+    setPlayerEquipCustomDataset,
+
+    cleanRequiredConditions,
+    replaceRequiredConditionsEquipData,
+    setRequiredConditionsEquip,
+    setRequiredConditionsEquipCustomDataset,
+    addRequiredConditionsSet,
+    removeRequiredConditionsSet,
+    increaseRequiredConditionsSetCount,
+    decreaseRequiredConditionsSetCount,
+    addRequiredConditionsSkill,
+    removeRequiredConditionsSkill,
+    increaseRequiredConditionsSkillLevel,
+    decreaseRequiredConditionsSkillLevel,
+
     setAlgorithmParamsLimit,
     setAlgorithmParamsSort,
     setAlgorithmParamsOrder,
     toggleAlgorithmParamsFlag,
     setAlgorithmParamsUsingFactor,
-    saveComputedResult,
-    cleanComputedResult,
-    addReservedBundle,
-    updateReservedBundleName,
-    removeReservedBundle,
-    replaceCustomWeapon,
-    setCustomWeaponValue,
-    setCustomWeaponElderseal,
-    setCustomWeaponSharpness,
-    setCustomWeaponElementType,
-    setCustomWeaponElementValue,
-    setCustomWeaponSlot,
-    setCustomWeaponSkill,
-    setCustomWeaponSet
+
+    cleanCandidateBundles,
+    replaceCandidateBundles
 }

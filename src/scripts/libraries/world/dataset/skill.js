@@ -19,7 +19,7 @@ import Skills from '@/scripts/datasets/world/skills.json'
 //     3: type,
 //     4: from [
 //         0: set,
-//         1: jewel,
+//         1: decoration,
 //         2: armor,
 //         3: charm,
 //         4: weapon
@@ -41,7 +41,7 @@ let dataset = Skills.map((skill) => {
         type: skill[3],
         from: {
             set: skill[4][0],
-            jewel: skill[4][1],
+            decoration: skill[4][1],
             armor: skill[4][2],
             charm: skill[4][3],
             weapon: skill[4][4]

@@ -35,7 +35,7 @@ export default function CandidateBundles(props) {
      * Hooks
      */
     const _dataStore = States.world.hooks.useDataStore()
-    const _computedResult = States.world.hooks.useComputedResult()
+    const _candidateBundles = States.world.hooks.useCandidateBundles()
 
     const [stateTasks, updateTasks] = useState({})
 
@@ -68,7 +68,7 @@ export default function CandidateBundles(props) {
             case 'result':
                 handleSwitchTempData(tabIndex)
 
-                States.world.actions.saveComputedResult(payload.computedResult)
+                States.world.actions.replaceCandidateBundles(payload.candidateBundles)
 
                 // refWorkers.current[tabIndex].terminate()
                 // refWorkers.current[tabIndex] = null
@@ -217,7 +217,7 @@ export default function CandidateBundles(props) {
                 <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
-                        onClick={States.world.actions.cleanComputedResult} />
+                        onClick={States.world.actions.cleanCandidateBundles} />
                     <IconButton
                         iconName="cog" altName={_('setting')}
                         onClick={handleShowAllAlgorithmSetting} />
@@ -263,11 +263,11 @@ export default function CandidateBundles(props) {
                         <RequiredConditions data={stateTasks[_dataStore.candidateBundles.index].required} />
                     </Fragment>
                 ) : (
-                    Helper.isEmpty(_computedResult) ? (
+                    Helper.isEmpty(_candidateBundles) ? (
                         <QuickSetting />
                     ) : (
                         <Fragment>
-                            <RequiredConditions data={_computedResult.required} />
+                            <RequiredConditions data={_candidateBundles.required} />
                             <BundleList />
                         </Fragment>
                     )

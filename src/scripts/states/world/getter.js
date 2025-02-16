@@ -17,46 +17,39 @@ export const dataStore = () => {
     return store.getState().world.dataStore
 }
 
-export const requiredSets = () => {
-    return store.getState().world.requiredSets
+export const playerEquips = () => {
+    return store.getState().world.playerEquips
 }
 
-export const requiredSkills = () => {
-    return store.getState().world.requiredSkills
+export const playerStatus = () => {
+    return store.getState().world.playerStatus
 }
 
-export const requiredEquips = () => {
-    return store.getState().world.requiredEquips
-}
+export const requiredConditions = (target = null) => {
+    if (Helper.isEmpty(target)) {
+        return store.getState().rise.requiredConditions
+    }
 
-export const currentEquips = () => {
-    return store.getState().world.currentEquips
+    if (Helper.isEmpty(store.getState().rise.requiredConditions[target])) {
+        return null
+    }
+
+    return store.getState().rise.requiredConditions[target]
 }
 
 export const algorithmParams = () => {
     return store.getState().world.algorithmParams
 }
 
-export const computedResult = () => {
-    return store.getState().world.computedResult
-}
-
-export const reservedBundles = () => {
-    return store.getState().world.reservedBundles
-}
-
-export const customWeapon = () => {
-    return store.getState().world.customWeapon
+export const candidateBundles = () => {
+    return store.getState().world.candidateBundles
 }
 
 export default {
     dataStore,
-    requiredSets,
-    requiredSkills,
-    requiredEquips,
-    currentEquips,
+    playerStatus,
+    playerEquips,
+    requiredConditions,
     algorithmParams,
-    computedResult,
-    reservedBundles,
-    customWeapon
+    candidateBundles
 }

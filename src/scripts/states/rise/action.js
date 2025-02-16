@@ -206,7 +206,6 @@ export const decreaseRequiredConditionsSkillLevel = (skillId) => {
     })
 }
 
-
 // Algorithm Params
 export const setAlgorithmParamsLimit = (limit) => {
     store.dispatch({

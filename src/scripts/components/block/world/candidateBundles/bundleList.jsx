@@ -18,7 +18,7 @@ import Misc from '@/scripts/libraries/world/misc'
 import WeaponDataset from '@/scripts/libraries/world/dataset/weapon'
 import ArmorDataset from '@/scripts/libraries/world/dataset/armor'
 import CharmDataset from '@/scripts/libraries/world/dataset/charm'
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 import SetDataset from '@/scripts/libraries/world/dataset/set'
 
@@ -33,7 +33,7 @@ import States from '@/scripts/states'
  * Handle Functions
  */
 const handleBundlePickUp = (bundle, required) => {
-    let currentEquips = Helper.deepCopy(States.world.getters.currentEquips())
+    let playerEquips = Helper.deepCopy(States.world.getters.playerEquips())
     let slotMap = {
         1: [],
         2: [],
@@ -46,12 +46,12 @@ const handleBundlePickUp = (bundle, required) => {
             return
         }
 
-        if (Helper.isEmpty(currentEquips[equipType])) {
-            currentEquips[equipType] = {}
+        if (Helper.isEmpty(playerEquips[equipType])) {
+            playerEquips[equipType] = {}
         }
 
-        currentEquips[equipType].id = bundle.equipIdMapping[equipType]
-        currentEquips[equipType].slotIds = []
+        playerEquips[equipType].id = bundle.equipIdMapping[equipType]
+        playerEquips[equipType].slotIds = []
 
         let equipInfo = null
 
@@ -61,17 +61,17 @@ const handleBundlePickUp = (bundle, required) => {
             }
 
             if (Helper.isNotEmpty(required.equips.weapon.enhances)) {
-                currentEquips.weapon.enhances = required.equips.weapon.enhances // Restore Enhance
+                playerEquips.weapon.enhances = required.equips.weapon.enhances // Restore Enhance
             }
 
-            equipInfo = Misc.getAppliedWeaponInfo(currentEquips.weapon)
+            equipInfo = Misc.getAppliedWeaponInfo(playerEquips.weapon)
         } else if ('helm' === equipType
             || 'chest' === equipType
             || 'arm' === equipType
             || 'waist' === equipType
             || 'leg' === equipType
         ) {
-            equipInfo = Misc.getAppliedArmorInfo(currentEquips[equipType])
+            equipInfo = Misc.getAppliedArmorInfo(playerEquips[equipType])
         }
 
         if (Helper.isEmpty(equipInfo)) {
@@ -86,34 +86,34 @@ const handleBundlePickUp = (bundle, required) => {
         })
     })
 
-    let jewelPackageIndex = Helper.isNotEmpty(bundle.jewelPackageIndex)
-        ? bundle.jewelPackageIndex : 0
+    let decorationPackageIndex = Helper.isNotEmpty(bundle.decorationPackageIndex)
+        ? bundle.decorationPackageIndex : 0
 
-    if (Helper.isNotEmpty(bundle.jewelPackages[jewelPackageIndex])) {
-        Object.keys(bundle.jewelPackages[jewelPackageIndex]).sort((jewelIdA, jewelIdB) => {
-            let jewelInfoA = JewelDataset.getInfo(jewelIdA)
-            let jewelInfoB = JewelDataset.getInfo(jewelIdB)
+    if (Helper.isNotEmpty(bundle.decorationPackages[decorationPackageIndex])) {
+        Object.keys(bundle.decorationPackages[decorationPackageIndex]).sort((decorationIdA, decorationIdB) => {
+            let decorationInfoA = DecorationDataset.getInfo(decorationIdA)
+            let decorationInfoB = DecorationDataset.getInfo(decorationIdB)
 
-            if (Helper.isEmpty(jewelInfoA) || Helper.isEmpty(jewelInfoB)) {
+            if (Helper.isEmpty(decorationInfoA) || Helper.isEmpty(decorationInfoB)) {
                 return 0
             }
 
-            return jewelInfoA.size - jewelInfoB.size
-        }).forEach((jewelId) => {
-            let jewelInfo = JewelDataset.getInfo(jewelId)
+            return decorationInfoA.size - decorationInfoB.size
+        }).forEach((decorationId) => {
+            let decorationInfo = DecorationDataset.getInfo(decorationId)
 
-            if (Helper.isEmpty(jewelInfo)) {
+            if (Helper.isEmpty(decorationInfo)) {
                 return
             }
 
-            let currentSize = jewelInfo.size
+            let currentSize = decorationInfo.size
 
-            let jewelCount = bundle.jewelPackages[jewelPackageIndex][jewelId]
+            let decorationCount = bundle.decorationPackages[decorationPackageIndex][decorationId]
             let data = null
 
-            let jewelIndex = 0
+            let decorationIndex = 0
 
-            while (jewelIndex < jewelCount) {
+            while (decorationIndex < decorationCount) {
                 if (0 === slotMap[currentSize].length) {
                     currentSize++
 
@@ -122,14 +122,14 @@ const handleBundlePickUp = (bundle, required) => {
 
                 data = slotMap[currentSize].shift()
 
-                currentEquips[data.type].slotIds[data.index] = jewelId
+                playerEquips[data.type].slotIds[data.index] = decorationId
 
-                jewelIndex++
+                decorationIndex++
             }
         })
     }
 
-    States.world.actions.replaceCurrentEquips(currentEquips)
+    States.world.actions.replacePlayerEquips(playerEquips)
 }
 
 export default function BundleList(props) {
@@ -137,33 +137,31 @@ export default function BundleList(props) {
     /**
      * Hooks
      */
-    const _computedResult = States.world.hooks.useComputedResult()
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
-    const _requiredSets = States.world.hooks.useRequiredSets()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _candidateBundles = States.world.hooks.useCandidateBundles()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     /**
      * Handle Functions
      */
-    const handleJewelPackageChange = useCallback((bundleIndex, packageIndex) => {
-        let computedResult = Helper.deepCopy(_computedResult)
+    const handleDecorationPackageChange = useCallback((bundleIndex, packageIndex) => {
+        let candidateBundles = Helper.deepCopy(_candidateBundles)
 
-        computedResult.list[bundleIndex].jewelPackageIndex = packageIndex
+        candidateBundles.list[bundleIndex].decorationPackageIndex = packageIndex
 
-        States.world.actions.saveComputedResult(computedResult)
-    }, [_computedResult])
+        States.world.actions.replaceCandidateBundles(candidateBundles)
+    }, [_candidateBundles])
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> BundleList')
 
-        if (Helper.isEmpty(_computedResult)
-            || Helper.isEmpty(_computedResult.required)
-            || Helper.isEmpty(_computedResult.list)
+        if (Helper.isEmpty(_candidateBundles)
+            || Helper.isEmpty(_candidateBundles.required)
+            || Helper.isEmpty(_candidateBundles.list)
         ) {
             return false
         }
 
-        if (0 === _computedResult.list.length) {
+        if (0 === _candidateBundles.list.length) {
             return (
                 <div className="mhc-item mhc-item-3-step">
                     <div className="col-12 mhc-name">
@@ -173,21 +171,21 @@ export default function BundleList(props) {
             )
         }
 
-        let bundleList = _computedResult.list
-        let bundleRequired = _computedResult.required
+        let bundleList = _candidateBundles.list
+        let bundleRequired = _candidateBundles.required
 
         // Required Ids
-        const requiredEquipIds = Object.keys(_requiredEquips).map((equipType) => {
-            if (Helper.isEmpty(_requiredEquips[equipType])) {
+        const requiredEquipIds = Object.keys(_requiredConditions.equips).map((equipType) => {
+            if (Helper.isEmpty(_requiredConditions.equips[equipType])) {
                 return false
             }
 
-            return _requiredEquips[equipType].id
+            return _requiredConditions.equips[equipType].id
         })
-        const requiredSetIds = _requiredSets.map((set) => {
+        const requiredSetIds = _requiredConditions.sets.map((set) => {
             return set.id
         })
-        const requiredSkillIds = _requiredSkills.map((skill) => {
+        const requiredSkillIds = _requiredConditions.skills.map((skill) => {
             return skill.id
         })
 
@@ -200,9 +198,9 @@ export default function BundleList(props) {
         })
 
         return bundleList.map((bundle, bundleIndex) => {
-            const jewelPackageCount = bundle.jewelPackages.length
-            const jewelPackageIndex = Helper.isNotEmpty(bundle.jewelPackageIndex)
-                ? bundle.jewelPackageIndex : 0
+            const decorationPackageCount = bundle.decorationPackages.length
+            const decorationPackageIndex = Helper.isNotEmpty(bundle.decorationPackageIndex)
+                ? bundle.decorationPackageIndex : 0
 
             // Remaining Slot Count Mapping
             let remainingSlotCountMapping = {
@@ -218,7 +216,7 @@ export default function BundleList(props) {
                 remainingSlotCountMapping[slotSize] += bundle.slotCountMapping[slotSize]
             })
 
-            // Bundle Equips & Jewels
+            // Bundle Equips & Decorations
             const bundleEquips = Object.keys(bundle.equipIdMapping).filter((equipType) => {
                 return Helper.isNotEmpty(bundle.equipIdMapping[equipType])
             }).map((equipType) => {
@@ -234,41 +232,41 @@ export default function BundleList(props) {
                 }
             })
 
-            let bundleJewels = []
+            let bundleDecorations = []
 
-            if (Helper.isNotEmpty(bundle.jewelPackages[jewelPackageIndex])) {
-                bundleJewels = Object.keys(bundle.jewelPackages[jewelPackageIndex]).map((jewelId) => {
-                    let jewelInfo = JewelDataset.getInfo(jewelId)
-                    let jewelCount = bundle.jewelPackages[jewelPackageIndex][jewelId]
+            if (Helper.isNotEmpty(bundle.decorationPackages[decorationPackageIndex])) {
+                bundleDecorations = Object.keys(bundle.decorationPackages[decorationPackageIndex]).map((decorationId) => {
+                    let decorationInfo = DecorationDataset.getInfo(decorationId)
+                    let decorationCount = bundle.decorationPackages[decorationPackageIndex][decorationId]
 
-                    for (let slotSize = jewelInfo.size; slotSize <= 4; slotSize++) {
+                    for (let slotSize = decorationInfo.size; slotSize <= 4; slotSize++) {
                         if (0 === remainingSlotCountMapping[slotSize]) {
                             continue
                         }
 
-                        if (remainingSlotCountMapping[slotSize] < jewelCount) {
-                            jewelCount -= remainingSlotCountMapping[slotSize]
+                        if (remainingSlotCountMapping[slotSize] < decorationCount) {
+                            decorationCount -= remainingSlotCountMapping[slotSize]
                             remainingSlotCountMapping.all -= remainingSlotCountMapping[slotSize]
                             remainingSlotCountMapping[slotSize] = 0
 
                             continue
                         }
 
-                        remainingSlotCountMapping.all -= jewelCount
-                        remainingSlotCountMapping[slotSize] -= jewelCount
+                        remainingSlotCountMapping.all -= decorationCount
+                        remainingSlotCountMapping[slotSize] -= decorationCount
 
                         break
                     }
 
                     return {
-                        id: jewelId,
-                        count: bundle.jewelPackages[jewelPackageIndex][jewelId]
+                        id: decorationId,
+                        count: bundle.decorationPackages[decorationPackageIndex][decorationId]
                     }
-                }).sort((jewelA, jewelB) => {
-                    let jewelInfoA = JewelDataset.getInfo(jewelA.id)
-                    let jewelInfoB = JewelDataset.getInfo(jewelB.id)
+                }).sort((decorationA, decorationB) => {
+                    let decorationInfoA = DecorationDataset.getInfo(decorationA.id)
+                    let decorationInfoB = DecorationDataset.getInfo(decorationB.id)
 
-                    return jewelInfoA.size < jewelInfoB.size ? 1 : -1
+                    return decorationInfoA.size < decorationInfoB.size ? 1 : -1
                 })
             }
 
@@ -347,27 +345,27 @@ export default function BundleList(props) {
                             {bundleEquips.map((equip) => {
                                 let isNotRequire = true
 
-                                if (Helper.isNotEmpty(_requiredEquips[equip.type])) {
+                                if (Helper.isNotEmpty(_requiredConditions.equips[equip.type])) {
                                     if ('weapon' === equip.type) {
                                         if ('customWeapon' === equip.id) {
                                             isNotRequire = Helper.jsonHash({
                                                 customWeapon: equip.customWeapon,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                customWeapon: _requiredEquips[equip.type].customWeapon,
-                                                enhances: _requiredEquips[equip.type].enhances
+                                                customWeapon: _requiredConditions.equips[equip.type].customWeapon,
+                                                enhances: _requiredConditions.equips[equip.type].enhances
                                             })
                                         } else {
                                             isNotRequire = Helper.jsonHash({
                                                 id: equip.id,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                id: _requiredEquips[equip.type].id,
-                                                enhances: _requiredEquips[equip.type].enhances
+                                                id: _requiredConditions.equips[equip.type].id,
+                                                enhances: _requiredConditions.equips[equip.type].enhances
                                             })
                                         }
                                     } else {
-                                        isNotRequire = equip.id !== _requiredEquips[equip.type].id
+                                        isNotRequire = equip.id !== _requiredConditions.equips[equip.type].id
                                     }
                                 }
 
@@ -421,33 +419,33 @@ export default function BundleList(props) {
                         </div>
                     </div>
 
-                    {(0 !== bundleJewels.length) ? (
-                        <div key={bundleIndex + '_' + jewelPackageIndex} className="col-12 mhc-content">
+                    {(0 !== bundleDecorations.length) ? (
+                        <div key={bundleIndex + '_' + decorationPackageIndex} className="col-12 mhc-content">
                             <div className="col-12 mhc-name">
-                                <span>{_('requiredJewels')}</span>
-                                {1 < jewelPackageCount ? (
+                                <span>{_('requiredDecorations')}</span>
+                                {1 < decorationPackageCount ? (
                                     <div className="mhc-icons_bundle">
                                         <IconSwitch
-                                            defaultValue={jewelPackageIndex}
-                                            options={bundle.jewelPackages.map((jewelMapping, packageIndex) => {
+                                            defaultValue={decorationPackageIndex}
+                                            options={bundle.decorationPackages.map((decorationMapping, packageIndex) => {
                                                 return {
                                                     key: packageIndex,
-                                                    value: `${packageIndex + 1} / ${jewelPackageCount}`
+                                                    value: `${packageIndex + 1} / ${decorationPackageCount}`
                                                 }
                                             })}
                                             onChange={(packageIndex) => {
-                                                handleJewelPackageChange(bundleIndex, parseInt(packageIndex), 10)
+                                                handleDecorationPackageChange(bundleIndex, parseInt(packageIndex), 10)
                                             }} />
                                     </div>
                                 ) : false}
                             </div>
                             <div className="col-12 mhc-content">
-                                {bundleJewels.map((jewel) => {
-                                    let jewelInfo = JewelDataset.getInfo(jewel.id)
+                                {bundleDecorations.map((decoration) => {
+                                    let decorationInfo = DecorationDataset.getInfo(decoration.id)
 
-                                    return (Helper.isNotEmpty(jewelInfo)) ? (
-                                        <div key={jewel.id} className="col-6 mhc-value">
-                                            <span>{`[${jewelInfo.size}] ${_(jewelInfo.name)} x ${jewel.count}`}</span>
+                                    return (Helper.isNotEmpty(decorationInfo)) ? (
+                                        <div key={decoration.id} className="col-6 mhc-value">
+                                            <span>{`[${decorationInfo.size}] ${_(decorationInfo.name)} x ${decoration.count}`}</span>
                                         </div>
                                     ) : false
                                 })}
@@ -536,5 +534,5 @@ export default function BundleList(props) {
                 </div>
             )
         })
-    }, [_computedResult, _requiredEquips, _requiredSets, _requiredSkills])
+    }, [_candidateBundles, _requiredConditions])
 }

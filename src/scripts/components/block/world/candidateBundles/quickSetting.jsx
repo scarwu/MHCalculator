@@ -16,7 +16,7 @@ import Helper from '@/scripts/core/helper'
 // Load Libraries
 import ArmorDataset from '@/scripts/libraries/world/dataset/armor'
 import CharmDataset from '@/scripts/libraries/world/dataset/charm'
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 
 // Load Components
@@ -35,29 +35,27 @@ export default function QuickSetting(props) {
      * Hooks
      */
     const _algorithmParams = States.world.hooks.useAlgorithmParams()
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
-    const _requiredSets = States.world.hooks.useRequiredSets()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> QuickFactorSetting')
 
         let armorSeriesMapping = {}
         let charmSeriesMapping = {}
-        let jewelMapping = {}
+        let decorationMapping = {}
         let skillLevelMapping = {}
 
-        const equipTypes = Object.keys(_requiredEquips).filter((equipType) => {
+        const equipTypes = Object.keys(_requiredConditions.equips).filter((equipType) => {
             if ('weapon' === equipType || 'charm' === equipType) {
                 return false
             }
 
-            return Helper.isEmpty(_requiredEquips[equipType])
+            return Helper.isEmpty(_requiredConditions.equips[equipType])
         })
-        const setIds = _requiredSets.map((set) => {
+        const setIds = _requiredConditions.sets.map((set) => {
             return set.id
         })
-        const skillIds = _requiredSkills.map((skill) => {
+        const skillIds = _requiredConditions.skills.map((skill) => {
             skillLevelMapping[skill.id] = skill.level
 
             return skill.id
@@ -127,7 +125,7 @@ export default function QuickSetting(props) {
             }
         })
 
-        if (Helper.isEmpty(_requiredEquips.charm)) {
+        if (Helper.isEmpty(_requiredConditions.equips.charm)) {
             CharmDataset.hasSkills(skillIds).getItems().forEach((charmInfo) => {
                 let isSkip = false
 
@@ -161,10 +159,10 @@ export default function QuickSetting(props) {
             })
         }
 
-        JewelDataset.hasSkills(skillIds, true).getItems().forEach((jewelInfo) => {
+        DecorationDataset.hasSkills(skillIds, true).getItems().forEach((decorationInfo) => {
             let isSkip = false
 
-            jewelInfo.skills.forEach((skill) => {
+            decorationInfo.skills.forEach((skill) => {
                 if (true === isSkip) {
                     return
                 }
@@ -180,30 +178,30 @@ export default function QuickSetting(props) {
                 return
             }
 
-            if (Helper.isEmpty(jewelMapping[jewelInfo.size])) {
-                jewelMapping[jewelInfo.size] = {}
+            if (Helper.isEmpty(decorationMapping[decorationInfo.size])) {
+                decorationMapping[decorationInfo.size] = {}
             }
 
-            if (Helper.isEmpty(jewelMapping[jewelInfo.size][jewelInfo.id])) {
-                jewelMapping[jewelInfo.size][jewelInfo.id] = {
-                    name: jewelInfo.name,
+            if (Helper.isEmpty(decorationMapping[decorationInfo.size][decorationInfo.id])) {
+                decorationMapping[decorationInfo.size][decorationInfo.id] = {
+                    name: decorationInfo.name,
                     min: 1,
                     max: 1
                 }
             }
 
-            jewelInfo.skills.forEach((skill) => {
+            decorationInfo.skills.forEach((skill) => {
                 let skillInfo = SkillDataset.getInfo(skill.id)
 
-                if (jewelMapping[jewelInfo.size][jewelInfo.id].max < skillInfo.list.length) {
-                    jewelMapping[jewelInfo.size][jewelInfo.id].max = skillInfo.list.length
+                if (decorationMapping[decorationInfo.size][decorationInfo.id].max < skillInfo.list.length) {
+                    decorationMapping[decorationInfo.size][decorationInfo.id].max = skillInfo.list.length
                 }
             })
         })
 
         let armorFactor = _algorithmParams.usingFactor.armor
         let charmFactor = _algorithmParams.usingFactor.charm
-        let jewelFactor = _algorithmParams.usingFactor.jewel
+        let decorationFactor = _algorithmParams.usingFactor.decoration
 
         return (
             <div className="mhc-item mhc-item-3-step">
@@ -292,22 +290,22 @@ export default function QuickSetting(props) {
                     </div>
                 ) : false}
 
-                {0 !== Object.keys(jewelMapping).length ? Object.keys(jewelMapping).sort((sizeA, sizeB) => {
+                {0 !== Object.keys(decorationMapping).length ? Object.keys(decorationMapping).sort((sizeA, sizeB) => {
                     return sizeA > sizeB ? 1 : -1
                 }).map((size) => {
                     return (
                         <div key={size} className="col-12 mhc-content">
                             <div className="col-12 mhc-name">
-                                <span>{_('jewelFactor')}: [{size}]</span>
+                                <span>{_('decorationFactor')}: [{size}]</span>
                             </div>
 
                             <div className="col-12 mhc-content">
-                                {Object.keys(jewelMapping[size]).sort((jewelIdA, jewelIdB) => {
-                                    return _(jewelIdA) > _(jewelIdB) ? 1 : -1
-                                }).map((jewelId) => {
-                                    let selectLevel = Helper.isNotEmpty(jewelFactor[jewelId])
-                                        ? jewelFactor[jewelId] : -1
-                                    let diffLevel = jewelMapping[size][jewelId].max - jewelMapping[size][jewelId].min + 1
+                                {Object.keys(decorationMapping[size]).sort((decorationIdA, decorationIdB) => {
+                                    return _(decorationIdA) > _(decorationIdB) ? 1 : -1
+                                }).map((decorationId) => {
+                                    let selectLevel = Helper.isNotEmpty(decorationFactor[decorationId])
+                                        ? decorationFactor[decorationId] : -1
+                                    let diffLevel = decorationMapping[size][decorationId].max - decorationMapping[size][decorationId].min + 1
                                     let levelList = [
                                         { key: -1, value: _('unlimited') },
                                         { key: 0, value: _('exclude') }
@@ -320,15 +318,15 @@ export default function QuickSetting(props) {
                                     })
 
                                     return (
-                                        <div key={jewelId} className="col-6 mhc-value">
-                                            <span>{_(jewelMapping[size][jewelId].name)}</span>
+                                        <div key={decorationId} className="col-6 mhc-value">
+                                            <span>{_(decorationMapping[size][decorationId].name)}</span>
 
                                             <div className="mhc-icons_bundle">
                                                 <BasicSelector
                                                     iconName="sort-numeric-asc"
                                                     defaultValue={selectLevel}
                                                     options={levelList} onChange={(event) => {
-                                                        States.world.actions.setAlgorithmParamsUsingFactor('jewel', jewelId, parseInt(event.target.value))
+                                                        States.world.actions.setAlgorithmParamsUsingFactor('decoration', decorationId, parseInt(event.target.value))
                                                     }} />
                                             </div>
                                         </div>
@@ -340,5 +338,5 @@ export default function QuickSetting(props) {
                 }) : false}
             </div>
         )
-    }, [data, _algorithmParams, _requiredEquips, _requiredSets, _requiredSkills])
+    }, [data, _algorithmParams, _requiredConditions])
 }

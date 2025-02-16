@@ -35,9 +35,7 @@ export default function ArmorFactors(props) {
      * Hooks
      */
     const _algorithmParams = States.world.hooks.useAlgorithmParams()
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
-    const _requiredSets = States.world.hooks.useRequiredSets()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> ArmorFactors')
@@ -47,16 +45,16 @@ export default function ArmorFactors(props) {
         let dataset = ArmorDataset
         let armorFactor = _algorithmParams.usingFactor.armor
 
-        const equipTypes = Object.keys(_requiredEquips).filter((equipType) => {
+        const equipTypes = Object.keys(_requiredConditions.equips).filter((equipType) => {
             if ('weapon' === equipType || 'charm' === equipType) {
                 return false
             }
 
-            return Helper.isEmpty(_requiredEquips[equipType])
+            return Helper.isEmpty(_requiredConditions.equips[equipType])
         })
 
         if (true === byRequiredConditions) {
-            const setIds = _requiredSets.map((set) => {
+            const setIds = _requiredConditions.sets.map((set) => {
                 return set.id
             })
 
@@ -106,7 +104,7 @@ export default function ArmorFactors(props) {
         })
 
         if (true === byRequiredConditions) {
-            const skillIds = _requiredSkills.map((skill) => {
+            const skillIds = _requiredConditions.skills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
@@ -215,5 +213,5 @@ export default function ArmorFactors(props) {
 
             return blocks
         })
-    }, [segment, byRequiredConditions, _algorithmParams, _requiredEquips, _requiredSets, _requiredSkills])
+    }, [segment, byRequiredConditions, _algorithmParams, _requiredConditions])
 }

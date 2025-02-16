@@ -20,22 +20,95 @@ import Misc from '@/scripts/libraries/world/misc'
 import WeaponDataset from '@/scripts/libraries/world/dataset/weapon'
 import ArmorDataset from '@/scripts/libraries/world/dataset/armor'
 import SetDataset from '@/scripts/libraries/world/dataset/set'
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import CharmDataset from '@/scripts/libraries/world/dataset/charm'
+
+/**
+ * Variables
+ */
+const defaultBundle = {
+    equipIdMapping: {
+        weapon: null,
+        helm: null,
+        chest: null,
+        arm: null,
+        waist: null,
+        leg: null,
+        charm: null
+    },
+    skillLevelMapping: {},
+    setCountMapping: {},
+    slotCountMapping: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0
+    },
+    decorationPackages: [],
+    meta: {
+        equipCount: 0,
+        defense: 0,
+        resistance: {
+            fire: 0,
+            water: 0,
+            thunder: 0,
+            ice: 0,
+            dragon: 0
+        },
+        completedSkills: {},
+        completedSets: {},
+        remainingSlotCountMapping: {
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            all: 0
+        },
+        totalExpectedValue: 0,
+        totalExpectedLevel: 0,
+        skillExpectedValue: 0,
+        skillExpectedLevel: 0
+    }
+}
+
+const defaultCandidateEquipItem = {
+    id: null,
+    type: null,
+    defense: 0,
+    resistance: {
+        fire: 0,
+        water: 0,
+        thunder: 0,
+        ice: 0,
+        dragon: 0
+    },
+    skillLevelMapping: {},
+    setId: null,
+    slotCountMapping: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0
+    },
+    totalExpectedValue: 0,
+    totalExpectedLevel: 0,
+    skillExpectedValue: 0,
+    skillExpectedLevel: 0
+}
 
 class FittingAlgorithm {
 
     /**
      * Search
      */
-    search = (requiredEquips, requiredSets, requiredSkills, algorithmParams, callback) => {
-        if (0 === requiredSets.length && 0 === requiredSkills.length) {
+    search = (requiredConditions, algorithmParams, callback) => {
+        if (0 === requiredConditions.sets.length && 0 === requiredConditions.skills.length) {
             return []
         }
 
-        Helper.log('FA: Input: Required Equips', requiredEquips)
-        Helper.log('FA: Input: Required Sets', requiredSets)
-        Helper.log('FA: Input: Required Skills', requiredSkills)
+        Helper.log('FA: Input: Required Equips', requiredConditions.equips)
+        Helper.log('FA: Input: Required Sets', requiredConditions.sets)
+        Helper.log('FA: Input: Required Skills', requiredConditions.skills)
         Helper.log('FA: Input: Algorithm Params', algorithmParams)
 
         // Set Properties
@@ -54,7 +127,7 @@ class FittingAlgorithm {
         this.totalExpectedValue = 0
         this.totalExpectedLevel = 0
 
-        this.correspondJewels = {}
+        this.correspondDecorations = {}
         this.firstBundle = {}
         this.usedEquipIds = {}
 
@@ -66,9 +139,7 @@ class FittingAlgorithm {
         // Init Condtions
         this.isInitFailed = false
 
-        this.initConditionSkills(requiredSkills)
-        this.initConditionSets(requiredSets)
-        this.initConditionEquips(requiredEquips)
+        this.initialize(requiredConditions, algorithmParams)
 
         if (this.isInitFailed) {
             Helper.log('FA: Init: Failed')
@@ -85,7 +156,7 @@ class FittingAlgorithm {
         Helper.log('FA: Global: Current Set Mapping:', this.currentSetMapping)
         Helper.log('FA: Global: Current Skill Mapping:', this.currentSkillMapping)
         Helper.log('FA: Global: Current Slot Mapping:', this.currentSlotMapping)
-        Helper.log('FA: Global: Correspond Jewels:', this.correspondJewels)
+        Helper.log('FA: Global: Correspond Decorations:', this.correspondDecorations)
         Helper.log('FA: Global: Total Expected Value:', this.totalExpectedValue)
         Helper.log('FA: Global: Total Expected Level:', this.totalExpectedLevel)
         Helper.log('FA: Global: First Bundle:', this.firstBundle)
@@ -146,34 +217,32 @@ class FittingAlgorithm {
     }
 
     /**
-     * Generate Bundle Jewel Hash
+     * Generate Bundle Decoration Hash
      */
-    getBundleJewelHash = (bundle) => {
-        let jewelMapping = {}
+    getBundleDecorationHash = (bundle) => {
+        let decorationMapping = {}
 
-        Object.keys(bundle.jewelMapping).sort().forEach((jewelId) => {
-            if (0 === bundle.jewelMapping[jewelId]) {
+        Object.keys(bundle.decorationMapping).sort().forEach((decorationId) => {
+            if (0 === bundle.decorationMapping[decorationId]) {
                 return
             }
 
-            jewelMapping[jewelId] = bundle.jewelMapping[jewelId]
+            decorationMapping[decorationId] = bundle.decorationMapping[decorationId]
         })
 
-        return MD5(JSON.stringify(jewelMapping))
+        return MD5(JSON.stringify(decorationMapping))
     }
 
-    /**
-     * Init Condition Skills
-     */
-    initConditionSkills = (requiredSkills) => {
+    initialize = (requiredConditions, algorithmParams) => {
+        // Init Condition Skills
         let requiredSkillIds = []
 
-        requiredSkills.sort((skillA, skillB) => {
+        requiredConditions.skills.sort((skillA, skillB) => {
             return skillB.level - skillA.level
         }).forEach((skill) => {
             this.currentSkillMapping[skill.id] = {
                 level: skill.level,
-                jewelSize: 0
+                decorationSize: 0
             }
 
             if (0 === this.currentSkillMapping[skill.id].level) {
@@ -182,23 +251,23 @@ class FittingAlgorithm {
 
             requiredSkillIds.push(skill.id)
 
-            JewelDataset.hasSkill(skill.id).getItems().forEach((jewelInfo) => {
-                if (4 === jewelInfo.size) {
+            DecorationDataset.hasSkill(skill.id).getItems().forEach((decorationInfo) => {
+                if (4 === decorationInfo.size) {
                     return
                 }
 
-                this.currentSkillMapping[skill.id].jewelSize = jewelInfo.size
+                this.currentSkillMapping[skill.id].decorationSize = decorationInfo.size
             })
 
             // Increase Expected Value & Level
-            this.totalExpectedValue += skill.level * this.currentSkillMapping[skill.id].jewelSize
+            this.totalExpectedValue += skill.level * this.currentSkillMapping[skill.id].decorationSize
             this.totalExpectedLevel += skill.level
         })
 
-        JewelDataset.hasSkills(requiredSkillIds, true).getItems().forEach((jewelInfo) => {
+        DecorationDataset.hasSkills(requiredSkillIds, true).getItems().forEach((decorationInfo) => {
             let isSkip = false
 
-            jewelInfo.skills.forEach((skill) => {
+            decorationInfo.skills.forEach((skill) => {
                 if (true === isSkip) {
                     return
                 }
@@ -214,16 +283,16 @@ class FittingAlgorithm {
                 return
             }
 
-            // Check is Using Factor Jewel
-            if (false === this.algorithmParams.usingFactor.jewel['size' + jewelInfo.size]) {
+            // Check is Using Factor Decoration
+            if (false === this.algorithmParams.usingFactor.decoration['size' + decorationInfo.size]) {
                 return
             }
 
-            if (Helper.isEmpty(this.algorithmParams.usingFactor.jewel[jewelInfo.id])) {
-                this.algorithmParams.usingFactor.jewel[jewelInfo.id] = -1
+            if (Helper.isEmpty(this.algorithmParams.usingFactor.decoration[decorationInfo.id])) {
+                this.algorithmParams.usingFactor.decoration[decorationInfo.id] = -1
             }
 
-            if (0 === this.algorithmParams.usingFactor.jewel[jewelInfo.id]) {
+            if (0 === this.algorithmParams.usingFactor.decoration[decorationInfo.id]) {
                 return
             }
 
@@ -231,8 +300,8 @@ class FittingAlgorithm {
             let expectedValue = 0
             let expectedLevel = 0
 
-            let jewelSkills = jewelInfo.skills.map((skill) => {
-                expectedValue += skill.level * this.currentSkillMapping[skill.id].jewelSize
+            let decorationSkills = decorationInfo.skills.map((skill) => {
+                expectedValue += skill.level * this.currentSkillMapping[skill.id].decorationSize
                 expectedLevel += skill.level
 
                 return {
@@ -241,29 +310,29 @@ class FittingAlgorithm {
                 }
             })
 
-            if (this.currentSlotMapping[jewelInfo.size].expectedValue < expectedValue) {
-                this.currentSlotMapping[jewelInfo.size].expectedValue = expectedValue
+            if (this.currentSlotMapping[decorationInfo.size].expectedValue < expectedValue) {
+                this.currentSlotMapping[decorationInfo.size].expectedValue = expectedValue
             }
 
-            if (this.currentSlotMapping[jewelInfo.size].expectedLevel < expectedLevel) {
-                this.currentSlotMapping[jewelInfo.size].expectedLevel = expectedLevel
+            if (this.currentSlotMapping[decorationInfo.size].expectedLevel < expectedLevel) {
+                this.currentSlotMapping[decorationInfo.size].expectedLevel = expectedLevel
             }
 
-            if (Helper.isEmpty(this.correspondJewels[jewelInfo.size])) {
-                this.correspondJewels[jewelInfo.size] = []
+            if (Helper.isEmpty(this.correspondDecorations[decorationInfo.size])) {
+                this.correspondDecorations[decorationInfo.size] = []
             }
 
-            let jewelCountLimit = null
+            let decorationCountLimit = null
 
-            if (-1 !== this.algorithmParams.usingFactor.jewel[jewelInfo.id]) {
-                jewelCountLimit = this.algorithmParams.usingFactor.jewel[jewelInfo.id]
+            if (-1 !== this.algorithmParams.usingFactor.decoration[decorationInfo.id]) {
+                decorationCountLimit = this.algorithmParams.usingFactor.decoration[decorationInfo.id]
             }
 
-            this.correspondJewels[jewelInfo.size].push({
-                id: jewelInfo.id,
-                size: jewelInfo.size,
-                skills: jewelSkills,
-                countLimit: jewelCountLimit,
+            this.correspondDecorations[decorationInfo.size].push({
+                id: decorationInfo.id,
+                size: decorationInfo.size,
+                skills: decorationSkills,
+                countLimit: decorationCountLimit,
                 expectedValue: expectedValue,
                 expectedLevel: expectedLevel
             })
@@ -280,13 +349,9 @@ class FittingAlgorithm {
 
             this.currentSlotMapping[size] = this.currentSlotMapping[size - 1]
         })
-    }
 
-    /**
-     * Init Condition Sets
-     */
-    initConditionSets = (requiredSets) => {
-        requiredSets.sort((setA, setB) => {
+        // Init Condition Sets
+        requiredConditions.sets.sort((setA, setB) => {
             let setInfoA = SetDataset.getInfo(setA.id)
             let setInfoB = SetDataset.getInfo(setB.id)
 
@@ -306,17 +371,9 @@ class FittingAlgorithm {
                 require: setInfo.skills[set.step - 1].require
             }
         })
-    }
 
-    /**
-     * Init Condition Equips
-     */
-    initConditionEquips = (requiredEquips) => {
-        if (this.isInitFailed) {
-            return
-        }
-
-        let bundle = Helper.deepCopy(Constant.world.default.bundle)
+        // Init Condition Equips
+        let bundle = Helper.deepCopy(defaultBundle)
 
         // Create First Bundle
         for (let equipType of ['weapon', 'helm', 'chest', 'arm', 'waist', 'leg', 'charm']) {
@@ -324,7 +381,7 @@ class FittingAlgorithm {
                 continue
             }
 
-            if (Helper.isEmpty(requiredEquips[equipType])) {
+            if (Helper.isEmpty(requiredConditions.equips[equipType])) {
                 if ('weapon' !== equipType) {
                     this.currentEquipTypes.push(equipType)
                 }
@@ -338,8 +395,8 @@ class FittingAlgorithm {
             if ('weapon' === equipType) {
 
                 // Set Custom Weapon
-                if (Helper.isNotEmpty(requiredEquips.weapon.customWeapon)) {
-                    let customWeapon = requiredEquips.weapon.customWeapon
+                if (Helper.isNotEmpty(requiredConditions.equips.weapon.customWeapon)) {
+                    let customWeapon = requiredConditions.equips.weapon.customWeapon
                     let isCompleted = true
 
                     if (Helper.isEmpty(customWeapon.type)
@@ -369,16 +426,16 @@ class FittingAlgorithm {
                     Helper.log('FA: Input: Custom Weapon', customWeapon)
                 }
 
-                equipInfo = Misc.getAppliedWeaponInfo(requiredEquips.weapon)
+                equipInfo = Misc.getAppliedWeaponInfo(requiredConditions.equips.weapon)
             } else if ('helm' === equipType
                 || 'chest' === equipType
                 || 'arm' === equipType
                 || 'waist' === equipType
                 || 'leg' === equipType
             ) {
-                equipInfo = Misc.getAppliedArmorInfo(requiredEquips[equipType])
+                equipInfo = Misc.getAppliedArmorInfo(requiredConditions.equips[equipType])
             } else if ('charm' === equipType) {
-                equipInfo = Misc.getAppliedCharmInfo(requiredEquips.charm)
+                equipInfo = Misc.getAppliedCharmInfo(requiredConditions.equips.charm)
             }
 
             // Check Equip Info
@@ -546,7 +603,7 @@ class FittingAlgorithm {
             if (0 < this.currentSkillCount
                 && false === this.isBundleSkillsCompleted(bundle)
             ) {
-                let tempBundle = this.createBundleWithJewels(bundle)
+                let tempBundle = this.createBundleWithDecorations(bundle)
 
                 if (false !== tempBundle) {
                     lastBundleMapping[this.getBundleHash(tempBundle)] = tempBundle
@@ -565,8 +622,8 @@ class FittingAlgorithm {
             if ( 0 < this.currentSkillCount
                 && false === this.isBundleSkillsCompleted(bundle)
             ) {
-                // Create Bundle With Jewels
-                let tempBundle = this.createBundleWithJewels(bundle)
+                // Create Bundle With Decorations
+                let tempBundle = this.createBundleWithDecorations(bundle)
 
                 if (false !== tempBundle) {
                     lastBundleMapping[this.getBundleHash(tempBundle)] = tempBundle
@@ -713,8 +770,8 @@ class FittingAlgorithm {
                 // Check Bundle Reach Expected
                 if (this.isBundleReachExpected(bundle)) {
 
-                    // Create Bundle With Jewels
-                    bundle = this.createBundleWithJewels(bundle)
+                    // Create Bundle With Decorations
+                    bundle = this.createBundleWithDecorations(bundle)
 
                     if (false !== bundle) {
                         lastBundleMapping[this.getBundleHash(bundle)] = bundle
@@ -753,7 +810,7 @@ class FittingAlgorithm {
         return Object.values(lastBundleMapping)
     }
 
-    createBundleWithJewels = (bundle) => {
+    createBundleWithDecorations = (bundle) => {
         if (this.isBundleSkillsCompleted(bundle)) {
             return bundle
         }
@@ -763,21 +820,21 @@ class FittingAlgorithm {
         }
 
         let lastBundle = null
-        let jewelPackageMapping = []
+        let decorationPackageMapping = []
 
-        // Create Current Skill Ids and Convert Correspond Jewel Pool
-        let correspondJewelPool = {}
+        // Create Current Skill Ids and Convert Correspond Decoration Pool
+        let correspondDecorationPool = {}
         let slotMapping = {}
 
         for (let size of [ 1, 2, 3, 4 ]) {
-            correspondJewelPool[size] = Helper.isNotEmpty(this.correspondJewels[size])
-                ? this.correspondJewels[size] : []
+            correspondDecorationPool[size] = Helper.isNotEmpty(this.correspondDecorations[size])
+                ? this.correspondDecorations[size] : []
             slotMapping[size] = null
 
-            correspondJewelPool[size] = correspondJewelPool[size].filter((jewel) => {
+            correspondDecorationPool[size] = correspondDecorationPool[size].filter((decoration) => {
                 let isSkip = false
 
-                jewel.skills.forEach((skill) => {
+                decoration.skills.forEach((skill) => {
                     if (true === isSkip) {
                         return
                     }
@@ -800,12 +857,12 @@ class FittingAlgorithm {
                     }
                 }
 
-                if (slotMapping[size].expectedValue < jewel.expectedValue) {
-                    slotMapping[size].expectedValue = jewel.expectedValue
+                if (slotMapping[size].expectedValue < decoration.expectedValue) {
+                    slotMapping[size].expectedValue = decoration.expectedValue
                 }
 
-                if (slotMapping[size].expectedLevel < jewel.expectedLevel) {
-                    slotMapping[size].expectedLevel = jewel.expectedLevel
+                if (slotMapping[size].expectedLevel < decoration.expectedLevel) {
+                    slotMapping[size].expectedLevel = decoration.expectedLevel
                 }
 
                 return true
@@ -822,8 +879,8 @@ class FittingAlgorithm {
                 }
             }
 
-            if (Helper.isNotEmpty(correspondJewelPool[size - 1])) {
-                correspondJewelPool[size] = correspondJewelPool[size].concat(correspondJewelPool[size - 1])
+            if (Helper.isNotEmpty(correspondDecorationPool[size - 1])) {
+                correspondDecorationPool[size] = correspondDecorationPool[size].concat(correspondDecorationPool[size - 1])
             }
         }
 
@@ -843,17 +900,17 @@ class FittingAlgorithm {
         let statusStack = []
         let slotIndex = null
         let slotSize = null
-        let jewelIndex = null
-        let correspondJewel = null
+        let decorationIndex = null
+        let correspondDecoration = null
 
         // Push Root Bundle
         statusStack.push({
             bundle: bundle,
             slotIndex: 0,
-            jewelIndex: 0
+            decorationIndex: 0
         })
 
-        const findPrevSkillAndNextJewel = () => {
+        const findPrevSkillAndNextDecoration = () => {
             while (true) {
                 stackIndex--
                 statusStack.pop()
@@ -864,25 +921,25 @@ class FittingAlgorithm {
 
                 slotIndex = statusStack[stackIndex].slotIndex
                 slotSize = slotSizeList[slotIndex]
-                jewelIndex = statusStack[stackIndex].jewelIndex
+                decorationIndex = statusStack[stackIndex].decorationIndex
 
-                if (Helper.isNotEmpty(correspondJewelPool[slotSize][jewelIndex + 1])) {
-                    statusStack[stackIndex].jewelIndex++
+                if (Helper.isNotEmpty(correspondDecorationPool[slotSize][decorationIndex + 1])) {
+                    statusStack[stackIndex].decorationIndex++
 
                     break
                 }
             }
         }
 
-        const findNextJewel = () => {
+        const findNextDecoration = () => {
             slotIndex = statusStack[stackIndex].slotIndex
             slotSize = slotSizeList[slotIndex]
-            jewelIndex = statusStack[stackIndex].jewelIndex
+            decorationIndex = statusStack[stackIndex].decorationIndex
 
-            if (Helper.isNotEmpty(correspondJewelPool[slotSize][jewelIndex + 1])) {
-                statusStack[stackIndex].jewelIndex++
+            if (Helper.isNotEmpty(correspondDecorationPool[slotSize][decorationIndex + 1])) {
+                statusStack[stackIndex].decorationIndex++
             } else {
-                findPrevSkillAndNextJewel()
+                findPrevSkillAndNextDecoration()
             }
         }
 
@@ -894,14 +951,14 @@ class FittingAlgorithm {
                 statusStack.push({
                     bundle: bundle,
                     slotIndex: slotIndex + 1,
-                    jewelIndex: 0
+                    decorationIndex: 0
                 })
             } else {
-                findNextJewel()
+                findNextDecoration()
             }
         }
 
-        // Helper.log('FA: CreateBundlesWithJewels: Root Bundle:', bundle)
+        // Helper.log('FA: CreateBundlesWithDecorations: Root Bundle:', bundle)
 
         while (true) {
             if (0 === statusStack.length) {
@@ -911,11 +968,11 @@ class FittingAlgorithm {
             bundle = statusStack[stackIndex].bundle
             slotIndex = statusStack[stackIndex].slotIndex
             slotSize = slotSizeList[slotIndex]
-            jewelIndex = statusStack[stackIndex].jewelIndex
-            correspondJewel = correspondJewelPool[slotSize][jewelIndex]
+            decorationIndex = statusStack[stackIndex].decorationIndex
+            correspondDecoration = correspondDecorationPool[slotSize][decorationIndex]
 
             if (0 === bundle.meta.remainingSlotCountMapping.all) {
-                findPrevSkillAndNextJewel()
+                findPrevSkillAndNextDecoration()
 
                 continue
             }
@@ -926,11 +983,11 @@ class FittingAlgorithm {
                 continue
             }
 
-            // Add Jewel To Bundle
-            bundle = this.addJewelToBundle(bundle, slotSize, correspondJewel, true)
+            // Add Decoration To Bundle
+            bundle = this.addDecorationToBundle(bundle, slotSize, correspondDecoration, true)
 
             if (false === bundle) {
-                findNextJewel()
+                findNextDecoration()
 
                 continue
             }
@@ -940,21 +997,21 @@ class FittingAlgorithm {
                 if (Helper.isEmpty(lastBundle)) {
                     lastBundle = Helper.deepCopy(bundle)
 
-                    delete lastBundle.jewelMapping
+                    delete lastBundle.decorationMapping
                 }
 
-                jewelPackageMapping[this.getBundleJewelHash(bundle)] = bundle.jewelMapping
+                decorationPackageMapping[this.getBundleDecorationHash(bundle)] = bundle.decorationMapping
 
-                // Helper.log('FA: Last Package Count:', Object.keys(jewelPackageMapping).length)
+                // Helper.log('FA: Last Package Count:', Object.keys(decorationPackageMapping).length)
 
-                findPrevSkillAndNextJewel()
+                findPrevSkillAndNextDecoration()
 
                 continue
             }
 
-            // Check Bundle Jewel Have a Future
-            if (false === this.isBundleJewelHaveFuture(bundle, slotMapping)) {
-                findNextJewel()
+            // Check Bundle Decoration Have a Future
+            if (false === this.isBundleDecorationHaveFuture(bundle, slotMapping)) {
+                findNextDecoration()
 
                 continue
             }
@@ -966,8 +1023,8 @@ class FittingAlgorithm {
             return false
         }
 
-        // Replace Jewel Packages
-        lastBundle.jewelPackages = Object.values(jewelPackageMapping)
+        // Replace Decoration Packages
+        lastBundle.decorationPackages = Object.values(decorationPackageMapping)
 
         return lastBundle
     }
@@ -1193,7 +1250,7 @@ class FittingAlgorithm {
      * Convert Equip Info To Candidate Equip
      */
     convertEquipInfoToCandidateEquip = (equipInfo, equipType) => {
-        let candidateEquip = Helper.deepCopy(Constant.world.default.candidateEquip)
+        let candidateEquip = Helper.deepCopy(defaultCandidateEquipItem)
 
         // Set Id, Type & Defense
         candidateEquip.id = equipInfo.id
@@ -1220,7 +1277,7 @@ class FittingAlgorithm {
             }
 
             // Increase Expected Value & Level
-            let expectedValue = skill.level * this.currentSkillMapping[skill.id].jewelSize
+            let expectedValue = skill.level * this.currentSkillMapping[skill.id].decorationSize
             let expectedLevel = skill.level
 
             candidateEquip.totalExpectedValue += expectedValue
@@ -1244,7 +1301,7 @@ class FittingAlgorithm {
      * Get Empty Candidate Equip
      */
     getEmptyCandidateEquip = (equipType) => {
-        let candidateEquip = Helper.deepCopy(Constant.world.default.candidateEquip)
+        let candidateEquip = Helper.deepCopy(defaultCandidateEquipItem)
 
         candidateEquip.id = 'empty' + Helper.ucfirst(equipType)
         candidateEquip.type = equipType
@@ -1253,28 +1310,28 @@ class FittingAlgorithm {
     }
 
     /**
-     * Add Jewel to Bundle
+     * Add Decoration to Bundle
      */
-    addJewelToBundle = (bundle, slotSize, jewel, hasJewelCountLimit = false) => {
+    addDecorationToBundle = (bundle, slotSize, decoration, hasDecorationCountLimit = false) => {
 
-        // Check Jewel
-        if (Helper.isEmpty(jewel)) {
+        // Check Decoration
+        if (Helper.isEmpty(decoration)) {
             return false
         }
 
-        // Check Jewel Limit
-        if (Helper.isNotEmpty(bundle.jewelMapping)
-            && Helper.isNotEmpty(bundle.jewelMapping[jewel.id])
-            && jewel.countLimit === bundle.jewelMapping[jewel.id]
+        // Check Decoration Limit
+        if (Helper.isNotEmpty(bundle.decorationMapping)
+            && Helper.isNotEmpty(bundle.decorationMapping[decoration.id])
+            && decoration.countLimit === bundle.decorationMapping[decoration.id]
         ) {
             return false
         }
 
-        // Check Jewel Count
+        // Check Decoration Count
         let isSkip = false
-        let jewelCount = bundle.meta.remainingSlotCountMapping[slotSize]
+        let decorationCount = bundle.meta.remainingSlotCountMapping[slotSize]
 
-        jewel.skills.forEach((skill) => {
+        decoration.skills.forEach((skill) => {
             if (true === isSkip) {
                 return
             }
@@ -1286,10 +1343,10 @@ class FittingAlgorithm {
             }
 
             let diffSkillLevel = this.currentSkillMapping[skill.id].level - bundle.skillLevelMapping[skill.id]
-            let diffJewelCount = parseInt(diffSkillLevel / skill.level, 10)
+            let diffDecorationCount = parseInt(diffSkillLevel / skill.level, 10)
 
-            if (jewelCount > diffJewelCount) {
-                jewelCount = diffJewelCount
+            if (decorationCount > diffDecorationCount) {
+                decorationCount = diffDecorationCount
             }
         })
 
@@ -1297,35 +1354,35 @@ class FittingAlgorithm {
             return false
         }
 
-        if (null !== jewel.countLimit && jewelCount > jewel.countLimit) {
-            jewelCount = jewel.countLimit
+        if (null !== decoration.countLimit && decorationCount > decoration.countLimit) {
+            decorationCount = decoration.countLimit
         }
 
-        if (0 === jewelCount) {
+        if (0 === decorationCount) {
             return false
         }
 
-        // If jewel count force set 1, then will show all combination
-        if (hasJewelCountLimit) {
-            jewelCount = 1
+        // If decoration count force set 1, then will show all combination
+        if (hasDecorationCountLimit) {
+            decorationCount = 1
         }
 
-        // Increase Jewels
+        // Increase Decorations
         bundle = Helper.deepCopy(bundle)
 
-        if (Helper.isEmpty(bundle.jewelMapping)) {
-            bundle.jewelMapping = {}
+        if (Helper.isEmpty(bundle.decorationMapping)) {
+            bundle.decorationMapping = {}
         }
 
-        if (Helper.isEmpty(bundle.jewelMapping[jewel.id])) {
-            bundle.jewelMapping[jewel.id] = 0
+        if (Helper.isEmpty(bundle.decorationMapping[decoration.id])) {
+            bundle.decorationMapping[decoration.id] = 0
         }
 
-        bundle.jewelMapping[jewel.id] += jewelCount
+        bundle.decorationMapping[decoration.id] += decorationCount
 
         // Increase Skill Level
-        jewel.skills.forEach((skill) => {
-            bundle.skillLevelMapping[skill.id] += jewelCount * skill.level
+        decoration.skills.forEach((skill) => {
+            bundle.skillLevelMapping[skill.id] += decorationCount * skill.level
 
             if (this.currentSkillMapping[skill.id].level === bundle.skillLevelMapping[skill.id]) {
                 bundle.meta.completedSkills[skill.id] = true
@@ -1333,12 +1390,12 @@ class FittingAlgorithm {
         })
 
         // Decrease Slot Counts
-        bundle.meta.remainingSlotCountMapping[slotSize] -= jewelCount
-        bundle.meta.remainingSlotCountMapping.all -= jewelCount
+        bundle.meta.remainingSlotCountMapping[slotSize] -= decorationCount
+        bundle.meta.remainingSlotCountMapping.all -= decorationCount
 
         // Increase Expected Value & Level
-        let expectedValue = jewelCount * jewel.expectedValue
-        let expectedLevel = jewelCount * jewel.expectedLevel
+        let expectedValue = decorationCount * decoration.expectedValue
+        let expectedLevel = decorationCount * decoration.expectedLevel
 
         bundle.meta.skillExpectedValue += expectedValue
         bundle.meta.skillExpectedLevel += expectedLevel
@@ -1417,12 +1474,12 @@ class FittingAlgorithm {
     }
 
     /**
-     * Is Bundle Jewel Have Future
+     * Is Bundle Decoration Have Future
      *
      * This is magic function, which is see through the future,
      * maybe will lost some results.
      */
-    isBundleJewelHaveFuture = (bundle, slotMapping) => {
+    isBundleDecorationHaveFuture = (bundle, slotMapping) => {
         let expectedValue = bundle.meta.skillExpectedValue
         let expectedLevel = bundle.meta.skillExpectedLevel
 

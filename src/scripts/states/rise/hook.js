@@ -29,12 +29,12 @@ export const useDataStore = () => {
     return value
 }
 
-export const usePlayerStatus = () => {
-    const [value, setValue] = useState(getters.playerStatus())
+export const usePlayerEquips = () => {
+    const [value, setValue] = useState(getters.playerEquips())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.playerStatus())
+            setValue(getters.playerEquips())
         })
 
         return () => {
@@ -45,12 +45,12 @@ export const usePlayerStatus = () => {
     return value
 }
 
-export const usePlayerEquips = () => {
-    const [value, setValue] = useState(getters.playerEquips())
+export const usePlayerStatus = () => {
+    const [value, setValue] = useState(getters.playerStatus())
 
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
-            setValue(getters.playerEquips())
+            setValue(getters.playerStatus())
         })
 
         return () => {

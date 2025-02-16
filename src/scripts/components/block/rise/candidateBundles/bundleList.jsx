@@ -137,11 +137,11 @@ export default function BundleList (props) {
      * Handle Functions
      */
     const handleDecorationPackageChange = useCallback((bundleIndex, packageIndex) => {
-        let computedResult = Helper.deepCopy(_candidateBundles)
+        let candidateBundles = Helper.deepCopy(_candidateBundles)
 
-        computedResult.list[bundleIndex].decorationPackageIndex = packageIndex
+        candidateBundles.list[bundleIndex].decorationPackageIndex = packageIndex
 
-        States.rise.actions.saveCandidateBundles(computedResult)
+        States.rise.actions.replaceCandidateBundles(candidateBundles)
     }, [_candidateBundles])
 
     return useMemo(() => {

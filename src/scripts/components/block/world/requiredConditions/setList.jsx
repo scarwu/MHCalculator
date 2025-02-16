@@ -85,7 +85,7 @@ export default function SetList (props) {
     /**
      * Hooks
      */
-    const _requiredSets = States.world.hooks.useRequiredSets()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> SetList')
@@ -101,8 +101,8 @@ export default function SetList (props) {
                     </div>
                 </div>
 
-                {_requiredSets.map(renderSetItem)}
+                {_requiredConditions.sets.map(renderSetItem)}
             </div>
         )
-    }, [_requiredSets])
+    }, [_requiredConditions])
 }

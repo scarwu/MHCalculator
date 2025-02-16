@@ -90,15 +90,14 @@ export default function SkillList(props) {
     /**
      * Hooks
      */
-    const _requiredSets = States.world.hooks.useRequiredSets()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: ConditionOptions -> SkillList')
 
         let enableSkillIdList = []
 
-        _requiredSets.forEach((set) => {
+        _requiredConditions.sets.forEach((set) => {
             let setInfo = SetDataset.getInfo(set.id)
 
             if (Helper.isEmpty(setInfo)) {
@@ -143,10 +142,10 @@ export default function SkillList(props) {
                     </div>
                 </div>
 
-                {_requiredSkills.map((skill) => {
+                {_requiredConditions.skills.map((skill) => {
                     return renderSkillItem(skill, enableSkillIdList)
                 })}
              </div>
         )
-    }, [_requiredSkills, _requiredSets])
+    }, [_requiredConditions])
 }

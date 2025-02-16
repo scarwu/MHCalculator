@@ -14,27 +14,15 @@ import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
 
 // Load Components
-import EquipList from '@/scripts/components/block/world/requiredConditions/equipList'
-import SetList from '@/scripts/components/block/world/requiredConditions/setList'
-import SkillList from '@/scripts/components/block/world/requiredConditions/skillList'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 
+import EquipList from '@/scripts/components/block/world/requiredConditions/equipList'
+import SetList from '@/scripts/components/block/world/requiredConditions/setList'
+import SkillList from '@/scripts/components/block/world/requiredConditions/skillList'
+
 // Load State Control
 import States from '@/scripts/states'
-
-/**
- * Handle Functions
- */
-const handleRequireConditionRefresh = () => {
-    States.world.actions.cleanRequiredEquips()
-    States.world.actions.cleanRequiredSets()
-    States.world.actions.cleanRequiredSkills()
-}
-
-const handleSwitchTempData = (index) => {
-    States.world.actions.switchDataStore('requiredConditions', index)
-}
 
 export default function RequiredConditions(props) {
 
@@ -52,25 +40,25 @@ export default function RequiredConditions(props) {
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
                         isActive={0 === _dataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchTempData(0)}} />
+                        onClick={() => { States.world.actions.switchDataStore('requiredConditions', 0) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
                         isActive={1 === _dataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchTempData(1)}} />
+                        onClick={() => { States.world.actions.switchDataStore('requiredConditions', 1) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
                         isActive={2 === _dataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchTempData(2)}} />
+                        onClick={() => { States.world.actions.switchDataStore('requiredConditions', 2) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
                         isActive={3 === _dataStore.requiredConditions.index}
-                        onClick={() => {handleSwitchTempData(3)}} />
+                        onClick={() => { States.world.actions.switchDataStore('requiredConditions', 3) }} />
                 </div>
 
                 <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
-                        onClick={handleRequireConditionRefresh} />
+                        onClick={() => { States.world.actions.cleanRequiredConditions() }} />
                 </div>
             </div>
 

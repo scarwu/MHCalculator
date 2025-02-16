@@ -31,9 +31,7 @@ export default function RequiredConditions(props) {
     /**
      * Hooks
      */
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
-    const _requiredSets = States.world.hooks.useRequiredSets()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: CandidateBundles -> RequiredConditions')
@@ -43,17 +41,17 @@ export default function RequiredConditions(props) {
         }
 
         // Required Ids
-        const requiredEquipIds = Object.keys(_requiredEquips).map((equipType) => {
-            if (Helper.isEmpty(_requiredEquips[equipType])) {
+        const requiredEquipIds = Object.keys(_requiredConditions.equips).map((equipType) => {
+            if (Helper.isEmpty(_requiredConditions.equips[equipType])) {
                 return false
             }
 
-            return _requiredEquips[equipType].id
+            return _requiredConditions.equips[equipType].id
         })
-        const requiredSetIds = _requiredSets.map((set) => {
+        const requiredSetIds = _requiredConditions.sets.map((set) => {
             return set.id
         })
-        const requiredSkillIds = _requiredSkills.map((skill) => {
+        const requiredSkillIds = _requiredConditions.skill.map((skill) => {
             return skill.id
         })
 
@@ -88,27 +86,27 @@ export default function RequiredConditions(props) {
                             {currentRequiredEquips.map((equip) => {
                                 let isNotRequire = true
 
-                                if (Helper.isNotEmpty(_requiredEquips[equip.type])) {
+                                if (Helper.isNotEmpty(_requiredConditions.equips[equip.type])) {
                                     if ('weapon' === equip.type) {
                                         if ('customWeapon' === equip.id) {
                                             isNotRequire = Helper.jsonHash({
                                                 customWeapon: equip.customWeapon,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                customWeapon: _requiredEquips[equip.type].customWeapon,
-                                                enhances: _requiredEquips[equip.type].enhances
+                                                customWeapon: _requiredConditions.equips[equip.type].customWeapon,
+                                                enhances: _requiredConditions.equips[equip.type].enhances
                                             })
                                         } else {
                                             isNotRequire = Helper.jsonHash({
                                                 id: equip.id,
                                                 enhances: equip.enhances
                                             }) !== Helper.jsonHash({
-                                                id: _requiredEquips[equip.type].id,
-                                                enhances: _requiredEquips[equip.type].enhances
+                                                id: _requiredConditions.equips[equip.type].id,
+                                                enhances: _requiredConditions.equips[equip.type].enhances
                                             })
                                         }
                                     } else {
-                                        isNotRequire = equip.id !== _requiredEquips[equip.type].id
+                                        isNotRequire = equip.id !== _requiredConditions.equips[equip.type].id
                                     }
                                 }
 
@@ -222,5 +220,5 @@ export default function RequiredConditions(props) {
                 ) : false}
             </div>
         )
-    }, [data, _requiredEquips, _requiredSets, _requiredSkills])
+    }, [data, _requiredConditions])
 }

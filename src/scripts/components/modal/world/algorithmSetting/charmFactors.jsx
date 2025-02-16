@@ -35,8 +35,7 @@ export default function CharmFactors(props) {
      * Hooks
      */
     const _algorithmParams = States.world.hooks.useAlgorithmParams()
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
-    const _requiredSkills = States.world.hooks.useRequiredSkills()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     return useMemo(() => {
         Helper.debug('Component: AlgorithmSetting -> CharmFactors')
@@ -47,11 +46,11 @@ export default function CharmFactors(props) {
         let charmFactor = _algorithmParams.usingFactor.charm
 
         if (true === byRequiredConditions) {
-            if (Helper.isNotEmpty(_requiredEquips.charm)) {
+            if (Helper.isNotEmpty(_requiredConditions.equips.charm)) {
                 return false
             }
 
-            const skillIds = _requiredSkills.map((skill) => {
+            const skillIds = _requiredConditions.skills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
@@ -156,5 +155,5 @@ export default function CharmFactors(props) {
         }
 
         return blocks
-    }, [segment, byRequiredConditions, _algorithmParams, _requiredSkills])
+    }, [segment, byRequiredConditions, _algorithmParams, _requiredConditions])
 }

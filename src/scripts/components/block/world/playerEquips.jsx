@@ -19,30 +19,19 @@ import Helper from '@/scripts/core/helper'
 
 // Load Libraries
 import Misc from '@/scripts/libraries/world/misc'
-import JewelDataset from '@/scripts/libraries/world/dataset/jewel'
+import DecorationDataset from '@/scripts/libraries/world/dataset/decoration'
 import EnhanceDataset from '@/scripts/libraries/world/dataset/enhance'
 import SetDataset from '@/scripts/libraries/world/dataset/set'
 import SkillDataset from '@/scripts/libraries/world/dataset/skill'
 
 // Load Components
-import CustomWeapon from '@/scripts/components/block/world/playerEquips/customWeapon'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconTab from '@/scripts/components/ui/iconTab'
 import SharpnessBar from '@/scripts/components/ui/sharpnessBar'
+import CustomWeapon from '@/scripts/components/ui/world/customWeapon'
 
 // Load State Control
 import States from '@/scripts/states'
-
-/**
- * Handle Functions
- */
-const handleEquipsDisplayerRefresh = () => {
-    States.world.actions.cleanCurrentEquips()
-}
-
-const handleSwitchTempData = (index) => {
-    States.world.actions.switchDataStore('playerEquips', index)
-}
 
 /**
  * Render Functions
@@ -106,7 +95,7 @@ const renderEnhanceBlock = (equipInfo) => {
                             <span>[{enhanceInfo.list[currentLevel - 1].size}] {_(enhanceInfo.name)} Lv.{currentLevel}</span>
                             <div className="mhc-icons_bundle">
                                 <IconButton key={`prev:${prevLevel}`} iconName="minus-circle" altName={_('down')} onClick={() => {
-                                    States.world.actions.setCurrentEquip({
+                                    States.world.actions.setPlayerEquip({
                                         equipType: equipInfo.type,
                                         enhanceIndex: index,
                                         enhanceId: enhance.id,
@@ -114,7 +103,7 @@ const renderEnhanceBlock = (equipInfo) => {
                                     })
                                 }} />
                                 <IconButton key={`next:${nextLevel}`} iconName="plus-circle" altName={_('up')} onClick={() => {
-                                    States.world.actions.setCurrentEquip({
+                                    States.world.actions.setPlayerEquip({
                                         equipType: equipInfo.type,
                                         enhanceIndex: index,
                                         enhanceId: enhance.id,
@@ -122,7 +111,7 @@ const renderEnhanceBlock = (equipInfo) => {
                                     })
                                 }} />
                                 <IconButton iconName="times" altName={_('clean')} onClick={() => {
-                                    States.world.actions.setCurrentEquip({
+                                    States.world.actions.setPlayerEquip({
                                         equipType: equipInfo.type,
                                         enhanceIndex: index,
                                         enhanceId: null
@@ -137,22 +126,22 @@ const renderEnhanceBlock = (equipInfo) => {
     )
 }
 
-const renderJewelOption = (equipType, slotIndex, slotSize, jewelInfo) => {
+const renderDecorationOption = (equipType, slotIndex, slotSize, decorationInfo) => {
     let selectorData = {
         equipType: equipType,
         slotIndex: slotIndex,
         slotSize: slotSize,
-        jewelId: (Helper.isNotEmpty(jewelInfo)) ? jewelInfo.id : null
+        decorationId: (Helper.isNotEmpty(decorationInfo)) ? decorationInfo.id : null
     }
 
     let emptySelectorData = {
         equipType: equipType,
         slotIndex: slotIndex,
         slotSize: slotSize,
-        jewelId: null
+        decorationId: null
     }
 
-    if (Helper.isEmpty(jewelInfo)) {
+    if (Helper.isEmpty(decorationInfo)) {
         return (
             <Fragment key={`${equipType}:${slotIndex}`}>
                 <div className="col-3 mhc-name">
@@ -175,14 +164,14 @@ const renderJewelOption = (equipType, slotIndex, slotSize, jewelInfo) => {
                 <span>{_('slot')}: {slotIndex + 1} [{slotSize}]</span>
             </div>
             <div className="col-9 mhc-value">
-                <span>[{jewelInfo.size}] {_(jewelInfo.name)}</span>
+                <span>[{decorationInfo.size}] {_(decorationInfo.name)}</span>
                 <div className="mhc-icons_bundle">
                     <IconButton
                         iconName="exchange" altName={_('change')}
                         onClick={() => { States.common.actions.showModal('equipItemSelector', selectorData) }} />
                     <IconButton
                         iconName="times" altName={_('clean')}
-                        onClick={() => { States.world.actions.setCurrentEquip(emptySelectorData) }} />
+                        onClick={() => { States.world.actions.setPlayerEquip(emptySelectorData) }} />
                 </div>
             </div>
         </Fragment>
@@ -372,7 +361,7 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
                             <IconButton
                                 iconName="wrench" altName={_('customWeapon')}
                                 onClick={() => {
-                                    States.world.actions.setCurrentEquip({
+                                    States.world.actions.setPlayerEquip({
                                         equipType: 'weapon',
                                         equipId: 'customWeapon'
                                     })
@@ -404,7 +393,7 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
                         <IconButton
                             iconName="wrench" altName={_('customWeapon')}
                             onClick={() => {
-                                States.world.actions.setCurrentEquip({
+                                States.world.actions.setPlayerEquip({
                                     equipType: 'weapon',
                                     equipId: 'customWeapon'
                                 })
@@ -415,7 +404,7 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
                         onClick={() => { States.common.actions.showModal('equipItemSelector', selectorData) }} />
                     <IconButton
                         iconName="times" altName={_('clean')}
-                        onClick={() => { States.world.actions.setCurrentEquip(emptySelectorData) }} />
+                        onClick={() => { States.world.actions.setPlayerEquip(emptySelectorData) }} />
                 </div>
             </div>
 
@@ -428,9 +417,9 @@ const renderEquipBlock = (equipType, currentEquip, requiredEquip) => {
             ? (
                 <div className="col-12 mhc-content">
                     {equipInfo.slots.map((data, index) => {
-                        return renderJewelOption(
+                        return renderDecorationOption(
                             equipType, index, data.size,
-                            JewelDataset.getInfo(data.jewel.id)
+                            DecorationDataset.getInfo(data.decoration.id)
                         )
                     })}
                 </div>
@@ -485,15 +474,15 @@ export default function PlayerEquips(props) {
      * Hooks
      */
     const _dataStore = States.world.hooks.useDataStore()
-    const _currentEquips = States.world.hooks.useCurrentEquips()
-    const _requiredEquips = States.world.hooks.useRequiredEquips()
+    const _playerEquips = States.world.hooks.usePlayerEquips()
+    const _requiredConditions = States.world.hooks.useRequiredConditions()
 
     const getContent = useMemo(() => {
         let blocks = []
 
-        Object.keys(_currentEquips).forEach((equipType) => {
-            if (Helper.isNotEmpty(_currentEquips[equipType])
-                && 'customWeapon' === _currentEquips[equipType].id
+        Object.keys(_playerEquips).forEach((equipType) => {
+            if (Helper.isNotEmpty(_playerEquips[equipType])
+                && 'customWeapon' === _playerEquips[equipType].id
             ) {
                 blocks.push((
                     <CustomWeapon key="customWeapon" />
@@ -501,14 +490,14 @@ export default function PlayerEquips(props) {
             } else {
                 blocks.push(renderEquipBlock(
                     equipType,
-                    _currentEquips[equipType],
-                    _requiredEquips[equipType]
+                    _playerEquips[equipType],
+                    _requiredConditions.equips[equipType]
                 ))
             }
         })
 
         return blocks
-    }, [_currentEquips, _requiredEquips])
+    }, [_playerEquips, _requiredConditions])
 
     return (
         <div className="mhc-block mhc-equips">
@@ -519,28 +508,25 @@ export default function PlayerEquips(props) {
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
                         isActive={0 === _dataStore.playerEquips.index}
-                        onClick={() => {handleSwitchTempData(0)}} />
+                        onClick={() => { States.world.actions.switchDataStore('playerEquips', 0) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
                         isActive={1 === _dataStore.playerEquips.index}
-                        onClick={() => {handleSwitchTempData(1)}} />
+                        onClick={() => { States.world.actions.switchDataStore('playerEquips', 1) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
                         isActive={2 === _dataStore.playerEquips.index}
-                        onClick={() => {handleSwitchTempData(2)}} />
+                        onClick={() => { States.world.actions.switchDataStore('playerEquips', 2) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
                         isActive={3 === _dataStore.playerEquips.index}
-                        onClick={() => {handleSwitchTempData(3)}} />
+                        onClick={() => { States.world.actions.switchDataStore('playerEquips', 3) }} />
                 </div>
 
                 <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
-                        onClick={handleEquipsDisplayerRefresh} />
-                    <IconButton
-                        iconName="th-list" altName={_('bundleList')}
-                        onClick={() => { States.common.actions.showModal('bundleItemSelector', ) }} />
+                        onClick={() => { States.world.actions.cleanPlayerEquips() }} />
                 </div>
             </div>
 
