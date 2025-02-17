@@ -29,7 +29,7 @@ import BundleList from '@/scripts/components/block/world/candidateBundles/bundle
 // Load States
 import States from '@/scripts/states'
 
-export default function CandidateBundles(props) {
+export default function CandidateBundlesBlock (props) {
 
     /**
      * Hooks
@@ -66,8 +66,7 @@ export default function CandidateBundles(props) {
 
                 break
             case 'result':
-                handleSwitchTempData(tabIndex)
-
+                States.world.actions.switchDataStore('candidateBundles', tabIndex)
                 States.world.actions.replaceCandidateBundles(payload.candidateBundles)
 
                 // refWorkers.current[tabIndex].terminate()
@@ -122,13 +121,14 @@ export default function CandidateBundles(props) {
         }
 
         // Get All Data From Store
-        let customWeapon = States.world.getters.customWeapon()
-        let requiredEquips = States.world.getters.requiredEquips()
-        let requiredSets = States.world.getters.requiredSets()
-        let requiredSkills = States.world.getters.requiredSkills()
+        let requiredConditions = States.world.getters.requiredConditions()
         let algorithmParams = States.world.getters.algorithmParams()
 
-        if (0 === requiredSets.length && 0 === requiredSkills.length) {
+        if (Helper.isEmpty(requiredConditions.sets) && Helper.isEmpty(requiredConditions.skills)) {
+            return
+        }
+
+        if (0 === requiredConditions.sets.length && 0 === requiredConditions.skills.length) {
             return
         }
 
@@ -136,11 +136,7 @@ export default function CandidateBundles(props) {
             bundleCount: 0,
             searchPercent: 0,
             timeRemaining: 0,
-            required: {
-                equips: requiredEquips,
-                sets: requiredSets,
-                skills: requiredSkills
-            }
+            requiredConditions: requiredConditions
         }
 
         updateTasks(Helper.deepCopy(stateTasks))
@@ -157,10 +153,7 @@ export default function CandidateBundles(props) {
         }
 
         refWorkers.current[tabIndex].postMessage({
-            customWeapon: customWeapon,
-            requiredSets: requiredSets,
-            requiredSkills: requiredSkills,
-            requiredEquips: requiredEquips,
+            requiredConditions: requiredConditions,
             algorithmParams: algorithmParams
         })
     }, [stateTasks, _dataStore])
@@ -176,16 +169,6 @@ export default function CandidateBundles(props) {
         updateTasks(Helper.deepCopy(stateTasks))
     }, [stateTasks, _dataStore])
 
-    const handleShowAllAlgorithmSetting = useCallback(() => {
-        States.common.actions.showModal('algorithmSetting', {
-            mode: 'all'
-        })
-    }, [])
-
-    const handleSwitchTempData = useCallback((index) => {
-        States.world.actions.switchDataStore('candidateBundles', index)
-    }, [])
-
     return (
         <div className="mhc-block mhc-bundles">
             <div className="mhc-panel">
@@ -196,22 +179,22 @@ export default function CandidateBundles(props) {
                         iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 1'}
                         isActive={0 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchTempData(0)}} />
+                        onClick={() => { States.world.actions.switchDataStore('candidateBundles', 0) }} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[1]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 2'}
                         isActive={1 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchTempData(1)}} />
+                        onClick={() => { States.world.actions.switchDataStore('candidateBundles', 1) }} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[2]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 3'}
                         isActive={2 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchTempData(2)}} />
+                        onClick={() => { States.world.actions.switchDataStore('candidateBundles', 2) }} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[3]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 4'}
                         isActive={3 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchTempData(3)}} />
+                        onClick={() => { States.world.actions.switchDataStore('candidateBundles', 3) }} />
                 </div>
 
                 <div className="mhc-icons_bundle-right">
@@ -220,10 +203,14 @@ export default function CandidateBundles(props) {
                         onClick={States.world.actions.cleanCandidateBundles} />
                     <IconButton
                         iconName="cog" altName={_('setting')}
-                        onClick={handleShowAllAlgorithmSetting} />
+                        onClick={() => {
+                            States.common.actions.showModal('algorithmSetting', {
+                                mode: 'all'
+                            })
+                        }} />
                     <IconButton
                         iconName="search" altName={_('search')}
-                        onClick={handleCandidateBundlesSearch} />
+                        onClick={() => { handleCandidateBundlesSearch() }} />
                 </div>
             </div>
 
@@ -233,10 +220,10 @@ export default function CandidateBundles(props) {
                         <div className="mhc-item mhc-item-3-step">
                             <div className="col-12 mhc-name">
                                 <span>{_('searching')} ...</span>
-                                <div className="mhc-icons_bundle">
+                                <div className="mhc-icons_bundle-right">
                                     <IconButton
                                         iconName="times" altName={_('cancel')}
-                                        onClick={handleCandidateBundlesCancel} />
+                                        onClick={() => { handleCandidateBundlesCancel() }} />
                                 </div>
                             </div>
                             <div className="col-12 mhc-content">
@@ -263,11 +250,11 @@ export default function CandidateBundles(props) {
                         <RequiredConditions data={stateTasks[_dataStore.candidateBundles.index].required} />
                     </Fragment>
                 ) : (
-                    Helper.isEmpty(_candidateBundles) ? (
+                    Helper.isEmpty(_candidateBundles.requiredConditions) ? (
                         <QuickSetting />
                     ) : (
                         <Fragment>
-                            <RequiredConditions data={_candidateBundles.required} />
+                            <RequiredConditions data={_candidateBundles.requiredConditions} />
                             <BundleList />
                         </Fragment>
                     )

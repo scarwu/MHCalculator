@@ -29,7 +29,7 @@ import States from '@/scripts/states'
  */
 const decorationSizeList = [ 1, 2, 3, 4 ]
 
-export default function DecorationFactors(props) {
+export default function DecorationFactors (props) {
     const {segment, byRequiredConditions} = props
 
     /**

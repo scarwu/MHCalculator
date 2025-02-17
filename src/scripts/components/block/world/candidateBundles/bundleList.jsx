@@ -132,7 +132,7 @@ const handleBundlePickUp = (bundle, required) => {
     States.world.actions.replacePlayerEquips(playerEquips)
 }
 
-export default function BundleList(props) {
+export default function BundleList (props) {
 
     /**
      * Hooks

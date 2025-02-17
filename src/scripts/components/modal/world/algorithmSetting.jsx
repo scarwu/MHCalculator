@@ -100,7 +100,7 @@ const handleStrategyChange = (event) => {
     States.world.actions.setAlgorithmParamsStrategy(event.target.value)
 }
 
-export default function AlgorithmSetting(props) {
+export default function AlgorithmSetting (props) {
 
     /**
      * Hooks

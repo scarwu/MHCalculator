@@ -389,7 +389,7 @@ const renderEnhanceItem = (enhance, data) => {
     )
 }
 
-export default function EquipItemSelector(props) {
+export default function EquipItemSelector (props) {
 
     /**
      * Hooks

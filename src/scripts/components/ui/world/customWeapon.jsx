@@ -230,7 +230,7 @@ const renderDecorationOption = (equipType, slotIndex, slotSize, decorationInfo) 
     )
 }
 
-export default function CustomWeapon(props) {
+export default function CustomWeapon (props) {
 
     /**
      * Hooks

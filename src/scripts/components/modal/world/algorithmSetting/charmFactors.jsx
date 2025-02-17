@@ -28,7 +28,7 @@ import States from '@/scripts/states'
  */
 const levelMapping = [ 'I', 'II', 'III', 'IV', 'V' ]
 
-export default function CharmFactors(props) {
+export default function CharmFactors (props) {
     const {segment, byRequiredConditions} = props
 
     /**

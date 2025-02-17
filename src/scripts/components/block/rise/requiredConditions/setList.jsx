@@ -84,7 +84,7 @@ export default function SetList (props) {
                         {(0 === _requiredConditions.sets.length) ? (
                             <IconButton iconName="plus" altName={_('add')} onClick={showModal} />
                         ) : (
-                            <IconButton iconName = "exchange" altName={ _('change') } onClick = { showModal } />
+                            <IconButton iconName="exchange" altName={ _('change') } onClick = {showModal} />
                         )}
                     </div>
                 </div>

@@ -140,7 +140,7 @@ const SkillList = (props) => {
     }, [data])
 }
 
-export default function ConditionItemSelector(props) {
+export default function ConditionItemSelector (props) {
 
     /**
      * Hooks

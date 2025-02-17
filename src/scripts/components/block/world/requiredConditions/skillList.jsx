@@ -85,7 +85,7 @@ const renderSkillItem = (skill, enableSkillIdList) => {
     )
 }
 
-export default function SkillList(props) {
+export default function SkillList (props) {
 
     /**
      * Hooks

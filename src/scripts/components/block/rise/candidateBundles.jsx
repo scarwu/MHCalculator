@@ -66,8 +66,7 @@ export default function CandidateBundlesBlock (props) {
 
                 break
             case 'result':
-                handleSwitchDataStore(tabIndex)
-
+                States.rise.actions.switchDataStore('candidateBundles', tabIndex)
                 States.rise.actions.replaceCandidateBundles(payload.candidateBundles)
 
                 // refWorkers.current[tabIndex].terminate()
@@ -170,16 +169,6 @@ export default function CandidateBundlesBlock (props) {
         updateTasks(Helper.deepCopy(stateTasks))
     }, [stateTasks, _dataStore])
 
-    const handleShowAllAlgorithmSetting = useCallback(() => {
-        States.common.actions.showModal('algorithmSetting', {
-            mode: 'all'
-        })
-    }, [])
-
-    const handleSwitchDataStore = useCallback((index) => {
-        States.rise.actions.switchDataStore('candidateBundles', index)
-    }, [])
-
     return (
         <div className="mhc-block mhc-bundles">
             <div className="mhc-panel">
@@ -190,22 +179,22 @@ export default function CandidateBundlesBlock (props) {
                         iconName={Helper.isNotEmpty(stateTasks[0]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 1'}
                         isActive={0 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchDataStore(0)}} />
+                        onClick={() => { States.rise.actions.switchDataStore('candidateBundles', 0) }} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[1]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 2'}
                         isActive={1 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchDataStore(1)}} />
+                        onClick={() => { States.rise.actions.switchDataStore('candidateBundles', 1) }} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[2]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 3'}
                         isActive={2 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchDataStore(2)}} />
+                        onClick={() => { States.rise.actions.switchDataStore('candidateBundles', 2) }} />
                     <IconTab
                         iconName={Helper.isNotEmpty(stateTasks[3]) ? 'cog fa-spin' : 'circle'}
                         altName={_('tab') + ' 4'}
                         isActive={3 === _dataStore.candidateBundles.index}
-                        onClick={() => {handleSwitchDataStore(3)}} />
+                        onClick={() => { States.rise.actions.switchDataStore('candidateBundles', 3) }} />
                 </div>
 
                 <div className="mhc-icons_bundle-right">
@@ -214,10 +203,14 @@ export default function CandidateBundlesBlock (props) {
                         onClick={States.rise.actions.cleanCandidateBundles} />
                     <IconButton
                         iconName="cog" altName={_('setting')}
-                        onClick={handleShowAllAlgorithmSetting} />
+                        onClick={() => {
+                            States.common.actions.showModal('algorithmSetting', {
+                                mode: 'all'
+                            })
+                        }} />
                     <IconButton
                         iconName="search" altName={_('search')}
-                        onClick={handleCandidateBundlesSearch} />
+                        onClick={() => { handleCandidateBundlesSearch() }} />
                 </div>
             </div>
 
@@ -230,7 +223,7 @@ export default function CandidateBundlesBlock (props) {
                                 <div className="mhc-icons_bundle-right">
                                     <IconButton
                                         iconName="times" altName={_('cancel')}
-                                        onClick={handleCandidateBundlesCancel} />
+                                        onClick={() => { handleCandidateBundlesCancel() }} />
                                 </div>
                             </div>
                             <div className="col-12 mhc-content">

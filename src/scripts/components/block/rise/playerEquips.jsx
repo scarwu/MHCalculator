@@ -35,17 +35,6 @@ import CustomCharm from '@/scripts/components/ui/rise/customCharm'
 import States from '@/scripts/states'
 
 /**
- * Handle Functions
- */
-const handleEquipsDisplayerRefresh = () => {
-    States.rise.actions.cleanPlayerEquips()
-}
-
-const handleSwitchDataStore = (index) => {
-    States.rise.actions.switchDataStore('playerEquips', index)
-}
-
-/**
  * Render Functions
  */
  const renderRampageSkillOption = (rampageSkillIndex, rampageSkillId) => {
@@ -496,25 +485,25 @@ export default function PlayerEquipsBlock (props) {
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 1'}
                         isActive={0 === _dataStore.playerEquips.index}
-                        onClick={() => { handleSwitchDataStore(0) }} />
+                        onClick={() => { States.rise.actions.switchDataStore('playerEquips', 0) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 2'}
                         isActive={1 === _dataStore.playerEquips.index}
-                        onClick={() => { handleSwitchDataStore(1) }} />
+                        onClick={() => { States.rise.actions.switchDataStore('playerEquips', 1) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 3'}
                         isActive={2 === _dataStore.playerEquips.index}
-                        onClick={() => { handleSwitchDataStore(2) }} />
+                        onClick={() => { States.rise.actions.switchDataStore('playerEquips', 2) }} />
                     <IconTab
                         iconName="circle" altName={_('tab') + ' 4'}
                         isActive={3 === _dataStore.playerEquips.index}
-                        onClick={() => { handleSwitchDataStore(3) }} />
+                        onClick={() => { States.rise.actions.switchDataStore('playerEquips', 3) }} />
                 </div>
 
                 <div className="mhc-icons_bundle-right">
                     <IconButton
                         iconName="refresh" altName={_('reset')}
-                        onClick={handleEquipsDisplayerRefresh} />
+                        onClick={() => { States.rise.actions.cleanPlayerEquips() }} />
                 </div>
             </div>
 

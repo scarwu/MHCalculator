@@ -24,7 +24,7 @@ import SkillList from '@/scripts/components/block/world/requiredConditions/skill
 // Load State Control
 import States from '@/scripts/states'
 
-export default function RequiredConditions(props) {
+export default function RequiredConditionsBlock (props) {
 
     /**
      * Hooks
