@@ -1,10 +1,10 @@
 /**
  * Candidate Bundles: Quick Setting
  *
- * @package     Monster Hunter World - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/Monster Hunter - Calculator
+ * @link        https://github.com/scarwu/MHCalculator
  */
 
 import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'

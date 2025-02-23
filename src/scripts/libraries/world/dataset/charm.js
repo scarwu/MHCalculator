@@ -1,10 +1,10 @@
 /**
  * Dataset Charm
  *
- * @package     Monster Hunter World - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/Monster Hunter - Calculator
+ * @link        https://github.com/scarwu/MHCalculator
  */
 
 import Helper from '@/scripts/core/helper'
