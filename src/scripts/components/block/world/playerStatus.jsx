@@ -107,7 +107,7 @@ const generatePassiveSkills = (equipInfos) => {
 }
 
 const generateStatus = (equipInfos, passiveSkills) => {
-    let status = Helper.deepCopy(Constant.world.default.status)
+    let status = Helper.deepCopy(Constant.series.world.status)
 
     equipInfos = Helper.deepCopy(equipInfos)
 
@@ -128,7 +128,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
             continue
         }
 
-        Constant.world.resistances.forEach((elementType) => {
+        Constant.resistanceTypes.forEach((elementType) => {
             status.resistance[elementType] += equipInfos[equipType].resistance[elementType]
         })
     }
@@ -273,20 +273,20 @@ const generateStatus = (equipInfos, passiveSkills) => {
             case 'elementAttackCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.attack
-                        < Constant.world.elementCriticalMultiple.attack[weaponType][data.value])
+                        < Constant.elementCriticalMultiple.attack[weaponType][data.value])
                 ) {
                     status.elementCriticalMultiple.attack
-                        = Constant.world.elementCriticalMultiple.attack[weaponType][data.value]
+                        = Constant.elementCriticalMultiple.attack[weaponType][data.value]
                 }
 
                 break
             case 'elementStatusCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.status
-                        < Constant.world.elementCriticalMultiple.status[weaponType][data.value])
+                        < Constant.elementCriticalMultiple.status[weaponType][data.value])
                 ) {
                     status.elementCriticalMultiple.status
-                        = Constant.world.elementCriticalMultiple.status[weaponType][data.value]
+                        = Constant.elementCriticalMultiple.status[weaponType][data.value]
                 }
 
                 break
@@ -322,7 +322,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
                 break
             case 'resistance':
                 if ('all' === data.type) {
-                    Constant.world.resistances.forEach((elementType) => {
+                    Constant.resistanceTypes.forEach((elementType) => {
                         status.resistance[elementType] += data.value
                     })
                 } else {
@@ -365,7 +365,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
         let weaponAttack = equipInfos.weapon.attack
         let weaponType = equipInfos.weapon.type
 
-        status.attack *= Constant.world.weaponMultiple[weaponType] // 武器倍率
+        status.attack *= Constant.series.world.weaponMultiple[weaponType] // 武器倍率
 
         if (Helper.isEmpty(enableElement)
             && Helper.isNotEmpty(noneElementAttackMultiple)
@@ -452,7 +452,7 @@ const generateStatus = (equipInfos, passiveSkills) => {
 }
 
 const generateBenefitAnalysis = (equipInfos, status, tuning) => {
-    let benefitAnalysis = Helper.deepCopy(Constant.world.default.benefitAnalysis)
+    let benefitAnalysis = Helper.deepCopy(Constant.series.world.benefitAnalysis)
     let result = getBasicBenefitAnalysis(equipInfos, Helper.deepCopy(status), {})
 
     benefitAnalysis.physicalAttack = result.physicalAttack
@@ -508,7 +508,7 @@ const getBasicBenefitAnalysis = (equipInfos, status, tuning) => {
     let expectedValue = 0
 
     if (Helper.isNotEmpty(equipInfos.weapon)) {
-        let weaponMultiple = Constant.world.weaponMultiple[equipInfos.weapon.type]
+        let weaponMultiple = Constant.series.world.weaponMultiple[equipInfos.weapon.type]
         let sharpnessMultiple = getSharpnessMultiple(status.sharpness)
 
         physicalAttack = (status.attack / weaponMultiple)
@@ -597,8 +597,8 @@ const getSharpnessMultiple = (data) => {
     }
 
     return {
-        physical: Constant.world.sharpnessMultiple.physical[currentStep],
-        element: Constant.world.sharpnessMultiple.element[currentStep]
+        physical: Constant.sharpnessMultiple.physical[currentStep],
+        element: Constant.sharpnessMultiple.element[currentStep]
     }
 }
 
@@ -610,8 +610,8 @@ export default function PlayerStatusBlock (props) {
     const _playerEquips = States.world.hooks.usePlayerEquips()
 
     const [stateEquipInfos, updateEquipInfos] = useState({})
-    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.world.default.status))
-    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.world.default.benefitAnalysis))
+    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.series.world.status))
+    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.series.world.benefitAnalysis))
     const [statePassiveSkills, updatePassiveSkills] = useState({})
     const [stateTuning, updateTuning] = useState({
         physicalAttack: 5,
@@ -912,7 +912,7 @@ export default function PlayerStatusBlock (props) {
                             <span>{status.defense}</span>
                         </div>
 
-                        {Constant.world.resistances.map((elementType) => {
+                        {Constant.resistanceTypes.map((elementType) => {
                             return (
                                 <Fragment key={elementType}>
                                     <div className="col-3 mhc-name">

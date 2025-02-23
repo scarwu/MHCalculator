@@ -73,7 +73,7 @@ let getAppliedWeaponInfo = (extend) => {
 
             switch (reactionType) {
             case 'attack':
-                info.attack += data.value * Constant.world.weaponMultiple[info.type]
+                info.attack += data.value * Constant.series.world.weaponMultiple[info.type]
                 info.attack = parseInt(Math.round(info.attack))
 
                 break

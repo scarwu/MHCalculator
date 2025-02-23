@@ -235,7 +235,7 @@ const renderArmorItem = (armor, data) => {
                     <span>{armor.defense}</span>
                 </div>
 
-                {Constant.world.resistances.map((resistanceType) => {
+                {Constant.resistanceTypes.map((resistanceType) => {
                     return (
                         <Fragment key={resistanceType}>
                             <div className="col-3 mhc-name">
@@ -442,7 +442,7 @@ export default function EquipItemSelector (props) {
         } else if ('weapon' === _modalData.equipType) {
             let weaponInfo = WeaponDataset.getInfo(_modalData.equipId)
 
-            typeList = Constant.world.weaponTypes.map((type) => {
+            typeList = Constant.weaponTypes.map((type) => {
                 return { key: type, value: _(type) }
             })
             type = (Helper.isNotEmpty(weaponInfo) && Helper.isNotEmpty(weaponInfo.type))
@@ -469,7 +469,7 @@ export default function EquipItemSelector (props) {
         ) {
             let armoreInfo = ArmorDataset.getInfo(_modalData.equipId)
 
-            typeList = Constant.world.armorTypes.map((type) => {
+            typeList = Constant.armorTypes.map((type) => {
                 return { key: type, value: _(type) }
             })
             type = (Helper.isNotEmpty(_modalData.equipType))

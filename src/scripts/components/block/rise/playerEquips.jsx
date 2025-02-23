@@ -232,7 +232,7 @@ const renderArmorProperties = (equipExtendItem) => {
                     <span>{equipExtendItem.defense}</span>
                 </div>
 
-                {Constant.rise.resistanceTypes.map((resistanceType) => {
+                {Constant.resistanceTypes.map((resistanceType) => {
                     return (
                         <Fragment key={resistanceType}>
                             <div className="col-3 mhc-name">

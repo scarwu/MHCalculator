@@ -13,7 +13,50 @@ export const langs = {
     enUS: 'English'
 }
 
-const sharpnessMultiple = {
+export const weaponTypes = [
+    'greatSword',
+    'longSword',
+    'swordAndShield',
+    'dualBlades',
+    'hammer',
+    'huntingHorn',
+    'lance',
+    'gunlance',
+    'switchAxe',
+    'chargeBlade',
+    'insectGlaive',
+    'lightBowgun',
+    'heavyBowgun',
+    'bow'
+]
+
+export const armorTypes = [
+    'helm',
+    'chest',
+    'arm',
+    'waist',
+    'leg'
+]
+
+export const sharpnessSteps = [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'blue',
+    'white',
+    'purple'
+]
+
+export const resistanceTypes = [
+    'fire',
+    'water',
+    'thunder',
+    'ice',
+    'dragon'
+]
+
+export const sharpnessMultiple = {
     physical: {
         red: 0.50,
         orange: 0.75,
@@ -34,7 +77,7 @@ const sharpnessMultiple = {
     }
 }
 
-const elementCriticalMultiple = {
+export const elementCriticalMultiple = {
     attack: {
         greatSword: [ 1.50, 1.70 ],
         longSword: [ 1.35, 1.55 ],
@@ -69,61 +112,23 @@ const elementCriticalMultiple = {
     }
 }
 
-export const wilds = {}
+export const series = {
+    wilds: (() => {
 
-export const rise = {
-    equipTypes: [
-        'weapons',
-        'helm',
-        'chest',
-        'arm',
-        'waist',
-        'leg',
-        'petalace',
-        'charm'
-    ],
-    weaponTypes: [
-        'greatSword',
-        'longSword',
-        'swordAndShield',
-        'dualBlades',
-        'hammer',
-        'huntingHorn',
-        'lance',
-        'gunlance',
-        'switchAxe',
-        'chargeBlade',
-        'insectGlaive',
-        'lightBowgun',
-        'heavyBowgun',
-        'bow'
-    ],
-    armorTypes: [
-        'helm',
-        'chest',
-        'arm',
-        'waist',
-        'leg'
-    ],
-    sharpnessSteps: [
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'blue',
-        'white',
-        'purple'
-    ],
-    resistanceTypes: [
-        'fire',
-        'water',
-        'thunder',
-        'ice',
-        'dragon'
-    ],
-    sharpnessMultiple: sharpnessMultiple,
-    elementCriticalMultiple: elementCriticalMultiple,
-    default: (() => {
+    })(),
+
+    rise: (() => {
+        const equipTypes = [
+            'weapon',
+            'helm',
+            'chest',
+            'arm',
+            'waist',
+            'leg',
+            'charm',
+            'petalace'
+        ]
+
         const algorithmParams = {
             limit: 10,
             sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
@@ -255,10 +260,10 @@ export const rise = {
 
         const playerStatus = {
             usingItem: {
-                'powerCharm': true, // 力量護符
-                'powerTalon': true, // 力量之爪
-                'armorCharm': true, // 守護護符
-                'armorTalon': true // 守護之爪
+                'powerCharm': true, // 力量護符 (攻擊+6)
+                'powerTalon': true, // 力量之爪 (攻擊+9)
+                'armorCharm': true, // 守護護符 (防禦+10)
+                'armorTalon': true  // 守護之爪 (防禦+20)
             }
         }
 
@@ -314,6 +319,7 @@ export const rise = {
         }
 
         return {
+            equipTypes,
             algorithmParams,
             playerEquips,
             playerStatus,
@@ -321,68 +327,36 @@ export const rise = {
             benefitAnalysis,
             requiredConditions
         }
-    })()
-}
+    })(),
 
-export const world = {
-    equipTypes: [
-        'weapons',
-        'helm',
-        'chest',
-        'arm',
-        'waist',
-        'leg',
-        'charm'
-    ],
-    resistances: [
-        'fire',
-        'water',
-        'thunder',
-        'ice',
-        'dragon'
-    ],
-    weaponTypes: [
-        'greatSword',
-        'longSword',
-        'swordAndShield',
-        'dualBlades',
-        'hammer',
-        'huntingHorn',
-        'lance',
-        'gunlance',
-        'switchAxe',
-        'chargeBlade',
-        'insectGlaive',
-        'lightBowgun',
-        'heavyBowgun',
-        'bow'
-    ],
-    armorTypes: [
-        'helm',
-        'chest',
-        'arm',
-        'waist',
-        'leg'
-    ],
-    sharpnessMultiple: sharpnessMultiple,
-    elementCriticalMultiple: elementCriticalMultiple,
-    weaponMultiple: {
-        greatSword:     4.8,
-        longSword:      3.3,
-        swordAndShield: 1.4,
-        dualBlades:     1.4,
-        hammer:         5.2,
-        huntingHorn:    4.2,
-        lance:          2.3,
-        gunlance:       2.3,
-        switchAxe:      3.5,
-        chargeBlade:    3.6,
-        insectGlaive:   3.1,
-        lightBowgun:    1.3,
-        heavyBowgun:    1.5,
-        bow:            1.2
-    },
-    default: (() => {
+    world: (() => {
+        const equipTypes = [
+            'weapon',
+            'helm',
+            'chest',
+            'arm',
+            'waist',
+            'leg',
+            'charm'
+        ]
+
+        const weaponMultiple = {
+            greatSword: 4.8,
+            longSword: 3.3,
+            swordAndShield: 1.4,
+            dualBlades: 1.4,
+            hammer: 5.2,
+            huntingHorn: 4.2,
+            lance: 2.3,
+            gunlance: 2.3,
+            switchAxe: 3.5,
+            chargeBlade: 3.6,
+            insectGlaive: 3.1,
+            lightBowgun: 1.3,
+            heavyBowgun: 1.5,
+            bow: 1.2
+        }
+
         const algorithmParams = {
             limit: 10,
             sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
@@ -470,17 +444,17 @@ export const world = {
 
         const playerStatus = {
             usingItem: {
-                'powerCharm': true, // 力量護符
-                'powerTalon': true, // 力量之爪
-                'armorCharm': true, // 守護護符
-                'armorTalon': true // 守護之爪
+                'powerCharm': true, // 力量護符 (攻擊+6)
+                'powerTalon': true, // 力量之爪 (攻擊+9)
+                'armorCharm': true, // 守護護符 (防禦+10)
+                'armorTalon': true  // 守護之爪 (防禦+20)
             }
         }
 
         const status = {
             health: 100,
             stamina: 100,
-            attack: 15, // 力量護符+6 力量之爪+9
+            attack: 0,
             critical: {
                 rate: 0,
                 multiple: {
@@ -498,7 +472,7 @@ export const world = {
                 status: 1
             },
             elderseal: null,
-            defense: 31, // 守護護符+10 守護之爪+20
+            defense: 1,
             resistance: {
                 fire: 0,
                 water: 0,
@@ -530,6 +504,8 @@ export const world = {
         }
 
         return {
+            equipTypes,
+            weaponMultiple,
             algorithmParams,
             playerEquips,
             playerStatus,
@@ -542,7 +518,11 @@ export const world = {
 
 export default {
     langs,
-    wilds,
-    rise,
-    world
+    weaponTypes,
+    armorTypes,
+    sharpnessSteps,
+    resistanceTypes,
+    sharpnessMultiple,
+    elementCriticalMultiple,
+    series
 }

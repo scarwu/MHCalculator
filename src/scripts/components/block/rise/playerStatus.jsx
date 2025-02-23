@@ -103,7 +103,7 @@ const generatePassiveSkills = (equipInfos) => {
 }
 
 const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
-    let status = Helper.deepCopy(Constant.rise.default.status)
+    let status = Helper.deepCopy(Constant.series.rise.status)
 
     equipInfos = Helper.deepCopy(equipInfos)
 
@@ -126,7 +126,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
             continue
         }
 
-        Constant.rise.resistanceTypes.forEach((elementType) => {
+        Constant.resistanceTypes.forEach((elementType) => {
             status.resistance[elementType] += equipInfos[equipType].resistance[elementType]
         })
     }
@@ -257,20 +257,20 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
             case 'elementAttackCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.attack
-                        < Constant.rise.elementCriticalMultiple.attack[weaponType][reactionData.value])
+                        < Constant.elementCriticalMultiple.attack[weaponType][reactionData.value])
                 ) {
                     status.elementCriticalMultiple.attack
-                        = Constant.rise.elementCriticalMultiple.attack[weaponType][reactionData.value]
+                        = Constant.elementCriticalMultiple.attack[weaponType][reactionData.value]
                 }
 
                 break
             case 'elementStatusCriticalMultiple':
                 if (null !== weaponType
                     && (status.elementCriticalMultiple.status
-                        < Constant.rise.elementCriticalMultiple.status[weaponType][reactionData.value])
+                        < Constant.elementCriticalMultiple.status[weaponType][reactionData.value])
                 ) {
                     status.elementCriticalMultiple.status
-                        = Constant.rise.elementCriticalMultiple.status[weaponType][reactionData.value]
+                        = Constant.elementCriticalMultiple.status[weaponType][reactionData.value]
                 }
 
                 break
@@ -310,7 +310,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
                 break
             case 'resistance':
                 if ('all' === reactionData.type) {
-                    Constant.rise.resistanceTypes.forEach((elementType) => {
+                    Constant.resistanceTypes.forEach((elementType) => {
                         status.resistance[elementType] += reactionData.value
                     })
                 } else {
@@ -465,7 +465,7 @@ const generateStatus = (equipInfos, passiveSkills, playerStatus) => {
 }
 
 const generateBenefitAnalysis = (equipInfos, status, tuning) => {
-    let benefitAnalysis = Helper.deepCopy(Constant.rise.default.benefitAnalysis)
+    let benefitAnalysis = Helper.deepCopy(Constant.series.rise.benefitAnalysis)
     let result = getBasicBenefitAnalysis(equipInfos, Helper.deepCopy(status), {})
 
     benefitAnalysis.physicalAttack = result.physicalAttack
@@ -609,8 +609,8 @@ const getSharpnessMultiple = (data) => {
     }
 
     return {
-        physical: Constant.rise.sharpnessMultiple.physical[currentStep],
-        element: Constant.rise.sharpnessMultiple.element[currentStep]
+        physical: Constant.sharpnessMultiple.physical[currentStep],
+        element: Constant.sharpnessMultiple.element[currentStep]
     }
 }
 
@@ -623,8 +623,8 @@ export default function PlayerStatusBlock (props) {
     const _playerEquips = States.rise.hooks.usePlayerEquips()
 
     const [stateEquipInfos, updateEquipInfos] = useState({})
-    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.rise.default.status))
-    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.rise.default.benefitAnalysis))
+    const [stateStatus, updateStatus] = useState(Helper.deepCopy(Constant.series.rise.status))
+    const [stateBenefitAnalysis, updateBenefitAnalysis] = useState(Helper.deepCopy(Constant.series.rise.benefitAnalysis))
     const [statePassiveSkills, updatePassiveSkills] = useState({})
     const [stateTuning, updateTuning] = useState({
         physicalAttack: 5,
@@ -936,7 +936,7 @@ export default function PlayerStatusBlock (props) {
                             <span>{status.defense}</span>
                         </div>
 
-                        {Constant.rise.resistanceTypes.map((elementType) => {
+                        {Constant.resistanceTypes.map((elementType) => {
                             return (
                                 <Fragment key={elementType}>
                                     <div className="col-3 mhc-name">
@@ -961,7 +961,7 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={_playerStatus.usingItem['powerCharm'] ? 'circle' : 'circle'}
+                                    iconName={_playerStatus.usingItem['powerCharm'] ? 'circle-dot' : 'circle'}
                                     altName={_playerStatus.usingItem['powerCharm'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('powerCharm')
@@ -974,7 +974,7 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={_playerStatus.usingItem['armorCharm'] ? 'circle' : 'circle'}
+                                    iconName={_playerStatus.usingItem['armorCharm'] ? 'circle-dot' : 'circle'}
                                     altName={_playerStatus.usingItem['armorCharm'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('armorCharm')
@@ -987,7 +987,7 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={_playerStatus.usingItem['powerTalon'] ? 'circle' : 'circle'}
+                                    iconName={_playerStatus.usingItem['powerTalon'] ? 'circle-dot' : 'circle'}
                                     altName={_playerStatus.usingItem['powerTalon'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('powerTalon')
@@ -1000,7 +1000,7 @@ export default function PlayerStatusBlock (props) {
 
                             <div className="mhc-icons_bundle">
                                 <IconButton
-                                    iconName={_playerStatus.usingItem['armorTalon'] ? 'circle' : 'circle'}
+                                    iconName={_playerStatus.usingItem['armorTalon'] ? 'circle-dot' : 'circle'}
                                     altName={_playerStatus.usingItem['armorTalon'] ? _('deactive') : _('active')}
                                     onClick={() => {
                                         States.rise.actions.togglePlayerStatusUsingItem('armorTalon')
@@ -1047,7 +1047,7 @@ export default function PlayerStatusBlock (props) {
                                         <div className="mhc-icons_bundle">
                                             {Helper.isNotEmpty(passiveSkills[data.id]) ? (
                                                 <IconButton
-                                                    iconName={passiveSkills[data.id].isActive ? 'circle' : 'circle'}
+                                                    iconName={passiveSkills[data.id].isActive ? 'circle-dot' : 'circle'}
                                                     altName={passiveSkills[data.id].isActive ? _('deactive') : _('active')}
                                                     onClick={() => {handlePassiveSkillToggle(data.id)}} />
                                             ) : false}

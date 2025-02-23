@@ -36,12 +36,12 @@ const initialState = {
         requiredConditions: {
             index: 0,
             list: [],
-            emptyItem: Helper.deepCopy(Constant.world.default.requiredConditions)
+            emptyItem: Helper.deepCopy(Constant.series.world.requiredConditions)
         },
         playerEquips: {
             index: 0,
             list: [],
-            emptyItem: Helper.deepCopy(Constant.world.default.playerEquips)
+            emptyItem: Helper.deepCopy(Constant.series.world.playerEquips)
         },
         candidateBundles: {
             index: 0,
@@ -55,8 +55,8 @@ const initialState = {
         skills: Helper.deepCopy(TestData.requireList[0]).skills
     },
     playerEquips: Status.get(statusMapping.playerEquips) || Helper.deepCopy(TestData.equipsList[0]),
-    playerStatus: Status.get(statusMapping.playerStatus) || Helper.deepCopy(Constant.world.default.playerStatus),
-    algorithmParams: Status.get(statusMapping.algorithmParams) || Helper.deepCopy(Constant.world.default.algorithmParams),
+    playerStatus: Status.get(statusMapping.playerStatus) || Helper.deepCopy(Constant.series.world.playerStatus),
+    algorithmParams: Status.get(statusMapping.algorithmParams) || Helper.deepCopy(Constant.series.world.algorithmParams),
     candidateBundles: Status.get(statusMapping.candidateBundles) || {}
 }
 
@@ -105,7 +105,7 @@ export default (state = initialState, action) => {
     case 'CLEAN_PLAYER_EQUIP':
         return (() => {
             return Object.assign({}, state, {
-                playerEquips: Helper.deepCopy(Constant.world.default.playerEquips)
+                playerEquips: Helper.deepCopy(Constant.series.world.playerEquips)
             })
         })()
 
@@ -126,7 +126,7 @@ export default (state = initialState, action) => {
                 return state
             }
 
-            playerEquips[equipType] = Helper.deepCopy(Constant.world.default.playerEquips[equipType])
+            playerEquips[equipType] = Helper.deepCopy(Constant.series.world.playerEquips[equipType])
             playerEquips[equipType].id = equipId
 
             return Object.assign({}, state, {
@@ -190,7 +190,7 @@ export default (state = initialState, action) => {
     case 'CLEAN_REQUIRED_CONDITIONS':
         return (() => {
             return Object.assign({}, state, {
-                requiredConditions: Helper.deepCopy(Constant.world.default.requiredConditions)
+                requiredConditions: Helper.deepCopy(Constant.series.world.requiredConditions)
             })
         })()
 
@@ -204,7 +204,7 @@ export default (state = initialState, action) => {
                 return state
             }
 
-            requiredConditions.equips[equipType] = Helper.deepCopy(Constant.world.default.playerEquips[equipType])
+            requiredConditions.equips[equipType] = Helper.deepCopy(Constant.series.world.playerEquips[equipType])
             requiredConditions.equips[equipType].id = equipData.id
 
             // if ('petalace' !== equipType) {
@@ -234,7 +234,7 @@ export default (state = initialState, action) => {
                 return state
             }
 
-            requiredConditions.equips[equipType] = Helper.deepCopy(Constant.world.default.playerEquips[equipType])
+            requiredConditions.equips[equipType] = Helper.deepCopy(Constant.series.world.playerEquips[equipType])
             requiredConditions.equips[equipType].id = equipId
 
             return Object.assign({}, state, {

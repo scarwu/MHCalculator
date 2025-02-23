@@ -290,7 +290,7 @@ const renderArmorProperties = (equipInfo) => {
                     <span>{equipInfo.defense}</span>
                 </div>
 
-                {Constant.world.resistances.map((resistanceType) => {
+                {Constant.resistanceTypes.map((resistanceType) => {
                     return (
                         <Fragment key={resistanceType}>
                             <div className="col-3 mhc-name">

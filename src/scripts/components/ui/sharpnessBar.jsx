@@ -9,6 +9,9 @@
 
 import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
+// Load Constant
+import Constant from '@/scripts/constant'
+
 // Load Core
 import Helper from '@/scripts/core/helper'
 
@@ -21,7 +24,7 @@ export default function SharpnessBar (props) {
         return (
             <div className="mhc-sharpness_bar">
                 <div className="mhc-steps">
-                    {['red', 'orange', 'yellow', 'green', 'blue', 'white', 'purple'].map((step) => {
+                    {Constant.sharpnessSteps.map((step) => {
                         return (
                             <div key={step} className="mhc-step" style={{
                                 width: (data.steps[step] / 4) + '%'
