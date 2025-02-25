@@ -14,20 +14,16 @@ import * as path from 'path'
 global.root = path.dirname(process.argv[1])
 
 import Helper from './liberaries/helper.mjs'
-import ConvertTask from './tasks/convert.mjs'
-import CombineTask from './tasks/combine.mjs'
-import Game8Task from './tasks/game8.mjs'
-import GameqbTask from './tasks/gameqb.mjs'
-import KiranicobTask from './tasks/kiranico.mjs'
-import FextralifeTask from './tasks/fextralife.mjs'
+import WorldCrawlerTask from './tasks/world/crawler.mjs'
+import WorldConvertTask from './tasks/world/convert.mjs'
+import RiseCrawlerTask from './tasks/rise/crawler.mjs'
+import RiseConvertTask from './tasks/rise/convert.mjs'
 
 let taskMapping = {
-    convert: ConvertTask,
-    combine: CombineTask,
-    game8: Game8Task,
-    gameqb: GameqbTask,
-    kiranico: KiranicobTask,
-    fextralife: FextralifeTask
+    worldCrawler: WorldCrawlerTask,
+    worldConvert: WorldConvertTask,
+    riseCrawler: RiseCrawlerTask,
+    riseConvert: RiseConvertTask
 }
 
 // Check Task

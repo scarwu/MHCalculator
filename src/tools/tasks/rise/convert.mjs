@@ -9,14 +9,14 @@
 
 import md5 from 'md5'
 
-import Helper from '../liberaries/helper.mjs'
+import Helper from '../../liberaries/helper.mjs'
 import {
     autoExtendListQuantity,
     weaponTypeList,
     rareList,
     sizeList,
     targetList
-} from '../liberaries/mh.mjs'
+} from '../../liberaries/mh.mjs'
 
 const tempCrawlerRoot = 'temp/crawler'
 const tempConvertRoot = 'temp/convert'

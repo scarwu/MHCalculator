@@ -7,65 +7,60 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import Helper from '../liberaries/helper.mjs'
+import Helper from '../../liberaries/helper.mjs'
 import {
     defaultWeaponItem,
     defaultArmorItem,
-    // defaultPetalaceItem,
+    defaultCharmItem,
     defaultDecorationItem,
     defaultSkillItem,
-    defaultRampageDecorationItem,
-    defaultRampageSkillItem,
+
     autoExtendListQuantity,
     normalizeText,
     guessArmorType,
     weaponTypeList,
     rareList,
     sizeList
-} from '../liberaries/mh.mjs'
+} from '../../liberaries/mh.mjs'
 
-const tempRoot = 'temp/crawler/kiranico'
+const tempRoot = 'temp/crawler/world'
 
 const urls = {
     langs: {
-        zhTW: 'https://mhrise.kiranico.com/zh-Hant',
-        jaJP: 'https://mhrise.kiranico.com/ja',
-        enUS: 'https://mhrise.kiranico.com'
+        zhTW: 'https://mhworld.kiranico.com/zh-Hant',
+        jaJP: 'https://mhworld.kiranico.com/ja',
+        enUS: 'https://mhworld.kiranico.com'
     },
     weapons: {
-        greatSword: 'data/weapons?view=0',
-        swordAndShield: 'data/weapons?view=1',
-        dualBlades: 'data/weapons?view=2',
-        longSword: 'data/weapons?view=3',
-        hammer: 'data/weapons?view=4',
-        huntingHorn: 'data/weapons?view=5',
-        lance: 'data/weapons?view=6',
-        gunlance: 'data/weapons?view=7',
-        switchAxe: 'data/weapons?view=8',
-        chargeBlade: 'data/weapons?view=9',
-        insectGlaive: 'data/weapons?view=10',
-        bow: 'data/weapons?view=11',
-        heavyBowgun: 'data/weapons?view=12',
-        lightBowgun: 'data/weapons?view=13'
+        greatSword: 'weapons?type=0',
+        swordAndShield: 'weapons?type=1',
+        dualBlades: 'weapons?type=2',
+        longSword: 'weapons?type=3',
+        hammer: 'weapons?type=4',
+        huntingHorn: 'weapons?type=5',
+        lance: 'weapons?type=6',
+        gunlance: 'weapons?type=7',
+        switchAxe: 'weapons?type=8',
+        chargeBlade: 'weapons?type=9',
+        insectGlaive: 'weapons?type=10',
+        bow: 'weapons?type=11',
+        heavyBowgun: 'weapons?type=12',
+        lightBowgun: 'weapons?type=13'
     },
-    armors: {
-        rare1: 'data/armors?view=0',
-        rare2: 'data/armors?view=1',
-        rare3: 'data/armors?view=2',
-        rare4: 'data/armors?view=3',
-        rare5: 'data/armors?view=4',
-        rare6: 'data/armors?view=5',
-        rare7: 'data/armors?view=6',
-        rare8: 'data/armors?view=7',
-        rare9: 'data/armors?view=8',
-        rare10: 'data/armors?view=9'
+    armorsAndCharms: {
+        rare1: 'armorseries?rarity=0',
+        rare2: 'armorseries?rarity=1',
+        rare3: 'armorseries?rarity=2',
+        rare4: 'armorseries?rarity=3',
+        rare5: 'armorseries?rarity=4',
+        rare6: 'armorseries?rarity=5',
+        rare7: 'armorseries?rarity=6',
+        rare8: 'armorseries?rarity=7',
+        rare9: 'armorseries?rarity=8',
+        rare10: 'armorseries?rarity=9'
     },
-    // charms: null,
-    // petalaces: null,
-    decorations: 'data/decorations',
-    skills: 'data/skills',
-    rampageDecorations: 'data/rampage-decorations',
-    rampageSkills: 'data/rampage-skills',
+    decorations: 'decorations',
+    skills: 'skilltrees'
 }
 
 const getFullUrl = (lang, url) => {
@@ -355,7 +350,7 @@ export const fetchWeaponsAction = async (targetWeaponType = null) => {
     })
 }
 
-export const fetchArmorsAction = async (targetArmorRare = null) => {
+export const fetchArmorsAndCharmsAction = async (targetArmorRare = null) => {
     const runner = async (armorRare) => {
         let mapping = {}
         let langKeyMapping = {}
@@ -638,115 +633,6 @@ export const fetchSkillsAction = async () => {
     Helper.saveJSONAsCSV(`${tempRoot}/skills.csv`, Object.values(mapping))
 }
 
-export const fetchRampageDecorationsAction = async () => {
-    let mapping = {}
-    let langKeyMapping = {}
-
-    // Fetch List Page
-    for (let lang of ['zhTW', 'jaJP', 'enUS']) {
-        let fetchPageUrl = getFullUrl(lang, urls.rampageDecorations)
-        let fetchPageName = 'rampageDecorations'
-
-        console.log(fetchPageUrl, fetchPageName)
-
-        let listDom = await Helper.fetchHtmlAsDom(fetchPageUrl)
-
-        if (Helper.isEmpty(listDom)) {
-            console.trace(fetchPageUrl, fetchPageName, 'Err')
-
-            return
-        }
-
-        for (let rowIndex = 0; rowIndex < listDom('[x-data=categoryFilter]').find('> tbody > tr').length; rowIndex++) {
-            let rowNode = listDom('[x-data=categoryFilter]').find('> tbody > tr').eq(rowIndex)
-
-            let matches = ('enUS' === lang)
-                ? normalizeText(rowNode.find('> td').eq(0).text().trim()).match(/^(.*?)(\d+)$/)
-                : normalizeText(rowNode.find('> td').eq(0).text().trim()).match(/^(.*?)【(\d+)】$/)
-
-            if (null === matches) {
-                continue
-            }
-
-            // Get Data
-            let name = normalizeText(matches[1].trim())
-            let size = matches[2].trim()
-
-            let skillName = normalizeText(rowNode.find('> td').eq(1).find('a').text().trim())
-
-            let uniqueKey = rowNode.find('> td').eq(1).find('a').attr('href').split('/').pop()
-
-            if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
-                langKeyMapping[uniqueKey] = name
-            }
-
-            let mappingKey = langKeyMapping[uniqueKey]
-
-            if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultRampageDecorationItem)
-                mapping[mappingKey].name = {}
-                mapping[mappingKey].rare = null
-                mapping[mappingKey].size = parseFloat(size)
-                mapping[mappingKey].skill = {
-                    name: skillName
-                }
-            }
-
-            mapping[mappingKey].name[lang] = name
-        }
-    }
-
-    Helper.saveJSONAsCSV(`${tempRoot}/rampageDecorations.csv`, Object.values(mapping))
-}
-
-export const fetchRampageSkillsAction = async () => {
-    let mapping = {}
-    let langKeyMapping = {}
-
-    // Fetch List Page
-    for (let lang of ['zhTW', 'jaJP', 'enUS']) {
-        let fetchPageUrl = getFullUrl(lang, urls.rampageSkills)
-        let fetchPageName = 'rampageSkills'
-
-        console.log(fetchPageUrl, fetchPageName)
-
-        let listDom = await Helper.fetchHtmlAsDom(fetchPageUrl)
-
-        if (Helper.isEmpty(listDom)) {
-            console.trace(fetchPageUrl, fetchPageName, 'Err')
-
-            return
-        }
-
-        for (let rowIndex = 0; rowIndex < listDom('[x-data=categoryFilter]').find('> tbody > tr').length; rowIndex++) {
-            let rowNode = listDom('[x-data=categoryFilter]').find('> tbody > tr').eq(rowIndex)
-
-            // Get Data
-            let name = normalizeText(rowNode.find('> td').eq(0).text().trim())
-            let description = normalizeText(rowNode.find('> td').eq(1).text().trim())
-
-            let uniqueKey = rowNode.find('> td').eq(0).find('a').attr('href').split('/').pop()
-
-            if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
-                langKeyMapping[uniqueKey] = name
-            }
-
-            let mappingKey = langKeyMapping[uniqueKey]
-
-            if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultRampageSkillItem)
-                mapping[mappingKey].name = {}
-                mapping[mappingKey].description = {}
-            }
-
-            mapping[mappingKey].name[lang] = name
-            mapping[mappingKey].description[lang] = description
-        }
-    }
-
-    Helper.saveJSONAsCSV(`${tempRoot}/rampageSkills.csv`, Object.values(mapping))
-}
-
 export const infoAction = () => {
 
     // Generate Result Format
@@ -798,7 +684,7 @@ export const infoAction = () => {
         }
     }
 
-    // Armors
+    // Armors And Charms
     for (let rare of rareList) {
         let armorList = Helper.loadCSVAsJSON(`${tempRoot}/armors/${rare}.csv`)
 
@@ -808,8 +694,8 @@ export const infoAction = () => {
         }
     }
 
-    // Decorations & RampageDecorations
-    for (let target of ['decorations', 'rampageDecorations']) {
+    // Decorations
+    for (let target of ['decorations']) {
         let targetList = Helper.loadCSVAsJSON(`${tempRoot}/${target}.csv`)
 
         if (Helper.isNotEmpty(targetList)) {
@@ -823,8 +709,8 @@ export const infoAction = () => {
         }
     }
 
-    // Skills & RampageSkills
-    for (let target of ['skills', 'rampageSkills']) {
+    // Skills
+    for (let target of ['skills']) {
         let targetList = Helper.loadCSVAsJSON(`${tempRoot}/${target}.csv`)
 
         if (Helper.isNotEmpty(targetList)) {
@@ -839,11 +725,9 @@ export const infoAction = () => {
 export const fetchAllAction = () => {
     Promise.all([
         fetchWeaponsAction(),
-        fetchArmorsAction(),
+        fetchArmorsAndCharmsAction(),
         fetchDecorationsAction(),
-        fetchSkillsAction(),
-        fetchRampageDecorationsAction(),
-        fetchRampageSkillsAction()
+        fetchSkillsAction()
     ]).then(() => {
         infoAction()
     })
@@ -852,10 +736,8 @@ export const fetchAllAction = () => {
 export default {
     fetchAllAction,
     fetchWeaponsAction,
-    fetchArmorsAction,
+    fetchArmorsAndCharmsAction,
     fetchDecorationsAction,
     fetchSkillsAction,
-    fetchRampageDecorationsAction,
-    fetchRampageSkillsAction,
     infoAction
 }

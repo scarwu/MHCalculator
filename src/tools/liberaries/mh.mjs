@@ -77,11 +77,25 @@ export const defaultArmorItem = {
         ice: null,
         dragon: null
     },
+    set: null,
     slots: [
         // {
         //     size: null
         // }
     ],
+    skills: [
+        // {
+        //     name: null,
+        //     level: null
+        // }
+    ]
+}
+
+export const defaultCharmItem = {
+    series: null,
+    name: null,
+    rare: null,
+    level: null,
     skills: [
         // {
         //     name: null,
@@ -305,7 +319,7 @@ export const sizeList = [
 ]
 
 export const crawlerList = [
-    'gameqb', 'game8', 'kiranico', 'fextralife'
+    'kiranico'
 ]
 
 export const targetList = [
