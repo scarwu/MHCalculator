@@ -14,16 +14,30 @@ import * as path from 'path'
 global.root = path.dirname(process.argv[1])
 
 import Helper from './liberaries/helper.mjs'
-import WorldCrawlerTask from './tasks/world/crawler.mjs'
-import WorldConvertTask from './tasks/world/convert.mjs'
-import RiseCrawlerTask from './tasks/rise/crawler.mjs'
-import RiseConvertTask from './tasks/rise/convert.mjs'
+
+import CrawlerWorldKiranicoTask from './tasks/crawler/world/kiranico.mjs'
+import CrawlerRiseKiranicoTask from './tasks/crawler/rise/kiranico.mjs'
+import CrawlerRiseFextralifeTask from './tasks/crawler/rise/fextralife.mjs'
+import CrawlerRiseGame8Task from './tasks/crawler/rise/game8.mjs'
+import CrawlerRiseGameqbTask from './tasks/crawler/rise/gameqb.mjs'
+
+import CombineWorldTask from './tasks/combine/world.mjs'
+import CombineRiseTask from './tasks/combine/rise.mjs'
+
+import ConvertTask from './tasks/convert.mjs'
 
 let taskMapping = {
-    worldCrawler: WorldCrawlerTask,
-    worldConvert: WorldConvertTask,
-    riseCrawler: RiseCrawlerTask,
-    riseConvert: RiseConvertTask
+    crawlerWorldKiranico: CrawlerWorldKiranicoTask,
+
+    crawlerRiseKiranico: CrawlerRiseKiranicoTask,
+    crawlerRiseFextralife: CrawlerRiseFextralifeTask,
+    crawlerRiseGame8: CrawlerRiseGame8Task,
+    crawlerRiseGameqb: CrawlerRiseGameqbTask,
+
+    combineWorld: CombineWorldTask,
+    combineRise: CombineRiseTask,
+
+    convert: ConvertTask
 }
 
 // Check Task

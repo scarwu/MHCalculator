@@ -7,7 +7,7 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import Helper from '../../liberaries/helper.mjs'
+import Helper from '../../../liberaries/helper.mjs'
 import {
     defaultWeaponItem,
     defaultArmorItem,
@@ -21,9 +21,9 @@ import {
     weaponTypeList,
     rareList,
     sizeList
-} from '../../liberaries/mh.mjs'
+} from '../../../liberaries/mh.mjs'
 
-const tempRoot = 'temp/crawler/world'
+const tempRoot = 'temp/crawler/world/kiranico'
 
 const urls = {
     langs: {

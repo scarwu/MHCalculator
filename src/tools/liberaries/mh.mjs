@@ -9,6 +9,82 @@
 
 import Helper from './helper.mjs'
 
+export const setting = {
+    world: {
+        targetList: [
+            'weapon', 'armor', 'charm', 'decoration', 'skill'
+        ],
+        weaponTypeList: [
+            'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
+            'hammer', 'huntingHorn', 'lance', 'gunlance', 'switchAxe', 'chargeBlade',
+            'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
+        ],
+        rareList: [
+            'rare1', 'rare2', 'rare3', 'rare4', 'rare5',
+            'rare6', 'rare7', 'rare8', 'rare9', 'rare10',
+            'rare11', 'rare12'
+        ],
+        sizeList: [
+            'size1', 'size2', 'size3', 'size4'
+        ]
+    },
+    rise: {
+        targetList: [
+            'weapon', 'armor', 'petalace', 'decoration', 'skill',
+            'rampageDecoration', 'rampageSkill'
+        ],
+        weaponTypeList: [
+            'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
+            'hammer', 'huntingHorn', 'lance', 'gunlance', 'switchAxe', 'chargeBlade',
+            'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
+        ],
+        rareList: [
+            'rare1', 'rare2', 'rare3', 'rare4', 'rare5',
+            'rare6', 'rare7', 'rare8', 'rare9', 'rare10'
+        ],
+        sizeList: [
+            'size1', 'size2', 'size3', 'size4'
+        ]
+    },
+    wilds: {
+
+    }
+}
+
+export const weaponTypeList = [
+    'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
+    'hammer', 'huntingHorn', 'lance', 'gunlance', 'switchAxe', 'chargeBlade',
+    'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
+]
+
+export const rareList = [
+    'rare1', 'rare2', 'rare3', 'rare4', 'rare5', 'rare6', 'rare7', 'rare8', 'rare9', 'rare10'
+]
+
+export const sizeList = [
+    'size1', 'size2', 'size3', 'size4'
+]
+
+export const targetList = [
+    'weapons',
+    'armors',
+    'petalaces',
+    'decorations',
+    'rampageSkills',
+    'skills'
+]
+
+export const crawlerList = [
+    'fextralife',
+    'game8',
+    'gameqb',
+    'kiranico',
+]
+
+export const langList = [
+    'zhTW', 'jaJP', 'enUS'
+]
+
 export const defaultWeaponItem = {
     series: null,
     name: null,
@@ -303,34 +379,3 @@ export const guessArmorType = (name) => {
 
     return type
 }
-
-export const weaponTypeList = [
-    'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
-    'hammer', 'huntingHorn', 'lance', 'gunlance', 'switchAxe', 'chargeBlade',
-    'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
-]
-
-export const rareList = [
-    'rare1', 'rare2', 'rare3', 'rare4', 'rare5', 'rare6', 'rare7', 'rare8', 'rare9', 'rare10'
-]
-
-export const sizeList = [
-    'size1', 'size2', 'size3', 'size4'
-]
-
-export const crawlerList = [
-    'kiranico'
-]
-
-export const targetList = [
-    'weapons',
-    'armors',
-    'petalaces',
-    'decorations',
-    'rampageSkills',
-    'skills'
-]
-
-export const langList = [
-    'zhTW', 'jaJP', 'enUS'
-]
