@@ -9,8 +9,15 @@
 
 import Helper from './helper.mjs'
 
+export const langList = [
+    'zhTW', 'jaJP', 'enUS'
+]
+
 export const setting = {
     world: {
+        crawlerList: [
+            'fextralife', 'game8', 'kiranico'
+        ],
         targetList: [
             'weapon', 'armor', 'charm', 'decoration', 'skill'
         ],
@@ -29,6 +36,9 @@ export const setting = {
         ]
     },
     rise: {
+        crawlerList: [
+            'fextralife', 'game8', 'kiranico'
+        ],
         targetList: [
             'weapon', 'armor', 'petalace', 'decoration', 'skill',
             'rampageDecoration', 'rampageSkill'
@@ -47,192 +57,170 @@ export const setting = {
         ]
     },
     wilds: {
-
-    }
-}
-
-export const weaponTypeList = [
-    'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
-    'hammer', 'huntingHorn', 'lance', 'gunlance', 'switchAxe', 'chargeBlade',
-    'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
-]
-
-export const rareList = [
-    'rare1', 'rare2', 'rare3', 'rare4', 'rare5', 'rare6', 'rare7', 'rare8', 'rare9', 'rare10'
-]
-
-export const sizeList = [
-    'size1', 'size2', 'size3', 'size4'
-]
-
-export const targetList = [
-    'weapons',
-    'armors',
-    'petalaces',
-    'decorations',
-    'rampageSkills',
-    'skills'
-]
-
-export const crawlerList = [
-    'fextralife',
-    'game8',
-    'gameqb',
-    'kiranico',
-]
-
-export const langList = [
-    'zhTW', 'jaJP', 'enUS'
-]
-
-export const defaultWeaponItem = {
-    series: null,
-    name: null,
-    description: null,
-    rare: null,
-    type: null,
-    attack: null,
-    criticalRate: null,
-    defense: null,
-    element: {
-        attack: {
-            type: null,
-            minValue: null,
-            maxValue: null
-        },
-        status: {
-            type: null,
-            minValue: null,
-            maxValue: null
-        }
-    },
-    sharpness: {
-        minValue: null,
-        maxValue: null,
-        steps: {
-            red: null,
-            orange: null,
-            yellow: null,
-            green: null,
-            blue: null,
-            white: null,
-            purple: null
-        }
-    },
-    slots: [
-        // {
-        //     size: null
-        // }
-    ],
-    rampageSlot: {
-        size: null
-    },
-    rampageSkill: {
-        amount: null,
-        list: [
-            // {
-            //     name: null
-            // }
+        crawlerList: [
+            'fextralife', 'game8', 'kiranico'
+        ],
+        targetList: [
+            'weapon', 'armor', 'charm', 'decoration', 'skill'
+        ],
+        weaponTypeList: [
+            'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
+            'hammer', 'huntingHorn', 'lance', 'gunlance', 'switchAxe', 'chargeBlade',
+            'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
+        ],
+        rareList: [
+            'rare1', 'rare2', 'rare3', 'rare4', 'rare5',
+            'rare6'
+        ],
+        sizeList: [
+            'size1', 'size2', 'size3'
         ]
     }
 }
 
-export const defaultArmorItem = {
-    series: null,
-    name: null,
-    description: null,
-    rare: null,
-    type: null,
-    gender: null,
-    minDefense: null,
-    maxDefense: null,
-    resistance: {
-        fire: null,
-        water: null,
-        thunder: null,
-        ice: null,
-        dragon: null
+export const dateset = {
+    weaponItem: {
+        series: null,
+        name: null,
+        description: null,
+        rare: null,
+        type: null,
+        attack: null,
+        criticalRate: null,
+        defense: null,
+        element: {
+            attack: {
+                type: null,
+                minValue: null,
+                maxValue: null
+            },
+            status: {
+                type: null,
+                minValue: null,
+                maxValue: null
+            }
+        },
+        sharpness: {
+            minValue: null,
+            maxValue: null,
+            steps: {
+                red: null,
+                orange: null,
+                yellow: null,
+                green: null,
+                blue: null,
+                white: null,
+                purple: null
+            }
+        },
+        slots: [
+            // {
+            //     size: null
+            // }
+        ],
+        rampageSlot: {
+            size: null
+        },
+        rampageSkill: {
+            amount: null,
+            list: [
+                // {
+                //     name: null
+                // }
+            ]
+        }
     },
-    set: null,
-    slots: [
+    armorItem: {
+        series: null,
+        name: null,
+        description: null,
+        rare: null,
+        type: null,
+        gender: null,
+        minDefense: null,
+        maxDefense: null,
+        resistance: {
+            fire: null,
+            water: null,
+            thunder: null,
+            ice: null,
+            dragon: null
+        },
+        set: null,
+        slots: [
+            // {
+            //     size: null
+            // }
+        ],
+        skills: [
+            // {
+            //     name: null,
+            //     level: null
+            // }
+        ]
+    },
+    charmItem: {
+        series: null,
+        name: null,
+        rare: null,
+        level: null,
+        skills: [
+            // {
+            //     name: null,
+            //     level: null
+            // }
+        ]
+    },
+    petalaceItem: {
+        name: null,
+        rare: null,
+        health: {
+            increment: null,
+            obtain: null
+        },
+        stamina: {
+            increment: null,
+            obtain: null
+        },
+        attack: {
+            increment: null,
+            obtain: null
+        },
+        defense: {
+            increment: null,
+            obtain: null
+        }
+    },
+    decorationItem: {
+        name: null,
+        rare: null,
+        size: null,
+        skills: [
+            // {
+            //     name: null,
+            //     level: null
+            // }
+        ]
+    },
+    skillItem: {
+        name: null,
+        description: null,
+        level: null,
+        effect: null
+    },
+    rampageDecorationItem: {
+        name: null,
+        rare: null,
+        size: null,
+        skill: null
         // {
-        //     size: null
+        //     name: null
         // }
-    ],
-    skills: [
-        // {
-        //     name: null,
-        //     level: null
-        // }
-    ]
-}
-
-export const defaultCharmItem = {
-    series: null,
-    name: null,
-    rare: null,
-    level: null,
-    skills: [
-        // {
-        //     name: null,
-        //     level: null
-        // }
-    ]
-}
-
-export const defaultPetalaceItem = {
-    name: null,
-    rare: null,
-    health: {
-        increment: null,
-        obtain: null
     },
-    stamina: {
-        increment: null,
-        obtain: null
-    },
-    attack: {
-        increment: null,
-        obtain: null
-    },
-    defense: {
-        increment: null,
-        obtain: null
+    rampageSkillItem: {
+        name: null,
+        description: null
     }
-}
-
-export const defaultDecorationItem = {
-    name: null,
-    rare: null,
-    size: null,
-    skills: [
-        // {
-        //     name: null,
-        //     level: null
-        // }
-    ]
-}
-
-export const defaultSkillItem = {
-    name: null,
-    description: null,
-    level: null,
-    effect: null
-}
-
-export const defaultRampageDecorationItem = {
-    name: null,
-    rare: null,
-    size: null,
-    skill: null
-    // {
-    //     name: null
-    // }
-}
-
-export const defaultRampageSkillItem = {
-    name: null,
-    description: null
 }
 
 export const autoExtendListQuantity = (list) => {

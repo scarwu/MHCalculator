@@ -9,21 +9,11 @@
 
 import Helper from '../../../liberaries/helper.mjs'
 import {
-    defaultWeaponItem,
-    defaultArmorItem,
-    // defaultPetalaceItem,
-    defaultDecorationItem,
-    defaultSkillItem,
-    defaultRampageDecorationItem,
-    defaultRampageSkillItem,
-
+    setting,
+    dateset,
     autoExtendListQuantity,
     normalizeText,
-    guessArmorType,
-
-    weaponTypeList,
-    rareList,
-    sizeList
+    guessArmorType
 } from '../../../liberaries/mh.mjs'
 
 const tempRoot = 'temp/crawler/rise/kiranico'
@@ -108,7 +98,7 @@ export const fetchWeaponsAction = async (targetWeaponType = null) => {
                 let mappingKey = langKeyMapping[uniqueKey]
 
                 if (Helper.isEmpty(mapping[mappingKey])) {
-                    mapping[mappingKey] = Helper.deepCopy(defaultWeaponItem)
+                    mapping[mappingKey] = Helper.deepCopy(dateset.weaponItem)
                     mapping[mappingKey].series = {
                         zhTW: null,
                         jaJP: null,
@@ -391,7 +381,7 @@ export const fetchArmorsAction = async (targetArmorRare = null) => {
                 let mappingKey = langKeyMapping[uniqueKey]
 
                 if (Helper.isEmpty(mapping[mappingKey])) {
-                    mapping[mappingKey] = Helper.deepCopy(defaultArmorItem)
+                    mapping[mappingKey] = Helper.deepCopy(dateset.armorItem)
                     mapping[mappingKey].series = {}
                     mapping[mappingKey].name = {}
                     mapping[mappingKey].description = {}
@@ -554,7 +544,7 @@ export const fetchDecorationsAction = async () => {
             let mappingKey = langKeyMapping[uniqueKey]
 
             if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultDecorationItem)
+                mapping[mappingKey] = Helper.deepCopy(dateset.decorationItem)
                 mapping[mappingKey].name = {}
                 mapping[mappingKey].rare = null
                 mapping[mappingKey].size = parseFloat(size)
@@ -622,7 +612,7 @@ export const fetchSkillsAction = async () => {
                 let mappingKey = langKeyMapping[`${uniqueKey}:${level}`]
 
                 if (Helper.isEmpty(mapping[mappingKey])) {
-                    mapping[mappingKey] = Helper.deepCopy(defaultSkillItem)
+                    mapping[mappingKey] = Helper.deepCopy(dateset.skillItem)
                     mapping[mappingKey].name = {}
                     mapping[mappingKey].description = {}
                     mapping[mappingKey].level = parseFloat(level)
@@ -735,7 +725,7 @@ export const fetchRampageSkillsAction = async () => {
             let mappingKey = langKeyMapping[uniqueKey]
 
             if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultRampageSkillItem)
+                mapping[mappingKey] = Helper.deepCopy(dateset.rampageSkillItem)
                 mapping[mappingKey].name = {}
                 mapping[mappingKey].description = {}
             }
@@ -765,26 +755,26 @@ export const infoAction = () => {
     result.decorations.all = 0
     result.rampageDecorations.all = 0
 
-    for (let weaponType of weaponTypeList) {
+    for (let weaponType of setting.rise.weaponTypeList) {
         result.weapons[weaponType] = {}
         result.weapons[weaponType].all = 0
 
-        for (let rare of rareList) {
+        for (let rare of setting.rise.rareList) {
             result.weapons[weaponType][rare] = 0
         }
     }
 
-    for (let rare of rareList) {
+    for (let rare of setting.rise.rareList) {
         result.armors[rare] = 0
     }
 
-    for (let size of sizeList) {
+    for (let size of setting.rise.sizeList) {
         result.decorations[size] = 0
         result.rampageDecorations[size] = 0
     }
 
     // Weapons
-    for (let weaponType of weaponTypeList) {
+    for (let weaponType of setting.rise.weaponTypeList) {
         let weaponList = Helper.loadCSVAsJSON(`${tempRoot}/weapons/${weaponType}.csv`)
 
         if (Helper.isNotEmpty(weaponList)) {
@@ -800,7 +790,7 @@ export const infoAction = () => {
     }
 
     // Armors
-    for (let rare of rareList) {
+    for (let rare of setting.rise.rareList) {
         let armorList = Helper.loadCSVAsJSON(`${tempRoot}/armors/${rare}.csv`)
 
         if (Helper.isNotEmpty(armorList)) {

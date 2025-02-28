@@ -1,34 +1,24 @@
 /**
  * Combine Handler
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHRCalculator
+ * @link        https://github.com/scarwu/MHCalculator
  */
 
 import md5 from 'md5'
 
 import Helper from '../../liberaries/helper.mjs'
 import {
-    defaultWeaponItem,
-    defaultArmorItem,
-    defaultPetalaceItem,
-    defaultDecorationItem,
-    defaultSkillItem,
-    defaultRampageDecorationItem,
-    defaultRampageSkillItem,
-    autoExtendListQuantity,
-    weaponTypeList,
-    rareList,
-    sizeList,
-    crawlerList,
-    targetList,
-    langList
+    langList,
+    setting,
+    dateset,
+    autoExtendListQuantity
 } from '../../liberaries/mh.mjs'
 
-const tempCrawlerRoot = 'temp/crawler'
-const tempCombineRoot = 'temp/combine'
+const tempCrawlerRoot = 'temp/crawler/world'
+const tempCombineRoot = 'temp/combine/world'
 
 const specialReplaceItemName = (text, lang, rare) => {
     let replacementList = [
@@ -195,68 +185,6 @@ const specialReplaceSkillPropertyName = (text) => {
     return text
 }
 
-const specialReplaceRampageSkillPropertyName = (text, itemName = null) => {
-    let replacementList = [
-
-        // kiranico
-        // { searchValue: '龍姬的斬擊斧', replaceValue: '龍姬的劍斧' },
-
-        // gameqb
-        // { searchValue: '倪泰裡【面具】', replaceValue: '倪泰裡【蒙面】' },
-
-        // game8
-        // { searchValue: 'デスタ', replaceValue: 'テスタ' },
-
-        // fextralife
-        { searchValue: 'Affinty Boost I', replaceValue: 'Affinity Boost I' },
-        { searchValue: 'Affiinity Boost I', replaceValue: 'Affinity Boost I' },
-        { searchValue: 'Affiinity Boost I', replaceValue: 'Affinity Boost I' },
-        { searchValue: 'Affinity I', replaceValue: 'Affinity Boost I' },
-        { searchValue: 'Affinty Boost II', replaceValue: 'Affinity Boost II' },
-        { searchValue: 'Affiinity Boost II', replaceValue: 'Affinity Boost II' },
-        { searchValue: 'Affinity Bonus II', replaceValue: 'Affinity Boost II' },
-        { searchValue: 'Affiinity Boost II', replaceValue: 'Affinity Boost II' },
-        { searchValue: 'Affinity II', replaceValue: 'Affinity Boost II' },
-        { searchValue: 'Affinty Boost III', replaceValue: 'Affinity Boost III' },
-        { searchValue: 'Atack Boost I', replaceValue: 'Attack Boost I' },
-        { searchValue: 'Atttack Boost II', replaceValue: 'Attack Boost II' },
-        { searchValue: 'Defense Boost', replaceValue: 'Defense Boost I' }, // Azure Elder Sword I
-        { searchValue: 'Defesnse Boost I', replaceValue: 'Defense Boost I' },
-        { searchValue: 'Defemse Boost II', replaceValue: 'Defense Boost II' },
-        { searchValue: 'Defense Boost IV', replaceValue: 'Defense Boost II' }, // For "Keen Edge I"
-        { searchValue: 'Poiston Boost I', replaceValue: 'Poison Boost I' },
-        { searchValue: 'Poiston Boost II', replaceValue: 'Poison Boost II' },
-        { searchValue: 'Boost Boost I', replaceValue: 'Blast Boost I' },
-        { searchValue: 'Ice Bloost II', replaceValue: 'Ice Boost II' },
-        { searchValue: 'Anti-aquatic Species', replaceValue: 'Anti-Aquatic Species' },
-        { searchValue: 'Anti-aquatic Species', replaceValue: 'Anti-Aquatic Species' },
-        { searchValue: 'Anti-Aquatic', replaceValue: 'Anti-Aquatic Species' },
-        { searchValue: 'Anti Aerial Species', replaceValue: 'Anti-Aerial Species' },
-        { searchValue: 'Fireblight Eploit', replaceValue: 'Fireblight Exploit' },
-        { searchValue: 'Smaill Monster Exploit', replaceValue: 'Small Monster Exploit' },
-        { searchValue: 'Fire Blight Exploit', replaceValue: 'Fireblight Exploit' },
-        { searchValue: 'Dragon Exploit', replaceValue: 'Wyvern Exploit' },
-        { searchValue: 'Burtal Strike', replaceValue: 'Brutal Strike' },
-        { searchValue: 'Spiribird Double', replaceValue: 'Spiribird Doubled' },
-        { searchValue: 'Brutal Strke', replaceValue: 'Brutal Strike' },
-        { searchValue: 'Lasting Arch Shot', replaceValue: 'Lasting Arc Shot' },
-        { searchValue: 'Silkbing Boost', replaceValue: 'Silkbind Boost' },
-        { searchValue: 'Silk Boost', replaceValue: 'Silkbind Boost' },
-        { searchValue: 'Silkbing Boost', replaceValue: 'Silkbind Boost' },
-        { searchValue: 'SilkBind Boost', replaceValue: 'Silkbind Boost' }
-    ]
-
-    text = text.replace(/x1$/, 'I').replace(/x2$/, 'II').replace(/x3$/, 'III').replace(/x4$/, 'IV')
-
-    for (let item of replacementList) {
-        if (text === item.searchValue) {
-            return item.replaceValue
-        }
-    }
-
-    return text
-}
-
 export const runAction = () => {
     let rawDataMapping = {}
     let metaDataMapping = {}
@@ -291,10 +219,10 @@ export const runAction = () => {
     }
 
     // Load Raw Data
-    Object.values(targetList).forEach((target) => {
+    Object.values(setting.world.targetList).forEach((target) => {
         rawDataMapping[target] = {}
 
-        Object.values(crawlerList).forEach((crawler) => {
+        Object.values(setting.world.crawlerList).forEach((crawler) => {
             rawDataMapping[target][crawler] = []
         })
     })
@@ -314,7 +242,7 @@ export const runAction = () => {
                     continue
                 }
 
-                for (let weaponType of weaponTypeList) {
+                for (let weaponType of setting.world.weaponTypeList) {
                     let weaponList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/weapons/${weaponType}.csv`)
 
                     if (Helper.isNotEmpty(weaponList)) {
@@ -334,7 +262,7 @@ export const runAction = () => {
                     continue
                 }
 
-                for (let rare of rareList) {
+                for (let rare of setting.world.rareList) {
                     let armorList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/armors/${rare}.csv`)
 
                     if (Helper.isNotEmpty(armorList)) {
@@ -471,39 +399,21 @@ export const runAction = () => {
         return idNameMapping[translateIdMapping[translateId]]
     }
 
-    const getPropertyRampageSkillTranslateName = (name) => {
-        name = specialReplaceRampageSkillPropertyName(name)
-
-        let translateId = `rampageSkills:name:${md5(name)}`
-
-        if (Helper.isEmpty(translateIdMapping[translateId])) {
-            return null
-        }
-
-        if (Helper.isEmpty(idNameMapping[translateIdMapping[translateId]])) {
-            return null
-        }
-
-        return idNameMapping[translateIdMapping[translateId]]
-    }
-
     const mergeItem = (target, itemId, crawlerMapping) => {
         let item = null
 
         switch (target) {
         case 'weapons':
-            item = Helper.deepCopy(defaultWeaponItem)
+            item = Helper.deepCopy(dateset.weaponItem)
             item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare', 'type', 'attack', 'criticalRate', 'defense'])
             item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['series', 'name', 'description'])
             item = mergeElementValue(target, itemId, item, crawlerMapping)
             item = mergeSharpnessValue(target, itemId, item, crawlerMapping)
             item = mergeSlotsValue(target, itemId, item, crawlerMapping)
-            item = mergeRampageSlotValue(target, itemId, item, crawlerMapping)
-            item = mergeRampageSkillValue(target, itemId, item, crawlerMapping)
 
             return Helper.deepCopy(item)
         case 'armors':
-            item = Helper.deepCopy(defaultArmorItem)
+            item = Helper.deepCopy(dateset.armorItem)
             item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare', 'type', 'gender', 'minDefense', 'maxDefense'])
             item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['series', 'name', 'description'])
             item = mergeResistenceValue(target, itemId, item, crawlerMapping)
@@ -511,36 +421,17 @@ export const runAction = () => {
             item = mergeSkillsValue(target, itemId, item, crawlerMapping)
 
             return Helper.deepCopy(item)
-        case 'petalaces':
-            item = Helper.deepCopy(defaultPetalaceItem)
-            item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare'])
-            item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name'])
-            item = mergeIncrementAndObtainValue(target, itemId, item, crawlerMapping, ['name'])
-
-            return Helper.deepCopy(item)
         case 'decorations':
-            item = Helper.deepCopy(defaultDecorationItem)
+            item = Helper.deepCopy(dateset.decorationItem)
             item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare', 'size'])
             item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name'])
             item = mergeSkillsValue(target, itemId, item, crawlerMapping)
 
             return Helper.deepCopy(item)
         case 'skills':
-            item = Helper.deepCopy(defaultSkillItem)
+            item = Helper.deepCopy(dateset.skillItem)
             item = mergeNormalValue(target, itemId, item, crawlerMapping, ['level'])
             item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name', 'description', 'effect'])
-
-            return Helper.deepCopy(item)
-        case 'rampageDecorations':
-            item = Helper.deepCopy(defaultRampageDecorationItem)
-            item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare', 'size'])
-            item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name'])
-            item = mergeSkillsValue(target, itemId, item, crawlerMapping)
-
-            return Helper.deepCopy(item)
-        case 'rampageSkills':
-            item = Helper.deepCopy(defaultRampageSkillItem)
-            item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name', 'description'])
 
             return Helper.deepCopy(item)
         default:
@@ -1208,253 +1099,6 @@ export const runAction = () => {
         return item
     }
 
-    const mergeRampageSlotValue = (target, itemId, item, crawlerMapping) => {
-        let voteMapping = null
-        let valueMapping = null
-
-        // For RampageSlot Size
-        voteMapping = {}
-        valueMapping = {}
-
-        for (let [crawlerName, crawlerItem] of Object.entries(crawlerMapping)) {
-            if (Helper.isEmpty(crawlerItem.rampageSlot)
-                || Helper.isEmpty(crawlerItem.rampageSlot.size)
-            ) {
-                continue
-            }
-
-            // Set Default Value
-            if (Helper.isEmpty(item.rampageSlot.size)) {
-                item.rampageSlot.size = crawlerItem.rampageSlot.size
-            }
-
-            // Set Count & Value
-            if (Helper.isEmpty(voteMapping[crawlerItem.rampageSlot.size])) {
-                voteMapping[crawlerItem.rampageSlot.size] = {
-                    count: 0,
-                    value: crawlerItem.rampageSlot.size
-                }
-            }
-
-            voteMapping[crawlerItem.rampageSlot.size].count++
-            valueMapping[crawlerName] = crawlerItem.rampageSlot.size
-        }
-
-        // Need Copy
-        if (0 !== Object.keys(voteMapping).length) {
-
-            // Assign Final Value by Max Count
-            let maxCount = 0
-
-            for (let voteItem of Object.values(voteMapping)) {
-                if (maxCount < voteItem.count) {
-                    maxCount = voteItem.count
-                    item.rampageSlot.size = voteItem.value
-                }
-            }
-
-            // Record DuplicationValueMapping
-            if (Object.keys(voteMapping).length > 1) {
-                if (Helper.isEmpty(duplicateValueMapping.rampageSlotSize)) {
-                    duplicateValueMapping.rampageSlotSize = []
-                }
-
-                duplicateValueMapping.rampageSlotSize.push({
-                    target: target,
-                    name: idNameMapping[itemId],
-                    rare: item.rare,
-                    valueMapping: valueMapping
-                })
-            }
-        }
-
-        return item
-    }
-
-
-    const mergeRampageSkillValue = (target, itemId, item, crawlerMapping) => {
-        let voteMapping = null
-        let valueMapping = null
-
-        // For RampageSkill Amount
-        voteMapping = {}
-        valueMapping = {}
-
-        for (let [crawlerName, crawlerItem] of Object.entries(crawlerMapping)) {
-            if (Helper.isEmpty(crawlerItem.rampageSkill)
-                || Helper.isEmpty(crawlerItem.rampageSkill.amount)
-            ) {
-                continue
-            }
-
-            // Set Default Value
-            if (Helper.isEmpty(item.rampageSkill.amount)) {
-                item.rampageSkill.amount = crawlerItem.rampageSkill.amount
-            }
-
-            // Set Count & Value
-            if (Helper.isEmpty(voteMapping[crawlerItem.rampageSkill.amount])) {
-                voteMapping[crawlerItem.rampageSkill.amount] = {
-                    count: 0,
-                    value: crawlerItem.rampageSkill.amount
-                }
-            }
-
-            voteMapping[crawlerItem.rampageSkill.amount].count++
-            valueMapping[crawlerName] = crawlerItem.rampageSkill.amount
-        }
-
-        // Need Copy
-        if (0 !== Object.keys(voteMapping).length) {
-
-            // Assign Final Value by Max Count
-            let maxCount = 0
-
-            for (let voteItem of Object.values(voteMapping)) {
-                if (maxCount < voteItem.count) {
-                    maxCount = voteItem.count
-                    item.rampageSkill.amount = voteItem.value
-                }
-            }
-
-            // Record DuplicationValueMapping
-            if (Object.keys(voteMapping).length > 1) {
-                if (Helper.isEmpty(duplicateValueMapping.rampageSkillAmount)) {
-                    duplicateValueMapping.rampageSkillAmount = []
-                }
-
-                duplicateValueMapping.rampageSkillAmount.push({
-                    target: target,
-                    name: idNameMapping[itemId],
-                    rare: item.rare,
-                    valueMapping: valueMapping
-                })
-            }
-        }
-
-        // For RampageSkill List
-        voteMapping = {}
-        valueMapping = {}
-
-        // Generate RampageSkill Mapping
-        for (let [crawlerName, crawlerItem] of Object.entries(crawlerMapping)) {
-            if (Helper.isEmpty(crawlerItem.rampageSkill)
-                || Helper.isEmpty(crawlerItem.rampageSkill.list)
-            ) {
-                continue
-            }
-
-            let rampageSkillList = []
-
-            crawlerItem.rampageSkill.list.forEach((rampageSkillItem) => {
-                if (Helper.isEmpty(rampageSkillItem.name)) {
-                    return
-                }
-
-                let rampageSkillName = getPropertyRampageSkillTranslateName(rampageSkillItem.name)
-
-                // Record untrackMergeMapping
-                if (Helper.isEmpty(rampageSkillName)) {
-                    if (Helper.isEmpty(untrackMergeMapping.rampageSkillList)) {
-                        untrackMergeMapping.rampageSkillList = []
-                    }
-
-                    untrackMergeMapping.rampageSkillList.push({
-                        target: target,
-                        name: idNameMapping[itemId],
-                        crawlerName: crawlerName,
-                        orignalName: crawlerItem.name,
-                        rampageSkillName: rampageSkillItem.name
-                    })
-
-                    return
-                }
-
-                rampageSkillList.push(rampageSkillName)
-            })
-
-            rampageSkillList.sort()
-
-            let value = JSON.stringify(rampageSkillList)
-
-            // Set Count & Value
-            if (Helper.isEmpty(voteMapping[value])) {
-                voteMapping[value] = {
-                    count: 0,
-                    value: value
-                }
-            }
-
-            voteMapping[value].count++
-            valueMapping[crawlerName] = rampageSkillList.join(',')
-        }
-
-        // Need Copy
-        if (0 !== Object.keys(voteMapping).length) {
-
-            // Assign Final Value by Max Count
-            let maxCount = 0
-
-            for (let voteItem of Object.values(voteMapping)) {
-                if (maxCount < voteItem.count) {
-                    maxCount = voteItem.count
-
-                    item.rampageSkill.list = {}
-
-                    JSON.parse(voteItem.value).forEach((rampageSkillName) => {
-                        item.rampageSkill.list[rampageSkillName] = null
-                    })
-                }
-            }
-
-            // Filling
-            for (let [crawlerName, crawlerItem] of Object.entries(crawlerMapping)) {
-                if (Helper.isEmpty(crawlerItem.rampageSkill)
-                    || Helper.isEmpty(crawlerItem.rampageSkill.list)
-                ) {
-                    continue
-                }
-
-                crawlerItem.rampageSkill.list.forEach((rampageSkillItem) => {
-                    if (Helper.isEmpty(rampageSkillItem.name)) {
-                        return
-                    }
-
-                    let rampageSkillName = getPropertyRampageSkillTranslateName(rampageSkillItem.name)
-
-                    // Just Skipped
-                    if (Helper.isEmpty(rampageSkillName)) {
-                        return
-                    }
-
-                    rampageSkillItem.name = rampageSkillName
-
-                    if (Helper.isEmpty(item.rampageSkill.list[rampageSkillItem.name])) {
-                        item.rampageSkill.list[rampageSkillItem.name] = rampageSkillItem
-                    }
-                })
-            }
-
-            item.rampageSkill.list = Object.values(item.rampageSkill.list)
-
-            // Record DuplicationValueMapping
-            if (Object.keys(voteMapping).length > 1) {
-                if (Helper.isEmpty(duplicateValueMapping.rampageSkillList)) {
-                    duplicateValueMapping.rampageSkillList = []
-                }
-
-                duplicateValueMapping.rampageSkillList.push({
-                    target: target,
-                    name: idNameMapping[itemId],
-                    rare: item.rare,
-                    valueMapping: valueMapping
-                })
-            }
-        }
-
-        return item
-    }
-
     // Generate Arrange Data
     for (let target of Object.keys(metaDataMapping)) {
         console.log(`arrange:${target}`)
@@ -1506,36 +1150,34 @@ export const infoAction = () => {
     let result = {
         weapons: {},
         armors: {},
-        petalaces: {},
+        charms: {},
         decorations: {},
-        skills: {},
-        rampageDecorations: {},
-        rampageSkills: {}
+        skills: {}
     }
 
     result.weapons.all = {}
     result.armors.all = {}
     result.decorations.all = {}
 
-    for (let weaponType of weaponTypeList) {
+    for (let weaponType of setting.world.weaponTypeList) {
         result.weapons[weaponType] = {}
         result.weapons[weaponType].all = {}
 
-        for (let rare of rareList) {
+        for (let rare of setting.world.rareList) {
             result.weapons[weaponType][rare] = {}
         }
     }
 
-    for (let rare of rareList) {
+    for (let rare of setting.world.rareList) {
         result.armors[rare] = {}
     }
 
-    for (let size of sizeList) {
+    for (let size of setting.world.sizeList) {
         result.decorations[size] = {}
     }
 
     // Load All Crawler Data
-    for (let crawler of crawlerList) {
+    for (let crawler of setting.world.crawlerList) {
         console.log(`count:${crawler}`)
 
         for (let target of targetList) {
@@ -1570,7 +1212,7 @@ export const infoAction = () => {
                     continue
                 }
 
-                for (let weaponType of weaponTypeList) {
+                for (let weaponType of setting.world.weaponTypeList) {
                     let weaponList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/weapons/${weaponType}.csv`)
 
                     if (Helper.isNotEmpty(weaponList)) {
@@ -1631,7 +1273,7 @@ export const infoAction = () => {
                     continue
                 }
 
-                for (let rare of rareList) {
+                for (let rare of setting.world.rareList) {
                     let armorList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/armors/${rare}.csv`)
 
                     if (Helper.isNotEmpty(armorList)) {

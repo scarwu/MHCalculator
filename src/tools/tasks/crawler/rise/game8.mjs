@@ -1,26 +1,18 @@
 /**
  * Game8 Crawler
  *
- * @package     Monster Hunter Rise - Calculator
+ * @package     Monster Hunter - Calculator
  * @author      Scar Wu
  * @copyright   Copyright (c) Scar Wu (https://scar.tw)
- * @link        https://github.com/scarwu/MHRCalculator
+ * @link        https://github.com/scarwu/MHCalculator
  */
 
 import Helper from '../../../liberaries/helper.mjs'
 import {
-    defaultWeaponItem,
-    defaultArmorItem,
-    // defaultPetalaceItem,
-    defaultDecorationItem,
-    defaultSkillItem,
-    defaultRampageDecorationItem,
-    defaultRampageSkillItem,
+    setting,
+    dateset,
     autoExtendListQuantity,
-    normalizeText,
-    weaponTypeList,
-    rareList,
-    sizeList
+    normalizeText
 } from '../../../liberaries/mh.mjs'
 
 const tempRoot = 'temp/crawler/rise/game8'
@@ -43,7 +35,6 @@ const urls = {
         lightBowgun: 'https://game8.jp/mhrise/369834'
     },
     armors: 'https://game8.jp/mhrise/363845',
-    // charms: null,
     // petalaces: 'https://game8.jp/mhrise/364037',
     decorations: 'https://game8.jp/mhrise/363846',
     rampageSkills: 'https://game8.jp/mhrise/382391',
@@ -111,7 +102,7 @@ export const fetchWeaponsAction = async (targetWeaponType = null) => {
                     mappingKey = name
 
                     if (Helper.isEmpty(mapping[mappingKey])) {
-                        mapping[mappingKey] = Helper.deepCopy(defaultWeaponItem)
+                        mapping[mappingKey] = Helper.deepCopy(dateset.weaponItem)
                     }
 
                     mapping[mappingKey].name = {
@@ -140,7 +131,7 @@ export const fetchWeaponsAction = async (targetWeaponType = null) => {
                     mappingKey = `${series}:${name}`
 
                     if (Helper.isEmpty(mapping[mappingKey])) {
-                        mapping[mappingKey] = Helper.deepCopy(defaultWeaponItem)
+                        mapping[mappingKey] = Helper.deepCopy(dateset.weaponItem)
                     }
 
                     let rare = subNode.find('tbody tr').eq(1).find('td').eq(0).text()
@@ -430,7 +421,7 @@ export const fetchArmorsAction = async () => {
                                 mappingKey = `${series}:${name}`
 
                                 if (Helper.isEmpty(mapping[mappingKey])) {
-                                    mapping[mappingKey] = Helper.deepCopy(defaultArmorItem)
+                                    mapping[mappingKey] = Helper.deepCopy(dateset.armorItem)
                                 }
 
                                 mapping[mappingKey].series = {
@@ -511,7 +502,7 @@ export const fetchArmorsAction = async () => {
                                 mappingKey = `${series}:${name}`
 
                                 if (Helper.isEmpty(mapping[mappingKey])) {
-                                    mapping[mappingKey] = Helper.deepCopy(defaultArmorItem)
+                                    mapping[mappingKey] = Helper.deepCopy(dateset.armorItem)
                                 }
 
                                 mapping[mappingKey].type = type
@@ -564,7 +555,7 @@ export const fetchArmorsAction = async () => {
                                 mappingKey = `${series}:${name}`
 
                                 if (Helper.isEmpty(mapping[mappingKey])) {
-                                    mapping[mappingKey] = Helper.deepCopy(defaultArmorItem)
+                                    mapping[mappingKey] = Helper.deepCopy(dateset.armorItem)
                                 }
 
                                 mapping[mappingKey].type = type
@@ -656,7 +647,7 @@ export const fetchDecorationsAction = async () => {
             mappingKey = name
 
             if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultDecorationItem)
+                mapping[mappingKey] = Helper.deepCopy(dateset.decorationItem)
             }
 
             mapping[mappingKey].name = {
@@ -731,7 +722,7 @@ export const fetchSkillsAction = async () => {
                 mappingKey = `${name}:${level}`
 
                 if (Helper.isEmpty(mapping[mappingKey])) {
-                    mapping[mappingKey] = Helper.deepCopy(defaultSkillItem)
+                    mapping[mappingKey] = Helper.deepCopy(dateset.skillItem)
                 }
 
                 mapping[mappingKey].name = {
@@ -849,7 +840,7 @@ export const fetchRampageSkillsAction = async () => {
             mappingKey = name
 
             if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultRampageSkillItem)
+                mapping[mappingKey] = Helper.deepCopy(dateset.rampageSkillItem)
             }
 
             mapping[mappingKey].name = {
@@ -881,26 +872,26 @@ export const infoAction = () => {
     result.decorations.all = 0
     result.rampageDecorations.all = 0
 
-    for (let weaponType of weaponTypeList) {
+    for (let weaponType of setting.rise.weaponTypeList) {
         result.weapons[weaponType] = {}
         result.weapons[weaponType].all = 0
 
-        for (let rare of rareList) {
+        for (let rare of setting.rise.rareList) {
             result.weapons[weaponType][rare] = 0
         }
     }
 
-    for (let rare of rareList) {
+    for (let rare of setting.rise.rareList) {
         result.armors[rare] = 0
     }
 
-    for (let size of sizeList) {
+    for (let size of setting.rise.sizeList) {
         result.decorations[size] = 0
         result.rampageDecorations[size] = 0
     }
 
     // Weapons
-    for (let weaponType of weaponTypeList) {
+    for (let weaponType of setting.rise.weaponTypeList) {
         let weaponList = Helper.loadCSVAsJSON(`${tempRoot}/weapons/${weaponType}.csv`)
 
         if (Helper.isNotEmpty(weaponList)) {

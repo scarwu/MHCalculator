@@ -19,7 +19,6 @@ import CrawlerWorldKiranicoTask from './tasks/crawler/world/kiranico.mjs'
 import CrawlerRiseKiranicoTask from './tasks/crawler/rise/kiranico.mjs'
 import CrawlerRiseFextralifeTask from './tasks/crawler/rise/fextralife.mjs'
 import CrawlerRiseGame8Task from './tasks/crawler/rise/game8.mjs'
-import CrawlerRiseGameqbTask from './tasks/crawler/rise/gameqb.mjs'
 
 import CombineWorldTask from './tasks/combine/world.mjs'
 import CombineRiseTask from './tasks/combine/rise.mjs'
@@ -32,7 +31,6 @@ let taskMapping = {
     crawlerRiseKiranico: CrawlerRiseKiranicoTask,
     crawlerRiseFextralife: CrawlerRiseFextralifeTask,
     crawlerRiseGame8: CrawlerRiseGame8Task,
-    crawlerRiseGameqb: CrawlerRiseGameqbTask,
 
     combineWorld: CombineWorldTask,
     combineRise: CombineRiseTask,
