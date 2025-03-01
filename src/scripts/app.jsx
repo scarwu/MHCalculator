@@ -131,6 +131,8 @@ export default function App () {
         States.actions.setLang(lang)
 
         routeNavigate(`/${lang}/${_series}`)
+
+        window.location.reload()
     }, [ _series ])
 
     const handleSeriesChange = useCallback((event) => {
@@ -139,13 +141,15 @@ export default function App () {
         States.actions.setSeries(series)
 
         routeNavigate(`/${_lang}/${series}`)
+
+        window.location.reload()
     }, [ _lang ])
 
     /**
      * Render Functions
      */
     return (
-        <div key={_lang} id="mhc-app" className="container-fluid">
+        <div key={`${_lang}:${_series}`} id="mhc-app" className="container-fluid">
             <div className="mhc-header">
                 <div className="mhc-icons_bundle-left">
                     <IconSelector
@@ -175,7 +179,7 @@ export default function App () {
                 </div>
             </div>
 
-            <div className="mhc-body" key={`${_lang}:${_series}`}>
+            <div className="mhc-body">
                 <Outlet />
             </div>
 

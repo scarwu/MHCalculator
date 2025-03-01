@@ -21,6 +21,7 @@ import BasicSelector from '@/scripts/components/ui/basicSelector'
 import BasicInput from '@/scripts/components/ui/basicInput'
 
 import ArmorFactors from '@/scripts/components/modal/algorithmSetting/armorFactors'
+import CharmFactors from '@/scripts/components/modal/algorithmSetting/charmFactors'
 import DecorationFactors from '@/scripts/components/modal/algorithmSetting/decorationFactors'
 
 // Load States
@@ -64,6 +65,7 @@ const getModeList = () => {
 // const decorationSizeList = [ 1, 2, 3, 4 ]
 
 const armorRareList = [ 1, 2, 3, 4, 5, 6, 7 ]
+const charmRareList = [ 1, 2, 3, 4, 5, 6, 7 ]
 const decorationSizeList = [ 1, 2, 3 ]
 
 /**
@@ -263,6 +265,34 @@ export default function AlgorithmSettingModal (props) {
                             </div>
                         ) : false}
 
+                        {'all' === stateFilter.mode || 'charmFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode ? (
+                            <div className="mhc-item mhc-item-2-step">
+                                <div className="col-12 mhc-name">
+                                    <span>{_('charmFactor')}</span>
+                                </div>
+                                <div className="col-12 mhc-content">
+                                    {charmRareList.map((rare) => {
+                                        return (
+                                            <div key={rare} className="col-6 mhc-value">
+                                                <span>{_('rare') + `: ${rare}`}</span>
+                                                <div className="mhc-icons_bundle">
+                                                    {_algorithmParams.usingFactor['charm:rare:' + rare] ? (
+                                                        <IconButton
+                                                            iconName="star" altName={_('exclude')}
+                                                            onClick={() => {States.actions.setAlgorithmParamsUsingFactor('charm:rare:' + rare, false)}} />
+                                                    ) : (
+                                                        <IconButton
+                                                            iconName="star-o" altName={_('include')}
+                                                            onClick={() => {States.actions.setAlgorithmParamsUsingFactor('charm:rare:' + rare, true)}} />
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        ) : false}
+
                         {'all' === stateFilter.mode || 'decorationFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode ? (
                             <div className="mhc-item mhc-item-2-step">
                                 <div className="col-12 mhc-name">
@@ -293,6 +323,10 @@ export default function AlgorithmSettingModal (props) {
 
                         {'all' === stateFilter.mode || 'armorFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode
                             ? <ArmorFactors segment={stateFilter.segment}
+                                byRequiredConditions={'byRequiredConditions' === stateFilter.mode} />
+                            : false}
+                        {'all' === stateFilter.mode || 'charmFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode
+                            ? <CharmFactors segment={stateFilter.segment}
                                 byRequiredConditions={'byRequiredConditions' === stateFilter.mode} />
                             : false}
                         {'all' === stateFilter.mode || 'decorationFactor' === stateFilter.mode || 'byRequiredConditions' === stateFilter.mode

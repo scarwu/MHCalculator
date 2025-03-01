@@ -112,46 +112,201 @@ export const elementCriticalMultiple = {
     }
 }
 
+export const weaponMultiple = {
+    greatSword: 4.8,
+    longSword: 3.3,
+    swordAndShield: 1.4,
+    dualBlades: 1.4,
+    hammer: 5.2,
+    huntingHorn: 4.2,
+    lance: 2.3,
+    gunlance: 2.3,
+    switchAxe: 3.5,
+    chargeBlade: 3.6,
+    insectGlaive: 3.1,
+    lightBowgun: 1.3,
+    heavyBowgun: 1.5,
+    bow: 1.2
+}
+
+export const defaultStatus = {
+    health: 100,
+    stamina: 100,
+    attack: 0,
+    critical: {
+        rate: 0,
+        multiple: {
+            positive: 1.25,
+            nagetive: 0.75
+        }
+    },
+    sharpness: null,
+    element: {
+        attack: null,
+        status: null
+    },
+    elementCriticalMultiple: {
+        attack: 1,
+        status: 1
+    },
+    elderseal: null,
+    defense: 1,
+    resistance: {
+        fire: 0,
+        water: 0,
+        thunder: 0,
+        ice: 0,
+        dragon: 0
+    },
+    sets: [],
+    skills: []
+}
+
+export const defaultBenefitAnalysis = {
+    physicalAttack: 0,
+    physicalCriticalAttack: 0,
+    physicalExpectedValue: 0,
+    elementAttack: 0,
+    elementExpectedValue: 0,
+    expectedValue: 0,
+    perNRawAttackExpectedValue: 0,
+    perNRawCriticalRateExpectedValue: 0,
+    perNRawCriticalMultipleExpectedValue: 0,
+    perNElementAttackExpectedValue: 0
+}
+
 export const series = {
-    wilds: (() => {
 
-    })(),
-
-    rise: (() => {
-        const equipTypes = [
-            'weapon',
-            'helm',
-            'chest',
-            'arm',
-            'waist',
-            'leg',
-            'charm',
-            'petalace'
-        ]
-
-        const algorithmParams = {
-            limit: 10,
-            sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
-            order: 'desc', // asc | desc
-            usingFactor: {
-
-                // Armor Rare
-                'armor:rare:7': true,
-                'armor:rare:6': true,
-                'armor:rare:5': false,
-                'armor:rare:4': false,
-                'armor:rare:3': false,
-                'armor:rare:2': false,
-                'armor:rare:1': false,
-
-                // Decoration Size
-                'decoration:size:4': true,
-                'decoration:size:3': true,
-                'decoration:size:2': true,
-                'decoration:size:1': true
+    world: (() => {
+        const playerEquips = {
+            weapon: {
+                id: null,
+                enhances: {},
+                slotIds: [],
+                custom: {
+                    id: 'customWeapon',
+                    name: 'customWeapon',
+                    type: 'greatSword',
+                    series: null,
+                    attack: 100,
+                    criticalRate: 0,
+                    defense: 0,
+                    sharpness: {
+                        value: 350,
+                        steps: {
+                            red: 0,
+                            orange: 0,
+                            yellow: 0,
+                            green: 0,
+                            blue: 0,
+                            white: 0,
+                            purple: 400
+                        }
+                    },
+                    element: {
+                        attack: null,
+                        status: null
+                    },
+                    elderseal: null,
+                    slots: [],
+                    skills: [],
+                    set: null
+                }
+            },
+            helm: {
+                id: null,
+                slotIds: []
+            },
+            chest: {
+                id: null,
+                slotIds: []
+            },
+            arm: {
+                id: null,
+                slotIds: []
+            },
+            waist: {
+                id: null,
+                slotIds: []
+            },
+            leg: {
+                id: null,
+                slotIds: []
+            },
+            charm: {
+                id: null
             }
         }
 
+        return {
+            equipTypes: [
+                'weapon',
+                'helm',
+                'chest',
+                'arm',
+                'waist',
+                'leg',
+                'charm'
+            ],
+            algorithmParams: {
+                limit: 10,
+                sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
+                order: 'desc', // asc | desc
+                usingFactor: {
+
+                    // Armor Size
+                    'armor:rare:12': true,
+                    'armor:rare:11': false,
+                    'armor:rare:10': false,
+                    'armor:rare:9': false,
+                    'armor:rare:8': false,
+                    'armor:rare:7': false,
+                    'armor:rare:6': false,
+                    'armor:rare:5': false,
+                    'armor:rare:4': false,
+                    'armor:rare:3': false,
+                    'armor:rare:2': false,
+                    'armor:rare:1': false,
+
+                    // Charm Size
+                    'charm:rare:12': true,
+                    'charm:rare:11': false,
+                    'charm:rare:10': false,
+                    'charm:rare:9': false,
+                    'charm:rare:8': false,
+                    'charm:rare:7': false,
+                    'charm:rare:6': false,
+                    'charm:rare:5': false,
+                    'charm:rare:4': false,
+                    'charm:rare:3': false,
+                    'charm:rare:2': false,
+                    'charm:rare:1': false,
+
+                    // Decoration Size
+                    'decoration:size:4': true,
+                    'decoration:size:3': true,
+                    'decoration:size:2': true,
+                    'decoration:size:1': true
+                }
+            },
+            playerEquips: playerEquips,
+            playerStatus: {
+                usingItem: {
+                    'powerCharm': true, // 力量護符 (攻擊+6)
+                    'powerTalon': true, // 力量之爪 (攻擊+9)
+                    'armorCharm': true, // 守護護符 (防禦+10)
+                    'armorTalon': true  // 守護之爪 (防禦+20)
+                }
+            },
+            requiredConditions: {
+                equips: playerEquips,
+                sets: [],
+                skills: []
+            }
+        }
+    })(),
+
+    rise: (() => {
         const playerEquips = {
             weapon: {
                 id: null,
@@ -258,130 +413,57 @@ export const series = {
             }
         }
 
-        const playerStatus = {
-            usingItem: {
-                'powerCharm': true, // 力量護符 (攻擊+6)
-                'powerTalon': true, // 力量之爪 (攻擊+9)
-                'armorCharm': true, // 守護護符 (防禦+10)
-                'armorTalon': true  // 守護之爪 (防禦+20)
-            }
-        }
+        return {
+            equipTypes: [
+                'weapon',
+                'helm',
+                'chest',
+                'arm',
+                'waist',
+                'leg',
+                'charm',
+                'petalace'
+            ],
+            algorithmParams: {
+                limit: 10,
+                sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
+                order: 'desc', // asc | desc
+                usingFactor: {
 
-        const status = {
-            health: 100,
-            stamina: 100,
-            attack: 0,
-            critical: {
-                rate: 0,
-                multiple: {
-                    positive: 1.25,
-                    nagetive: 0.75
+                    // Armor Rare
+                    'armor:rare:7': true,
+                    'armor:rare:6': true,
+                    'armor:rare:5': false,
+                    'armor:rare:4': false,
+                    'armor:rare:3': false,
+                    'armor:rare:2': false,
+                    'armor:rare:1': false,
+
+                    // Decoration Size
+                    'decoration:size:4': true,
+                    'decoration:size:3': true,
+                    'decoration:size:2': true,
+                    'decoration:size:1': true
                 }
             },
-            sharpness: null,
-            element: {
-                attack: null,
-                status: null
+            playerEquips: playerEquips,
+            playerStatus: {
+                usingItem: {
+                    'powerCharm': true, // 力量護符 (攻擊+6)
+                    'powerTalon': true, // 力量之爪 (攻擊+9)
+                    'armorCharm': true, // 守護護符 (防禦+10)
+                    'armorTalon': true  // 守護之爪 (防禦+20)
+                }
             },
-            elementCriticalMultiple: {
-                attack: 1,
-                status: 1
-            },
-            defense: 1,
-            resistance: {
-                fire: 0,
-                water: 0,
-                thunder: 0,
-                ice: 0,
-                dragon: 0
-            },
-            sets: [],
-            skills: []
-        }
-
-        const benefitAnalysis = {
-            physicalAttack: 0,
-            physicalCriticalAttack: 0,
-            physicalExpectedValue: 0,
-            elementAttack: 0,
-            elementExpectedValue: 0,
-            expectedValue: 0,
-            perNRawAttackExpectedValue: 0,
-            perNRawCriticalRateExpectedValue: 0,
-            perNRawCriticalMultipleExpectedValue: 0,
-            perNElementAttackExpectedValue: 0
-        }
-
-        const requiredConditions = {
-            equips: playerEquips,
-            sets: [],
-            skills: []
-        }
-
-        return {
-            equipTypes,
-            algorithmParams,
-            playerEquips,
-            playerStatus,
-            status,
-            benefitAnalysis,
-            requiredConditions
+            requiredConditions: {
+                equips: playerEquips,
+                sets: [],
+                skills: []
+            }
         }
     })(),
 
-    world: (() => {
-        const equipTypes = [
-            'weapon',
-            'helm',
-            'chest',
-            'arm',
-            'waist',
-            'leg',
-            'charm'
-        ]
-
-        const weaponMultiple = {
-            greatSword: 4.8,
-            longSword: 3.3,
-            swordAndShield: 1.4,
-            dualBlades: 1.4,
-            hammer: 5.2,
-            huntingHorn: 4.2,
-            lance: 2.3,
-            gunlance: 2.3,
-            switchAxe: 3.5,
-            chargeBlade: 3.6,
-            insectGlaive: 3.1,
-            lightBowgun: 1.3,
-            heavyBowgun: 1.5,
-            bow: 1.2
-        }
-
-        const algorithmParams = {
-            limit: 10,
-            sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
-            order: 'desc', // asc | desc
-            usingFactor: {
-                armor: {
-                    'rare12': true,
-                    'rare11': false,
-                    'rare10': false,
-                    'rare9': false,
-                    'rare8': false,
-                    'rare7': false,
-                    'rare6': false,
-                    'rare5': false
-                },
-                charm: {},
-                decoration: {
-                    'size4': true,
-                    'size3': true,
-                    'size2': true,
-                    'size1': true
-                }
-            }
-        }
-
+    wilds: (() => {
         const playerEquips = {
             weapon: {
                 id: null,
@@ -442,76 +524,67 @@ export const series = {
             }
         }
 
-        const playerStatus = {
-            usingItem: {
-                'powerCharm': true, // 力量護符 (攻擊+6)
-                'powerTalon': true, // 力量之爪 (攻擊+9)
-                'armorCharm': true, // 守護護符 (防禦+10)
-                'armorTalon': true  // 守護之爪 (防禦+20)
-            }
-        }
+        return {
+            equipTypes: [
+                'weapon',
+                'helm',
+                'chest',
+                'arm',
+                'waist',
+                'leg',
+                'charm'
+            ],
+            algorithmParams: {
+                limit: 10,
+                sort: 'complex', // complex | defense | amount | slot | expectedValue | expectedLevel
+                order: 'desc', // asc | desc
+                usingFactor: {
 
-        const status = {
-            health: 100,
-            stamina: 100,
-            attack: 0,
-            critical: {
-                rate: 0,
-                multiple: {
-                    positive: 1.25,
-                    nagetive: 0.75
+                    // Armor Size
+                    'armor:rare:10': true,
+                    'armor:rare:9': true,
+                    'armor:rare:8': true,
+                    'armor:rare:7': false,
+                    'armor:rare:6': false,
+                    'armor:rare:5': false,
+                    'armor:rare:4': false,
+                    'armor:rare:3': false,
+                    'armor:rare:2': false,
+                    'armor:rare:1': false,
+
+                    // Charm Size
+                    'charm:rare:10': true,
+                    'charm:rare:9': true,
+                    'charm:rare:8': true,
+                    'charm:rare:7': false,
+                    'charm:rare:6': false,
+                    'charm:rare:5': false,
+                    'charm:rare:4': false,
+                    'charm:rare:3': false,
+                    'charm:rare:2': false,
+                    'charm:rare:1': false,
+
+                    // Decoration Size
+                    'decoration:size:4': true,
+                    'decoration:size:3': true,
+                    'decoration:size:2': true,
+                    'decoration:size:1': true
                 }
             },
-            sharpness: null,
-            element: {
-                attack: null,
-                status: null
+            playerEquips: playerEquips,
+            playerStatus: {
+                usingItem: {
+                    'powerCharm': true, // 力量護符 (攻擊+6)
+                    'powerTalon': true, // 力量之爪 (攻擊+9)
+                    'armorCharm': true, // 守護護符 (防禦+10)
+                    'armorTalon': true  // 守護之爪 (防禦+20)
+                }
             },
-            elementCriticalMultiple: {
-                attack: 1,
-                status: 1
-            },
-            elderseal: null,
-            defense: 1,
-            resistance: {
-                fire: 0,
-                water: 0,
-                thunder: 0,
-                ice: 0,
-                dragon: 0
-            },
-            sets: [],
-            skills: []
-        }
-
-        const benefitAnalysis = {
-            physicalAttack: 0,
-            physicalCriticalAttack: 0,
-            physicalExpectedValue: 0,
-            elementAttack: 0,
-            elementExpectedValue: 0,
-            expectedValue: 0,
-            perNRawAttackExpectedValue: 0,
-            perNRawCriticalRateExpectedValue: 0,
-            perNRawCriticalMultipleExpectedValue: 0,
-            perNElementAttackExpectedValue: 0
-        }
-
-        const requiredConditions = {
-            equips: playerEquips,
-            sets: [],
-            skills: []
-        }
-
-        return {
-            equipTypes,
-            weaponMultiple,
-            algorithmParams,
-            playerEquips,
-            playerStatus,
-            status,
-            benefitAnalysis,
-            requiredConditions
+            requiredConditions: {
+                equips: playerEquips,
+                sets: [],
+                skills: []
+            }
         }
     })()
 }
@@ -524,5 +597,8 @@ export default {
     resistanceTypes,
     sharpnessMultiple,
     elementCriticalMultiple,
+    weaponMultiple,
+    defaultStatus,
+    defaultBenefitAnalysis,
     series
 }

@@ -19,6 +19,7 @@ import Helper from '@/scripts/core/helper'
 // Load States
 import States from '@/scripts/states'
 
+// Load Blocks
 import RequiredConditionsBlock          from '@/scripts/components/block/requiredConditions'
 import CandidateBundlesBlock            from '@/scripts/components/block/candidateBundles'
 import PlayerEquipsBlock                from '@/scripts/components/block/playerEquips'

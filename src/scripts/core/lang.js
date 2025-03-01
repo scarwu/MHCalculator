@@ -30,7 +30,7 @@ let mapping = {
     jaJP: Object.assign({}, jaJPUI, jaJPDataset),
     enUS: Object.assign({}, enUSUI, enUSDataset)
 }
-console.log(States.getters)
+
 let defaultLang = Constant.defaultLang
 let browserLnag = navigator.language.replace('-', '')
 let currentLang = States.getters.lang()

@@ -9,6 +9,10 @@
 
 import React, { Fragment, useState, useEffect, useCallback, useMemo, useRef } from 'react'
 
+// Load Config & Constant
+import Config from '@/scripts/config'
+import Constant from '@/scripts/constant'
+
 // Load Core
 import _ from '@/scripts/core/lang'
 import Helper from '@/scripts/core/helper'
@@ -97,6 +101,7 @@ export default function EquipList (props) {
     /**
      * Hooks
      */
+    const _series = States.hooks.useSeries()
     const _requiredConditions = States.hooks.useRequiredConditions()
 
     return useMemo(() => {
@@ -112,7 +117,7 @@ export default function EquipList (props) {
                     <span>{_('equip')}</span>
                 </div>
 
-                {Object.keys(_requiredConditions.equips).map((equipType) => {
+                {Constant.series[_series].equipTypes.map((equipType) => {
                     if ('weapon' === Misc.equipTypeToDatasetType(equipType)
                         && 'customWeapon' === _requiredConditions.equips[equipType].id
                     ) {

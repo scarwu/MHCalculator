@@ -18,10 +18,10 @@ import Helper from 'core/helper'
 import CharmDataset from 'libraries/dataset/charm'
 
 // Load Components
-import BasicSelector from 'components/common/basicSelector'
+import BasicSelector from 'components/ui/basicSelector'
 
-// Load State Control
-import CommonState from 'states/common'
+// Load States
+import States from '@/scripts/states'
 
 /**
  * Variables
@@ -34,16 +34,16 @@ export default function CharmFactors(props) {
     /**
      * Hooks
      */
-    const [stateAlgorithmParams, updateAlgorithmParams] = useState(CommonState.getter.getAlgorithmParams())
-    const [stateRequiredEquips, updateRequiredEquips] = useState(CommonState.getter.getRequiredEquips())
-    const [stateRequiredSkills, updateRequiredSkills] = useState(CommonState.getter.getRequiredSkills())
+    const [stateAlgorithmParams, updateAlgorithmParams] = useState(States.getters.getAlgorithmParams())
+    const [stateRequiredEquips, updateRequiredEquips] = useState(States.getters.getRequiredEquips())
+    const [stateRequiredSkills, updateRequiredSkills] = useState(States.getters.getRequiredSkills())
 
     // Like Did Mount & Will Unmount Cycle
     useEffect(() => {
-        const unsubscribe = CommonState.store.subscribe(() => {
-            updateAlgorithmParams(CommonState.getter.getAlgorithmParams())
-            updateRequiredEquips(CommonState.getter.getRequiredEquips())
-            updateRequiredSkills(CommonState.getter.getRequiredSkills())
+        const unsubscribe = States.store.subscribe(() => {
+            updateAlgorithmParams(States.getters.getAlgorithmParams())
+            updateRequiredEquips(States.getters.getRequiredEquips())
+            updateRequiredSkills(States.getters.getRequiredSkills())
         })
 
         return () => {
@@ -157,7 +157,7 @@ export default function CharmFactors(props) {
                                             iconName="sort-numeric-asc"
                                             defaultValue={selectLevel}
                                             options={levelList} onChange={(event) => {
-                                                CommonState.setter.setAlgorithmParamsUsingFactor('charm', seriesId, parseInt(event.target.value))
+                                                States.setter.setAlgorithmParamsUsingFactor('charm', seriesId, parseInt(event.target.value))
                                             }} />
                                     </div>
                                 </div>
