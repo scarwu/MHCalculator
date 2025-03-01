@@ -19,58 +19,58 @@ import CrawlerWorldKiranicoTask from './tasks/crawler/world/kiranico.mjs'
 import CrawlerRiseKiranicoTask from './tasks/crawler/rise/kiranico.mjs'
 import CrawlerRiseFextralifeTask from './tasks/crawler/rise/fextralife.mjs'
 import CrawlerRiseGame8Task from './tasks/crawler/rise/game8.mjs'
-
 import CombineWorldTask from './tasks/combine/world.mjs'
 import CombineRiseTask from './tasks/combine/rise.mjs'
-
 import ConvertTask from './tasks/convert.mjs'
 
 let taskMapping = {
-    crawlerWorldKiranico: CrawlerWorldKiranicoTask,
-
-    crawlerRiseKiranico: CrawlerRiseKiranicoTask,
-    crawlerRiseFextralife: CrawlerRiseFextralifeTask,
-    crawlerRiseGame8: CrawlerRiseGame8Task,
-
-    combineWorld: CombineWorldTask,
-    combineRise: CombineRiseTask,
-
+    crawler: {
+        world: {
+            kiranico: CrawlerWorldKiranicoTask
+        },
+        rise: {
+            kiranico: CrawlerRiseKiranicoTask,
+            fextralife: CrawlerRiseFextralifeTask,
+            game8: CrawlerRiseGame8Task
+        }
+    },
+    combine: {
+        world: CombineWorldTask,
+        rise: CombineRiseTask
+    },
     convert: ConvertTask
 }
 
-// Check Task
-let taskName = process.argv[2]
+let segments = process.argv.slice(2)
 
-if (Helper.isEmpty(taskName)) {
-    console.log('Tasks:')
+while (0 < segments.length) {
+    let segment = segments[0]
 
-    Object.keys(taskMapping).forEach((taskName) => {
-        console.log(`    ${taskName}`)
+    if (Helper.isEmpty(taskMapping[segment])) {
+        break
+    }
+
+    taskMapping = taskMapping[segment]
+    segments.shift()
+}
+
+if (0 === segments.length) {
+    console.log('Commands:')
+
+    Object.keys(taskMapping).forEach((segment) => {
+        console.log(`    ${segment.replace(/Action$/, '')}`)
     })
-
-    process.exit()
-} else if (Helper.isEmpty(taskMapping[taskName])) {
-    console.log(`Task "${taskName}" not found`)
 
     process.exit()
 }
 
-// Check Action
-let actionName = process.argv[3]
+let actionName = segments.shift() + 'Action'
 
-if (Helper.isEmpty(actionName)) {
-    console.log('Actions:')
-
-    Object.keys(taskMapping[taskName]).forEach((actionName) => {
-        console.log(`    ${actionName.replace(/Action$/, '')}`)
-    })
-
-    process.exit()
-} else if (Helper.isEmpty(taskMapping[taskName][actionName + 'Action'])) {
-    console.log(`Task "${taskName}" Action "${actionName}" not found`)
+if (Helper.isEmpty(taskMapping[actionName])) {
+    console.log(`Command "${actionName}" not found`)
 
     process.exit()
 }
 
 // Run CLI
-taskMapping[taskName][actionName + 'Action'](...process.argv.slice(4))
+taskMapping[actionName](segments)
