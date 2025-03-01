@@ -144,7 +144,10 @@ export default function DecorationSelectorModal (props) {
 
         for (let size = dataStore.size; size >= 1; size--) {
             for (let rare = 9; rare >= 1; rare--) {
-                dataStore.list = dataStore.list.concat(DecorationDataset.rareIs(rare).sizeIs(size).getList())
+                dataStore.list = dataStore.list.concat(DecorationDataset.getList({
+                    rare: rare,
+                    size: size
+                }))
             }
         }
 

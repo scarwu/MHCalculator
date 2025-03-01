@@ -15,8 +15,9 @@ import States from '@/scripts/states'
 // Load Dataset
 import WorldCharms from '@/scripts/datasets/world/charms.json'
 
-let mapping = {
+const mapping = {
     world: WorldCharms,
+    rise: null,
     wilds: null
 }
 
@@ -41,14 +42,18 @@ let mapping = {
 //         [ ... ]
 //     ]
 // ]
-const getDataset = () => {
-    let series = null
+let dataset = null
+
+export const init = () => {
+    dataset = {}
+
+    let series = States.getters.series()
 
     if (Helper.isEmpty(mapping[series])) {
-        return null
+        return
     }
 
-    return mapping[series].map((bundle) => {
+    let list = mapping[series].map((bundle) => {
         return bundle[1].map((item) => {
             return {
                 seriesId: bundle[0][0],
@@ -69,125 +74,106 @@ const getDataset = () => {
     .reduce((charmsA, charmsB) => {
         return charmsA.concat(charmsB)
     })
+
+    if (Helper.isEmpty(list) || 0 === list.list) {
+        return
+    }
+
+    list.forEach((item) => {
+        dataset[item.id] = item
+    })
 }
 
-class CharmDataset {
+export const getIds = (filter = {}) => {
+    return getList(filter)
+}
 
-    constructor (list) {
-        this.mapping = {}
+export const getList = (filter = {}) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
 
-        if (Helper.isNotEmpty(list)) {
-            list.forEach((item) => {
-                this.mapping[item.id] = item
-            })
+    let result = Object.values(dataset).filter((data) => {
+        let isSkip = true
+
+        // Rare Is
+        if (Helper.isNotEmpty(filter.rare)) {
+            if (filter.rare !== data.rare) {
+                return false
+            }
         }
 
-        // Filter Conditional
-        this.resetFilter()
-    }
-
-    resetFilter = () => {
-        this.filterRare = null
-        this.filterSkillName = null
-        this.filterSkillNames = null
-        this.filterSkillIsConsistent = null
-    }
-
-    getIds = () => {
-        return Object.keys(this.mapping)
-    }
-
-    getItems = () => {
-        let result = Object.values(this.mapping).filter((data) => {
-            let isSkip = true
-
-            // Rare Is
-            if (Helper.isNotEmpty(this.filterRare)) {
-                if (this.filterRare !== data.rare) {
-                    return false
+        // Has Skill
+        if (Helper.isNotEmpty(filter.skillName)) {
+            for (let index in data.skills) {
+                if (filter.skillName !== data.skills[index].id) {
+                    continue
                 }
+
+                isSkip = false
             }
 
-            // Has Skill
-            if (Helper.isNotEmpty(this.filterSkillName)) {
-                for (let index in data.skills) {
-                    if (this.filterSkillName !== data.skills[index].id) {
-                        continue
+            if (isSkip) {
+                return false
+            }
+        }
+
+        // Has Skills
+        if (Helper.isNotEmpty(filter.skillNames)) {
+            if (filter.skillIsConsistent) {
+                isSkip = false
+
+                data.skills.forEach((skill) => {
+                    if (-1 === filter.skillNames.indexOf(skill.id)) {
+                        isSkip = true
                     }
+                })
+            } else {
+                isSkip = true
 
-                    isSkip = false
-                }
-
-                if (isSkip) {
-                    return false
-                }
+                data.skills.forEach((skill) => {
+                    if (-1 !== filter.skillNames.indexOf(skill.id)) {
+                        isSkip = false
+                    }
+                })
             }
 
-            // Has Skills
-            if (Helper.isNotEmpty(this.filterSkillNames)) {
-                if (this.filterSkillIsConsistent) {
-                    isSkip = false
-
-                    data.skills.forEach((skill) => {
-                        if (-1 === this.filterSkillNames.indexOf(skill.id)) {
-                            isSkip = true
-                        }
-                    })
-                } else {
-                    isSkip = true
-
-                    data.skills.forEach((skill) => {
-                        if (-1 !== this.filterSkillNames.indexOf(skill.id)) {
-                            isSkip = false
-                        }
-                    })
-                }
-
-                if (isSkip) {
-                    return false
-                }
+            if (isSkip) {
+                return false
             }
-
-            return true
-        })
-
-        this.resetFilter()
-
-        return result
-    }
-
-    getInfo = (id) => {
-        return (Helper.isNotEmpty(this.mapping[id]))
-            ? Helper.deepCopy(this.mapping[id]) : null
-    }
-
-    setInfo = (id, info) => {
-        if (Helper.isNotEmpty(info)) {
-            this.mapping[id] = info
-        } else {
-            delete this.mapping[id]
         }
+
+        return true
+    })
+
+    return result
+}
+
+export const getInfo = (id) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
     }
 
-    // Conditional Functions
-    rareIs = (number) => {
-        this.filterRare = number
+    return (Helper.isNotEmpty(dataset[id]))
+        ? Helper.deepCopy(dataset[id]) : null
+}
 
-        return this
+export const setInfo = (id, info) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
     }
 
-    hasSkill = (name) => {
-        this.filterSkillName = name
-
-        return this
-    }
-
-    hasSkills = (names, isConsistent = false) => {
-        this.filterSkillNames = names
-        this.filterSkillIsConsistent = isConsistent
-
-        return this
+    if (Helper.isNotEmpty(info)) {
+        dataset[id] = info
+    } else {
+        delete dataset[id]
     }
 }
 
-export default new CharmDataset(getDataset())
+export default {
+    init,
+    getIds,
+    getList,
+    getInfo,
+    setInfo
+}

@@ -25,7 +25,7 @@ import jaJPDataset from '@/scripts/langs/jaJP/dataset.json'
 import enUSUI from '@/scripts/langs/enUS/ui.json'
 import enUSDataset from '@/scripts/langs/enUS/dataset.json'
 
-let mapping = {
+const mapping = {
     zhTW: Object.assign({}, zhTWUI, zhTWDataset),
     jaJP: Object.assign({}, jaJPUI, jaJPDataset),
     enUS: Object.assign({}, enUSUI, enUSDataset)

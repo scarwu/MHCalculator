@@ -17,7 +17,7 @@ import States from '@/scripts/states'
 import WorldSkills from '@/scripts/datasets/world/skills.json'
 import RiseSkills from '@/scripts/datasets/rise/skills.json'
 
-let mapping = {
+const mapping = {
     world: WorldSkills,
     rise: RiseSkills,
     wilds: null
@@ -41,14 +41,18 @@ let mapping = {
 //         [ ... ]
 //     ]
 // ]
-const getDataset = () => {
-    let series = null
+let dataset = null
+
+export const init = () => {
+    dataset = {}
+
+    let series = States.getters.series()
 
     if (Helper.isEmpty(mapping[series])) {
-        return null
+        return
     }
 
-    return mapping[series].map((skillBundle) => {
+    let list = mapping[series].map((skillBundle) => {
         let skillResult = {
             id: skillBundle[0],
             name: skillBundle[1],
@@ -204,32 +208,42 @@ const getDataset = () => {
 
         return skillResult
     })
+
+    if (Helper.isEmpty(list) || 0 === list.list) {
+        return
+    }
+
+    list.forEach((item) => {
+        dataset[item.id] = item
+    })
 }
 
-class SkillDataset {
-
-    constructor (list) {
-        this.mapping = {}
-
-        if (Helper.isNotEmpty(list)) {
-            list.forEach((item) => {
-                this.mapping[item.id] = item
-            })
-        }
-    }
-
-    getIds = () => {
-        return Object.keys(this.mapping)
-    }
-
-    getList = () => {
-        return Object.values(this.mapping)
-    }
-
-    getItem = (id) => {
-        return (Helper.isNotEmpty(this.mapping[id]))
-            ? Helper.deepCopy(this.mapping[id]) : null
-    }
+export const getIds = (filter = {}) => {
+    return getList(filter)
 }
 
-export default new SkillDataset(getDataset())
+export const getList = (filter = {}) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    let result = Object.values(dataset)
+
+    return result
+}
+
+export const getItem = (id) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    return (Helper.isNotEmpty(dataset[id]))
+        ? Helper.deepCopy(dataset[id]) : null
+}
+
+export default {
+    init,
+    getIds,
+    getList,
+    getItem
+}

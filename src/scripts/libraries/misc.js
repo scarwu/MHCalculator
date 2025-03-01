@@ -14,10 +14,12 @@ import Helper from '@/scripts/core/helper'
 import WeaponDataset from '@/scripts/libraries/dataset/weapon'
 import ArmorDataset from '@/scripts/libraries/dataset/armor'
 import SetDataset from '@/scripts/libraries/dataset/set'
+import CharmDataset from '@/scripts/libraries/dataset/charm'
 import PetalaceDataset from '@/scripts/libraries/dataset/petalace'
 import DecorationDataset from '@/scripts/libraries/dataset/decoration'
-import RampageSkillDataset from '@/scripts/libraries/dataset/rampageSkill'
 import SkillDataset from '@/scripts/libraries/dataset/skill'
+import RampageSkillDataset from '@/scripts/libraries/dataset/rampageSkill'
+import RampageDecorationDataset from '@/scripts/libraries/dataset/rampageDecoration'
 
 export const verifyCustomWeaponItem = (customDataset) => {
     if ('lightBowgun' === customDataset.type
@@ -408,7 +410,11 @@ export const getArmorListByRequiredConditions = (requiredConditions) => {
     // Find Armors By Skill Ids
     let isConsistent = false
 
-    ArmorDataset.typesIs(equipTypes).hasSkills(skillIds, isConsistent).getList().forEach((armorItem) => {
+    ArmorDataset.getList({
+        types: equipTypes,
+        skillIds: skillIds,
+        skillIsConsistent: isConsistent
+    }).forEach((armorItem) => {
         if (Helper.isNotEmpty(armorItem.skills)) {
             let isSkip = false
 
@@ -451,7 +457,10 @@ export const getDecorationListByRequiredConditions = (requiredConditions) => {
     // Find Decorations By Skill Ids
     let isConsistent = true
 
-    DecorationDataset.hasSkills(skillIds, isConsistent).getList().forEach((decorationItem) => {
+    DecorationDataset.getList({
+        skillIds: skillIds,
+        skillIsConsistent: isConsistent
+    }).forEach((decorationItem) => {
         let isSkip = false
 
         decorationItem.skills.forEach((skillData) => {

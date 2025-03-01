@@ -16,7 +16,7 @@ import States from '@/scripts/states'
 // Load Dataset
 import RisePetalaces from '@/scripts/datasets/rise/petalaces.json'
 
-let mapping = {
+const mapping = {
     world: null,
     rise: RisePetalaces,
     wilds: null
@@ -43,14 +43,18 @@ let mapping = {
 //         1: obtain
 //     ]
 // ]
-const getDataset = () => {
-    let series = null
+let dataset = null
+
+export const init = () => {
+    dataset = {}
+
+    let series = States.getters.series()
 
     if (Helper.isEmpty(mapping[series])) {
-        return null
+        return
     }
 
-    return mapping[series].map((petalaceItem) => {
+    let list = mapping[series].map((petalaceItem) => {
         return {
             id: petalaceItem[0],
             name: petalaceItem[1],
@@ -73,34 +77,42 @@ const getDataset = () => {
             }
         }
     })
+
+    if (Helper.isEmpty(list) || 0 === list.list) {
+        return
+    }
+
+    list.forEach((item) => {
+        dataset[item.id] = item
+    })
 }
 
-class PetalaceDataset {
-
-    constructor (list) {
-        this.mapping = {}
-
-        if (Helper.isNotEmpty(list)) {
-            list.forEach((item) => {
-                this.mapping[item.id] = item
-            })
-        }
-    }
-
-    getIds = () => {
-        return Object.keys(this.mapping)
-    }
-
-    getList = () => {
-        let result = Object.values(this.mapping)
-
-        return result
-    }
-
-    getItem = (id) => {
-        return (Helper.isNotEmpty(this.mapping[id]))
-            ? Helper.deepCopy(this.mapping[id]) : null
-    }
+export const getIds = (filter = {}) => {
+    return getList(filter)
 }
 
-export default new PetalaceDataset(getDataset())
+export const getList = (filter = {}) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    let result = Object.values(dataset)
+
+    return result
+}
+
+export const getItem = (id) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    return (Helper.isNotEmpty(dataset[id]))
+        ? Helper.deepCopy(dataset[id]) : null
+}
+
+export default {
+    init,
+    getIds,
+    getList,
+    getItem
+}

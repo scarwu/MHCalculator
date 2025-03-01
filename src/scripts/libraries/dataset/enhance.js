@@ -16,7 +16,7 @@ import States from '@/scripts/states'
 // Load Dataset
 import WorldEnhances from '@/scripts/datasets/world/enhances.json'
 
-let mapping = {
+const mapping = {
     world: WorldEnhances,
     rise: null,
     wilds: null
@@ -37,14 +37,18 @@ let mapping = {
 //         [ ... ]
 //     ]
 // ]
-const getDataset = () => {
-    let series = null
+let dataset = null
+
+export const init = () => {
+    dataset = {}
+
+    let series = States.getters.series()
 
     if (Helper.isEmpty(mapping[series])) {
-        return null
+        return
     }
 
-    return mapping[series].map((enhance) => {
+    let list = mapping[series].map((enhance) => {
         return {
             id: enhance[0],
             name: enhance[1],
@@ -60,66 +64,63 @@ const getDataset = () => {
             })
         }
     })
+
+    if (Helper.isEmpty(list) || 0 === list.list) {
+        return
+    }
+
+    list.forEach((item) => {
+        dataset[item.id] = item
+    })
 }
 
-class EnhanceDataset {
+export const getIds = (filter = {}) => {
+    return getList(filter)
+}
 
-    constructor (list) {
-        this.mapping = {}
-
-        if (Helper.isNotEmpty(list)) {
-            list.forEach((item) => {
-                this.mapping[item.id] = item
-            })
-        }
-
-        // Filter Conditional
-        this.resetFilter()
+export const getList = (filter = {}) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
     }
 
-    resetFilter = () => {
-        this.filterSkillName = null
-    }
-
-    getIds = () => {
-        return Object.keys(this.mapping)
-    }
-
-    getItems = () => {
-        let result = Object.values(this.mapping).filter((data) => {
-            if (Helper.isNotEmpty(this.filterSkillName)) {
-                if (this.filterSkillName !== data.skill.id) {
-                    return false
-                }
+    let result = Object.values(dataset).filter((data) => {
+        if (Helper.isNotEmpty(filter.skillName)) {
+            if (filter.skillName !== data.skill.id) {
+                return false
             }
-
-            return true
-        })
-
-        this.resetFilter()
-
-        return result
-    }
-
-    getInfo = (id) => {
-        return (Helper.isNotEmpty(this.mapping[id]))
-            ? Helper.deepCopy(this.mapping[id]) : null
-    }
-
-    setInfo = (id, info) => {
-        if (Helper.isNotEmpty(info)) {
-            this.mapping[id] = info
-        } else {
-            delete this.mapping[id]
         }
+
+        return true
+    })
+
+    return result
+}
+
+export const getInfo = (id) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
     }
 
-    // Conditional Functions
-    hasSkill = (name) => {
-        this.filterSkillName = name
+    return (Helper.isNotEmpty(dataset[id]))
+        ? Helper.deepCopy(dataset[id]) : null
+}
 
-        return this
+export const setInfo = (id, info) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    if (Helper.isNotEmpty(info)) {
+        dataset[id] = info
+    } else {
+        delete dataset[id]
     }
 }
 
-export default new EnhanceDataset(getDataset())
+export default {
+    init,
+    getIds,
+    getList,
+    getInfo,
+    setInfo
+}

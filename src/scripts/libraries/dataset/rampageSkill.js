@@ -16,7 +16,7 @@ import States from '@/scripts/states'
 // Load Dataset
 import RiseRampageSkills from '@/scripts/datasets/rise/rampageSkills.json'
 
-let mapping = {
+const mapping = {
     world: null,
     rise: RiseRampageSkills,
     wilds: null
@@ -28,14 +28,18 @@ let mapping = {
 //     2: description,
 //     3: reaction { ... }
 // ]
-const getDataset = () => {
-    let series = null
+let dataset = null
+
+export const init = () => {
+    dataset = {}
+
+    let series = States.getters.series()
 
     if (Helper.isEmpty(mapping[series])) {
-        return null
+        return
     }
 
-    return mapping[series].map((rampageSkillItem) => {
+    let list = mapping[series].map((rampageSkillItem) => {
         return {
             id: rampageSkillItem[0],
             name: rampageSkillItem[1],
@@ -92,34 +96,42 @@ const getDataset = () => {
             // }
         }
     })
+
+    if (Helper.isEmpty(list) || 0 === list.list) {
+        return
+    }
+
+    list.forEach((item) => {
+        dataset[item.id] = item
+    })
 }
 
-class RampageSkillDataset {
-
-    constructor (list) {
-        this.mapping = {}
-
-        if (Helper.isNotEmpty(list)) {
-            list.forEach((item) => {
-                this.mapping[item.id] = item
-            })
-        }
-    }
-
-    getIds = () => {
-        return Object.keys(this.mapping)
-    }
-
-    getList = () => {
-        let result = Object.values(this.mapping)
-
-        return result
-    }
-
-    getItem = (id) => {
-        return (Helper.isNotEmpty(this.mapping[id]))
-            ? Helper.deepCopy(this.mapping[id]) : null
-    }
+export const getIds = (filter = {}) => {
+    return getList(filter)
 }
 
-export default new RampageSkillDataset(getDataset())
+export const getList = (filter = {}) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    let result = Object.values(dataset)
+
+    return result
+}
+
+export const getItem = (id) => {
+    if (Helper.isEmpty(dataset)) {
+        init()
+    }
+
+    return (Helper.isNotEmpty(dataset[id]))
+        ? Helper.deepCopy(dataset[id]) : null
+}
+
+export default {
+    init,
+    getIds,
+    getList,
+    getItem
+}

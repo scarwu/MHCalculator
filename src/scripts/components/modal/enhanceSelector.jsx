@@ -420,7 +420,7 @@ export default function EquipItemSelector (props) {
 
         if (Helper.isNotEmpty(_modalData.enhanceIndex)) {
             mode = 'enhance'
-            sortedList = EnhanceDataset.getItems().map((enhanceInfo) => {
+            sortedList = EnhanceDataset.getList().map((enhanceInfo) => {
                 enhanceInfo.isSelect = (_modalData.enhanceId === enhanceInfo.id)
 
                 return enhanceInfo
@@ -431,7 +431,10 @@ export default function EquipItemSelector (props) {
             for (let size = _modalData.slotSize; size >= 1; size--) {
                 for (let rare = 9; rare >= 5; rare--) {
                     sortedList = sortedList.concat(
-                        DecorationDataset.rareIs(rare).sizeIs(size).getItems().map((decorationInfo) => {
+                        DecorationDataset.getList({
+                            rare: rare,
+                            size: size
+                        }).map((decorationInfo) => {
                             decorationInfo.isSelect = (_modalData.decorationId === decorationInfo.id)
 
                             return decorationInfo
@@ -449,7 +452,7 @@ export default function EquipItemSelector (props) {
                 ? weaponInfo.type : typeList[0].key
 
             mode = 'weapon'
-            sortedList =  WeaponDataset.getItems().map((weaponInfo) => {
+            sortedList =  WeaponDataset.getList().map((weaponInfo) => {
                 rareList[weaponInfo.rare] = weaponInfo.rare
 
                 weaponInfo.isSelect = (_modalData.equipId === weaponInfo.id)
@@ -476,7 +479,7 @@ export default function EquipItemSelector (props) {
                 ? _modalData.equipType : typeList[0].key
 
             mode = 'armor'
-            sortedList = ArmorDataset.getItems().map((armorInfo) => {
+            sortedList = ArmorDataset.getList().map((armorInfo) => {
                 rareList[armorInfo.rare] = armorInfo.rare
 
                 armorInfo.isSelect = (_modalData.equipId === armorInfo.id)
@@ -490,7 +493,7 @@ export default function EquipItemSelector (props) {
             rare = (Helper.isNotEmpty(armoreInfo)) ? armoreInfo.rare : rareList[0].key
         } else if ('charm' === _modalData.equipType) {
             mode = 'charm'
-            sortedList = CharmDataset.getItems().map((charmInfo) => {
+            sortedList = CharmDataset.getList().map((charmInfo) => {
                 charmInfo.isSelect = (_modalData.equipId === charmInfo.id)
 
                 return charmInfo

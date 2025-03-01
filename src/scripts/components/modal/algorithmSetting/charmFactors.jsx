@@ -56,24 +56,22 @@ export default function CharmFactors(props) {
 
         let charmSeriesMapping = {}
         let skillLevelMapping = {}
-        let dataset = CharmDataset
         let charmFactor = stateAlgorithmParams.usingFactor.charm
+        let filter = {}
 
         if (true === byRequiredConditions) {
             if (Helper.isNotEmpty(stateRequiredEquips.charm)) {
                 return false
             }
 
-            const skillIds = stateRequiredSkills.map((skill) => {
+            filter.skillIds = stateRequiredSkills.map((skill) => {
                 skillLevelMapping[skill.id] = skill.level
 
                 return skill.id
             })
-
-            dataset = dataset.hasSkills(skillIds)
         }
 
-        dataset.getItems().filter((charmInfo) => {
+        CharmDataset.getList(filter).filter((charmInfo) => {
             let text = _(charmInfo.series)
 
             if (Helper.isNotEmpty(segment)

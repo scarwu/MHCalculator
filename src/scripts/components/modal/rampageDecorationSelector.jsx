@@ -140,7 +140,10 @@ export default function RampageDecorationSelectorModal (props) {
 
         for (let size = dataStore.size; size >= 1; size--) {
             for (let rare = 9; rare >= 1; rare--) {
-                dataStore.list = dataStore.list.concat(RampageDecorationDataset.rareIs(rare).sizeIs(size).getList())
+                dataStore.list = dataStore.list.concat(RampageDecorationDataset.getList({
+                    rare: rare,
+                    size: size
+                }))
             }
         }
 

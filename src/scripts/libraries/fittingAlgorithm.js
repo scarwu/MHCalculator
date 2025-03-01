@@ -261,7 +261,9 @@ class FittingAlgorithm {
 
             requiredSkillIds.push(skillData.id)
 
-            DecorationDataset.hasSkill(skillData.id).getList().forEach((decorationItem) => {
+            DecorationDataset.getList({
+                skillId: skillData.id
+            }).forEach((decorationItem) => {
                 this.skillMetaMapping[skillData.id].decorationSize = decorationItem.size
             })
 
