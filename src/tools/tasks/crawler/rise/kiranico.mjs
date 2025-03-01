@@ -674,7 +674,7 @@ export const fetchRampageDecorationsAction = async () => {
             let mappingKey = langKeyMapping[uniqueKey]
 
             if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultRampageDecorationItem)
+                mapping[mappingKey] = Helper.deepCopy(dateset.rampageDecorationItem)
                 mapping[mappingKey].name = {}
                 mapping[mappingKey].rare = null
                 mapping[mappingKey].size = parseFloat(size)

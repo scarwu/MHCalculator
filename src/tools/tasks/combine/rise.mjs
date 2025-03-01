@@ -250,7 +250,7 @@ const specialReplaceRampageSkillPropertyName = (text, itemName = null) => {
 export const runAction = () => {
     let rawDataMapping = {}
     let metaDataMapping = {}
-    let arrangeDataMapping = {}
+    let resultDataMapping = {}
 
     let untrackDataMapping = {}
     let untrackMergeMapping = {}
@@ -265,10 +265,6 @@ export const runAction = () => {
             langs: ['zhTW', 'jaJP', 'enUS']
         },
         minors: [
-            {
-                name: 'gameqb',
-                lang: 'zhTW'
-            },
             {
                 name: 'game8',
                 lang: 'jaJP'
@@ -402,6 +398,10 @@ export const runAction = () => {
 
         // Minor Crawlers Handle
         crawlerInfo.minors.forEach((minorCrawler) => {
+            if (Helper.isEmpty(rawDataMapping[target][minorCrawler.name])) {
+                return
+            }
+
             rawDataMapping[target][minorCrawler.name].forEach((item) => {
                 let lang = minorCrawler.lang
 
@@ -522,7 +522,7 @@ export const runAction = () => {
 
             return Helper.deepCopy(item)
         case 'rampageDecorations':
-            item = Helper.deepCopy(defaultRampageDecorationItem)
+            item = Helper.deepCopy(dateset.rampageDecorationItem)
             item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare', 'size'])
             item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name'])
             item = mergeSkillsValue(target, itemId, item, crawlerMapping)
@@ -1447,22 +1447,22 @@ export const runAction = () => {
 
     // Generate Arrange Data
     for (let target of Object.keys(metaDataMapping)) {
-        console.log(`arrange:${target}`)
+        console.log(`result:${target}`)
 
-        arrangeDataMapping[target] = {}
+        resultDataMapping[target] = {}
 
         for (let itemId of Object.keys(metaDataMapping[target])) {
-            arrangeDataMapping[target][itemId] = mergeItem(target, itemId, metaDataMapping[target][itemId])
+            resultDataMapping[target][itemId] = mergeItem(target, itemId, metaDataMapping[target][itemId])
         }
     }
 
     // Save Data
     Helper.cleanFolder(tempCombineRoot)
 
-    Object.keys(arrangeDataMapping).forEach((target) => {
-        let list = autoExtendListQuantity(Object.values(arrangeDataMapping[target]))
+    Object.keys(resultDataMapping).forEach((target) => {
+        let list = autoExtendListQuantity(Object.values(resultDataMapping[target]))
 
-        Helper.saveJSONAsCSV(`${tempCombineRoot}/arrangeData/${target}.csv`, list)
+        Helper.saveJSONAsCSV(`${tempCombineRoot}/resultData/${target}.csv`, list)
     })
 
     Object.keys(untrackDataMapping).forEach((target) => {

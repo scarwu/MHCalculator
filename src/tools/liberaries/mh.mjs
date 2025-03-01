@@ -19,7 +19,7 @@ export const setting = {
             'fextralife', 'game8', 'kiranico'
         ],
         targetList: [
-            'weapon', 'armor', 'charm', 'decoration', 'skill'
+            'weapons', 'armors', 'charms', 'decorations', 'skills'
         ],
         weaponTypeList: [
             'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
@@ -27,9 +27,8 @@ export const setting = {
             'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
         ],
         rareList: [
-            'rare1', 'rare2', 'rare3', 'rare4', 'rare5',
-            'rare6', 'rare7', 'rare8', 'rare9', 'rare10',
-            'rare11', 'rare12'
+            'rare1', 'rare2', 'rare3', 'rare4', 'rare5', 'rare6',
+            'rare7', 'rare8', 'rare9', 'rare10', 'rare11', 'rare12'
         ],
         sizeList: [
             'size1', 'size2', 'size3', 'size4'
@@ -40,8 +39,8 @@ export const setting = {
             'fextralife', 'game8', 'kiranico'
         ],
         targetList: [
-            'weapon', 'armor', 'petalace', 'decoration', 'skill',
-            'rampageDecoration', 'rampageSkill'
+            'weapons', 'armors', 'petalaces', 'decorations', 'skills',
+            'rampageDecorations', 'rampageSkills'
         ],
         weaponTypeList: [
             'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
@@ -61,7 +60,7 @@ export const setting = {
             'fextralife', 'game8', 'kiranico'
         ],
         targetList: [
-            'weapon', 'armor', 'charm', 'decoration', 'skill'
+            'weapons', 'armors', 'charms', 'decorations', 'skills'
         ],
         weaponTypeList: [
             'greatSword', 'swordAndShield', 'dualBlades', 'longSword',
@@ -69,8 +68,7 @@ export const setting = {
             'insectGlaive', 'bow', 'heavyBowgun', 'lightBowgun'
         ],
         rareList: [
-            'rare1', 'rare2', 'rare3', 'rare4', 'rare5',
-            'rare6'
+            'rare1', 'rare2', 'rare3', 'rare4', 'rare5', 'rare6'
         ],
         sizeList: [
             'size1', 'size2', 'size3'
@@ -100,6 +98,9 @@ export const dateset = {
                 maxValue: null
             }
         },
+        elderseal: {
+            affinity: null
+        },
         sharpness: {
             minValue: null,
             maxValue: null,
@@ -116,6 +117,12 @@ export const dateset = {
         slots: [
             // {
             //     size: null
+            // }
+        ],
+        skills: [
+            // {
+            //     name: null,
+            //     level: null
             // }
         ],
         rampageSlot: {
@@ -162,6 +169,7 @@ export const dateset = {
     charmItem: {
         series: null,
         name: null,
+        description: null,
         rare: null,
         level: null,
         skills: [
@@ -173,6 +181,7 @@ export const dateset = {
     },
     petalaceItem: {
         name: null,
+        description: null,
         rare: null,
         health: {
             increment: null,
@@ -193,8 +202,29 @@ export const dateset = {
     },
     decorationItem: {
         name: null,
+        description: null,
         rare: null,
         size: null,
+        fill: {
+            weapon: false,
+            armor: false
+        },
+        skills: [
+            // {
+            //     name: null,
+            //     level: null
+            // }
+        ]
+    },
+    rampageDecorationItem: {
+        name: null,
+        description: null,
+        rare: null,
+        size: null,
+        fill: {
+            weapon: false,
+            armor: false
+        },
         skills: [
             // {
             //     name: null,
@@ -206,20 +236,31 @@ export const dateset = {
         name: null,
         description: null,
         level: null,
-        effect: null
-    },
-    rampageDecorationItem: {
-        name: null,
-        rare: null,
-        size: null,
-        skill: null
-        // {
-        //     name: null
-        // }
+        effect: null,
+        type: null, // active | passive
+        from: {
+            weapon: false,
+            armor: false,
+            charm: false,
+            decoration: false,
+            rampageDecoration: false,
+            set: false
+        }
     },
     rampageSkillItem: {
         name: null,
-        description: null
+        description: null,
+        level: null,
+        effect: null,
+        type: null, // active | passive
+        from: {
+            weapon: false,
+            armor: false,
+            charm: false,
+            decoration: false,
+            rampageDecoration: false,
+            set: false
+        }
     }
 }
 

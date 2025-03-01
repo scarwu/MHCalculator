@@ -795,7 +795,7 @@ export const fetchRampageDecorationsAction = async () => {
             mappingKey = name
 
             if (Helper.isEmpty(mapping[mappingKey])) {
-                mapping[mappingKey] = Helper.deepCopy(defaultRampageDecorationItem)
+                mapping[mappingKey] = Helper.deepCopy(dateset.rampageDecorationItem)
             }
 
             mapping[mappingKey].name = {
