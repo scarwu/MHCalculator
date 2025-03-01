@@ -31,7 +31,19 @@ import States from '@/scripts/states'
 import IconButton from '@/scripts/components/ui/iconButton'
 import IconSelector from '@/scripts/components/ui/iconSelector'
 
-import ChangeLogModal    from '@/scripts/components/modal/changeLog'
+// Load Models
+import ChangeLogModal from '@/scripts/components/modal/changeLog'
+import AlgorithmSettingModal from '@/scripts/components/modal/algorithmSetting'
+import WeaponSelectorModal from '@/scripts/components/modal/weaponSelector'
+import ArmorSelectorModal from '@/scripts/components/modal/armorSelector'
+import CharmSelectorModal from '@/scripts/components/modal/charmSelector'
+import DecorationSelectorModal from '@/scripts/components/modal/decorationSelector'
+import PetalaceSelectorModal from '@/scripts/components/modal/petalaceSelector'
+import SetSelectorModal from '@/scripts/components/modal/setSelector'
+import SkillSelectorModal from '@/scripts/components/modal/skillSelector'
+import EnhanceSelectorModal from '@/scripts/components/modal/enhanceSelector'
+import RampageDecorationSelectorModal from '@/scripts/components/modal/rampageDecorationSelector'
+import RampageSkillSelectorModal from '@/scripts/components/modal/rampageSkillSelector'
 
 // Load Styles
 import '@/styles/global.sass'
@@ -39,11 +51,11 @@ import '@/styles/ui.sass'
 import '@/styles/app.sass'
 
 if ('production' === Config.env) {
-    if (Config.buildTime !== Status.get('sys:buildTime')) {
-        States.common.actions.showModal('changeLog')
+    if (Config.buildTime !== Status.get('state:buildTime')) {
+        States.actions.showModal('changeLog')
     }
 
-    Status.set('sys:buildTime', Config.buildTime)
+    Status.set('state:buildTime', Config.buildTime)
 }
 
 /**
@@ -71,7 +83,7 @@ const seriesList = [
  * Handle Functions
  */
 const handlePlayerEquipsExport = () => {
-    let equips = Helper.deepCopy(States.rise.getters.playerEquips())
+    let equips = Helper.deepCopy(States.getters.playerEquips())
     let hash = Helper.base64Encode(JSON.stringify(equips))
 
     let protocol = window.location.protocol
@@ -90,8 +102,8 @@ export default function App () {
     /**
      * Hooks
      */
-    const [stateLang, setLang] = useState(Status.get('sys:lang'))
-    const [stateSeries, setSeries] = useState(Status.get('sys:series'))
+    const _lang = States.hooks.useLang()
+    const _series = States.hooks.useSeries()
 
     const routeParams = useRouteParams()
     const routeLocation = useRouteLocation()
@@ -106,9 +118,9 @@ export default function App () {
 
             // TODO: need verify
 
-            States.rise.actions.replacePlayerEquips(playerEquips)
+            States.actions.replacePlayerEquips(playerEquips)
         }
-    }, [])
+    }, [ routeParams ])
 
     /**
      * Handle Functions
@@ -116,35 +128,33 @@ export default function App () {
     const handleLangChange = useCallback((event) => {
         let lang = event.target.value
 
-        Status.set('sys:lang', lang)
-        setLang(lang)
+        States.actions.setLang(lang)
 
-        routeNavigate(`/${lang}/${stateSeries}`)
-    }, [ stateSeries ])
+        routeNavigate(`/${lang}/${_series}`)
+    }, [ _series ])
 
     const handleSeriesChange = useCallback((event) => {
         let series = event.target.value
 
-        Status.set('sys:series', series)
-        setSeries(series)
+        States.actions.setSeries(series)
 
-        routeNavigate(`/${stateLang}/${series}`)
-    }, [ stateLang ])
+        routeNavigate(`/${_lang}/${series}`)
+    }, [ _lang ])
 
     /**
      * Render Functions
      */
     return (
-        <div key={stateLang} id="mhc-app" className="container-fluid">
+        <div key={_lang} id="mhc-app" className="container-fluid">
             <div className="mhc-header">
                 <div className="mhc-icons_bundle-left">
                     <IconSelector
                         iconName="globe"
-                        defaultValue={stateLang} options={langList}
+                        defaultValue={_lang} options={langList}
                         onChange={handleLangChange} />
                     <IconSelector
                         iconName="list"
-                        defaultValue={stateSeries} options={seriesList}
+                        defaultValue={_series} options={seriesList}
                         onChange={handleSeriesChange} />
                 </div>
 
@@ -158,14 +168,14 @@ export default function App () {
                         onClick={handlePlayerEquipsExport} />
                     <IconButton
                         iconName="info" altName={_('changeLog')}
-                        onClick={() => { States.common.actions.showModal('changeLog') }} />
+                        onClick={() => { States.actions.showModal('changeLog') }} />
                     <IconButton
                         iconName="question" altName={_('readme')}
                         onClick={handleOpenReadme} />
                 </div>
             </div>
 
-            <div className="mhc-body">
+            <div className="mhc-body" key={`${_lang}:${_series}`}>
                 <Outlet />
             </div>
 
@@ -186,6 +196,17 @@ export default function App () {
             </div>
 
             <ChangeLogModal />
+            <AlgorithmSettingModal />
+            <WeaponSelectorModal />
+            <ArmorSelectorModal />
+            <CharmSelectorModal />
+            <DecorationSelectorModal />
+            <PetalaceSelectorModal />
+            <SetSelectorModal />
+            <SkillSelectorModal />
+            <EnhanceSelectorModal />
+            <RampageDecorationSelectorModal />
+            <RampageSkillSelectorModal />
         </div>
     )
 }

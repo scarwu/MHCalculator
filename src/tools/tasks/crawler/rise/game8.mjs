@@ -407,6 +407,8 @@ export const fetchArmorsAction = async () => {
                         let header = armorDom('h3.a-header--3').eq(h3Index).text().trim()
                         let hmId = armorDom('h3.a-header--3').eq(h3Index).attr('id')
 
+                        console.log('xxx', header, hmId)
+
                         if ('スキル・スロット' === header) {
                             for (let armorIndex = 1; armorIndex < armorDom(`#${hmId} + table tbody tr`).length; armorIndex++) {
                                 let armorNode = armorDom(`#${hmId} + table tbody tr`).eq(armorIndex)

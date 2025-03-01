@@ -14,6 +14,9 @@ import Constant from '@/scripts/constant'
 import Status from '@/scripts/core/status'
 import Helper from '@/scripts/core/helper'
 
+// Load States
+import States from '@/scripts/states'
+
 // Load Langs
 import zhTWUI from '@/scripts/langs/zhTW/ui.json'
 import zhTWDataset from '@/scripts/langs/zhTW/dataset.json'
@@ -22,15 +25,15 @@ import jaJPDataset from '@/scripts/langs/jaJP/dataset.json'
 import enUSUI from '@/scripts/langs/enUS/ui.json'
 import enUSDataset from '@/scripts/langs/enUS/dataset.json'
 
-let langs = {
+let mapping = {
     zhTW: Object.assign({}, zhTWUI, zhTWDataset),
     jaJP: Object.assign({}, jaJPUI, jaJPDataset),
     enUS: Object.assign({}, enUSUI, enUSDataset)
 }
-
+console.log(States.getters)
 let defaultLang = Constant.defaultLang
 let browserLnag = navigator.language.replace('-', '')
-let currentLang = Status.get('sys:lang')
+let currentLang = States.getters.lang()
 
 // Decide Current Lang
 currentLang = Helper.isNotEmpty(Constant.langs[currentLang])
@@ -40,12 +43,12 @@ currentLang = Helper.isNotEmpty(Constant.langs[currentLang])
     )
 
 // Set Status
-Status.set('sys:lang', currentLang)
+States.actions.setLang(currentLang)
 
 function getExistLang (key) {
-    for (let lang in langs) {
-        if (Helper.isNotEmpty(langs[lang][key])) {
-            return langs[lang][key]
+    for (let lang in mapping) {
+        if (Helper.isNotEmpty(mapping[lang][key])) {
+            return mapping[lang][key]
         }
     }
 
@@ -55,12 +58,12 @@ function getExistLang (key) {
 export default (key, payload = null) => {
     let translated = null
 
-    if (Helper.isNotEmpty(langs[currentLang]) && Helper.isNotEmpty(langs[currentLang][key])) {
-        translated = langs[currentLang][key]
-    } else if (Helper.isNotEmpty(langs[browserLnag]) && Helper.isNotEmpty(langs[browserLnag][key])) {
-        translated = langs[browserLnag][key]
-    } else if (Helper.isNotEmpty(langs[defaultLang]) && Helper.isNotEmpty(langs[defaultLang][key])) {
-        translated = langs[defaultLang][key]
+    if (Helper.isNotEmpty(mapping[currentLang]) && Helper.isNotEmpty(mapping[currentLang][key])) {
+        translated = mapping[currentLang][key]
+    } else if (Helper.isNotEmpty(mapping[browserLnag]) && Helper.isNotEmpty(mapping[browserLnag][key])) {
+        translated = mapping[browserLnag][key]
+    } else if (Helper.isNotEmpty(mapping[defaultLang]) && Helper.isNotEmpty(mapping[defaultLang][key])) {
+        translated = mapping[defaultLang][key]
     } else {
         translated = getExistLang(key)
     }

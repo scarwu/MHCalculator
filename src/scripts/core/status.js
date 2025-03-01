@@ -10,7 +10,7 @@
 // Load Core
 import Helper from 'core/helper'
 
-let prefix = 'mhc:2024:0'
+let prefix = 'mhc:2025:0'
 let storage = window.localStorage
 
 export const get = (key) => {
