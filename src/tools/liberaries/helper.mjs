@@ -14,6 +14,7 @@ import * as path from 'path'
 import * as http from 'http'
 import * as https from 'https'
 import * as cheerio from 'cheerio'
+import puppeteer from 'puppeteer'
 
 export const isEmpty = (variable) => {
     return (undefined === variable || null === variable)
@@ -127,14 +128,18 @@ const userAgentList = [
     'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.13'
 ]
 
-export const fetchHtml = (url) => {
+let browser = null
+
+export const fetchHtml = async (url, options = null) => {
     if (isEmpty(url)) {
         return null
     }
 
     let cacheRoot = `${global.root}/temp/cache/html`
-    let cacheName = md5(url)
-    let cachePath = `${cacheRoot}/${cacheName}`
+    let cacheName = jsonHash([ url, options ])
+    let cachePath = (isNotEmpty(options) && isNotEmpty(options.cachePrefix))
+        ? `${cacheRoot}/${options.cachePrefix}/${cacheName}`
+        : `${cacheRoot}/${cacheName}`
 
     // Load From Cache
     if (true === fs.existsSync(cachePath)) {
@@ -150,6 +155,38 @@ export const fetchHtml = (url) => {
         }
 
         fs.writeFileSync(cachePath, html)
+    }
+
+    // Using Headerless to Fecth
+    if (isNotEmpty(options) && isNotEmpty(options.headless)) {
+        if (isEmpty(browser)) {
+            browser = await puppeteer.launch()
+        }
+
+        const page = await browser.newPage()
+
+        await page.goto(url)
+
+        if (isNotEmpty(options.headless.actions)) {
+            await page.waitForNavigation()
+
+            for (let action of options.headless.actions) {
+                switch (action.name) {
+                case 'click':
+                    await page.click(action.selector)
+
+                    break
+                }
+            }
+        }
+
+        let html = await page.content()
+
+        page.close()
+
+        saveCache(html)
+
+        return html
     }
 
     let urlObject = new URL(url)
@@ -196,8 +233,8 @@ export const fetchHtml = (url) => {
     })
 }
 
-export const fetchHtmlAsDom = async (url) => {
-    let html = await fetchHtml(url)
+export const fetchHtmlAsDom = async (url, options = null) => {
+    let html = await fetchHtml(url, options)
 
     if (null === html) {
         return null

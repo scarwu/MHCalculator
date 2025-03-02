@@ -63,7 +63,7 @@ const getFullUrl = (lang, url) => {
     return `${urls.langs[lang]}/${url}`
 }
 
-export const fetchWeaponsAction = async (targetWeaponType = null) => {
+export const fetchWeaponsAction = async (params = null) => {
     const runner = async (weaponType) => {
         let mapping = {}
         let langKeyMapping = {}
@@ -334,7 +334,10 @@ export const fetchWeaponsAction = async (targetWeaponType = null) => {
     let tasks = []
 
     for (let weaponType of Object.keys(urls.weapons)) {
-        if (Helper.isNotEmpty(targetWeaponType) && targetWeaponType !== weaponType) {
+        if (Helper.isNotEmpty(params)
+            && 0 !== params.length
+            && params[0] !== weaponType
+        ) {
             continue
         }
 
@@ -346,7 +349,7 @@ export const fetchWeaponsAction = async (targetWeaponType = null) => {
     })
 }
 
-export const fetchArmorsAction = async (targetArmorRare = null) => {
+export const fetchArmorsAction = async (params = null) => {
     const runner = async (armorRare) => {
         let mapping = {}
         let langKeyMapping = {}
@@ -486,7 +489,10 @@ export const fetchArmorsAction = async (targetArmorRare = null) => {
     let tasks = []
 
     for (let armorRare of Object.keys(urls.armors)) {
-        if (Helper.isNotEmpty(targetArmorRare) && targetArmorRare !== armorRare) {
+        if (Helper.isNotEmpty(params)
+            && 0 !== params.length
+            && params[0] !== armorRare
+        ) {
             continue
         }
 

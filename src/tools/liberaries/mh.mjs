@@ -78,9 +78,9 @@ export const setting = {
 
 export const dateset = {
     weaponItem: {
-        series: null,
         name: null,
         description: null,
+        series: null,
         rare: null,
         type: null,
         attack: null,
@@ -138,9 +138,9 @@ export const dateset = {
         }
     },
     armorItem: {
-        series: null,
         name: null,
         description: null,
+        series: null,
         rare: null,
         type: null,
         gender: null,
@@ -167,9 +167,9 @@ export const dateset = {
         ]
     },
     charmItem: {
-        series: null,
         name: null,
         description: null,
+        series: null,
         rare: null,
         level: null,
         skills: [
