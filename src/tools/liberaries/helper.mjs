@@ -109,6 +109,10 @@ export const jsonHash = (data) => {
     return md5(JSON.stringify(data))
 }
 
+export const hash = (text) => {
+    return md5(text)
+}
+
 const userAgentList = [
     'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; fr; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8',
     'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
@@ -522,6 +526,7 @@ export default {
     checkType,
     deepCopy,
     jsonHash,
+    hash,
     fetchHtml,
     fetchHtmlAsDom,
     loadJSON,

@@ -7,8 +7,6 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import md5 from 'md5'
-
 import Helper from '../../liberaries/helper.mjs'
 import {
     langList,
@@ -17,8 +15,8 @@ import {
     autoExtendListQuantity
 } from '../../liberaries/mh.mjs'
 
-const tempCrawlerRoot = 'temp/crawler/world'
-const tempCombineRoot = 'temp/combine/world'
+const tempCrawlerRoot = 'temp/crawler/rise'
+const tempCombineRoot = 'temp/combine/rise'
 
 const specialReplaceItemName = (text, lang, rare) => {
     let replacementList = [
@@ -188,7 +186,7 @@ const specialReplaceSkillPropertyName = (text) => {
 export const runAction = () => {
     let rawDataMapping = {}
     let metaDataMapping = {}
-    let arrangeDataMapping = {}
+    let resultDataMapping = {}
 
     let untrackDataMapping = {}
     let untrackMergeMapping = {}
@@ -200,13 +198,9 @@ export const runAction = () => {
     let crawlerInfo = {
         major: {
             name: 'kiranico',
-            langs: ['zhTW', 'jaJP', 'enUS']
+            langs: [ 'zhTW', 'jaJP', 'enUS' ]
         },
         minors: [
-            {
-                name: 'gameqb',
-                lang: 'zhTW'
-            },
             {
                 name: 'game8',
                 lang: 'jaJP'
@@ -219,10 +213,10 @@ export const runAction = () => {
     }
 
     // Load Raw Data
-    Object.values(setting.world.targetList).forEach((target) => {
+    Object.values(setting.rise.targetList).forEach((target) => {
         rawDataMapping[target] = {}
 
-        Object.values(setting.world.crawlerList).forEach((crawler) => {
+        Object.values(setting.rise.crawlerList).forEach((crawler) => {
             rawDataMapping[target][crawler] = []
         })
     })
@@ -242,7 +236,7 @@ export const runAction = () => {
                     continue
                 }
 
-                for (let weaponType of setting.world.weaponTypeList) {
+                for (let weaponType of setting.rise.weaponTypeList) {
                     let weaponList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/weapons/${weaponType}.csv`)
 
                     if (Helper.isNotEmpty(weaponList)) {
@@ -262,7 +256,7 @@ export const runAction = () => {
                     continue
                 }
 
-                for (let rare of setting.world.rareList) {
+                for (let rare of setting.rise.rareList) {
                     let armorList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/armors/${rare}.csv`)
 
                     if (Helper.isNotEmpty(armorList)) {
@@ -300,13 +294,13 @@ export const runAction = () => {
             let itemIdWithoutLevel = null
 
             if ('skills' === target) {
-                itemId = `${target}:id:${md5(item.name.zhTW)}:${item.level}`
+                itemId = `${target}:id:${Helper.hash(item.name.zhTW)}:${item.level}`
                 idNameMapping[itemId] = item.name.zhTW
 
-                itemIdWithoutLevel = `${target}:id:${md5(item.name.zhTW)}`
+                itemIdWithoutLevel = `${target}:id:${Helper.hash(item.name.zhTW)}`
                 idNameMapping[itemIdWithoutLevel] = item.name.zhTW
             } else {
-                itemId = `${target}:id:${md5(item.name.zhTW)}`
+                itemId = `${target}:id:${Helper.hash(item.name.zhTW)}`
                 idNameMapping[itemId] = item.name.zhTW
             }
 
@@ -316,13 +310,13 @@ export const runAction = () => {
                 let translateIdWithoutLevel = null
 
                 if ('skills' === target) {
-                    translateId = `${target}:name:${md5(item.name[lang])}:${item.level}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}:${item.level}`
                     translateIdMapping[translateId] = itemId
 
-                    translateIdWithoutLevel = `${target}:name:${md5(item.name[lang])}`
+                    translateIdWithoutLevel = `${target}:name:${Helper.hash(item.name[lang])}`
                     translateIdMapping[translateIdWithoutLevel] = itemIdWithoutLevel
                 } else {
-                    translateId = `${target}:name:${md5(item.name[lang])}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}`
                     translateIdMapping[translateId] = itemId
                 }
             })
@@ -340,6 +334,10 @@ export const runAction = () => {
 
         // Minor Crawlers Handle
         crawlerInfo.minors.forEach((minorCrawler) => {
+            if (Helper.isEmpty(rawDataMapping[target][minorCrawler.name])) {
+                return
+            }
+
             rawDataMapping[target][minorCrawler.name].forEach((item) => {
                 let lang = minorCrawler.lang
 
@@ -348,9 +346,9 @@ export const runAction = () => {
                 let translateId = null
 
                 if ('skills' === target) {
-                    translateId = `${target}:name:${md5(item.name[lang])}:${item.level}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}:${item.level}`
                 } else {
-                    translateId = `${target}:name:${md5(item.name[lang])}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}`
                 }
 
                 // Record UntrackDataMapping
@@ -386,7 +384,7 @@ export const runAction = () => {
     const getPropertySkillTranslateName = (name) => {
         name = specialReplaceSkillPropertyName(name)
 
-        let translateId = `skills:name:${md5(name)}`
+        let translateId = `skills:name:${Helper.hash(name)}`
 
         if (Helper.isEmpty(translateIdMapping[translateId])) {
             return null
@@ -410,6 +408,7 @@ export const runAction = () => {
             item = mergeElementValue(target, itemId, item, crawlerMapping)
             item = mergeSharpnessValue(target, itemId, item, crawlerMapping)
             item = mergeSlotsValue(target, itemId, item, crawlerMapping)
+            item = mergeSkillsValue(target, itemId, item, crawlerMapping)
 
             return Helper.deepCopy(item)
         case 'armors':
@@ -418,6 +417,13 @@ export const runAction = () => {
             item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['series', 'name', 'description'])
             item = mergeResistenceValue(target, itemId, item, crawlerMapping)
             item = mergeSlotsValue(target, itemId, item, crawlerMapping)
+            item = mergeSkillsValue(target, itemId, item, crawlerMapping)
+
+            return Helper.deepCopy(item)
+        case 'charms':
+            item = Helper.deepCopy(dateset.charmItem)
+            item = mergeNormalValue(target, itemId, item, crawlerMapping, ['rare'])
+            item = mergeTranslateValue(target, itemId, item, crawlerMapping, ['name'])
             item = mergeSkillsValue(target, itemId, item, crawlerMapping)
 
             return Helper.deepCopy(item)
@@ -1101,22 +1107,22 @@ export const runAction = () => {
 
     // Generate Arrange Data
     for (let target of Object.keys(metaDataMapping)) {
-        console.log(`arrange:${target}`)
+        console.log(`result:${target}`)
 
-        arrangeDataMapping[target] = {}
+        resultDataMapping[target] = {}
 
         for (let itemId of Object.keys(metaDataMapping[target])) {
-            arrangeDataMapping[target][itemId] = mergeItem(target, itemId, metaDataMapping[target][itemId])
+            resultDataMapping[target][itemId] = mergeItem(target, itemId, metaDataMapping[target][itemId])
         }
     }
 
     // Save Data
     Helper.cleanFolder(tempCombineRoot)
 
-    Object.keys(arrangeDataMapping).forEach((target) => {
-        let list = autoExtendListQuantity(Object.values(arrangeDataMapping[target]))
+    Object.keys(resultDataMapping).forEach((target) => {
+        let list = autoExtendListQuantity(Object.values(resultDataMapping[target]))
 
-        Helper.saveJSONAsCSV(`${tempCombineRoot}/arrangeData/${target}.csv`, list)
+        Helper.saveJSONAsCSV(`${tempCombineRoot}/resultData/${target}.csv`, list)
     })
 
     Object.keys(untrackDataMapping).forEach((target) => {
@@ -1150,7 +1156,7 @@ export const infoAction = () => {
     let result = {
         weapons: {},
         armors: {},
-        charms: {},
+        petalaces: {},
         decorations: {},
         skills: {}
     }
@@ -1159,28 +1165,28 @@ export const infoAction = () => {
     result.armors.all = {}
     result.decorations.all = {}
 
-    for (let weaponType of setting.world.weaponTypeList) {
+    for (let weaponType of setting.rise.weaponTypeList) {
         result.weapons[weaponType] = {}
         result.weapons[weaponType].all = {}
 
-        for (let rare of setting.world.rareList) {
+        for (let rare of setting.rise.rareList) {
             result.weapons[weaponType][rare] = {}
         }
     }
 
-    for (let rare of setting.world.rareList) {
+    for (let rare of setting.rise.rareList) {
         result.armors[rare] = {}
     }
 
-    for (let size of setting.world.sizeList) {
+    for (let size of setting.rise.sizeList) {
         result.decorations[size] = {}
     }
 
     // Load All Crawler Data
-    for (let crawler of setting.world.crawlerList) {
+    for (let crawler of setting.rise.crawlerList) {
         console.log(`count:${crawler}`)
 
-        for (let target of targetList) {
+        for (let target of setting.rise.targetList) {
             console.log(`count:${crawler}:${target}`)
 
             if ('weapons' === target) {
@@ -1212,7 +1218,7 @@ export const infoAction = () => {
                     continue
                 }
 
-                for (let weaponType of setting.world.weaponTypeList) {
+                for (let weaponType of setting.rise.weaponTypeList) {
                     let weaponList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/weapons/${weaponType}.csv`)
 
                     if (Helper.isNotEmpty(weaponList)) {
@@ -1273,7 +1279,7 @@ export const infoAction = () => {
                     continue
                 }
 
-                for (let rare of setting.world.rareList) {
+                for (let rare of setting.rise.rareList) {
                     let armorList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/armors/${rare}.csv`)
 
                     if (Helper.isNotEmpty(armorList)) {

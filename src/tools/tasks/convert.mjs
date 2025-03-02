@@ -7,8 +7,6 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import md5 from 'md5'
-
 import Helper from '../liberaries/helper.mjs'
 import {
     setting,
@@ -70,7 +68,7 @@ export const runAction = () => {
                 return null
             }
 
-            let hash = md5(text)
+            let hash = Helper.hash(text)
 
             if (Helper.isNotEmpty(hashCodeMapping[hash])) {
                 return hashCodeMapping[hash]

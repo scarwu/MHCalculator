@@ -7,8 +7,6 @@
  * @link        https://github.com/scarwu/MHCalculator
  */
 
-import md5 from 'md5'
-
 import Helper from '../../liberaries/helper.mjs'
 import {
     langList,
@@ -262,7 +260,7 @@ export const runAction = () => {
     let crawlerInfo = {
         major: {
             name: 'kiranico',
-            langs: ['zhTW', 'jaJP', 'enUS']
+            langs: [ 'zhTW', 'jaJP', 'enUS' ]
         },
         minors: [
             {
@@ -358,13 +356,13 @@ export const runAction = () => {
             let itemIdWithoutLevel = null
 
             if ('skills' === target) {
-                itemId = `${target}:id:${md5(item.name.zhTW)}:${item.level}`
+                itemId = `${target}:id:${Helper.hash(item.name.zhTW)}:${item.level}`
                 idNameMapping[itemId] = item.name.zhTW
 
-                itemIdWithoutLevel = `${target}:id:${md5(item.name.zhTW)}`
+                itemIdWithoutLevel = `${target}:id:${Helper.hash(item.name.zhTW)}`
                 idNameMapping[itemIdWithoutLevel] = item.name.zhTW
             } else {
-                itemId = `${target}:id:${md5(item.name.zhTW)}`
+                itemId = `${target}:id:${Helper.hash(item.name.zhTW)}`
                 idNameMapping[itemId] = item.name.zhTW
             }
 
@@ -374,13 +372,13 @@ export const runAction = () => {
                 let translateIdWithoutLevel = null
 
                 if ('skills' === target) {
-                    translateId = `${target}:name:${md5(item.name[lang])}:${item.level}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}:${item.level}`
                     translateIdMapping[translateId] = itemId
 
-                    translateIdWithoutLevel = `${target}:name:${md5(item.name[lang])}`
+                    translateIdWithoutLevel = `${target}:name:${Helper.hash(item.name[lang])}`
                     translateIdMapping[translateIdWithoutLevel] = itemIdWithoutLevel
                 } else {
-                    translateId = `${target}:name:${md5(item.name[lang])}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}`
                     translateIdMapping[translateId] = itemId
                 }
             })
@@ -410,9 +408,9 @@ export const runAction = () => {
                 let translateId = null
 
                 if ('skills' === target) {
-                    translateId = `${target}:name:${md5(item.name[lang])}:${item.level}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}:${item.level}`
                 } else {
-                    translateId = `${target}:name:${md5(item.name[lang])}`
+                    translateId = `${target}:name:${Helper.hash(item.name[lang])}`
                 }
 
                 // Record UntrackDataMapping
@@ -448,7 +446,7 @@ export const runAction = () => {
     const getPropertySkillTranslateName = (name) => {
         name = specialReplaceSkillPropertyName(name)
 
-        let translateId = `skills:name:${md5(name)}`
+        let translateId = `skills:name:${Helper.hash(name)}`
 
         if (Helper.isEmpty(translateIdMapping[translateId])) {
             return null
@@ -464,7 +462,7 @@ export const runAction = () => {
     const getPropertyRampageSkillTranslateName = (name) => {
         name = specialReplaceRampageSkillPropertyName(name)
 
-        let translateId = `rampageSkills:name:${md5(name)}`
+        let translateId = `rampageSkills:name:${Helper.hash(name)}`
 
         if (Helper.isEmpty(translateIdMapping[translateId])) {
             return null
@@ -488,6 +486,7 @@ export const runAction = () => {
             item = mergeElementValue(target, itemId, item, crawlerMapping)
             item = mergeSharpnessValue(target, itemId, item, crawlerMapping)
             item = mergeSlotsValue(target, itemId, item, crawlerMapping)
+            item = mergeSkillsValue(target, itemId, item, crawlerMapping)
             item = mergeRampageSlotValue(target, itemId, item, crawlerMapping)
             item = mergeRampageSkillValue(target, itemId, item, crawlerMapping)
 
@@ -1260,7 +1259,6 @@ export const runAction = () => {
 
         return item
     }
-
 
     const mergeRampageSkillValue = (target, itemId, item, crawlerMapping) => {
         let voteMapping = null

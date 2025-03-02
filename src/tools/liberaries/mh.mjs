@@ -216,6 +216,21 @@ export const dateset = {
             // }
         ]
     },
+    skillItem: {
+        name: null,
+        description: null,
+        level: null,
+        effect: null,
+        type: null, // active | passive
+        from: {
+            weapon: false,
+            armor: false,
+            charm: false,
+            decoration: false,
+            rampageDecoration: false,
+            set: false
+        }
+    },
     rampageDecorationItem: {
         name: null,
         description: null,
@@ -231,21 +246,6 @@ export const dateset = {
             //     level: null
             // }
         ]
-    },
-    skillItem: {
-        name: null,
-        description: null,
-        level: null,
-        effect: null,
-        type: null, // active | passive
-        from: {
-            weapon: false,
-            armor: false,
-            charm: false,
-            decoration: false,
-            rampageDecoration: false,
-            set: false
-        }
     },
     rampageSkillItem: {
         name: null,
