@@ -46,6 +46,7 @@ const info = {
     },
     armors: 'data/armor-series',
     charms: 'data/charms',
+    decorations: 'data/decorations',
     skills: 'data/skills'
 }
 
@@ -113,17 +114,17 @@ export const fetchWeaponsAction = async (params = null) => {
 
                 if (Helper.isEmpty(mapping[mappingKey])) {
                     mapping[mappingKey] = Helper.deepCopy(dateset.weaponItem)
-                    mapping[mappingKey].series = {
-                        zhTW: null,
-                        jaJP: null,
-                        enUS: null
-                    }
                     mapping[mappingKey].name = {
                         zhTW: null,
                         jaJP: null,
                         enUS: null
                     }
                     mapping[mappingKey].description = {
+                        zhTW: null,
+                        jaJP: null,
+                        enUS: null
+                    }
+                    mapping[mappingKey].series = {
                         zhTW: null,
                         jaJP: null,
                         enUS: null
@@ -377,7 +378,70 @@ export const fetchCharmsAction = async () => {
             return
         }
 
+        for (let rowIndex = 0; rowIndex < listDom('table.w-full.caption-bottom.text-sm').find('tr').length; rowIndex++) {
+            let rowNode = listDom('table.w-full.caption-bottom.text-sm').find('tr').eq(rowIndex)
 
+            let name = normalizeText(rowNode.find('> td').eq(0).find('a').text().trim())
+
+            let uniqueKey = rowIndex
+
+            if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
+                langKeyMapping[uniqueKey] = name
+            }
+
+            let mappingKey = langKeyMapping[uniqueKey]
+
+            // Fetch Detail Page
+            fetchPageUrl = info.baseUrl + rowNode.find('> td').eq(0).find('a').attr('href')
+            fetchPageName = `charms:${name}`
+
+            console.log(fetchPageUrl, fetchPageName)
+
+            let charmDom = await Helper.fetchHtmlAsDom(fetchPageUrl, {
+                cachePrefix: `wilds/charms`
+            })
+
+            if (Helper.isEmpty(charmDom)) {
+                console.trace(fetchPageUrl, fetchPageName, 'Err')
+
+                return
+            }
+
+            let description = charmDom('blockquote').eq(0).text()
+
+            if (Helper.isEmpty(mapping[mappingKey])) {
+                mapping[mappingKey] = Helper.deepCopy(dateset.charmItem)
+                mapping[mappingKey].name = {
+                    zhTW: null,
+                    jaJP: null,
+                    enUS: null
+                }
+                mapping[mappingKey].description = {
+                    zhTW: null,
+                    jaJP: null,
+                    enUS: null
+                }
+                mapping[mappingKey].series = {
+                    zhTW: null,
+                    jaJP: null,
+                    enUS: null
+                }
+
+                charmDom('table.w-full.caption-bottom.text-sm').find('tr').each((index, node) => {
+                    let skillName = charmDom(node).find('> td').eq(0).text().trim()
+                    let skillLevel = parseFloat(charmDom(node).find('> td').eq(1).text().replace('Lv', '').trim())
+
+                    mapping[mappingKey].skills.push({
+                        name: skillName,
+                        level: skillLevel
+                    })
+                })
+            }
+
+            mapping[mappingKey].name[lang] = name
+            mapping[mappingKey].description[lang] = description
+            mapping[mappingKey].series[lang] = name.replace(/(I|II|III|IV)$/, '').trim()
+        }
     }
 
     Helper.saveJSONAsCSV(`${tempRoot}/charms.csv`, Object.values(mapping))
@@ -395,7 +459,7 @@ export const fetchDecorationsAction = async () => {
         console.log(fetchPageUrl, fetchPageName)
 
         let listDom = await Helper.fetchHtmlAsDom(fetchPageUrl, {
-            cachePrefix: 'wilds/charms'
+            cachePrefix: 'wilds/decorations'
         })
 
         if (Helper.isEmpty(listDom)) {
@@ -404,7 +468,74 @@ export const fetchDecorationsAction = async () => {
             return
         }
 
+        for (let rowIndex = 0; rowIndex < listDom('table.w-full.caption-bottom.text-sm').find('tr').length; rowIndex++) {
+            let rowNode = listDom('table.w-full.caption-bottom.text-sm').find('tr').eq(rowIndex)
 
+            let name = normalizeText(rowNode.find('> td').eq(0).find('a').text().trim())
+
+            let uniqueKey = rowIndex
+
+            if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
+                langKeyMapping[uniqueKey] = name
+            }
+
+            let mappingKey = langKeyMapping[uniqueKey]
+
+            // Fetch Detail Page
+            fetchPageUrl = info.baseUrl + rowNode.find('> td').eq(0).find('a').attr('href')
+            fetchPageName = `decorations:${name}`
+
+            console.log(fetchPageUrl, fetchPageName)
+
+            let decorationDom = await Helper.fetchHtmlAsDom(fetchPageUrl, {
+                cachePrefix: `wilds/decorations`
+            })
+
+            if (Helper.isEmpty(decorationDom)) {
+                console.trace(fetchPageUrl, fetchPageName, 'Err')
+
+                return
+            }
+
+            let description = decorationDom('blockquote').eq(0).text()
+
+            if (Helper.isEmpty(mapping[mappingKey])) {
+                mapping[mappingKey] = Helper.deepCopy(dateset.decorationItem)
+                mapping[mappingKey].name = {
+                    zhTW: null,
+                    jaJP: null,
+                    enUS: null
+                }
+                mapping[mappingKey].description = {
+                    zhTW: null,
+                    jaJP: null,
+                    enUS: null
+                }
+
+                if (-1 !== name.indexOf('【1】')) {
+                    mapping[mappingKey].size = 1
+                } else if (-1 !== name.indexOf('【2】')) {
+                    mapping[mappingKey].size = 2
+                } else if (-1 !== name.indexOf('【3】')) {
+                    mapping[mappingKey].size = 3
+                } else if (-1 !== name.indexOf('【4】')) {
+                    mapping[mappingKey].size = 4
+                }
+
+                decorationDom('table.w-full.caption-bottom.text-sm').find('tr').each((index, node) => {
+                    let skillName = decorationDom(node).find('> td').eq(0).text().trim()
+                    let skillLevel = parseFloat(decorationDom(node).find('> td').eq(1).text().replace('Lv', '').trim())
+
+                    mapping[mappingKey].skills.push({
+                        name: skillName,
+                        level: skillLevel
+                    })
+                })
+            }
+
+            mapping[mappingKey].name[lang] = name
+            mapping[mappingKey].description[lang] = description
+        }
     }
 
     Helper.saveJSONAsCSV(`${tempRoot}/decorations.csv`, Object.values(mapping))
