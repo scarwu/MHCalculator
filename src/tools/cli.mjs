@@ -22,6 +22,7 @@ import CrawlerRiseGame8Task from './tasks/crawler/rise/game8.mjs'
 import CrawlerWildsKiranicoTask from './tasks/crawler/wilds/kiranico.mjs'
 import CombineWorldTask from './tasks/combine/world.mjs'
 import CombineRiseTask from './tasks/combine/rise.mjs'
+import CombineWildsTask from './tasks/combine/wilds.mjs'
 import ConvertTask from './tasks/convert.mjs'
 
 let taskMapping = {
@@ -40,7 +41,8 @@ let taskMapping = {
     },
     combine: {
         world: CombineWorldTask,
-        rise: CombineRiseTask
+        rise: CombineRiseTask,
+        wilds: CombineWildsTask
     },
     convert: ConvertTask
 }

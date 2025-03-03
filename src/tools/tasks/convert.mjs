@@ -54,7 +54,7 @@ export const runAction = () => {
 
         // Load Raw Data
         Object.values(setting[series].targetList).forEach((target) => {
-            console.log(`load:${target}`)
+            console.log(`load:${series}:${target}`)
 
             let list = Helper.loadCSVAsJSON(`${fileRoot}/${series}/${target}.csv`)
 
@@ -105,39 +105,41 @@ export const runAction = () => {
 
         let skillBundlesMapping = {}
 
-        rawDataMapping[series].skills.forEach((skillItem) => {
+        if (Helper.isNotEmpty(rawDataMapping[series]) && Helper.isNotEmpty(rawDataMapping[series].skills)) {
+            rawDataMapping[series].skills.forEach((skillItem) => {
 
-            // Check Propeties Using as Unique Key
-            if (Helper.isEmpty(skillItem.name)
-                || Helper.isEmpty(skillItem.name.zhTW)
-                || Helper.isEmpty(skillItem.level)
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.skills)) {
-                    incompleteDataMapping.skills = []
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(skillItem.name)
+                    || Helper.isEmpty(skillItem.name.zhTW)
+                    || Helper.isEmpty(skillItem.level)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.skills)) {
+                        incompleteDataMapping.skills = []
+                    }
+
+                    incompleteDataMapping.skills.push(skillItem)
+
+                    return
                 }
 
-                incompleteDataMapping.skills.push(skillItem)
-
-                return
-            }
-
-            if (Helper.isEmpty(skillBundlesMapping[skillItem.name.zhTW])) {
-                skillBundlesMapping[skillItem.name.zhTW] = {}
-                skillBundlesMapping[skillItem.name.zhTW].name = skillItem.name
-                skillBundlesMapping[skillItem.name.zhTW].description = skillItem.description
-                skillBundlesMapping[skillItem.name.zhTW].from = skillItem.from
-                skillBundlesMapping[skillItem.name.zhTW].type = skillItem.type
-                skillBundlesMapping[skillItem.name.zhTW].list = {}
-            }
-
-            if (Helper.isEmpty(skillBundlesMapping[skillItem.name.zhTW].list[skillItem.level])) {
-                skillBundlesMapping[skillItem.name.zhTW].list[skillItem.level] = {
-                    level: skillItem.level,
-                    effect: skillItem.effect,
-                    reaction: skillItem.reaction
+                if (Helper.isEmpty(skillBundlesMapping[skillItem.name.zhTW])) {
+                    skillBundlesMapping[skillItem.name.zhTW] = {}
+                    skillBundlesMapping[skillItem.name.zhTW].name = skillItem.name
+                    skillBundlesMapping[skillItem.name.zhTW].description = skillItem.description
+                    skillBundlesMapping[skillItem.name.zhTW].from = skillItem.from
+                    skillBundlesMapping[skillItem.name.zhTW].type = skillItem.type
+                    skillBundlesMapping[skillItem.name.zhTW].list = {}
                 }
-            }
-        })
+
+                if (Helper.isEmpty(skillBundlesMapping[skillItem.name.zhTW].list[skillItem.level])) {
+                    skillBundlesMapping[skillItem.name.zhTW].list[skillItem.level] = {
+                        level: skillItem.level,
+                        effect: skillItem.effect,
+                        reaction: skillItem.reaction
+                    }
+                }
+            })
+        }
 
         Object.values(skillBundlesMapping).forEach((skillBundle) => {
             skillBundle.list = Object.values(skillBundle.list)
@@ -255,255 +257,401 @@ export const runAction = () => {
             ])
         })
 
-        // Handle RampageSkills
-        console.log('handle:rampageSkills')
+        // Handle Petalaces
+        console.log('handle:petalaces')
 
-        rawDataMapping[series].rampageSkills.forEach((rampageSkillItem) => {
+        if (Helper.isNotEmpty(rawDataMapping[series]) && Helper.isNotEmpty(rawDataMapping[series].armors)) {
+            rawDataMapping[series].petalaces.forEach((petalaceItem) => {
 
-            // Check Propeties Using as Unique Key
-            if (Helper.isEmpty(rampageSkillItem.name)
-                || Helper.isEmpty(rampageSkillItem.name.zhTW)
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.rampageSkills)) {
-                    incompleteDataMapping.rampageSkills = []
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(petalaceItem.name)
+                    || Helper.isEmpty(petalaceItem.name.zhTW)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.petalaces)) {
+                        incompleteDataMapping.petalaces = []
+                    }
+
+                    incompleteDataMapping.petalaces.push(petalaceItem)
+
+                    return
                 }
 
-                incompleteDataMapping.rampageSkills.push(rampageSkillItem)
+                // Get Id Code
+                let idCode = createCode(`petalaces:id:${petalaceItem.name.zhTW}`)
 
-                return
-            }
+                petalaceItem.id = idCode
 
-            // Get Id Code
-            let idCode = createCode(`rampageSkills:id:${rampageSkillItem.name.zhTW}`)
+                // Get Translate Code & Create Dataset Lang Mapping
+                let translateCode = createCode(`petalaces:translate:name:${idCode}`)
 
-            rampageSkillItem.id = idCode
-
-            // Get Translate Code & Create Dataset Lang Mapping
-            for (let property of ['name', 'description']) {
-                let translateCode = createCode(`rampageSkills:translate:${property}:${idCode}`)
-
-                Object.keys(rampageSkillItem[property]).forEach((lang) => {
+                Object.keys(petalaceItem.name).forEach((lang) => {
                     if (Helper.isEmpty(datasetLangMapping[lang])) {
                         datasetLangMapping[lang] = {}
                     }
 
-                    datasetLangMapping[lang][translateCode] = rampageSkillItem[property][lang]
+                    datasetLangMapping[lang][translateCode] = petalaceItem.name[lang]
                 })
 
-                rampageSkillItem[property] = translateCode
-            }
+                petalaceItem.name = translateCode
 
-            // Create Dataset Mapping
-            if (Helper.isEmpty(datasetMapping.rampageSkills)) {
-                datasetMapping.rampageSkills = []
-            }
-
-            datasetMapping.rampageSkills.push([
-                rampageSkillItem.id,
-                rampageSkillItem.name,
-                rampageSkillItem.description,
-                null // rampageSkillItem.reaction
-            ])
-        })
-
-        // Handle Petalaces
-        console.log('handle:petalaces')
-
-        rawDataMapping[series].petalaces.forEach((petalaceItem) => {
-
-            // Check Propeties Using as Unique Key
-            if (Helper.isEmpty(petalaceItem.name)
-                || Helper.isEmpty(petalaceItem.name.zhTW)
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.petalaces)) {
-                    incompleteDataMapping.petalaces = []
+                // Create Dataset Mapping
+                if (Helper.isEmpty(datasetMapping.petalaces)) {
+                    datasetMapping.petalaces = []
                 }
 
-                incompleteDataMapping.petalaces.push(petalaceItem)
-
-                return
-            }
-
-            // Get Id Code
-            let idCode = createCode(`petalaces:id:${petalaceItem.name.zhTW}`)
-
-            petalaceItem.id = idCode
-
-            // Get Translate Code & Create Dataset Lang Mapping
-            let translateCode = createCode(`petalaces:translate:name:${idCode}`)
-
-            Object.keys(petalaceItem.name).forEach((lang) => {
-                if (Helper.isEmpty(datasetLangMapping[lang])) {
-                    datasetLangMapping[lang] = {}
-                }
-
-                datasetLangMapping[lang][translateCode] = petalaceItem.name[lang]
+                datasetMapping.petalaces.push([
+                    petalaceItem.id,
+                    petalaceItem.name,
+                    petalaceItem.rare,
+                    [
+                        petalaceItem.health.increment,
+                        petalaceItem.health.obtain
+                    ],
+                    [
+                        petalaceItem.stamina.increment,
+                        petalaceItem.stamina.obtain
+                    ],
+                    [
+                        petalaceItem.attack.increment,
+                        petalaceItem.attack.obtain
+                    ],
+                    [
+                        petalaceItem.defense.increment,
+                        petalaceItem.defense.obtain
+                    ]
+                ])
             })
+        }
 
-            petalaceItem.name = translateCode
+        // Handle Charms
+        console.log('handle:charms')
 
-            // Create Dataset Mapping
-            if (Helper.isEmpty(datasetMapping.petalaces)) {
-                datasetMapping.petalaces = []
-            }
+        if (Helper.isNotEmpty() && Helper.isNotEmpty()) {
+            rawDataMapping[series].charms.forEach((charmItem) => {
 
-            datasetMapping.petalaces.push([
-                petalaceItem.id,
-                petalaceItem.name,
-                petalaceItem.rare,
-                [
-                    petalaceItem.health.increment,
-                    petalaceItem.health.obtain
-                ],
-                [
-                    petalaceItem.stamina.increment,
-                    petalaceItem.stamina.obtain
-                ],
-                [
-                    petalaceItem.attack.increment,
-                    petalaceItem.attack.obtain
-                ],
-                [
-                    petalaceItem.defense.increment,
-                    petalaceItem.defense.obtain
-                ]
-            ])
-        })
+                // Filter Empty Items
+                charmItem.skills = charmItem.skills.filter((skillData) => {
+                    return Helper.isNotEmpty(skillData.name)
+                })
+
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(charmItem.name)
+                    || Helper.isEmpty(charmItem.name.zhTW)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.charms)) {
+                        incompleteDataMapping.charms = []
+                    }
+
+                    incompleteDataMapping.charms.push(charmItem)
+
+                    return
+                }
+
+                // Get Id Code
+                let idCode = createCode(`charms:id:${charmItem.name.zhTW}`)
+
+                charmItem.id = idCode
+
+                // Get Translate Code & Create Dataset Lang Mapping
+                let translateCode = createCode(`charms:translate:name:${idCode}`)
+
+                Object.keys(charmItem.name).forEach((lang) => {
+                    if (Helper.isEmpty(datasetLangMapping[lang])) {
+                        datasetLangMapping[lang] = {}
+                    }
+
+                    datasetLangMapping[lang][translateCode] = charmItem.name[lang]
+                })
+
+                charmItem.name = translateCode
+
+                // Filter Empty
+                charmItem.skills = charmItem.skills.map((skillData) => {
+                    skillData.name = createCode(`skills:id:${skillData.name}`)
+
+                    return skillData
+                })
+
+                // Create Dataset Mapping
+                if (Helper.isEmpty(datasetMapping.charms)) {
+                    datasetMapping.charms = []
+                }
+
+                datasetMapping.charms.push([
+                    charmItem.id,
+                    charmItem.name,
+                    charmItem.rare,
+                    charmItem.level,
+                    charmItem.skills.map((skillData) => {
+                        return [
+                            skillData.name,
+                            skillData.level
+                        ]
+                    })
+                ])
+            })
+        }
 
         // Handle Decorations
         console.log('handle:decorations')
 
-        rawDataMapping[series].decorations.forEach((decorationItem) => {
+        if (Helper.isNotEmpty() && Helper.isNotEmpty()) {
+            rawDataMapping[series].decorations.forEach((decorationItem) => {
 
-            // Filter Empty Items
-            decorationItem.skills = decorationItem.skills.filter((skillData) => {
-                return Helper.isNotEmpty(skillData.name)
-            })
-
-            // Check Propeties Using as Unique Key
-            if (Helper.isEmpty(decorationItem.name)
-                || Helper.isEmpty(decorationItem.name.zhTW)
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.decorations)) {
-                    incompleteDataMapping.decorations = []
-                }
-
-                incompleteDataMapping.decorations.push(decorationItem)
-
-                return
-            }
-
-            // Get Id Code
-            let idCode = createCode(`decorations:id:${decorationItem.name.zhTW}`)
-
-            decorationItem.id = idCode
-
-            // Get Translate Code & Create Dataset Lang Mapping
-            let translateCode = createCode(`decorations:translate:name:${idCode}`)
-
-            Object.keys(decorationItem.name).forEach((lang) => {
-                if (Helper.isEmpty(datasetLangMapping[lang])) {
-                    datasetLangMapping[lang] = {}
-                }
-
-                datasetLangMapping[lang][translateCode] = decorationItem.name[lang]
-            })
-
-            decorationItem.name = translateCode
-
-            // Filter Empty
-            decorationItem.skills = decorationItem.skills.map((skillData) => {
-                skillData.name = createCode(`skills:id:${skillData.name}`)
-
-                return skillData
-            })
-
-            // Create Dataset Mapping
-            if (Helper.isEmpty(datasetMapping.decorations)) {
-                datasetMapping.decorations = []
-            }
-
-            datasetMapping.decorations.push([
-                decorationItem.id,
-                decorationItem.name,
-                decorationItem.rare,
-                decorationItem.size,
-                decorationItem.skills.map((skillData) => {
-                    return [
-                        skillData.name,
-                        skillData.level
-                    ]
+                // Filter Empty Items
+                decorationItem.skills = decorationItem.skills.filter((skillData) => {
+                    return Helper.isNotEmpty(skillData.name)
                 })
-            ])
-        })
+
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(decorationItem.name)
+                    || Helper.isEmpty(decorationItem.name.zhTW)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.decorations)) {
+                        incompleteDataMapping.decorations = []
+                    }
+
+                    incompleteDataMapping.decorations.push(decorationItem)
+
+                    return
+                }
+
+                // Get Id Code
+                let idCode = createCode(`decorations:id:${decorationItem.name.zhTW}`)
+
+                decorationItem.id = idCode
+
+                // Get Translate Code & Create Dataset Lang Mapping
+                let translateCode = createCode(`decorations:translate:name:${idCode}`)
+
+                Object.keys(decorationItem.name).forEach((lang) => {
+                    if (Helper.isEmpty(datasetLangMapping[lang])) {
+                        datasetLangMapping[lang] = {}
+                    }
+
+                    datasetLangMapping[lang][translateCode] = decorationItem.name[lang]
+                })
+
+                decorationItem.name = translateCode
+
+                // Filter Empty
+                decorationItem.skills = decorationItem.skills.map((skillData) => {
+                    skillData.name = createCode(`skills:id:${skillData.name}`)
+
+                    return skillData
+                })
+
+                // Create Dataset Mapping
+                if (Helper.isEmpty(datasetMapping.decorations)) {
+                    datasetMapping.decorations = []
+                }
+
+                datasetMapping.decorations.push([
+                    decorationItem.id,
+                    decorationItem.name,
+                    decorationItem.rare,
+                    decorationItem.size,
+                    decorationItem.skills.map((skillData) => {
+                        return [
+                            skillData.name,
+                            skillData.level
+                        ]
+                    })
+                ])
+            })
+        }
+
+        // Handle RampageSkills
+        console.log('handle:rampageSkills')
+
+        if (Helper.isNotEmpty(rawDataMapping[series]) && Helper.isNotEmpty(rawDataMapping[series].armors)) {
+            rawDataMapping[series].rampageSkills.forEach((rampageSkillItem) => {
+
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(rampageSkillItem.name)
+                    || Helper.isEmpty(rampageSkillItem.name.zhTW)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.rampageSkills)) {
+                        incompleteDataMapping.rampageSkills = []
+                    }
+
+                    incompleteDataMapping.rampageSkills.push(rampageSkillItem)
+
+                    return
+                }
+
+                // Get Id Code
+                let idCode = createCode(`rampageSkills:id:${rampageSkillItem.name.zhTW}`)
+
+                rampageSkillItem.id = idCode
+
+                // Get Translate Code & Create Dataset Lang Mapping
+                for (let property of ['name', 'description']) {
+                    let translateCode = createCode(`rampageSkills:translate:${property}:${idCode}`)
+
+                    Object.keys(rampageSkillItem[property]).forEach((lang) => {
+                        if (Helper.isEmpty(datasetLangMapping[lang])) {
+                            datasetLangMapping[lang] = {}
+                        }
+
+                        datasetLangMapping[lang][translateCode] = rampageSkillItem[property][lang]
+                    })
+
+                    rampageSkillItem[property] = translateCode
+                }
+
+                // Create Dataset Mapping
+                if (Helper.isEmpty(datasetMapping.rampageSkills)) {
+                    datasetMapping.rampageSkills = []
+                }
+
+                datasetMapping.rampageSkills.push([
+                    rampageSkillItem.id,
+                    rampageSkillItem.name,
+                    rampageSkillItem.description,
+                    null // rampageSkillItem.reaction
+                ])
+            })
+        }
+
+        // Handle RampageDecorations
+        console.log('handle:rampageDecorations')
+
+        if (Helper.isNotEmpty() && Helper.isNotEmpty()) {
+            rawDataMapping[series].rampageDecorations.forEach((rampageDecorationItem) => {
+
+                // Filter Empty Items
+                rampageDecorationItem.skills = rampageDecorationItem.skills.filter((skillData) => {
+                    return Helper.isNotEmpty(skillData.name)
+                })
+
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(rampageDecorationItem.name)
+                    || Helper.isEmpty(rampageDecorationItem.name.zhTW)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.rampageDecorations)) {
+                        incompleteDataMapping.rampageDecorations = []
+                    }
+
+                    incompleteDataMapping.rampageDecorations.push(rampageDecorationItem)
+
+                    return
+                }
+
+                // Get Id Code
+                let idCode = createCode(`rampageDecorations:id:${rampageDecorationItem.name.zhTW}`)
+
+                rampageDecorationItem.id = idCode
+
+                // Get Translate Code & Create Dataset Lang Mapping
+                let translateCode = createCode(`rampageDecorations:translate:name:${idCode}`)
+
+                Object.keys(rampageDecorationItem.name).forEach((lang) => {
+                    if (Helper.isEmpty(datasetLangMapping[lang])) {
+                        datasetLangMapping[lang] = {}
+                    }
+
+                    datasetLangMapping[lang][translateCode] = rampageDecorationItem.name[lang]
+                })
+
+                rampageDecorationItem.name = translateCode
+
+                // Filter Empty
+                rampageDecorationItem.skills = rampageDecorationItem.skills.map((skillData) => {
+                    skillData.name = createCode(`skills:id:${skillData.name}`)
+
+                    return skillData
+                })
+
+                // Create Dataset Mapping
+                if (Helper.isEmpty(datasetMapping.rampageDecorations)) {
+                    datasetMapping.rampageDecorations = []
+                }
+
+                datasetMapping.rampageDecorations.push([
+                    rampageDecorationItem.id,
+                    rampageDecorationItem.name,
+                    rampageDecorationItem.rare,
+                    rampageDecorationItem.size,
+                    rampageDecorationItem.skills.map((skillData) => {
+                        return [
+                            skillData.name,
+                            skillData.level
+                        ]
+                    })
+                ])
+            })
+        }
 
         // Handle Armors
         console.log('handle:armors')
 
         let armorBundlesMapping = {}
 
-        rawDataMapping[series].armors.forEach((armorItem) => {
+        if (Helper.isNotEmpty(rawDataMapping[series]) && Helper.isNotEmpty(rawDataMapping[series].armors)) {
+            rawDataMapping[series].armors.forEach((armorItem) => {
 
-            // Filter Empty Items
-            armorItem.slots = armorItem.slots.filter((slotData) => {
-                return Helper.isNotEmpty(slotData.size)
+                // Filter Empty Items
+                armorItem.slots = armorItem.slots.filter((slotData) => {
+                    return Helper.isNotEmpty(slotData.size)
+                })
+
+                armorItem.skills = armorItem.skills.filter((skillData) => {
+                    return Helper.isNotEmpty(skillData.name)
+                })
+
+                // If armor's minDefense is empty or 0, meaning it's a layered armor
+                if (Helper.isEmpty(armorItem.minDefense)
+                    || 0 === armorItem.minDefense
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.armors)) {
+                        incompleteDataMapping.armors = []
+                    }
+
+                    incompleteDataMapping.armors.push(armorItem)
+
+                    return
+                }
+
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(armorItem.name)
+                    || Helper.isEmpty(armorItem.name.zhTW)
+                    || Helper.isEmpty(armorItem.series)
+                    || Helper.isEmpty(armorItem.series.zhTW)
+                    || Helper.isEmpty(armorItem.type)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.armors)) {
+                        incompleteDataMapping.armors = []
+                    }
+
+                    incompleteDataMapping.armors.push(armorItem)
+
+                    return
+                }
+
+                if (Helper.isEmpty(armorBundlesMapping[armorItem.series.zhTW])) {
+                    armorBundlesMapping[armorItem.series.zhTW] = {
+                        series: {},
+                        items: {}
+                    }
+                    armorBundlesMapping[armorItem.series.zhTW].series.name = armorItem.series
+                    armorBundlesMapping[armorItem.series.zhTW].series.rare = armorItem.rare
+                    armorBundlesMapping[armorItem.series.zhTW].series.gender = armorItem.gender
+                    armorBundlesMapping[armorItem.series.zhTW].series.minDefense = armorItem.minDefense
+                    armorBundlesMapping[armorItem.series.zhTW].series.maxDefense = armorItem.maxDefense
+                    armorBundlesMapping[armorItem.series.zhTW].series.resistance = armorItem.resistance
+                }
+
+                if (Helper.isEmpty(armorBundlesMapping[armorItem.series.zhTW].items[armorItem.type])) {
+                    armorBundlesMapping[armorItem.series.zhTW].items[armorItem.type] = {
+                        name: armorItem.name,
+                        type: armorItem.type,
+                        slots: armorItem.slots,
+                        skills: armorItem.skills
+                    }
+                }
             })
-
-            armorItem.skills = armorItem.skills.filter((skillData) => {
-                return Helper.isNotEmpty(skillData.name)
-            })
-
-            // If armor's minDefense is empty or 0, meaning it's a layered armor
-            if (Helper.isEmpty(armorItem.minDefense)
-                || 0 === armorItem.minDefense
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.armors)) {
-                    incompleteDataMapping.armors = []
-                }
-
-                incompleteDataMapping.armors.push(armorItem)
-
-                return
-            }
-
-            // Check Propeties Using as Unique Key
-            if (Helper.isEmpty(armorItem.name)
-                || Helper.isEmpty(armorItem.name.zhTW)
-                || Helper.isEmpty(armorItem.series)
-                || Helper.isEmpty(armorItem.series.zhTW)
-                || Helper.isEmpty(armorItem.type)
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.armors)) {
-                    incompleteDataMapping.armors = []
-                }
-
-                incompleteDataMapping.armors.push(armorItem)
-
-                return
-            }
-
-            if (Helper.isEmpty(armorBundlesMapping[armorItem.series.zhTW])) {
-                armorBundlesMapping[armorItem.series.zhTW] = {
-                    series: {},
-                    items: {}
-                }
-                armorBundlesMapping[armorItem.series.zhTW].series.name = armorItem.series
-                armorBundlesMapping[armorItem.series.zhTW].series.rare = armorItem.rare
-                armorBundlesMapping[armorItem.series.zhTW].series.gender = armorItem.gender
-                armorBundlesMapping[armorItem.series.zhTW].series.minDefense = armorItem.minDefense
-                armorBundlesMapping[armorItem.series.zhTW].series.maxDefense = armorItem.maxDefense
-                armorBundlesMapping[armorItem.series.zhTW].series.resistance = armorItem.resistance
-            }
-
-            if (Helper.isEmpty(armorBundlesMapping[armorItem.series.zhTW].items[armorItem.type])) {
-                armorBundlesMapping[armorItem.series.zhTW].items[armorItem.type] = {
-                    name: armorItem.name,
-                    type: armorItem.type,
-                    slots: armorItem.slots,
-                    skills: armorItem.skills
-                }
-            }
-        })
+        }
 
         Object.values(armorBundlesMapping).forEach((armorBundle) => {
             armorBundle.items = Object.values(armorBundle.items)
@@ -602,114 +750,116 @@ export const runAction = () => {
         // Handle Weapons
         console.log('handle:weapons')
 
-        rawDataMapping[series].weapons.forEach((weaponItem) => {
+        if (Helper.isNotEmpty(rawDataMapping[series]) && Helper.isNotEmpty(rawDataMapping[series].armors)) {
+            rawDataMapping[series].weapons.forEach((weaponItem) => {
 
-            // Filter Empty Items
-            weaponItem.slots = weaponItem.slots.filter((slotData) => {
-                return Helper.isNotEmpty(slotData.size)
-            })
-
-            // weaponItem.rampageSkill.list = weaponItem.rampageSkill.list.filter((rampageSkillData) => {
-            //     return Helper.isNotEmpty(rampageSkillData.name)
-            // })
-
-            // Check Propeties Using as Unique Key
-            if (Helper.isEmpty(weaponItem.name)
-                || Helper.isEmpty(weaponItem.name.zhTW)
-            ) {
-                if (Helper.isEmpty(incompleteDataMapping.weapons)) {
-                    incompleteDataMapping.weapons = []
-                }
-
-                incompleteDataMapping.weapons.push(weaponItem)
-
-                return
-            }
-
-            // Get Id Code
-            let idCode = createCode(`weapons:id:${weaponItem.name.zhTW}`)
-
-            weaponItem.id = idCode
-
-            // Get Translate Code & Create Dataset Lang Mapping
-            for (let property of ['series', 'name']) {
-                let translateCode = createCode(`weapons:translate:${property}:${idCode}`)
-
-                Object.keys(weaponItem[property]).forEach((lang) => {
-                    if (Helper.isEmpty(datasetLangMapping[lang])) {
-                        datasetLangMapping[lang] = {}
-                    }
-
-                    datasetLangMapping[lang][translateCode] = weaponItem[property][lang]
+                // Filter Empty Items
+                weaponItem.slots = weaponItem.slots.filter((slotData) => {
+                    return Helper.isNotEmpty(slotData.size)
                 })
 
-                weaponItem[property] = translateCode
-            }
+                // weaponItem.rampageSkill.list = weaponItem.rampageSkill.list.filter((rampageSkillData) => {
+                //     return Helper.isNotEmpty(rampageSkillData.name)
+                // })
 
-            // Find Code Id
-            // weaponItem.rampageSkill.list = weaponItem.rampageSkill.list.map((rampageSkillData) => {
-            //     rampageSkillData.name = createCode(`rampageSkills:id:${rampageSkillData.name}`)
+                // Check Propeties Using as Unique Key
+                if (Helper.isEmpty(weaponItem.name)
+                    || Helper.isEmpty(weaponItem.name.zhTW)
+                ) {
+                    if (Helper.isEmpty(incompleteDataMapping.weapons)) {
+                        incompleteDataMapping.weapons = []
+                    }
 
-            //     return rampageSkillData
-            // })
+                    incompleteDataMapping.weapons.push(weaponItem)
 
-            // Create Dataset Mapping
-            if (Helper.isEmpty(datasetMapping.weapons)) {
-                datasetMapping.weapons = []
-            }
+                    return
+                }
 
-            datasetMapping.weapons.push([
-                weaponItem.id,
-                weaponItem.series,
-                weaponItem.name,
-                weaponItem.rare,
-                weaponItem.type,
-                weaponItem.attack,
-                weaponItem.criticalRate,
-                weaponItem.defense,
-                [
+                // Get Id Code
+                let idCode = createCode(`weapons:id:${weaponItem.name.zhTW}`)
+
+                weaponItem.id = idCode
+
+                // Get Translate Code & Create Dataset Lang Mapping
+                for (let property of ['series', 'name']) {
+                    let translateCode = createCode(`weapons:translate:${property}:${idCode}`)
+
+                    Object.keys(weaponItem[property]).forEach((lang) => {
+                        if (Helper.isEmpty(datasetLangMapping[lang])) {
+                            datasetLangMapping[lang] = {}
+                        }
+
+                        datasetLangMapping[lang][translateCode] = weaponItem[property][lang]
+                    })
+
+                    weaponItem[property] = translateCode
+                }
+
+                // Find Code Id
+                // weaponItem.rampageSkill.list = weaponItem.rampageSkill.list.map((rampageSkillData) => {
+                //     rampageSkillData.name = createCode(`rampageSkills:id:${rampageSkillData.name}`)
+
+                //     return rampageSkillData
+                // })
+
+                // Create Dataset Mapping
+                if (Helper.isEmpty(datasetMapping.weapons)) {
+                    datasetMapping.weapons = []
+                }
+
+                datasetMapping.weapons.push([
+                    weaponItem.id,
+                    weaponItem.series,
+                    weaponItem.name,
+                    weaponItem.rare,
+                    weaponItem.type,
+                    weaponItem.attack,
+                    weaponItem.criticalRate,
+                    weaponItem.defense,
                     [
-                        weaponItem.element.attack.type,
-                        weaponItem.element.attack.minValue,
-                        weaponItem.element.attack.maxValue
+                        [
+                            weaponItem.element.attack.type,
+                            weaponItem.element.attack.minValue,
+                            weaponItem.element.attack.maxValue
+                        ],
+                        [
+                            weaponItem.element.status.type,
+                            weaponItem.element.status.minValue,
+                            weaponItem.element.status.maxValue
+                        ]
                     ],
                     [
-                        weaponItem.element.status.type,
-                        weaponItem.element.status.minValue,
-                        weaponItem.element.status.maxValue
-                    ]
-                ],
-                [
-                    weaponItem.sharpness.minValue,
-                    weaponItem.sharpness.maxValue,
+                        weaponItem.sharpness.minValue,
+                        weaponItem.sharpness.maxValue,
+                        [
+                            weaponItem.sharpness.steps.red,
+                            weaponItem.sharpness.steps.orange,
+                            weaponItem.sharpness.steps.yellow,
+                            weaponItem.sharpness.steps.green,
+                            weaponItem.sharpness.steps.blue,
+                            weaponItem.sharpness.steps.white,
+                            weaponItem.sharpness.steps.purple
+                        ]
+                    ],
+                    weaponItem.slots.map((slotData) => {
+                        return [
+                            slotData.size
+                        ]
+                    }),
+                    // [
+                    //     weaponItem.rampageSlot.size
+                    // ],
                     [
-                        weaponItem.sharpness.steps.red,
-                        weaponItem.sharpness.steps.orange,
-                        weaponItem.sharpness.steps.yellow,
-                        weaponItem.sharpness.steps.green,
-                        weaponItem.sharpness.steps.blue,
-                        weaponItem.sharpness.steps.white,
-                        weaponItem.sharpness.steps.purple
+                        weaponItem.rampageSkill.amount,
+                        // weaponItem.rampageSkill.list.map((rampageSkillData) => {
+                        //     return [
+                        //         rampageSkillData.name
+                        //     ]
+                        // })
                     ]
-                ],
-                weaponItem.slots.map((slotData) => {
-                    return [
-                        slotData.size
-                    ]
-                }),
-                // [
-                //     weaponItem.rampageSlot.size
-                // ],
-                [
-                    weaponItem.rampageSkill.amount,
-                    // weaponItem.rampageSkill.list.map((rampageSkillData) => {
-                    //     return [
-                    //         rampageSkillData.name
-                    //     ]
-                    // })
-                ]
-            ])
-        })
+                ])
+            })
+        }
 
         // Save Datasets
         Object.keys(datasetMapping).forEach((target) => {
@@ -805,7 +955,7 @@ export const infoAction = () => {
         console.log(`count:final`)
 
         for (let target of setting[series].targetList) {
-            console.log(`count:final:${target}`)
+            console.log(`count:final:${series}:${target}`)
 
             if ('weapons' === target) {
                 let weaponList = Helper.loadCSVAsJSON(`${fileRoot}/${series}/weapons.csv`)
@@ -897,7 +1047,7 @@ export const infoAction = () => {
             console.log(`count:${crawler}`)
 
             for (let target of targetList) {
-                console.log(`count:${crawler}:${target}`)
+                console.log(`count:${crawler}:${series}:${target}`)
 
                 if ('weapons' === target) {
                     let weaponList = Helper.loadCSVAsJSON(`${tempCrawlerRoot}/${crawler}/weapons.csv`)
