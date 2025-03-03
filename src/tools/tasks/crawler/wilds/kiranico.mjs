@@ -351,7 +351,172 @@ export const fetchArmorsAction = async () => {
             return
         }
 
+        for (let rowIndex = 0; rowIndex < listDom('table.w-full.caption-bottom.text-sm').find('tr').length; rowIndex++) {
+            let rowNode = listDom('table.w-full.caption-bottom.text-sm').find('tr').eq(rowIndex)
 
+            if ('' === rowNode.find('> td').eq(0).text()) {
+                continue
+            }
+
+            let seriesName = normalizeText(rowNode.find('> td').eq(0).find('a').text().trim())
+
+            // Fetch Detail Page
+            fetchPageUrl = info.baseUrl + rowNode.find('> td').eq(0).find('a').attr('href')
+            fetchPageName = `armors:${seriesName}`
+
+            console.log(fetchPageUrl, fetchPageName)
+
+            let armorDom = await Helper.fetchHtmlAsDom(fetchPageUrl, {
+                cachePrefix: `wilds/armors`
+            })
+
+            if (Helper.isEmpty(armorDom)) {
+                console.trace(fetchPageUrl, fetchPageName, 'Err')
+
+                return
+            }
+
+            if (4 !== armorDom('table.w-full.caption-bottom.text-sm').length) {
+                continue
+            }
+
+            // Name & Description
+            for (let index = 0; index < armorDom('table.w-full.caption-bottom.text-sm').eq(0).find('tr').length; index++) {
+                let node = armorDom('table.w-full.caption-bottom.text-sm').eq(0).find('tr').eq(index)
+
+                let armorName = normalizeText(armorDom(node).find('> td').eq(0).text().trim())
+                let armorDescription = armorDom(node).find('> td').eq(1).text().trim()
+
+                let armorIndex = index
+                let uniqueKey = `${rowIndex}:${armorIndex}`
+
+                if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
+                    langKeyMapping[uniqueKey] = armorName
+                }
+
+                let mappingKey = langKeyMapping[uniqueKey]
+
+                if (Helper.isEmpty(mapping[mappingKey])) {
+                    mapping[mappingKey] = Helper.deepCopy(dateset.armorItem)
+                    mapping[mappingKey].name = {
+                        zhTW: null,
+                        jaJP: null,
+                        enUS: null
+                    }
+                    mapping[mappingKey].description = {
+                        zhTW: null,
+                        jaJP: null,
+                        enUS: null
+                    }
+                    mapping[mappingKey].series = {
+                        zhTW: null,
+                        jaJP: null,
+                        enUS: null
+                    }
+                }
+
+                mapping[mappingKey].name[lang] = armorName
+                mapping[mappingKey].description[lang] = armorDescription
+                mapping[mappingKey].series[lang] = seriesName
+            }
+
+            if (lang === 'zhTW') {
+
+                // Defense & Resistance
+                for (let index = 0; index < armorDom('table.w-full.caption-bottom.text-sm').eq(1).find('tr').length; index++) {
+                    if (0 === index) {
+                        continue
+                    }
+
+                    let node = armorDom('table.w-full.caption-bottom.text-sm').eq(1).find('tr').eq(index)
+
+                    let armorType = armorDom(node).find('> td').eq(0).text().trim()
+                    let armorName = normalizeText(armorDom(node).find('> td').eq(1).text().trim())
+
+                    let armorIndex = index - 1
+                    let uniqueKey = `${rowIndex}:${armorIndex}`
+
+                    if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
+                        langKeyMapping[uniqueKey] = armorName
+                    }
+
+                    let mappingKey = langKeyMapping[uniqueKey]
+
+                    switch (armorType) {
+                    case '头部防具':
+                        mapping[mappingKey].type = 'helm'
+                        break
+                    case '身体防具':
+                        mapping[mappingKey].type = 'chest'
+                        break
+                    case '臂部防具':
+                        mapping[mappingKey].type = 'arm'
+                        break
+                    case '腰部防具':
+                        mapping[mappingKey].type = 'waist'
+                        break
+                    case '脚部防具':
+                        mapping[mappingKey].type = 'leg'
+                        break
+                    }
+
+                    mapping[mappingKey].minDefense = parseFloat(armorDom(node).find('> td').eq(2).text().trim())
+                    mapping[mappingKey].maxDefense = parseFloat(armorDom(node).find('> td').eq(2).text().trim())
+                    mapping[mappingKey].resistance.fire = parseFloat(armorDom(node).find('> td').eq(3).text().trim())
+                    mapping[mappingKey].resistance.water = parseFloat(armorDom(node).find('> td').eq(4).text().trim())
+                    mapping[mappingKey].resistance.thunder = parseFloat(armorDom(node).find('> td').eq(5).text().trim())
+                    mapping[mappingKey].resistance.ice = parseFloat(armorDom(node).find('> td').eq(6).text().trim())
+                    mapping[mappingKey].resistance.dragon = parseFloat(armorDom(node).find('> td').eq(7).text().trim())
+                }
+
+                // Slots & Skills
+                for (let index = 0; index < armorDom('table.w-full.caption-bottom.text-sm').eq(2).find('tr').length; index++) {
+                    if (0 === index) {
+                        continue
+                    }
+
+                    let node = armorDom('table.w-full.caption-bottom.text-sm').eq(2).find('tr').eq(index)
+                    let armorName = normalizeText(armorDom(node).find('> td').eq(1).text().trim())
+
+                    let armorIndex = index - 1
+                    let uniqueKey = `${rowIndex}:${armorIndex}`
+
+                    if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
+                        langKeyMapping[uniqueKey] = armorName
+                    }
+
+                    let mappingKey = langKeyMapping[uniqueKey]
+
+                    // Slots
+                    let slotNode = armorDom(node).find('> td').eq(2).text().split('][')
+
+                    if (Helper.isNotEmpty(slotNode) && 0 !== slotNode.length) {
+                        slotNode.forEach((size) => {
+                            size = size.replace('[', '').replace(']', '')
+                            size = parseInt(size, 10)
+
+                            if (0 === size) {
+                                return
+                            }
+
+                            mapping[mappingKey].slots.push({
+                                size: size
+                            })
+                        })
+                    }
+
+                    // Skills
+                    armorDom(node).find('> td').eq(3).find('a').each((index, node) => {
+                        let text = listDom(node).text().trim().split(' +')
+
+                        mapping[mappingKey].skills.push({
+                            name: text[0],
+                            level: parseFloat(text[1])
+                        })
+                    })
+                }
+            }
+        }
     }
 
     Helper.saveJSONAsCSV(`${tempRoot}/armors.csv`, Object.values(mapping))
@@ -562,7 +727,91 @@ export const fetchSkillsAction = async () => {
             return
         }
 
+        for (let tableIndex = 0; tableIndex < listDom('h3.scroll-m-20.text-2xl.font-semibold.tracking-tight').length; tableIndex++) {
+            let tableName = listDom('h3.scroll-m-20.text-2xl.font-semibold.tracking-tight').eq(tableIndex).text().trim().toLowerCase()
 
+            if ('group' === tableName) {
+
+                continue
+            }
+
+            if ('series' === tableName) {
+
+                continue
+            }
+
+            for (let rowIndex = 0; rowIndex < listDom('table.w-full.caption-bottom.text-sm').eq(tableIndex).find('tr').length; rowIndex++) {
+                let rowNode = listDom('table.w-full.caption-bottom.text-sm').eq(tableIndex).find('tr').eq(rowIndex)
+
+                let name = normalizeText(rowNode.find('> td').eq(0).find('a').text().trim())
+
+                // Fetch Detail Page
+                fetchPageUrl = info.baseUrl + rowNode.find('> td').eq(0).find('a').attr('href')
+                fetchPageName = `skills:${name}`
+
+                console.log(fetchPageUrl, fetchPageName)
+
+                let skillDom = await Helper.fetchHtmlAsDom(fetchPageUrl, {
+                    cachePrefix: `wilds/skills`
+                })
+
+                if (Helper.isEmpty(skillDom)) {
+                    console.trace(fetchPageUrl, fetchPageName, 'Err')
+
+                    return
+                }
+
+                let description = skillDom('blockquote').eq(0).text()
+
+                skillDom('table.w-full.caption-bottom.text-sm').eq(0).find('tr').each((index, node) => {
+                    let uniqueKey = `${tableName}:${rowIndex}:${index}`
+
+                    if (Helper.isEmpty(langKeyMapping[uniqueKey])) {
+                        langKeyMapping[uniqueKey] = `${name}:${index}`
+                    }
+
+                    let mappingKey = langKeyMapping[uniqueKey]
+
+                    if (Helper.isEmpty(mapping[mappingKey])) {
+                        // {
+                        //     name: null,
+                        //     description: null,
+                        //     level: null,
+                        //     effect: null,
+                        //     type: null, // active | passive
+                        //     from: {
+                        //         weapon: false,
+                        //         armor: false,
+                        //         charm: false,
+                        //         decoration: false,
+                        //         rampageDecoration: false,
+                        //         set: false
+                        //     }
+                        // }
+                        mapping[mappingKey] = Helper.deepCopy(dateset.skillItem)
+                        mapping[mappingKey].name = {
+                            zhTW: null,
+                            jaJP: null,
+                            enUS: null
+                        }
+                        mapping[mappingKey].description = {
+                            zhTW: null,
+                            jaJP: null,
+                            enUS: null
+                        }
+
+                        let skillLevel = parseFloat(skillDom(node).find('> td').eq(0).text().replace('Lv', '').trim())
+                        let skillEffect = skillDom(node).find('> td').eq(2).text().trim()
+
+                        mapping[mappingKey].level = skillLevel
+                        mapping[mappingKey].effect = skillEffect
+                    }
+
+                    mapping[mappingKey].name[lang] = name
+                    mapping[mappingKey].description[lang] = description
+                })
+            }
+        }
     }
 
     Helper.saveJSONAsCSV(`${tempRoot}/skills.csv`, Object.values(mapping))
